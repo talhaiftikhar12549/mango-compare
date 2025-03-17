@@ -3,8 +3,11 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
-
-
+/* ****************Nav Bar   ****************/
+.nav-bar nav{
+    
+}
+/* ****************Nav Bar   ****************/
 /******************Home page  ***************/
 /* hero */
 .index-hero h1 {
@@ -145,4 +148,32 @@ body {
     cursor: pointer;
 }
 /* Blog Section */
+/* footer */
+.footer-bar{
+    background-color: #141414;
+    padding-top: 60px;
+    color: #ffffff;
+}
+.newsletter-section {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+  }
+  .newsletter-form .form-control {
+    border-radius: 0;
+  }
+  .newsletter-form .btn {
+    border-radius: 0;
+  }
+/* footer */
 /******************Home page  ***************/
+/*******************************************************************************/
+/*******************************************************************************/
+/********************************* Responsiveness ******************************/
+/*******************************************************************************/
+/*******************************************************************************/
+@media (min-width: 768px) and (max-width: 991.98px) { /* md breakpoint */
+    .nav-bar nav{
+      background-color: #f8f9fa !important; /* Bootstrap's $gray-100 */
+    }
+  }
+  
