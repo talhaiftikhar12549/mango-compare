@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/******************Home page  ***************/
+.index-hero h1{
+    font-size: 60px;
+    font-weight: 700;
+    color: #05222E;
+    padding-bottom: 20px;
+}
+.index-hero p{
+    color: #6A778B;
+    font-size: 18px;
+    font-weight: 500;
+}
+/******************Home page  ***************/
