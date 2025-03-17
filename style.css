@@ -6,15 +6,107 @@ body {
 
 
 /******************Home page  ***************/
-.index-hero h1{
+/* hero */
+.index-hero h1 {
     font-size: 60px;
     font-weight: 700;
     color: #05222E;
     padding-bottom: 20px;
 }
-.index-hero p{
+
+.index-hero p {
     color: #6A778B;
     font-size: 18px;
     font-weight: 500;
 }
+.home-page-button button{
+    border: #000000 solid 1px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 14px 40px;
+    color: #000000;
+    font-weight: 500;
+    font-size: 16px;
+    transition: ease-in-out 0.3s;  
+}
+.home-page-button button:hover{
+    border: #FCC821 solid 1px;
+    border-radius: 10px;
+    background-color: #FCC821;
+    padding: 14px 40px;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+}
+/* hero */
+/* recommended dosage section */
+.recommended-dosage-card {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 100px 40px 40px 40px;
+    position: relative;
+    border-radius: 40px;
+    width: 75%;
+}
+.recomended-dosage-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.recommeded-dosage h2 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #05222E;
+}
+.recommended-dosage-card {
+    transition: background-color 0.3s ease;
+  }
+  
+  .recommended-dosage-card.hovered {
+    background-color: #FEF4D3; 
+  }
+.recommeded-dosage p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #5D6B6F;
+}
+
+.recommeded-dosage li {
+    padding: 5px 0px;
+    list-style-type: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: #64626A;
+}
+
+.recommeded-dosage ul img {
+    padding-right: 10px;
+}
+
+.recommeded-dosage ul {
+    padding: 0px;
+}
+
+.recommeded-dosage-button button {
+    border: #FCC821 solid 1px;
+    border-radius: 14px;
+    background-color: #ffffff;
+    width: 100%;
+    padding: 22px 0px;
+    color: #FCC821;
+    font-weight: 700;
+    font-size: 18px;
+}
+.recommeded-dosage-button button:hover {
+    border: #FCC821 solid 1px;
+    border-radius: 14px;
+    background-color: #FCC821;
+    width: 100%;
+    padding: 22px 0px;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    transition: ease-in-out 0.3s;
+}
+
+/* recommended dosage section */
 /******************Home page  ***************/
