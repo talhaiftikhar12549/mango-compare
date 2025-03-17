@@ -44,7 +44,7 @@
             hassle-free.
           </p>
           <div class="home-page-button d-flex gap-3 pt-5">
-            <button >Contact Us</button>
+            <button>Contact Us</button>
             <button>Learn More</button>
           </div>
         </div>
@@ -88,9 +88,9 @@
               </ul>
             </div>
             <div class="pt-5 recommeded-dosage-button">
-              <button>Compare</button>
+              <button>Compare &nbsp; <i class="fa-solid fa-arrow-right"></i></button>
             </div>
-            
+
           </div>
 
         </div>
@@ -122,7 +122,7 @@
               </ul>
             </div>
             <div class="pt-5 recommeded-dosage-button">
-              <button>Compare</button>
+              <button>Compare &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
             </div>
           </div>
 
@@ -141,63 +141,64 @@
   <!-- Blogs -->
   <section class="our-blogs">
     <div class="container">
+      <h2 class="text-center pb-5">Our Blogs</h2>
       <div class="row">
-        <div class="col-4">
-          <img src="" alt="" />
-          <h2>
+        <div class="col-lg-4 col-md-6 ">
+          <img src="./homepage/blog1.png" alt="" />
+          <h3>
             Lorem ipsum dolor sit amet consectetur. Sed suscipit semper.
-          </h2>
+          </h3>
           <p>
             Lorem ipsum dolor sit amet consectetur. Pellentesque arcu nisl at
             aliquam vitae donec consequat cursus vel. Viverra.
           </p>
-          <p class="read-more"></p>
+          <p class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></p>
         </div>
-        <div class="col-4">
-          <img src="" alt="" />
-          <h2>
+        <div class="col-lg-4 col-md-6">
+          <img src="./homepage/blog2.png" alt="" />
+          <h3>
             Lorem ipsum dolor sit amet consectetur. Sed suscipit semper.
-          </h2>
+          </h3>
           <p>
             Lorem ipsum dolor sit amet consectetur. Pellentesque arcu nisl at
             aliquam vitae donec consequat cursus vel. Viverra.
           </p>
-          <p class="read-more"></p>
+          <p class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></p>
         </div>
-        <div class="col-4">
-          <img src="" alt="" />
-          <h2>
+        <div class="col-lg-4 col-md-6">
+          <img src="./homepage/blog3.png" alt="" />
+          <h3>
             Lorem ipsum dolor sit amet consectetur. Sed suscipit semper.
-          </h2>
+          </h3>
           <p>
             Lorem ipsum dolor sit amet consectetur. Pellentesque arcu nisl at
             aliquam vitae donec consequat cursus vel. Viverra.
           </p>
-          <p class="read-more"></p>
+          <p class="read-more">Read More <i class="fa-solid fa-arrow-right"></i></p>
         </div>
       </div>
     </div>
   </section>
   <!-- Blogs -->
-   <script>
-   document.addEventListener("DOMContentLoaded", function() {
-  const cards = document.querySelectorAll(".recommended-dosage-card");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll(".recommended-dosage-card");
 
-  cards.forEach(function(card) {
-    const button = card.querySelector(".recommeded-dosage-button button");
+      cards.forEach(function (card) {
+        const button = card.querySelector(".recommeded-dosage-button button");
 
-    button.addEventListener("mouseover", function() {
-      card.classList.add("hovered");
+        button.addEventListener("mouseover", function () {
+          card.classList.add("hovered");
+        });
+
+        button.addEventListener("mouseout", function () {
+          card.classList.remove("hovered");
+        });
+      });
     });
 
-    button.addEventListener("mouseout", function() {
-      card.classList.remove("hovered");
-    });
-  });
-});
 
-
-   </script>
+  </script>
 </body>
 
 </html>

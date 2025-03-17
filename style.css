@@ -19,7 +19,8 @@ body {
     font-size: 18px;
     font-weight: 500;
 }
-.home-page-button button{
+
+.home-page-button button {
     border: #000000 solid 1px;
     border-radius: 10px;
     background-color: #ffffff;
@@ -27,9 +28,10 @@ body {
     color: #000000;
     font-weight: 500;
     font-size: 16px;
-    transition: ease-in-out 0.3s;  
+    transition: ease-in-out 0.3s;
 }
-.home-page-button button:hover{
+
+.home-page-button button:hover {
     border: #FCC821 solid 1px;
     border-radius: 10px;
     background-color: #FCC821;
@@ -38,6 +40,7 @@ body {
     font-weight: 500;
     font-size: 16px;
 }
+
 /* hero */
 /* recommended dosage section */
 .recommended-dosage-card {
@@ -47,23 +50,27 @@ body {
     border-radius: 40px;
     width: 75%;
 }
+
 .recomended-dosage-img {
     position: absolute;
     top: 0;
     right: 0;
 }
+
 .recommeded-dosage h2 {
     font-size: 48px;
     font-weight: 700;
     color: #05222E;
 }
+
 .recommended-dosage-card {
     transition: background-color 0.3s ease;
-  }
-  
-  .recommended-dosage-card.hovered {
-    background-color: #FEF4D3; 
-  }
+}
+
+.recommended-dosage-card.hovered {
+    background-color: #FEF4D3;
+}
+
 .recommeded-dosage p {
     font-size: 16px;
     font-weight: 400;
@@ -96,6 +103,7 @@ body {
     font-weight: 700;
     font-size: 18px;
 }
+
 .recommeded-dosage-button button:hover {
     border: #FCC821 solid 1px;
     border-radius: 14px;
@@ -109,4 +117,32 @@ body {
 }
 
 /* recommended dosage section */
+/* Blog Section */
+.our-blogs{
+    padding: 100px 0px;
+}
+.our-blogs h2 {
+    font-size: 39px;
+    font-weight: 700;
+    color: #05222E;
+}
+
+.our-blogs h3 {
+    color: #000000;
+    font-weight: 500;
+    font-size: 22px;
+    padding-top: 25px;
+}
+.our-blogs p {
+   color: #5B5C67;
+   font-size: 14px;
+   font-weight: 400; 
+}
+.read-more{
+    color: #FCC821 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+}
+/* Blog Section */
 /******************Home page  ***************/
