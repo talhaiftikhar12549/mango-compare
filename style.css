@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&display=swap');
 
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
 /* ****************Nav Bar   ****************/
-.nav-bar nav{
-    
-}
+.nav-bar nav {}
+
 /* ****************Nav Bar   ****************/
 /******************Home page  ***************/
 /* hero */
@@ -121,9 +124,10 @@ body {
 
 /* recommended dosage section */
 /* Blog Section */
-.our-blogs{
+.our-blogs {
     padding: 100px 0px;
 }
+
 .our-blogs h2 {
     font-size: 39px;
     font-weight: 700;
@@ -136,34 +140,115 @@ body {
     font-size: 22px;
     padding-top: 25px;
 }
+
 .our-blogs p {
-   color: #5B5C67;
-   font-size: 14px;
-   font-weight: 400; 
+    color: #5B5C67;
+    font-size: 14px;
+    font-weight: 400;
 }
-.read-more{
+
+.read-more {
     color: #FCC821 !important;
     font-size: 18px !important;
     font-weight: 600 !important;
     cursor: pointer;
 }
+
 /* Blog Section */
 /* footer */
-.footer-bar{
+.footer-bar {
     background-color: #141414;
     padding-top: 60px;
     color: #ffffff;
 }
+
 .newsletter-section {
     background-color: #f8f9fa;
     padding: 40px 0;
-  }
-  .newsletter-form .form-control {
+}
+
+.newsletter-form .form-control {
     border-radius: 0;
-  }
-  .newsletter-form .btn {
+}
+
+.newsletter-form .btn {
     border-radius: 0;
-  }
+}
+
+.main-footer h3 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.mini-footer {
+    border-top: 1px solid #838E9E;
+}
+
+.mini-footer p {
+    margin: 0px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.main-footer ul {
+    padding: 0px;
+}
+
+.main-footer li {
+    list-style-type: none;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    padding: 10px 0px;
+    color: #CDD2D8;
+
+}
+
+.footer-form-side p {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.subscription-box {
+    display: flex;
+    background: #fff;
+    border-radius: 8px;
+    padding: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.subscription-box input {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    outline: none;
+    border-radius: 8px 0 0 8px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.subscription-box button {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    background: #FFC836;
+    border: none;
+    padding: 0px 32px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+
+.subscription-box button:hover {
+    background: #E6AE30;
+}
+
 /* footer */
 /******************Home page  ***************/
 /*******************************************************************************/
@@ -171,9 +256,11 @@ body {
 /********************************* Responsiveness ******************************/
 /*******************************************************************************/
 /*******************************************************************************/
-@media (min-width: 768px) and (max-width: 991.98px) { /* md breakpoint */
-    .nav-bar nav{
-      background-color: #f8f9fa !important; /* Bootstrap's $gray-100 */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    /* md breakpoint */
+    .nav-bar nav {
+        background-color: #f8f9fa !important;
+        /* Bootstrap's $gray-100 */
     }
-  }
-  
+}
