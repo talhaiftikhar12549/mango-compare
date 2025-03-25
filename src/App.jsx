@@ -1,10 +1,17 @@
-import './App.css'
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Contact } from "./pages/contact-us";
+import { Home } from "./pages/home";
 
 function App() {
-
   return (
-    <div className='bg-blue-500 text-white py-10 text-center text-3xl'>lets get things started</div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/contact-us" element={<Contact />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
