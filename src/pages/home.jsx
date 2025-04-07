@@ -1,6 +1,7 @@
 import Herohome from "../components/Home-Hero.jsx";
 import DosagePlan from "../components/Dosage-Plan.jsx";
 import Carousel from "../components/Home-Carousel.jsx";
+import HomeOurBlog from "../components/Home-Our-Blog.jsx";
 export const Home = () => {
   return (
     <>
@@ -18,6 +19,9 @@ export const Home = () => {
       <Carousel />
       {/* Home Dosage Plan */}
      
+      {/* Home Our Blog */}
+      <HomeOurBlog />
+      {/* Home Our Blog */}
     </>
   );
 };
