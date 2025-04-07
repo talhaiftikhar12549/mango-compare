@@ -18,10 +18,10 @@ export default function HomeHero() {
             hassle-free.
           </p>
           <div className="flex gap-[20px] pt-[40px]"> 
-            <button className="text-[#FFFFFF] py-[15px] px-[56px] rounded-[10px] border-[1px] border-solid-[#FCC821] bg-[#FCC821]">
+            <button className="text-[#FFFFFF] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-solid-[#FCC821] bg-[#FCC821]">
               Contact Us
             </button>
-            <button className="text-[#000000] py-[15px] px-[56px] rounded-[10px] border-[1px] border-solid-[#FCC821] bg-[#FFFFFF]">
+            <button className="text-[#000000] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-solid-[#FCC821] bg-[#FFFFFF]">
               Learn More
             </button>
           </div>

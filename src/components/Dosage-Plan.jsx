@@ -12,7 +12,7 @@ export default function DosagePlan() {
             </h2>
           </div>
 
-          <div className="flex gap-[100px] pt-[40px]">
+          <div className="flex justify-center gap-[100px] pt-[40px]">
 
 
             <div className="rounded-[40px] relative px-[40px] pt-[100px] pb-[40px] max-w-[494px] bg-[#FEF4D3] shadow-2xl">
