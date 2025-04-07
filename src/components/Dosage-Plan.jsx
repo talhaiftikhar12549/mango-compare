@@ -1,5 +1,6 @@
 import tickMark from "../assets/home/tickMark.png";
 import cardPattren from "../assets/home/cardPattren.png";
+import { FaArrowRight } from 'react-icons/fa';
 export default function DosagePlan() {
   return (
     <>
@@ -46,7 +47,7 @@ export default function DosagePlan() {
               </div>
 
               <div className="pt-[80px]">
-                <button className="bg-[#FCC821] cursor-pointer w-full py-[16px] rounded-[14px]  text-[18px] font-[700] font-montserrat text-[#FFFFFF]">Compare</button> 
+                <button className="bg-[#FCC821] cursor-pointer w-full align-items-center justify-center py-[16px] rounded-[14px]  text-[18px] font-[700] font-montserrat text-[#FFFFFF] inline-flex">Compare  <span className="flex items-center content-center"><FaArrowRight className="ml-2 items-center" /></span></button> 
               </div>
             </div>
 
@@ -83,7 +84,7 @@ export default function DosagePlan() {
               </div>
 
               <div className="pt-[80px]">
-                <button className="bg-[#FCC821] cursor-pointer w-full py-[16px] rounded-[14px]  text-[18px] font-[700] font-montserrat text-[#FFFFFF]">Compare</button> 
+              <button className="bg-[#FCC821] cursor-pointer w-full align-items-center justify-center py-[16px] rounded-[14px]  text-[18px] font-[700] font-montserrat text-[#FFFFFF] inline-flex">Compare  <span className="flex items-center content-center"><FaArrowRight className="ml-2 items-center" /></span></button> 
               </div>
             </div>
 
