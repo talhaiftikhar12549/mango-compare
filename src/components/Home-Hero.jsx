@@ -3,7 +3,7 @@ import heroImage from "../assets/home/heroImage.png";
 
 export default function HomeHero() {
   return (
-    <section className="max-w-[1400px]">
+    <section className="max-w-[1280px]">
       <div className="flex items-center ">
         <div className="w-[60%]">
           <h1 className="text-[60px] font-[700] font-montserrat text-[#05222E]">
