@@ -1,6 +1,7 @@
 import image1 from "../assets/mounjaro compare/mounjarohero.png";
 import HeroSection from "../components/Hero-Section.jsx";
-import PriceCalculator from "../components/Price-Calculator.jsx"
+import PriceCalculator from "../components/Price-Calculator.jsx";
+import FaqsSection from "../components/Faqs-Section.jsx";
 export const MounjaroCompare = () => {
   return (
     <>
@@ -17,9 +18,9 @@ export const MounjaroCompare = () => {
           savings!
         </p>
       </div>
-{/* price calculator */}
-<PriceCalculator/>
-{/* price calculator */}
+      {/* price calculator */}
+      <PriceCalculator />
+      {/* price calculator */}
       <div className="max-w-[1280px]">
         <p className="text-[18px] font-[400] font-montserrat text-[#6A778B]">
           These dosages are administered subcutaneously once a week, with the
@@ -36,6 +37,10 @@ export const MounjaroCompare = () => {
           while keeping your best interests at the forefront.
         </p>
       </div>
+
+      {/* Faqs Section */}
+      <FaqsSection />
+      {/* Faqs Section  */}
     </>
   );
 };
