@@ -1,3 +1,13 @@
+import Herohome from "../components/Home-Hero.jsx";
 export const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      {/* Home Hero */}
+      <Herohome />
+      {/* Home Hero */}
+      {/* Home Dosage Plan */}
+      <Herohome />
+      {/* Home Dosage Plan */}
+    </>
+  );
 };

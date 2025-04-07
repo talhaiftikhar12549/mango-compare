@@ -11,9 +11,9 @@ export const Blogs = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 w-full">
+      <div className="grid gap-4 grid-cols-3 w-full">
         <BlogCard />
       </div>
     </div>
   );
-};
+};  

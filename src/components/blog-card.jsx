@@ -2,7 +2,7 @@ import { FaLocationDot } from "react-icons/fa6";
 
 export const BlogCard = () => {
   return (
-    <div className="bg-white shadow-lg w-[400px] p-5 space-y-5 rounded-xl">
+    <div className="bg-white shadow-lg w-[100%] p-5 space-y-5 rounded-xl">
       <p className="text-[#FCC821] font-bold">TECHNOLOGY</p>
       <h3 className="text-2xl font-semibold">
         Make sure to include in your wheel hire
@@ -15,7 +15,7 @@ export const BlogCard = () => {
         Take five
       </p>
 
-      <div className="flex space-x-5">
+      <div className="flex space-x-5"> 
         <span className="flex justify-center items-center space-x-2 ">
           <FaLocationDot /> <p>5k views</p>
         </span>
