@@ -26,6 +26,7 @@ export default function HomeOurBlog() {
               Read More
               <FaArrowRight className="ml-2" />
             </h4>
+            
           </div>
 
           <div className="max-w-[413px]">

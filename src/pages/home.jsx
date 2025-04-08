@@ -16,7 +16,7 @@ export const Home = () => {
 
      
       {/* Home Dosage Plan */}
-      <Carousel />
+      {/* <Carousel /> */}
       {/* Home Dosage Plan */}
      
       {/* Home Our Blog */}

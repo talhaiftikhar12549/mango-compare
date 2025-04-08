@@ -3,6 +3,21 @@ import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
 export const MounjaroCompare = () => {
+  const faqItems = [
+    {
+      question: 'Is Mounjaro cheaper than Wegovy in the UK?',
+      answer: 'Mounjaro is generally cheaper than Wegovy in the UK. The average cost of Mounjaro is around £125 to £219, while Wegovy can be more expensive. However, prices may vary depending on the pharmacy and location.',
+    },
+    {
+      question: 'What is the cheapest price for Mounjaro in the UK?',
+      answer: 'Mounjaro is generally cheaper than Wegovy in the UK. The average cost of Mounjaro is around £125 to £219, while Wegovy can be more expensive. However, prices may vary depending on the pharmacy and location.',
+    },
+    {
+      question: 'Does the NHS cover Mounjaro for weight loss?',
+      answer: 'Mounjaro is generally cheaper than Wegovy in the UK. The average cost of Mounjaro is around £125 to £219, while Wegovy can be more expensive. However, prices may vary depending on the pharmacy and location.',
+    },
+    
+  ];
   return (
     <>
       <HeroSection
@@ -39,7 +54,10 @@ export const MounjaroCompare = () => {
       </div>
 
       {/* Faqs Section */}
-      <FaqsSection />
+     
+      <FaqsSection items={faqItems}/>
+  
+     
       {/* Faqs Section  */}
     </>
   );
