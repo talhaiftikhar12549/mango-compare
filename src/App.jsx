@@ -7,7 +7,7 @@ import { MounjaroCompare } from "./pages/mounjaro-compare";
 import { WegovyCompare } from "./pages/wegovy-compare";
 function App() {
   return (
-    <div className="w-screen flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
