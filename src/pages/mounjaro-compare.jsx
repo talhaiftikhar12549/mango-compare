@@ -2,7 +2,7 @@ import image1 from "../assets/mounjaro compare/mounjarohero.png";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
-export const MounjaroCompare = () => {
+const MounjaroCompare = () => {
   const faqItems = [
     {
       question: 'Is Mounjaro cheaper than Wegovy in the UK?',
@@ -62,3 +62,4 @@ export const MounjaroCompare = () => {
     </>
   );
 };
+ export default MounjaroCompare

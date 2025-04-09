@@ -2,7 +2,7 @@ import image1 from "../assets/wegovy compare/wegovyhero.png";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
-export const WegovyCompare = () => {
+const WegovyCompare = () => {
   const faqItems = [
     {
       question: "Is Wegovy covered by the NHS?",
@@ -64,3 +64,4 @@ export const WegovyCompare = () => {
     </>
   );
 };
+export default WegovyCompare

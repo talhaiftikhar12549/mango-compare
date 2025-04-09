@@ -1,5 +1,11 @@
 import logo from "../assets/nav/logo.png";
+import { NavLink } from "react-router-dom";
 export default function NavBar() {
+  // const options = [
+  //   { label: "Home", path: "/" },
+  //   { label: "Menu", path: "/menu" },
+  //   { label: "About Us", path: "/aboutus" },
+  // ];
   return (
     <>
       <header className=" w-full max-w-[1280px] pt-[32px] pb-[34px]">
@@ -11,25 +17,75 @@ export default function NavBar() {
             <div>
               <ul className="flex gap-[30px] text-[16px] font-[500] font-montserrat text-[#222222]">
                 <li>
-                  <a href="">Home</a>
+                  <NavLink
+                    to="/"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
+                        : "text-[#6A778B] font-bold"
+                    }
+                  >
+                    Home
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="">About</a> 
+                  <NavLink
+                    to="/mounjaro-compare"
+                    className={({ isActive }) =>
+                      isActive
+                       ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
+                        : "text-[#6A778B] font-bold"
+                    }
+                  >
+                    Mounjaro {" "}
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="">Compare</a>
+                  <NavLink
+                    to="/wegovy-compare"
+                    className={({ isActive }) =>
+                      isActive
+                       ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
+                        : "text-[#6A778B] font-bold"
+                    }
+                  >
+                    Wegovy {" "}
+                  </NavLink>
                 </li>
                 <li>
-                  <a href="">Blog</a>
+                  <NavLink
+                    to="/blogs"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
+                        : "text-[#6A778B] font-bold"
+                    }
+                  >
+                   Blogs{" "}
+                  </NavLink>
                 </li>
               </ul>
             </div>
             <div>
-              <button className="text-[#000000] cursor-pointer py-[15px] px-[30px] rounded-[10px] border-[1px] border-solid-[#FCC821] bg-[#FFFFFF]">Contant Now</button>
+            <NavLink
+                  to="/contact-us"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
+                        : "text-[#6A778B] font-bold"
+                  }
+                >
+              <button className="text-[#000000] cursor-pointer py-[15px] px-[30px] rounded-[10px] border-[1px] border-solid-[#FCC821] bg-[#FFFFFF]">
+               
+                  Contant Now
+                
+              </button>
+              </NavLink>
             </div>
           </div>
         </div>
       </header>
+      
     </>
   );
 }

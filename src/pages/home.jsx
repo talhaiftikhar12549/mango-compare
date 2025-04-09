@@ -8,7 +8,7 @@ export const Home = () => {
   return (
     <>
      {/* Home Hero */}
-     <NavBar />
+     {/* <NavBar /> */}
       {/* Home Hero */}
       {/* Home Hero */}
       <Herohome />
@@ -30,7 +30,7 @@ export const Home = () => {
 
 
       {/* Home Our Blog */}
-      <FooterBar />
+      {/* <FooterBar /> */}
       {/* Home Our Blog */}
     </>
   );

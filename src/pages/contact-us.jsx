@@ -3,7 +3,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import ContactForm from "../components/contact-form";
 
-export const Contact = () => {
+const Contact = () => {
   return (
     <div className="lg:w-9/12 xl:w-8/12 flex flex-col items-center">
       {/* HERO SECTION  */}
@@ -44,3 +44,5 @@ export const Contact = () => {
     </div>
   );
 };
+
+export default Contact

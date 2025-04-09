@@ -1,14 +1,8 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Contact } from "./pages/contact-us";
-import { Home } from "./pages/home";
-import { Blogs } from "./pages/blogs";
-import { MounjaroCompare } from "./pages/mounjaro-compare";
-import { WegovyCompare } from "./pages/wegovy-compare";
 function App() {
   return (
     <div className="flex flex-col items-center">
-      <Router>
+      {/* <Router>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact-us" element={<Contact />} />
@@ -16,7 +10,7 @@ function App() {
           <Route path="/mounjaro-compare" element={<MounjaroCompare />} />
           <Route path="/wegovy-compare" element={<WegovyCompare />} />
         </Routes>
-      </Router>
+      </Router> */}
     </div>
   );
 }

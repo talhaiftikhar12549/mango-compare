@@ -1,6 +1,6 @@
 import { BlogCard } from "../components/blog-card";
 
-export const Blogs = () => {
+const Blogs = () => {
   return (
     <div className="lg:w-9/12 xl:w-8/12 flex flex-col items-center">
       {/* HERO SECTION  */}
@@ -17,3 +17,5 @@ export const Blogs = () => {
     </div>
   );
 };  
+
+export default Blogs
