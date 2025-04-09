@@ -17,11 +17,11 @@ export default function HomeHero() {
             pharmacies—so you get the right medication at the right price,
             hassle-free.
           </p>
-          <div className="flex gap-[20px] pt-[40px]"> 
-            <button className="text-[#FFFFFF] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-solid-[#FCC821] bg-[#FCC821]">
+          <div className="flex gap-[20px] pt-[40px]">
+            <button className="text-[#FFFFFF] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-[#FCC821] bg-[#FCC821] hover:text-[#000000] hover:bg-[#FFFFFF] hover:border-[#000000] transition duration-700">
               Contact Us
             </button>
-            <button className="text-[#000000] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-solid-[#FCC821] bg-[#FFFFFF]">
+            <button className="text-[#000000] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-[#000000] bg-[#FFFFFF] hover:text-[#FFFFFF] hover:bg-[#FCC821] hover:border-[#FCC821] transition duration-700">
               Learn More
             </button>
           </div>

@@ -21,7 +21,7 @@ export default function NavBar() {
                     to="/"
                     className={({ isActive }) =>
                       isActive
-                        ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
+                        ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222]"
                         : "text-[#6A778B] font-bold"
                     }
                   >
@@ -33,7 +33,7 @@ export default function NavBar() {
                     to="/mounjaro-compare"
                     className={({ isActive }) =>
                       isActive
-                       ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
+                       ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222]"
                         : "text-[#6A778B] font-bold"
                     }
                   >
@@ -45,7 +45,7 @@ export default function NavBar() {
                     to="/wegovy-compare"
                     className={({ isActive }) =>
                       isActive
-                       ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
+                       ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222]"
                         : "text-[#6A778B] font-bold"
                     }
                   >
@@ -57,7 +57,7 @@ export default function NavBar() {
                     to="/blogs"
                     className={({ isActive }) =>
                       isActive
-                        ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
+                        ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222]"
                         : "text-[#6A778B] font-bold"
                     }
                   >
@@ -71,11 +71,11 @@ export default function NavBar() {
                   to="/contact-us"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[##222222]"
-                        : "text-[#6A778B] font-bold"
+                      ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[15px] px-[30px]"
+                        : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[15px] px-[30px] "
                   }
                 >
-              <button className="text-[#000000] cursor-pointer py-[15px] px-[30px] rounded-[10px] border-[1px] border-solid-[#FCC821] bg-[#FFFFFF]">
+              <button className=" cursor-pointer  rounded-[10px]">
                
                   Contant Now
                 
