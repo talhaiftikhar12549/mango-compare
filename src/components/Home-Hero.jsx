@@ -1,5 +1,6 @@
 import React from "react";
 import heroImage from "../assets/home/heroImage.png";
+import { NavLink } from "react-router-dom";
 
 export default function HomeHero() {
   return (
@@ -18,10 +19,21 @@ export default function HomeHero() {
             hassle-free.
           </p>
           <div className="flex gap-[20px] pt-[40px]">
-            <button className="text-[#FFFFFF] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-[#FCC821] bg-[#FCC821] hover:text-[#000000] hover:bg-[#FFFFFF] hover:border-[#000000] transition duration-700">
-              Contact Us
-            </button>
-            <button className="text-[#000000] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-[#000000] bg-[#FFFFFF] hover:text-[#FFFFFF] hover:bg-[#FCC821] hover:border-[#FCC821] transition duration-700">
+            <NavLink to="/contact-us">
+              <button className="text-[#FFFFFF] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-[#FCC821] bg-[#FCC821] hover:text-[#000000] hover:bg-[#FFFFFF] hover:border-[#000000] transition duration-700">
+                Contact Us
+              </button>
+            </NavLink>
+
+            <button
+              onClick={() => {
+                const element = document.getElementById("dosage-plan-section");
+                if (element) {
+                  element.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="text-[#000000] cursor-pointer py-[15px] px-[56px] rounded-[10px] border-[1px] border-[#000000] bg-[#FFFFFF] hover:text-[#FFFFFF] hover:bg-[#FCC821] hover:border-[#FCC821] transition duration-700"
+            >
               Learn More
             </button>
           </div>

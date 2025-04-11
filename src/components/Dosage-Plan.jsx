@@ -4,7 +4,7 @@ import { FaArrowRight } from 'react-icons/fa';
 export default function DosagePlan() {
   return (
     <>
-      <section className="max-w-[1280px] pb-[100px]">
+      <section id="dosage-plan-section" className="max-w-[1280px] pb-[100px]">
         <div>
           <div className="w-[80%] mx-auto text-center pt-[100px]">
             <h2 className="text-[28px] font-[700] font-montserrat text-[#05222E]">
