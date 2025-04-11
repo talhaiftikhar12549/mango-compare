@@ -7,11 +7,11 @@ export default function FooterBar() {
     <>
       <footer className="bg-[#141414] flex justify-center align-items-center w-full pt-[60px]">
         <div className=" text-white max-w-[1280px]">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto px-0">
             {/* Main Footer */}
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap justify-between align-items-center">
               {/* Left Column */}
-              <div className="w-full lg:w-1/2 mb-8 lg:mb-0">
+              <div className="w-[40%] mb-8 lg:mb-0">
                 <img
                   src={footerLogo}
                   alt="Structo Construction Logo"
@@ -25,7 +25,7 @@ export default function FooterBar() {
                   <input
                     type="email"
                     placeholder="Email address"
-                    className=" flex-1 border-none p-3 text-[18px] outline-none rounded-l-lg  font-normal "
+                    className=" flex-1 border-none p-3 text-[18px] text-[#6A778B] outline-none rounded-l-lg  font-normal "
                   />
 
                   <button className=" text-[16px] font-semibold  bg-[#FFC836] px-8  rounded-[10px]  transition  duration-300  ease-in-out  hover:bg-[#E6AE30] ">
@@ -34,22 +34,23 @@ export default function FooterBar() {
                 </div>
               </div>
               {/* Right Column */}
-              <div className="w-full lg:w-1/2">
+              <div className="w-[50%] lg:w-1/2">
                 <div className="flex flex-wrap">
                   {/* Contact Column */}
                   <div className="w-full md:w-1/2 mb-8 md:mb-0">
                     <h3 className="text-xl font-semibold mb-4 text-white">
                       Contact
                     </h3>
-                    <ul className="w-3/4 space-y-2 text-gray-300">
-                      <li>Address: 1234 Builder Lane, Cityville, ST 56789</li>
-                      <li>Phone: +1 (123) 456‑7890</li>
-                      <li>Hours: 8:00 AM – 6:00 PM</li>
+                    <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
+                      <li>info@mangocompare.com</li>
+                      <li>Phone: +1 (123) 456‑7890</li>
+                      <li>Hours: 8:00 AM – 6:00 PM</li>
+                      <li>Office Hours: Monday – Friday, 8:00 AM – 6:00 PM</li>
                     </ul>
                   </div>
 
                   {/* Links & Social Column */}
-                  <div className="w-full md:w-1/2 flex flex-col justify-evenly">
+                  <div className="w-full md:w-1/2 flex flex-col gap-y-[36px]">
                     <div>
                       <h3 className="text-xl font-semibold mb-2 text-white">
                         Recent Projects

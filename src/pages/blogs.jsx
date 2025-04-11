@@ -11,7 +11,7 @@ const Blogs = () => {
         </p>
       </div>
 
-      <div className="grid gap-4 grid-cols-3 w-full">
+      <div className="grid gap-4 grid-cols-3 w-full pb-[200px]">
         <BlogCard />
       </div>
     </div>

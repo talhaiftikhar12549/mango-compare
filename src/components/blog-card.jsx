@@ -30,7 +30,7 @@ export const BlogCard = () => {
       </div>
 
       <button
-        className="bg-[#FCC821] px-10 py-3 rounded-full mt-10 text-white text-semibold flex justify-center items-center space-x-5"
+        className="bg-[#FCC821] px-10 mt-[67px] py-3 rounded-full mt-10 text-white text-semibold flex justify-center items-center space-x-5"
         type="submit"
       >
         <p>Read More</p> <FaLocationDot />
