@@ -28,7 +28,7 @@ export default function FooterBar() {
                     className=" flex-1 border-none p-3 text-[18px] text-[#6A778B] outline-none rounded-l-lg  font-normal "
                   />
 
-                  <button className=" text-[16px] font-semibold  bg-[#FFC836] px-8  rounded-[10px]  transition  duration-300  ease-in-out  hover:bg-[#E6AE30] ">
+                  <button className=" text-[16px] font-semibold  bg-[#FFC836] px-8  rounded-[10px] cursor-pointer  ease-in-out  hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] ">
                     Subscribe
                   </button>
                 </div>

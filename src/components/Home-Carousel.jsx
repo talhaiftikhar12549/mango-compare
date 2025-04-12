@@ -1,69 +1,61 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  EffectCoverflow,
-  Navigation,
-  Pagination,
-  Autoplay,
-} from "swiper/modules";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Carousel = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "10px",
+  };
+
   return (
     <div className="w-full max-w-[1280px] mx-auto py-10">
-      <Swiper
-        effect="coverflow"
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView="auto"
-        loop={true} // Enables continuous looping
-        autoplay={{
-          delay: 3000, // 3 seconds delay between slides
-          disableOnInteraction: false,
-        }}
-        coverflowEffect={{
-          rotate: 1,
-          stretch: 100,
-          depth: 200,
-          modifier: 1,
-          slideShadows: false,
-        }}
-        pagination={{ clickable: true }}
-        navigation={true}
-        modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-        className="mySwiper"
-      >
-        <SwiperSlide className="flex justify-center items-center w-auto">
-          <div className="bg-[#FF9E34] w-[80%] p-[90px] rounded-[20px]">
-            <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
-              Wondering how much Mounjaro costs in the UK?
-            </h2>
+      <Slider {...settings}>
+        <div className="flex justify-center items-center">
+          <div className="w-[100%] px-[90px]">
+            <div className="bg-[#FF9E34]  p-[90px] rounded-[20px]">
+              <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
+                Wondering how much Mounjaro costs in the UK?
+              </h2>
+            </div>
           </div>
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center w-auto">
-          <div className="bg-[#FF9E34] w-[80%] p-[90px] rounded-[20px]">
-            <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
-              Wondering how much Mounjaro costs in the UK?
-            </h2>
+        </div>
+        <div className="flex justify-center items-center">
+          <div className="w-[100%] px-[90px]">
+            <div className="bg-[#FF9E34]  p-[90px] rounded-[20px]">
+              <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
+                Not sure where to buy Wegovy at the cheapest price in the UK?
+              </h2>
+            </div>
           </div>
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center w-auto">
-          <div className="bg-[#FF9E34] w-[80%] p-[90px] rounded-[20px]">
-            <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
-              Wondering how much Mounjaro costs in the UK?
-            </h2>
+        </div>
+        <div className="flex justify-center items-center">
+          <div className="w-[100%] px-[90px]">
+            <div className="bg-[#FF9E34]  p-[90px] rounded-[20px]">
+              <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
+                Mango is here to end the Mounjaro vs. Wegovy price debate with…
+              </h2>
+            </div>
           </div>
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center w-auto">
-          <div className="bg-[#FF9E34] w-[80%] p-[90px] rounded-[20px]">
-            <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
-              Wondering how much Mounjaro costs in the UK?
-            </h2>
+        </div>
+        <div className="flex justify-center items-center">
+          <div className="w-[100%] px-[90px]">
+            <div className="bg-[#FF9E34]  p-[90px] rounded-[20px]">
+              <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
+                Effortless price comparisons for weight loss meds in the UK!
+              </h2>
+            </div>
           </div>
-        </SwiperSlide>
-      </Swiper>
+        </div>
+      </Slider>
     </div>
   );
 };
