@@ -1,25 +1,28 @@
 import CardResult from "./Cards-Result";
+import FilterBar from "./Filter-Bar"
 export default function PriceCalculator() {
   return (
     <>
       <section className="max-w-[1280px] py-[100px] w-[100%]">
         <div className="flex w-[100%]">
-          <div className="w-[20%]">meow</div>
-          <div className="w-[80%]">
+          <div className="w-[25%] pr-[20px]">
+            <FilterBar />
+          </div>
+          <div className="w-[75%]">
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[50px] text-[#05222E] text-[16px] font-[600]">
               <div className="w-[37%] ">
                 <p>Pharmacy</p>
               </div>
-              <div className="w-[12%]">
+              <div className="w-[12%] flex items-center justify-center">
                 <p>Price</p>
               </div>
-              <div className="w-[12%]">
+              <div className="w-[12%] flex items-center justify-center">
                 <p>Quantity</p>
               </div>
-              <div className="w-[12%]">
+              <div className="w-[12%] flex items-center justify-center">
                 <p>Rating</p>
               </div>
-              <div className="w-[28%] text-center">
+              <div className="w-[28%] text-center flex items-center justify-center">
                 <p>Website</p>
               </div>
             </div>
