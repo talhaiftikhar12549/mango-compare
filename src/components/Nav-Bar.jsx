@@ -8,7 +8,7 @@ export default function NavBar() {
   // ];
   return (
     <>
-      <header className=" w-full max-w-[1280px] pt-[32px] pb-[34px]">
+      <header className=" w-full max-w-[1280px] pt-[32px] pb-[34px] lg:max-w-[960px]">
         <div className="flex justify-between items-center max-w-[1280px]">
           <div className="w-[40%]">
             <NavLink

@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 export default function HomeOurBlog() {
   return (
     <>
-      <section className="max-w-[1280px] w-full py-[100px]">
+      <section className="max-w-[1280px] w-full py-[100px] lg:max-w-[960px]">
         <div className=" d-flex pb-[50px] w-full justify-content-center align-items-center ">
           <h2 className="text-[39px] text-center font-[700] font-montserrat text-[#05222E]">
             Our Blogs

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 export default function HomeHero() {
   return (
-    <section className="max-w-[1280px]">
+    <section className="max-w-[1280px] lg:max-w-[960px]">
       <div className="flex items-center ">
         <div className="w-[60%]">
           <h1 className="text-[60px] font-[700] font-montserrat text-[#05222E]">

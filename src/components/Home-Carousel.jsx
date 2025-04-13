@@ -17,12 +17,12 @@ const Carousel = () => {
   };
 
   return (
-    <div className="w-full max-w-[1280px] mx-auto py-10">
+    <div className="w-[95%] max-w-[1280px] mx-auto py-10 lg:max-w-[960px]">
       <Slider {...settings}>
         <div className="flex justify-center items-center">
           <div className="w-[100%] px-[90px]">
             <div className="bg-[#FF9E34]  p-[90px] rounded-[20px]">
-              <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
+              <h2 className="text-[#ffffff] font-[900] text-[64px] lg:text-[42px] font-montserrat">
                 Wondering how much Mounjaro costs in the UK?
               </h2>
             </div>
@@ -31,7 +31,7 @@ const Carousel = () => {
         <div className="flex justify-center items-center">
           <div className="w-[100%] px-[90px]">
             <div className="bg-[#FF9E34]  p-[90px] rounded-[20px]">
-              <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
+              <h2 className="text-[#ffffff] font-[900] text-[64px] lg:text-[42px] font-montserrat">
                 Not sure where to buy Wegovy at the cheapest price in the UK?
               </h2>
             </div>
@@ -40,7 +40,7 @@ const Carousel = () => {
         <div className="flex justify-center items-center">
           <div className="w-[100%] px-[90px]">
             <div className="bg-[#FF9E34]  p-[90px] rounded-[20px]">
-              <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
+              <h2 className="text-[#ffffff] font-[900] text-[64px] lg:text-[42px] font-montserrat">
                 Mango is here to end the Mounjaro vs. Wegovy price debate with…
               </h2>
             </div>
@@ -49,7 +49,7 @@ const Carousel = () => {
         <div className="flex justify-center items-center">
           <div className="w-[100%] px-[90px]">
             <div className="bg-[#FF9E34]  p-[90px] rounded-[20px]">
-              <h2 className="text-[#ffffff] font-[900] text-[64px] font-montserrat">
+              <h2 className="text-[#ffffff] font-[900] text-[64px] lg:text-[42px] font-montserrat">
                 Effortless price comparisons for weight loss meds in the UK!
               </h2>
             </div>
