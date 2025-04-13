@@ -2,7 +2,7 @@ import { BlogCard } from "../components/blog-card";
 
 const Blogs = () => {
   return (
-    <div className="lg:w-9/12 xl:w-8/12 flex flex-col items-center">
+    <div className="max-w-[1280px] flex flex-col items-center">
       {/* HERO SECTION  */}
       <div className="w-full flex flex-col text-center py-10 space-y-2">
         <h1 className="text-[#FCC821] font-bold">OUR BLOGS</h1>
@@ -11,7 +11,12 @@ const Blogs = () => {
         </p>
       </div>
 
-      <div className="grid gap-4 grid-cols-3 w-full pb-[200px]">
+      <div className="grid gap-[40px] grid-cols-3 w-full pb-[200px]">
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
+        <BlogCard />
         <BlogCard />
       </div>
     </div>
