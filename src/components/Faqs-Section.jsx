@@ -46,7 +46,7 @@ export default function FaqsSection({ items }) {
                   <div className="flex gap-x-[10px]">
                     <div className="px-[2px] bg-[#FFC71D]"></div>
                     <div>
-                      <p className="text-[16px] font-[400] font-montserrat text-[#42526B]">
+                      <p className="text-[16px] leading-[24px] font-[400] font-montserrat text-[#42526B]">
                         {item.answer}
                       </p>
                     </div>

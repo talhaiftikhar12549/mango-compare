@@ -7,17 +7,47 @@ const WegovyCompare = () => {
     {
       question: "Is Wegovy covered by the NHS?",
       answer:
-        "Private pharmacies offer Wegovy from around £159.99 per month. On the NHS, it costs £9.90 per prescription if you qualify. Prices fluctuate, so use Mango to find the best price in real-time!",
+        "Yes, but only for eligible patients. The NHS provides Wegovy for adults with a BMI of 35 or higher (or 32.5 for certain ethnic groups) and weight-related health conditions. A referral to a specialist weight management service is required.",
     },
     {
       question: "Is Wegovy cheaper than Mounjaro?",
       answer:
-        "Private pharmacies offer Wegovy from around £159.99 per month. On the NHS, it costs £9.90 per prescription if you qualify. Prices fluctuate, so use Mango to find the best price in real-time!",
+        "Wegovy and Mounjaro are similarly priced, but Wegovy may be slightly cheaper at lower doses. For example, Wegovy’s starting dose can be around £169, while Mounjaro starts at about £184. Prices vary by pharmacy and dosage—compare now with Mango to get the best deal!",
     },
     {
       question: "What is the cheapest price for Wegovy in the UK?",
       answer:
         "Private pharmacies offer Wegovy from around £159.99 per month. On the NHS, it costs £9.90 per prescription if you qualify. Prices fluctuate, so use Mango to find the best price in real-time!",
+    },
+    {
+      question: "How to get Wegovy privately in the UK??",
+      answer:
+        "To get Wegovy privately, you’ll need a prescription. This involves an online or in-person consultation with a healthcare provider, ensuring you meet the eligibility criteria (BMI of 30+ or 27+ with weight-related conditions). Once you have your prescription, Mango helps you find it at the best price!",
+    },
+    {
+      question: "Where can I buy Wegovy at the lowest price in the UK?",
+      answer:
+        "The lowest price for Wegovy depends on the pharmacy and ongoing offers. Mango compares prices across the UK to help you find the most affordable option.",
+    },
+    {
+      question: "Do I need a prescription to purchase Wegovy?",
+      answer:
+        "Yes, Wegovy requires a prescription—whether you get it through the NHS or privately. Once you have your prescription, Mango helps you find the best deal available.",
+    },
+    {
+      question: "Is it safe to buy Wegovy online in the UK?",
+      answer:
+        "Yes, as long as you buy from a registered and licensed pharmacy. Mango only lists GPhC-verified pharmacies to ensure safety and authenticity.",
+    },
+    {
+      question: "Which UK pharmacy offers the best prices for Wegovy?",
+      answer:
+        "__ offers Wegovy at £___. However, prices vary, and the cheapest option can change frequently. Mango does the work for you—compare prices now and save!",
+    },
+    {
+      question: "How often do Wegovy prices change?",
+      answer:
+        "There’s no fixed schedule, but prices can fluctuate based on pharmacy promotions and market competition. Check Mango regularly to stay updated on the best deals!",
     },
   ];
   return (

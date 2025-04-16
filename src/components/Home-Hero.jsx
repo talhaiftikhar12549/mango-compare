@@ -5,13 +5,13 @@ import { NavLink } from "react-router-dom";
 export default function HomeHero() {
   return (
     <section className="max-w-[1280px] ">
-      <div className="flex items-center ">
+      <div className="flex  gap-[105px]">
         <div className="w-[60%]">
-          <h1 className="text-[60px] font-[700] font-montserrat text-[#05222E]">
+          <h1 className="text-[60px]  font-[700] font-montserrat text-[#05222E]">
             Giving you the best price comparison in the UK
           </h1>
 
-          <p className="text-[18px] pt-[20px] font-[500] font-montserrat text-[#6A778B]">
+          <p className="text-[18px] pt-[20px] leading-[190%] font-[500] font-montserrat text-[#6A778B]">
             Mango is the UK’s go-to price comparison platform for weight loss
             medications, helping you find the best deals on GP-prescribed
             Mounjaro and Wegovy. We compare prices across trusted, licensed
