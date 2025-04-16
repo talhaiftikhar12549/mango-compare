@@ -17,7 +17,7 @@ const Carousel = () => {
   };
 
   return (
-    <div className="w-[95%] max-w-[1280px] mx-auto py-10 lg:max-w-[960px]">
+    <div className="w-[95%] max-w-[1280px] mx-auto py-10 ">
       <Slider {...settings}>
         <div className="flex justify-center items-center">
           <div className="w-[100%] px-[90px]">

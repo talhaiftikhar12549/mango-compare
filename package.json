@@ -21,6 +21,7 @@
     "slick-carousel": "^1.8.1",
     "swiper": "^11.2.6",
     "tailwindcss": "^4.0.15",
+    "voucher-code-generator": "^1.3.0",
     "yup": "^1.6.1"
   },
   "devDependencies": {
