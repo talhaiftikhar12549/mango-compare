@@ -1,6 +1,21 @@
 import CardResult from "./Cards-Result";
-import FilterBar from "./Filter-Bar"
+import FilterBar from "./Filter-Bar";
+import { useState, useMemo } from "react";
+import mounjaroData from "./mounjaro-data";
 export default function PriceCalculator() {
+  const [sortOrder, setSortOrder] = useState("asc");
+  const toggleSortOrder = () => {
+    setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+  };
+
+  const sortedData = useMemo(() => {
+    return [...mounjaroData].sort((a, b) =>
+      sortOrder === 'asc'
+        ? a.price - b.price
+        : b.price - a.price
+    );
+  }, [mounjaroData, sortOrder]);
+
   return (
     <>
       <section className="max-w-[1280px] py-[100px] w-[100%]">
@@ -14,7 +29,9 @@ export default function PriceCalculator() {
                 <p>Pharmacy</p>
               </div>
               <div className="w-[12%] flex items-center justify-center">
-                <p>Price</p>
+                <p onClick={toggleSortOrder}>
+                  Price {sortOrder === "asc" ? "▲" : "▼"}
+                </p>
               </div>
               <div className="w-[12%] flex items-center justify-center">
                 <p>Quantity</p>
@@ -28,7 +45,7 @@ export default function PriceCalculator() {
             </div>
             {/* card section */}
             <div>
-              <CardResult />
+              <CardResult sortedData={sortedData} />
             </div>
             {/* card section */}
           </div>
