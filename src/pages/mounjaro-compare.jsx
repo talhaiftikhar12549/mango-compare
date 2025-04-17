@@ -2,6 +2,7 @@ import image1 from "../assets/mounjaro compare/mounjarohero.png";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
+import mounjaroData from "../components/mounjaro-data.js";
 const MounjaroCompare = () => {
   const faqItems = [
     {
@@ -55,7 +56,7 @@ const MounjaroCompare = () => {
         </p>
       </div>
       {/* price calculator */}
-      <PriceCalculator />
+      <PriceCalculator maindata={mounjaroData}/>
       {/* price calculator */}
       <div className="max-w-[1280px]">
         <p className="text-[18px] font-[400] font-montserrat text-[#6A778B]">

@@ -1,20 +1,20 @@
 import CardResult from "./Cards-Result";
 import FilterBar from "./Filter-Bar";
 import { useState, useMemo } from "react";
-import mounjaroData from "./mounjaro-data";
-export default function PriceCalculator() {
+
+export default function PriceCalculator({maindata}) {
   const [sortOrder, setSortOrder] = useState("asc");
   const toggleSortOrder = () => {
     setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
   };
 
   const sortedData = useMemo(() => {
-    return [...mounjaroData].sort((a, b) =>
+    return [...maindata].sort((a, b) =>
       sortOrder === 'asc'
         ? a.price - b.price
         : b.price - a.price
     );
-  }, [mounjaroData, sortOrder]);
+  }, [maindata, sortOrder]);
 
   return (
     <>

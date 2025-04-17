@@ -2,6 +2,7 @@ import image1 from "../assets/wegovy compare/wegovyhero.png";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
+import wegovyData from "../components/wegovy-data.js";
 const WegovyCompare = () => {
   const faqItems = [
     {
@@ -84,7 +85,7 @@ const WegovyCompare = () => {
         </p>
       </div>
       {/* price calculator */}
-      <PriceCalculator />
+      <PriceCalculator maindata={wegovyData}/>
       {/* price calculator */}
       {/* Faqs Section */}
 

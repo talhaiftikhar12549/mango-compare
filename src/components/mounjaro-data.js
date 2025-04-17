@@ -1,5 +1,3 @@
-import { MdLocalPharmacy } from "react-icons/md";
-
 const mounjaroData = [
     {
       pharmacyName: "Care Pharmacy",
