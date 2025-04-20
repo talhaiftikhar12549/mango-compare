@@ -1,15 +1,16 @@
 import Img from "../assets/price tool/img.png";
 import React, { useState, useMemo } from 'react';
-export default function CardResult({ sortedData }) {
+export default function CardResult({ sortedPrice, sortedRating }) {
 
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
-  const totalPages = Math.ceil(sortedData.length / itemsPerPage);
-
+  const totalPages = Math.ceil(sortedPrice.length / itemsPerPage);
+  
   const pageData = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
-    return sortedData.slice(start, start + itemsPerPage);
-  }, [sortedData, currentPage, itemsPerPage]);
+    return sortedPrice.slice(start, start + itemsPerPage); 
+  } , [sortedPrice, sortedRating, currentPage, itemsPerPage]);
+
   return (
     <>
       {pageData.map(srtdata => (
@@ -57,9 +58,8 @@ export default function CardResult({ sortedData }) {
           <button
             key={i + 1}
             onClick={() => setCurrentPage(i + 1)}
-            className={`px-3 py-1 rounded ${
-              currentPage === i + 1 ? 'bg-[#FCC821] text-white' : 'bg-gray-100'
-            }`}
+            className={`px-3 py-1 rounded ${currentPage === i + 1 ? 'bg-[#FCC821] text-white' : 'bg-gray-100'
+              }`}
           >
             {i + 1}
           </button>
