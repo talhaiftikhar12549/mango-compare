@@ -2,7 +2,7 @@ import CardResult from "./Cards-Result";
 import FilterBar from "./Filter-Bar";
 import { useState, useMemo } from "react";
 
-export default function PriceCalculator({maindata}) {
+export default function PriceCalculator({ maindata }) {
   const [sortOrder, setSortOrder] = useState("asc");
   const toggleSortOrder = () => {
     setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
@@ -20,7 +20,7 @@ export default function PriceCalculator({maindata}) {
     <>
       <section className="max-w-[1280px] py-[100px] w-[100%]">
         <div className="flex w-[100%]">
-          <div className="w-[25%] pr-[20px]">
+          <div className="w-[25%] pr-[20px] ">
             <FilterBar />
           </div>
           <div className="w-[75%]">
