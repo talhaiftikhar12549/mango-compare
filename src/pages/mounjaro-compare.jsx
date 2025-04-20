@@ -40,6 +40,15 @@ const MounjaroCompare = () => {
     },
     
   ];
+  const availableDoasge = [
+      "2.5 mg/0.5 mL",
+      "5 mg/0.5 mL",
+      "7.5 mg/0.5 mL",
+      "10 mg/0.5 mL",
+      "12.5 mg/0.5 mL",
+      "15 mg/0.5 mL",
+  ]
+
   return (
     <>
       <HeroSection
@@ -56,7 +65,7 @@ const MounjaroCompare = () => {
         </p>
       </div>
       {/* price calculator */}
-      <PriceCalculator maindata={mounjaroData}/>
+      <PriceCalculator maindata={mounjaroData} availableDoasge={availableDoasge}/>
       {/* price calculator */}
       <div className="max-w-[1280px]">
         <p className="text-[18px] font-[400] font-montserrat text-[#6A778B]">

@@ -1,15 +1,9 @@
 import React, { useState } from "react";
 
-const DosageFilter = () => {
+const DosageFilter = ({availableDoasge}) => {
   const [selectedDosage, setSelectedDosage] = useState("0.25 mg/0.5 mL");
 
-  const dosages = [
-    "0.25 mg/0.5 mL",
-    "0.5 mg/0.5 mL",
-    "1.0 mg/0.5 mL",
-    "1.7 mg/0.75 mL",
-    "2.4 mg/0.75 mL",
-  ];
+  const dosages = availableDoasge
 
   return (
     <div className="w-full max-w-xs px-[24px] pb-[38px] pt-[24px] border-b border-[#DCDCDC]  shadow-md bg-white space-y-4">

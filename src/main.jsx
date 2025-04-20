@@ -6,9 +6,8 @@ import Layout from "./pages/layout.jsx"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.jsx";
 import { Home } from "./pages/home.jsx";
-// const { MounjaroCompare } = React.lazy(() =>
-//   import("./pages/mounjaro-compare")
-// );
+import { store } from './redux toolkit/store.js'
+import { Provider } from 'react-redux'
 import MounjaroCompare from "./pages/mounjaro-compare.jsx";
 const  WegovyCompare  = React.lazy(() =>
   import("./pages/wegovy-compare.jsx")
@@ -61,6 +60,9 @@ const router = createBrowserRouter([
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
+ 
 );

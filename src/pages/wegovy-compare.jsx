@@ -51,6 +51,13 @@ const WegovyCompare = () => {
         "There’s no fixed schedule, but prices can fluctuate based on pharmacy promotions and market competition. Check Mango regularly to stay updated on the best deals!",
     },
   ];
+  const availableDoasge = [
+    "0.25 mg/0.5 mL",
+    "0.5 mg/0.5 mL",
+    "1.0 mg/0.5 mL",
+    "1.7 mg/0.75 mL",
+    "2.4 mg/0.75 mL",
+]
   return (
     <>
       <HeroSection
@@ -85,7 +92,7 @@ const WegovyCompare = () => {
         </p>
       </div>
       {/* price calculator */}
-      <PriceCalculator maindata={wegovyData}/>
+      <PriceCalculator maindata={wegovyData} availableDoasge={availableDoasge}/>
       {/* price calculator */}
       {/* Faqs Section */}
 

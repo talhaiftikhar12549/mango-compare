@@ -1,6 +1,6 @@
 import PriceFilter from "./Price-Filter";
 import DosageFilter from "./Dosage-filter";
-export default function FilterBar() {
+export default function FilterBar({availableDoasge}) {
   return (
     <>
       <section className="w-[100%] border border-[#DCDCDC] rounded-[6px] shadow-md">
@@ -18,11 +18,11 @@ export default function FilterBar() {
         {/* Header bar */}
 
         {/* Price Bar */}
-        <PriceFilter />
+        <PriceFilter  />
         {/* Price Bar */}
 
         {/* Dosage Bar */}
-        <DosageFilter />
+        <DosageFilter availableDoasge={availableDoasge}/>
         {/* Dosage Bar */}
       </section>
     </>
