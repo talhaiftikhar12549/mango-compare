@@ -1,7 +1,9 @@
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
+
 import ContactForm from "../components/contact-form";
+
 
 const Contact = () => {
   return (

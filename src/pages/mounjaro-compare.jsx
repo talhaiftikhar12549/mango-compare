@@ -6,48 +6,55 @@ import mounjaroData from "../components/mounjaro-data.js";
 const MounjaroCompare = () => {
   const faqItems = [
     {
-      question: 'Is Mounjaro cheaper than Wegovy in the UK?',
-      answer: "Generally, Mounjaro and Wegovy are priced similarly, but the starting dose of Wegovy (£169) is slightly less than Mounjaro (£184) at some pharmacies. However, at higher doses, Wegovy can be more expensive, with a maximum dose costing up to £269, while Mounjaro's highest dose costs around £204",
+      question: "Is Mounjaro cheaper than Wegovy in the UK?",
+      answer:
+        "Generally, Mounjaro and Wegovy are priced similarly, but the starting dose of Wegovy (£169) is slightly less than Mounjaro (£184) at some pharmacies. However, at higher doses, Wegovy can be more expensive, with a maximum dose costing up to £269, while Mounjaro's highest dose costs around £204",
     },
     {
-      question: 'What is the cheapest price for Mounjaro in the UK?',
-      answer: "The cheapest price for Mounjaro in the UK starts from around £139 for the 2.5 mg and 5 mg doses.",
+      question: "What is the cheapest price for Mounjaro in the UK?",
+      answer:
+        "The cheapest price for Mounjaro in the UK starts from around £139 for the 2.5 mg and 5 mg doses.",
     },
     {
-      question: 'Does the NHS cover Mounjaro for weight loss?',
-      answer: "Currently, there is no specific information indicating that Mounjaro is covered by the NHS for weight loss. However, some weight-loss medications like Wegovy are available on the NHS under certain conditions.",
+      question: "Does the NHS cover Mounjaro for weight loss?",
+      answer:
+        "Currently, there is no specific information indicating that Mounjaro is covered by the NHS for weight loss. However, some weight-loss medications like Wegovy are available on the NHS under certain conditions.",
     },
     {
-      question: 'Where can I buy Wegovy at the lowest price in the UK?',
-      answer: "Click Pharmacy offers one of the most affordable options for purchasing Wegovy online in the UK at £159.99 per month. You can navigate the lowest prices with Mango. ",
+      question: "Where can I buy Wegovy at the lowest price in the UK?",
+      answer:
+        "Click Pharmacy offers one of the most affordable options for purchasing Wegovy online in the UK at £159.99 per month. You can navigate the lowest prices with Mango. ",
     },
     {
-      question: 'How to get Mounjaro privately in the UK?',
-      answer: "To get Mounjaro privately in the UK, you'll need a private prescription. Once you have it, Mango helps you find the best prices from trusted pharmacies across the UK.",
+      question: "How to get Mounjaro privately in the UK?",
+      answer:
+        "To get Mounjaro privately in the UK, you'll need a private prescription. Once you have it, Mango helps you find the best prices from trusted pharmacies across the UK.",
     },
-   
+
     {
-      question: 'Is it safe to buy Mounjaro Online in the UK?',
-      answer: "It is safe to buy Mounjaro online from legitimate, licensed UK pharmacies. Mango ensures you get access to the best and most trusted options. ",
-    },
-    {
-      question: 'Do I need a prescription to purchase Mounjaro?',
-      answer: "Yes, you need a prescription to purchase Mounjaro. This can be obtained through a private consultation with a healthcare provider..",
+      question: "Is it safe to buy Mounjaro Online in the UK?",
+      answer:
+        "It is safe to buy Mounjaro online from legitimate, licensed UK pharmacies. Mango ensures you get access to the best and most trusted options. ",
     },
     {
-      question: 'Which UK pharmacy offers the best prices for Mounjaro?',
-      answer: "Mounjaro prices vary across UK pharmacies, but /// offers Mounjaro at £ 0.00 Mango makes it easy to find the best deal. Compare prices from trusted pharmacies and save up to 27% on your prescription—Find the best price now!",
+      question: "Do I need a prescription to purchase Mounjaro?",
+      answer:
+        "Yes, you need a prescription to purchase Mounjaro. This can be obtained through a private consultation with a healthcare provider..",
     },
-    
+    {
+      question: "Which UK pharmacy offers the best prices for Mounjaro?",
+      answer:
+        "Mounjaro prices vary across UK pharmacies, but /// offers Mounjaro at £ 0.00 Mango makes it easy to find the best deal. Compare prices from trusted pharmacies and save up to 27% on your prescription—Find the best price now!",
+    },
   ];
   const availableDoasge = [
-      "2.5 mg/0.5 mL",
-      "5 mg/0.5 mL",
-      "7.5 mg/0.5 mL",
-      "10 mg/0.5 mL",
-      "12.5 mg/0.5 mL",
-      "15 mg/0.5 mL",
-  ]
+    "2.5 mg/0.5 mL",
+    "5 mg/0.5 mL",
+    "7.5 mg/0.5 mL",
+    "10 mg/0.5 mL",
+    "12.5 mg/0.5 mL",
+    "15 mg/0.5 mL",
+  ];
 
   return (
     <>
@@ -65,7 +72,10 @@ const MounjaroCompare = () => {
         </p>
       </div>
       {/* price calculator */}
-      <PriceCalculator maindata={mounjaroData} availableDoasge={availableDoasge}/>
+      <PriceCalculator
+        maindata={mounjaroData}
+        availableDoasge={availableDoasge}
+      />
       {/* price calculator */}
       <div className="max-w-[1280px]">
         <p className="text-[18px] font-[400] font-montserrat text-[#6A778B]">
@@ -85,12 +95,11 @@ const MounjaroCompare = () => {
       </div>
 
       {/* Faqs Section */}
-     
-      <FaqsSection items={faqItems}/>
-  
-     
+
+      <FaqsSection items={faqItems} />
+
       {/* Faqs Section  */}
     </>
   );
 };
- export default MounjaroCompare
+export default MounjaroCompare;

@@ -1,5 +1,6 @@
 import CardResult from "./Cards-Result";
 import FilterBar from "./Filter-Bar";
+import { LuArrowUpDown } from "react-icons/lu";
 import { useState, useMemo } from "react";
 
 export default function PriceCalculator({ maindata, availableDoasge }) {
@@ -9,37 +10,31 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
   const [filteredData, setFilteredData] = useState(maindata);
   const toggleSortPrice = () => {
     setSortPrice((prev) => (prev === "lp" ? "hp" : "lp"));
-    setFilteredData(()=>(sortedPrice))
+    setFilteredData(() => sortedPrice);
   };
   const toggleSortRating = () => {
     setSortRating((prev) => (prev === "lr" ? "hr" : "lr"));
-    setFilteredData(()=>(sortedRating))
+    setFilteredData(() => sortedRating);
   };
   const toggleSortQuantity = () => {
     setSortQuantity((prev) => (prev === "lq" ? "hq" : "lq"));
-    setFilteredData(()=>(sortedQuantity))
+    setFilteredData(() => sortedQuantity);
   };
   const sortedPrice = useMemo(() => {
     return [...maindata].sort((a, b) =>
-      sortPrice === 'lp'
-        ? a.price - b.price 
-        : b.price - a.price
+      sortPrice === "lp" ? a.price - b.price : b.price - a.price
     );
   }, [maindata, sortPrice]);
 
   const sortedQuantity = useMemo(() => {
     return [...maindata].sort((a, b) =>
-      sortQuntity === 'lq'
-        ? a.quantity - b.quantity 
-        : b.quantity - a.quantity
+      sortQuntity === "lq" ? a.quantity - b.quantity : b.quantity - a.quantity
     );
   }, [maindata, sortQuntity]);
 
   const sortedRating = useMemo(() => {
     return [...maindata].sort((a, b) =>
-      sortRating === 'lr'
-        ? a.rating - b.rating
-        : b.rating - a.rating
+      sortRating === "lr" ? a.rating - b.rating : b.rating - a.rating
     );
   }, [maindata, sortRating]);
 
@@ -56,16 +51,36 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
                 <p>Pharmacy</p>
               </div>
               <div className="w-[12%] flex items-center justify-center">
-                <p onClick={toggleSortPrice}>
-                  Price {sortPrice === "lp" ? "▲" : "▼"}
+                <p
+                  className="flex items-center cursor-pointer"
+                  onClick={toggleSortPrice}
+                >
+                  Price{" "}
+                  <span className="pl-[5px] flex items-center">
+                    <LuArrowUpDown />
+                  </span>
                 </p>
               </div>
               <div className="w-[12%] flex items-center justify-center">
-                <p onClick={toggleSortQuantity}>Quantity {sortQuntity === "lp" ? "▲" : "▼"}</p>
+                <p
+                  className="flex items-center cursor-pointer"
+                  onClick={toggleSortQuantity}
+                >
+                  Quantity{" "}
+                  <span className="pl-[5px] flex items-center">
+                    <LuArrowUpDown />
+                  </span>
+                </p>
               </div>
               <div className="w-[12%] flex items-center justify-center">
-                <p onClick={toggleSortRating}>
-                  Rating {sortRating === "lr" ? "▲" : "▼"}
+                <p
+                  className="flex items-center cursor-pointer"
+                  onClick={toggleSortRating}
+                >
+                  Rating{" "}
+                  <span className="pl-[5px] flex items-center">
+                    <LuArrowUpDown />
+                  </span>
                 </p>
               </div>
               <div className="w-[28%] text-center flex items-center justify-center">
@@ -74,7 +89,7 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
             </div>
             {/* card section */}
             <div>
-              <CardResult sortedPrice={filteredData}  />
+              <CardResult sortedPrice={filteredData} />
             </div>
             {/* card section */}
           </div>
