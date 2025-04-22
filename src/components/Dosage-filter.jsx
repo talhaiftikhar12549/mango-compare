@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { dosageFiltedDta } from '../redux toolkit/compareToolSlice'
+import { dosageFiltedDta, DosagName } from '../redux toolkit/compareToolSlice'
 const DosageFilter = ({ availableDoasge }) => {
   const dispatch = useDispatch();
   const [selectedDosage, setSelectedDosage] = useState();
@@ -9,6 +9,7 @@ const DosageFilter = ({ availableDoasge }) => {
 
   const selectedDosg = (dose) => {
     setSelectedDosage(dose);
+    dispatch(DosagName (dose));
   };
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const DosageFilter = ({ availableDoasge }) => {
       dispatch(dosageFiltedDta(filtered));
     }
   }, [selectedDosage, fltrData, dispatch]);
+  
   
   return (
     <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] border-b border-[#DCDCDC]  shadow-md bg-white space-y-4">

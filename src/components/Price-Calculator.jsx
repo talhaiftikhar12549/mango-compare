@@ -8,7 +8,9 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
   const dispatch = useDispatch();
   dispatch(mainDatagetter(maindata));
   const fltrData = useSelector((state) => state.compareTool.mainData);
-  console.log(fltrData);
+  const dosgName = useSelector((state) => state.compareTool.filteredName);
+  console.log("mindata without filter", maindata);
+  // console.log(fltrData);
   const [sortPrice, setSortPrice] = useState("lp");
   const [sortRating, setSortRating] = useState("lr");
   const [sortQuntity, setSortQuantity] = useState("lq");
@@ -42,13 +44,23 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
       sortRating === "lr" ? a.rating - b.rating : b.rating - a.rating
     );
   }, [fltrData, sortRating]);
-
   useEffect(() => {
-    // This function will run whenever fltrData changes
-    console.log('fltrData has changed:', fltrData);
-    setFilteredData(fltrData);
-    // You can perform additional actions here, such as filtering or processing the data
-  }, );
+
+  })
+
+// const mewo = ()=> {
+ 
+//     if (dosgName !== undefined) {
+//       const filtered = fltrData.filter(item => item.dosage === dosgName);
+//       setFilteredData(() => filtered)
+    
+//   }
+// }
+//   console.log(dosgName)
+
+//   useEffect(() => {
+//     mewo()
+//   }, [dosgName]);
   return (
     <>
       <section className="max-w-[1280px] py-[100px] w-[100%]">

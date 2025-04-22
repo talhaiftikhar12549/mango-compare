@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: 0,
-  mainData:[],
+  mainData: [],
+  filteredName: 0,
 }
 
 export const compareToolSlice = createSlice({
@@ -20,17 +21,20 @@ export const compareToolSlice = createSlice({
       state.mainData = action.payload;
       // const newdata = state.mainData
     },
-    
-    dosageFiltedDta : (state, action) => {  
+    dosageFiltedDta: (state, action) => {
       const dosgFltrData = action.payload
       state.mainData = dosgFltrData
       console.log(state.mainData)
+    },
+    DosagName: (state, action) => { 
+      const dosgName = action.payload
+      state.filteredName = dosgName
       
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, mainDatagetter, dosageFiltedDta } = compareToolSlice.actions
+export const { increment, decrement, incrementByAmount, mainDatagetter, dosageFiltedDta, DosagName } = compareToolSlice.actions
 
 export default compareToolSlice.reducer
