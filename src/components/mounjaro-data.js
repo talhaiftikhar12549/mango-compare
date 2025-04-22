@@ -1,5 +1,6 @@
 const mounjaroData = [
     {
+      id: 1,
       pharmacyName: "Care Pharmacy",
       websiteURL: "https://www.carepharmacy.com/",
       dosage: "2.5 mg/0.5 mL",
@@ -9,6 +10,7 @@ const mounjaroData = [
       date: "07-05-2024",
     },
     {
+      id: 2,
       pharmacyName: "HealthPlus Pharmacy",
       websiteURL: "https://www.healthpluspharmacy.com/",
       dosage: "5 mg/0.5 mL",
@@ -18,6 +20,7 @@ const mounjaroData = [
       date: "15-01-2024",
     },
     {
+      id: 3,
       pharmacyName: "Wellness Pharmacy",
       websiteURL: "https://www.wellnesspharmacy.com/",
       dosage: "7.5 mg/0.5 mL",
@@ -27,6 +30,7 @@ const mounjaroData = [
       date: "19-11-2024",
     },
     {
+      id: 4,
       pharmacyName: "MediCare Pharmacy",
       websiteURL: "https://www.medicarepharmacy.com/",
       dosage: "10 mg/0.5 mL",
@@ -36,6 +40,7 @@ const mounjaroData = [
       date: "14-03-2024",
     },
     {
+      id: 5,
       pharmacyName: "LifeLine Pharmacy",
       websiteURL: "https://www.lifelinepharmacy.com/",
       dosage: "12.5 mg/0.5 mL",
@@ -45,6 +50,7 @@ const mounjaroData = [
       date: "03-08-2024",
     },
     {
+      id: 6,
       pharmacyName: "CityMed Pharmacy",
       websiteURL: "https://www.citymedpharmacy.com/",
       dosage: "15 mg/0.5 mL",
@@ -54,6 +60,7 @@ const mounjaroData = [
       date: "15-01-2024",
     },
     {
+      id: 7,
       pharmacyName: "PharmaCare",
       websiteURL: "https://www.pharmacare.com/",
       dosage: "2.5 mg/0.5 mL",
@@ -63,6 +70,7 @@ const mounjaroData = [
       date: "15-04-2024",
     },
     {
+      id: 8,
       pharmacyName: "HealthFirst Pharmacy",
       websiteURL: "https://www.healthfirstpharmacy.com/",
       dosage: "5 mg/0.5 mL",
@@ -72,6 +80,7 @@ const mounjaroData = [
       date: "04-05-2024",
     },
     {
+      id: 9,
       pharmacyName: "Trust Pharmacy",
       websiteURL: "https://www.trustpharmacy.com/",
       dosage: "7.5 mg/0.5 mL",
@@ -81,6 +90,7 @@ const mounjaroData = [
       date: "10-08-2024",
     },
     {
+      id: 10,
       pharmacyName: "GoodHealth Pharmacy",
       websiteURL: "https://www.goodhealthpharmacy.com/",
       dosage: "10 mg/0.5 mL",
@@ -90,6 +100,7 @@ const mounjaroData = [
       date: "29-03-2024",
     },
     {
+      id: 11,
       pharmacyName: "SafeMed Pharmacy",
       websiteURL: "https://www.safemedpharmacy.com/",
       dosage: "12.5 mg/0.5 mL",
@@ -99,6 +110,7 @@ const mounjaroData = [
       date: "20-02-2024",
     },
     {
+      id: 12,
       pharmacyName: "Prime Pharmacy",
       websiteURL: "https://www.primepharmacy.com/",
       dosage: "15 mg/0.5 mL",
@@ -108,6 +120,7 @@ const mounjaroData = [
       date: "22-06-2024",
     },
     {
+      id: 13,
       pharmacyName: "WellCare Pharmacy",
       websiteURL: "https://www.wellcarepharmacy.com/",
       dosage: "2.5 mg/0.5 mL",
@@ -117,6 +130,7 @@ const mounjaroData = [
       date: "11-07-2024",
     },
     {
+      id: 14,
       pharmacyName: "MediHealth Pharmacy",
       websiteURL: "https://www.medihealthpharmacy.com/",
       dosage: "5 mg/0.5 mL",

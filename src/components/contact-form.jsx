@@ -7,10 +7,6 @@ const validationSchema = Yup.object({
   firstName: Yup.string().required("First name is required"),
   lastName: Yup.string().required("Last name is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
-  phone: Yup.string()
-    .matches(/^[0-9]{10}$/, "Phone number must be 10 digits")
-    .required("Phone number is required"),
-  subject: Yup.string().required("Please select a subject"),
   message: Yup.string().required("Message is required"),
 });
 
@@ -31,8 +27,6 @@ const ContactForm = () => {
           firstName: "",
           lastName: "",
           email: "",
-          phone: "",
-          subject: "",
           message: "",
         }}
         validationSchema={validationSchema}
@@ -77,7 +71,7 @@ const ContactForm = () => {
             </div>
 
             <div className="flex space-x-5 mt-10">
-              <div className="flex flex-col">
+              <div className="flex flex-col w-100">
                 <label className="font-semibold">Email</label>
                 <Field
                   type="email"
@@ -90,40 +84,6 @@ const ContactForm = () => {
                   className="error text-xs text-red-500"
                 />
               </div>
-
-              <div className="flex flex-col">
-                <label className="font-semibold">Phone Number</label>
-                <Field
-                  type="text"
-                  name="phone"
-                  className="border-b border-black py-1 px-2"
-                />
-                <ErrorMessage
-                  name="phone"
-                  component="div"
-                  className="error text-xs text-red-500"
-                />
-              </div>
-            </div>
-
-            <div className="mt-10">
-              <label className="font-semibold">Select Subject?</label>
-              <div className="flex space-x-5 mt-2">
-                <label>
-                  <Field type="radio" name="subject" value="Math" /> Math
-                </label>
-                <label>
-                  <Field type="radio" name="subject" value="Science" /> Science
-                </label>
-                <label>
-                  <Field type="radio" name="subject" value="History" /> History
-                </label>
-              </div>
-              <ErrorMessage
-                name="subject"
-                component="div"
-                className="error text-xs text-red-500"
-              />
             </div>
 
             <div className="flex flex-col mt-10">

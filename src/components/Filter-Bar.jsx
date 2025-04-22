@@ -5,7 +5,7 @@ export default function FilterBar({availableDoasge}) {
     <>
       <section className="w-[100%] border border-[#DCDCDC] rounded-[6px] shadow-md">
         {/* Header bar */}
-        <div className="flex items-center justify-between w-[100%] border-b border-[#DCDCDC] py-[20px] px-[12px]">
+        <div className="flex items-center justify-between w-[100%] border-b border-[#DCDCDC] py-[20px] px-[20px]">
           <div className="text-[20px] font-[600]">
             <h2>Filter</h2>
           </div>

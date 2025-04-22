@@ -1,13 +1,18 @@
 import CardResult from "./Cards-Result";
 import FilterBar from "./Filter-Bar";
 import { LuArrowUpDown } from "react-icons/lu";
-import { useState, useMemo } from "react";
-
+import { useState, useMemo, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { mainDatagetter } from "../redux toolkit/compareToolSlice";
 export default function PriceCalculator({ maindata, availableDoasge }) {
+  const dispatch = useDispatch();
+  dispatch(mainDatagetter(maindata));
+  const fltrData = useSelector((state) => state.compareTool.mainData);
+  console.log(fltrData);
   const [sortPrice, setSortPrice] = useState("lp");
   const [sortRating, setSortRating] = useState("lr");
   const [sortQuntity, setSortQuantity] = useState("lq");
-  const [filteredData, setFilteredData] = useState(maindata);
+  const [filteredData, setFilteredData] = useState(fltrData);
   const toggleSortPrice = () => {
     setSortPrice((prev) => (prev === "lp" ? "hp" : "lp"));
     setFilteredData(() => sortedPrice);
@@ -21,23 +26,29 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
     setFilteredData(() => sortedQuantity);
   };
   const sortedPrice = useMemo(() => {
-    return [...maindata].sort((a, b) =>
+    return [...fltrData].sort((a, b) =>
       sortPrice === "lp" ? a.price - b.price : b.price - a.price
     );
-  }, [maindata, sortPrice]);
+  }, [fltrData, sortPrice]);
 
   const sortedQuantity = useMemo(() => {
-    return [...maindata].sort((a, b) =>
+    return [...fltrData].sort((a, b) =>
       sortQuntity === "lq" ? a.quantity - b.quantity : b.quantity - a.quantity
     );
-  }, [maindata, sortQuntity]);
+  }, [fltrData, sortQuntity]);
 
   const sortedRating = useMemo(() => {
-    return [...maindata].sort((a, b) =>
+    return [...fltrData].sort((a, b) =>
       sortRating === "lr" ? a.rating - b.rating : b.rating - a.rating
     );
-  }, [maindata, sortRating]);
+  }, [fltrData, sortRating]);
 
+  useEffect(() => {
+    // This function will run whenever fltrData changes
+    console.log('fltrData has changed:', fltrData);
+    setFilteredData(fltrData);
+    // You can perform additional actions here, such as filtering or processing the data
+  }, );
   return (
     <>
       <section className="max-w-[1280px] py-[100px] w-[100%]">
@@ -46,11 +57,14 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
             <FilterBar availableDoasge={availableDoasge} />
           </div>
           <div className="w-[75%]">
-            <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[50px] text-[#05222E] text-[16px] font-[600]">
-              <div className="w-[37%] ">
+            <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
+              <div className="w-[25%] ">
                 <p>Pharmacy</p>
               </div>
-              <div className="w-[12%] flex items-center justify-center">
+              <div className="w-[15%] flex items-center justify-center">
+                <p className="flex items-center cursor-pointer">Dosage</p>
+              </div>
+              <div className="w-[15%] flex items-center justify-center">
                 <p
                   className="flex items-center cursor-pointer"
                   onClick={toggleSortPrice}
@@ -61,7 +75,7 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
                   </span>
                 </p>
               </div>
-              <div className="w-[12%] flex items-center justify-center">
+              <div className="w-[15%] flex items-center justify-center">
                 <p
                   className="flex items-center cursor-pointer"
                   onClick={toggleSortQuantity}
@@ -83,7 +97,7 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
                   </span>
                 </p>
               </div>
-              <div className="w-[28%] text-center flex items-center justify-center">
+              <div className="w-[18%] text-center flex items-center justify-center">
                 <p>Website</p>
               </div>
             </div>

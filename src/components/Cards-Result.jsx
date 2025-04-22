@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 export default function CardResult({ sortedPrice, sortedRating }) {
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 5;
+  const itemsPerPage = 4;
   const totalPages = Math.ceil(sortedPrice.length / itemsPerPage);
   
   const pageData = useMemo(() => {
@@ -16,26 +16,29 @@ export default function CardResult({ sortedPrice, sortedRating }) {
       {pageData.map(srtdata => (
         <div
           key={srtdata.id}
-          className="flex w-full py-[30px] rounded-[10px] px-[50px] text-[#05222E] text-[16px] font-[600]"
+          className="flex w-full py-[30px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]"
         >
-          <div className="w-[37%]">
+          <div className="w-[25%]">
             <div className="flex items-center gap-[20px]">
               <img src={Img} alt="Pharmacy logo" />
               <p>{srtdata.pharmacyName}</p>
             </div>
           </div>
-          <div className="w-[12%] flex items-center justify-center">
+          <div className="w-[15%] flex items-center justify-center">
+            <p>{srtdata.dosage}</p>
+          </div>
+          <div className="w-[15%] flex items-center justify-center">
             <p>£ {srtdata.price}</p>
           </div>
-          <div className="w-[12%] flex items-center justify-center">
+          <div className="w-[15%] flex items-center justify-center">
             <p>{srtdata.quantity}</p>
           </div>
           <div className="w-[12%] flex items-center justify-center">
             <p>{srtdata.rating}</p>
           </div>
-          <div className="w-[28%] flex items-center justify-center text-center">
+          <div className="w-[18%] flex items-center justify-center text-center">
             <a href={srtdata.websiteURL} target="_blank" rel="noopener noreferrer">
-              <div className="py-[14px] px-[24px] bg-[#FCC821] rounded-[10px] border-2 border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer">
+              <div className="py-[14px] px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer">
                 Visit Pharmacy
               </div>
             </a>

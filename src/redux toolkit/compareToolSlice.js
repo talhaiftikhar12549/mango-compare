@@ -2,10 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   value: 0,
+  mainData:[],
 }
 
 export const compareToolSlice = createSlice({
-  name: 'counter',
+  name: 'compareTool',
   initialState,
   reducers: {
     increment: (state) => {
@@ -14,13 +15,22 @@ export const compareToolSlice = createSlice({
     decrement: (state) => {
       state.value -= 1
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    mainDatagetter: (state, action) => {
+      // state.value += action.payload
+      state.mainData = action.payload;
+      // const newdata = state.mainData
     },
+    
+    dosageFiltedDta : (state, action) => {  
+      const dosgFltrData = action.payload
+      state.mainData = dosgFltrData
+      console.log(state.mainData)
+      
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = compareToolSlice.actions
+export const { increment, decrement, incrementByAmount, mainDatagetter, dosageFiltedDta } = compareToolSlice.actions
 
 export default compareToolSlice.reducer
