@@ -19,17 +19,18 @@ export const compareToolSlice = createSlice({
     mainDatagetter: (state, action) => {
       // state.value += action.payload
       state.mainData = action.payload;
+      console.log("data getter in store",state.mainData)
       // const newdata = state.mainData
     },
     dosageFiltedDta: (state, action) => {
       const dosgFltrData = action.payload
       state.mainData = dosgFltrData
-      console.log(state.mainData)
+      console.log("dosage filter data in store",state.mainData)
     },
     DosagName: (state, action) => { 
       const dosgName = action.payload
       state.filteredName = dosgName
-      
+      console.log("dosage name in store",state.filteredName)
     }
   },
 })
