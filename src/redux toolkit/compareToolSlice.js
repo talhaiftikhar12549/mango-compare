@@ -4,6 +4,7 @@ const initialState = {
   value: 0,
   mainData: [],
   filteredName: 0,
+  filteredMaxValue: 0,
 }
 
 export const compareToolSlice = createSlice({
@@ -31,11 +32,16 @@ export const compareToolSlice = createSlice({
       const dosgName = action.payload
       state.filteredName = dosgName
       console.log("dosage name in store",state.filteredName)
-    }
+    },
+    mVal: (state, action) => {
+      const maxVal = action.payload
+      state.filteredMaxValue = maxVal
+      console.log("max value in store",state.filteredMaxValue)
+    }, 
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount, mainDatagetter, dosageFiltedDta, DosagName } = compareToolSlice.actions
+export const { increment, mVal, decrement, incrementByAmount, mainDatagetter, dosageFiltedDta, DosagName } = compareToolSlice.actions
 
 export default compareToolSlice.reducer

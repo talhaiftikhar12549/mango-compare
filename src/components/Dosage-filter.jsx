@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { dosageFiltedDta, DosagName } from "../redux toolkit/compareToolSlice";
-const DosageFilter = ({ availableDoasge }) => {
+const DosageFilter = ({ availableDoasge, isReset }) => {
   const dispatch = useDispatch();
   const [isHide, setIsHide] = useState(true);
   const [selectedDosage, setSelectedDosage] = useState();
@@ -38,6 +38,14 @@ const DosageFilter = ({ availableDoasge }) => {
       setMaxHeight(isHide ? `${contentRef.current.scrollHeight}px` : "0px");
     }
   }, [isHide]);
+  // reset data
+  useEffect(() => {
+    if (isReset) {
+      setSelectedDosage(null);
+      dispatch(DosagName(0));
+    }
+  }, [isReset]); // Add isReset to the dependency array to trigger the effect when it changes
+  //reset data
 
   return (
     <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] border-b border-[#DCDCDC]  shadow-md bg-white space-y-4">

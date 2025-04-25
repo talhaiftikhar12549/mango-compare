@@ -38,14 +38,18 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
   // }, [dispatch, maindata]);
   // navbar filters
   const fltrData = useSelector((state) => state.compareTool.mainData);
+  const filteredMaxValue = useSelector(
+    (state) => state.compareTool.filteredMaxValue
+  );
+  console.log("max value coming from store", filteredMaxValue);
   console.log("data coming from store", fltrData);
   const filteredName = useSelector((state) => state.compareTool.filteredName);
   console.log("filter name coming from store", filteredName);
-  //
   const [sortPrice, setSortPrice] = useState("lp");
   const [sortRating, setSortRating] = useState("lr");
   const [sortQuntity, setSortQuantity] = useState("lq");
   const [selectedDosage, setSelectedDosage] = useState();
+  const [sortMaxValue, setSortMaxValue] = useState(fltrData);
   const [filteredData, setFilteredData] = useState(fltrData);
   const toggleSortPrice = () => {
     setSortPrice((prev) => (prev === "lp" ? "hp" : "lp"));
@@ -77,23 +81,39 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
     );
   }, [fltrData, sortRating]);
   // Nav bar filters
-// dosage filter
-useEffect(() => {
-    if (filteredName !== 0) {
-      datatosotre();
-    }
-  }, [filteredName]);
 
-  const datatosotre = () => {
-  };
+  // Max value filter
+  // useEffect(() => {
+  //   if (filteredMaxValue !== 0) {
+  //     const filtered = fltrData.filter(
+  //       (item) => item.price === filteredMaxValue
+  //     );
+  //     setFilteredData(filtered);
+  //     console.log("filtered data with max val in man component", filtered);
+  //   }
+  // }, [filteredMaxValue,  dispatch]);
+  // Max value filter
+
+  // dosage filter
+  // useEffect(() => {
+  //     if (filteredName !== 0) {
+  //       datatosotre();
+  //     }
+  //   }, [filteredName]);
+
+  //   const datatosotre = () => {
+  //   };
   useEffect(() => {
     if (filteredName !== 0) {
-      const filtered = fltrData.filter(item => item.dosage === filteredName);
+      const filtered = fltrData.filter((item) => item.dosage === filteredName);
       setFilteredData(filtered);
       console.log("filtered data with dosage in man component", filtered);
     }
-  }, [filteredName, fltrData, dispatch]);
-// dosage filter
+    else{
+      setFilteredData(maindata);
+    }
+  }, [filteredName, fltrData, dispatch]); 
+  // dosage filter
   // card data
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -101,10 +121,23 @@ useEffect(() => {
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const MaxValue = () => {
+    // Do something with val, like calculating the max price
+    const maxVal = Math.max(...filteredData.map((item) => item.price));
+    console.log("Max value:", maxVal);
+    return maxVal;
+  };
+
   const pageData = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
-    return filteredData.slice(start, start + itemsPerPage);
+    const newval = filteredData.slice(start, start + itemsPerPage);
+
+    // Side effect here (usually not ideal inside useMemo)
+
+    return newval;
   }, [filteredData, currentPage, itemsPerPage]);
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -118,7 +151,7 @@ useEffect(() => {
       <section className="max-w-[1280px] py-[100px] w-[100%]">
         <div className="flex w-[100%]">
           <div className="w-[25%] pr-[20px] ">
-            <FilterBar availableDoasge={availableDoasge} />
+            <FilterBar availableDoasge={availableDoasge} maxVal={MaxValue()} />
           </div>
           <div className="w-[75%]">
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">

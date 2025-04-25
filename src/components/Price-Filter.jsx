@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { incrementByAmount } from "../redux toolkit/compareToolSlice";
-const PriceFilter = () => {
+import { mVal } from "../redux toolkit/compareToolSlice";
+const PriceFilter = ({ maxVal }) => {
   const dispatch = useDispatch();
-  const [price, setPrice] = useState(100);
+  const [price, setPrice] = useState(maxVal);
   const [isHide, setIsHide] = useState(true);
   const contentRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState("0px");
@@ -14,6 +15,9 @@ const PriceFilter = () => {
     highToLow: false,
   });
 
+  console.log(maxVal, "maxVal");
+  console.log(price, "price");
+  dispatch(mVal(price));
   const toggleSort = (key) => {
     setSortOptions((prev) => ({
       rating: false,
@@ -38,7 +42,7 @@ const PriceFilter = () => {
         <h2 className="text-lg font-semibold">Price</h2>
         <button
           onClick={handleClick}
-          className="text-[16px] min-w-[95.14px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
+          className="text-[16px] min-w-[95.14px]  font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
         >
           {isHide ? "Hide" : "Show"}
         </button>
@@ -55,13 +59,13 @@ const PriceFilter = () => {
           <input
             type="range"
             min={0}
-            max={100}
+            max={maxVal}
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            className="w-full accent-yellow-400"
+            className="w-full accent-yellow-400 cursor-pointer"
           />
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-700">Min. £ 0.00</p>
+          <div className="flex items-center justify-end">
+            {/* <p className="text-sm text-gray-700">Min. £ 0.00</p> */}
             <p className="text-sm text-gray-700">Max. £{price}.00</p>
           </div>
         </div>
