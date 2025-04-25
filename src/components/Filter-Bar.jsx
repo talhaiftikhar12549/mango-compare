@@ -2,11 +2,11 @@ import PriceFilter from "./Price-Filter";
 import DosageFilter from "./Dosage-filter";
 import { useState } from "react";
 export default function FilterBar({ availableDoasge, maxVal }) {
-  const [isReset, setIsReset] = useState(false); 
+  const [isReset, setIsReset] = useState(false);
   const handleReset = () => {
     setIsReset(!isReset);
-   }
- 
+  };
+
   return (
     <>
       <section className="w-[100%] border border-[#DCDCDC] rounded-[6px] shadow-md">
@@ -16,7 +16,10 @@ export default function FilterBar({ availableDoasge, maxVal }) {
             <h2>Filter</h2>
           </div>
           <div>
-            <button onClick={handleReset} className="text-[16px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]">
+            <button
+              onClick={handleReset}
+              className="text-[16px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
+            >
               Reset
             </button>
           </div>
@@ -24,7 +27,7 @@ export default function FilterBar({ availableDoasge, maxVal }) {
         {/* Header bar */}
 
         {/* Price Bar */}
-        <PriceFilter isReset={isReset} maxVal={maxVal}/>
+        <PriceFilter isReset={isReset} maxVal={maxVal} />
         {/* Price Bar */}
 
         {/* Dosage Bar */}

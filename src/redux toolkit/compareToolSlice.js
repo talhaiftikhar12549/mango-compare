@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   value: 0,
   mainData: [],
-  filteredName: 0,
+  filteredName: [],
   filteredMaxValue: 0,
 }
 

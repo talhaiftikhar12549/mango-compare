@@ -48,12 +48,12 @@ const MounjaroCompare = () => {
     },
   ];
   const availableDoasge = [
-    "2.5 mg/0.5 mL",
-    "5 mg/0.5 mL",
-    "7.5 mg/0.5 mL",
-    "10 mg/0.5 mL",
-    "12.5 mg/0.5 mL",
-    "15 mg/0.5 mL",
+    "2.5 mg",
+    "5 mg",
+    "7.5 mg",
+    "10 mg",
+    "12.5 mg",
+    "15 mg",
   ];
 
   return (

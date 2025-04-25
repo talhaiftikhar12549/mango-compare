@@ -52,11 +52,11 @@ const WegovyCompare = () => {
     },
   ];
   const availableDoasge = [
-    "0.25 mg/0.5 mL",
-    "0.5 mg/0.5 mL",
-    "1.0 mg/0.5 mL",
-    "1.7 mg/0.75 mL",
-    "2.4 mg/0.75 mL",
+    "0.25 mg",
+    "0.5 mg",
+    "1.0 mg",
+    "1.7 mg",
+    "2.4 mg",
 ]
   return (
     <>

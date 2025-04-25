@@ -1,4 +1,3 @@
-import CardResult from "./Cards-Result";
 import FilterBar from "./Filter-Bar";
 import { LuArrowUpDown } from "react-icons/lu";
 import { useState, useMemo, useEffect } from "react";
@@ -80,44 +79,23 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
       sortRating === "lr" ? a.rating - b.rating : b.rating - a.rating
     );
   }, [fltrData, sortRating]);
-  // Nav bar filters
-
-  // Max value filter
-  // useEffect(() => {
-  //   if (filteredMaxValue !== 0) {
-  //     const filtered = fltrData.filter(
-  //       (item) => item.price === filteredMaxValue
-  //     );
-  //     setFilteredData(filtered);
-  //     console.log("filtered data with max val in man component", filtered);
-  //   }
-  // }, [filteredMaxValue,  dispatch]);
-  // Max value filter
-
-  // dosage filter
-  // useEffect(() => {
-  //     if (filteredName !== 0) {
-  //       datatosotre();
-  //     }
-  //   }, [filteredName]);
-
-  //   const datatosotre = () => {
-  //   };
   useEffect(() => {
-    if (filteredName !== 0) {
-      const filtered = fltrData.filter((item) => item.dosage === filteredName);
+    if (filteredName?.length > 0) {
+      const filtered = fltrData.filter((item) =>
+        filteredName.includes(item.dosage)
+      );
       setFilteredData(filtered);
-      console.log("filtered data with dosage in man component", filtered);
-    }
-    else{
+      console.log("filteredName:", filteredName);
+      console.log("Filtered data with dosage in main component:", filtered);
+    } else {
       setFilteredData(maindata);
     }
-  }, [filteredName, fltrData, dispatch]); 
+  }, [filteredName, fltrData]);
   // dosage filter
   // card data
 
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
+  const itemsPerPage = 10;
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -173,15 +151,7 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
                 </p>
               </div>
               <div className="w-[15%] flex items-center justify-center">
-                <p
-                  className="flex items-center cursor-pointer"
-                  onClick={toggleSortQuantity}
-                >
-                  Quantity{" "}
-                  <span className="pl-[5px] flex items-center">
-                    <LuArrowUpDown />
-                  </span>
-                </p>
+                <p className="flex items-center cursor-pointer">Discount </p>
               </div>
               <div className="w-[12%] flex items-center justify-center">
                 <p
@@ -205,7 +175,7 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
               {pageData.map((srtdata) => (
                 <div
                   key={srtdata.id}
-                  className="flex w-full py-[30px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]"
+                  className="flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10  rounded-[0px] px-[0px] text-[#05222E] text-[16px] font-[600]"
                 >
                   <div className="w-[25%]">
                     <div className="flex items-center gap-[20px]">

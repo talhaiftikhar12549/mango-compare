@@ -64,41 +64,12 @@ const PriceFilter = ({ maxVal }) => {
             onChange={(e) => setPrice(e.target.value)}
             className="w-full accent-yellow-400 cursor-pointer"
           />
-          <div className="flex items-center justify-end">
-            {/* <p className="text-sm text-gray-700">Min. £ 0.00</p> */}
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-gray-700">Min. £ 0.00</p>
             <p className="text-sm text-gray-700">Max. £{price}.00</p>
           </div>
         </div>
       </div>
-      {/* <div className="space-y-[25px]">
-        {[
-          { key: "rating", label: "Sort by Rating" },
-          { key: "latest", label: "Sort by latest" },
-          { key: "lowToHigh", label: "Low to High" },
-          { key: "highToLow", label: "High to Low" },
-        ].map((option) => (
-          <label
-            key={option.key}
-            className="flex items-center space-x-[8px] cursor-pointer"
-          >
-            <input
-              type="checkbox"
-              checked={sortOptions[option.key]}
-              onChange={() => toggleSort(option.key , option.label)}
-              className="form-checkbox accent-yellow-400"
-            />
-            <span
-              className={`text-sm ${
-                sortOptions[option.key]
-                  ? "text-black font-medium"
-                  : "text-gray-500"
-              }`}
-            >
-              {option.label}
-            </span>
-          </label>
-        ))}
-      </div> */}
     </div>
   );
 };
