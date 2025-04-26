@@ -5,14 +5,14 @@ import { FaArrowRight } from "react-icons/fa";
 export default function HomeOurBlog() {
   return (
     <>
-      <section className="max-w-[1280px] w-full py-[100px] ">
+      <section className="max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px]  w-full py-[100px] ">
         <div className=" d-flex pb-[50px] w-full justify-content-center align-items-center ">
           <h2 className="text-[39px] text-center font-[700] font-montserrat text-[#05222E]">
             Our Blogs
           </h2>
         </div>
 
-        <div className="flex w-[100%] gap-[22px]">
+        <div className="flex flex-col md:flex-row items-center  w-[100%] gap-[22px]">
           <div className="max-w-[413px]">
             <img src={blogImg1} alt="" />
             <h3 className="text-[22px] pt-[20px] pb-[10px] font-[500] font-montserrat text-[#000000]">
