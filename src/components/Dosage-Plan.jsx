@@ -5,30 +5,35 @@ import { NavLink } from "react-router-dom";
 export default function DosagePlan() {
   return (
     <>
-      <section id="dosage-plan-section" className="max-w-[1280px] pb-[100px] ">
+      <section className="max-w-[1280px] pb-[100px] lg:px-[40px] xl:px-0 px-[16px] mx-auto">
         <div>
-          <div className="w-[80%] mx-auto text-center pt-[100px]">
-            <h2 className="text-[28px] font-[700] font-montserrat text-[#05222E]">
+          <div className="md:w-[80%] w-[100%] mx-auto text-center pt-[100px]">
+            <h2 className="md:text-[28px] text-[18px] font-[700] font-montserrat text-[#05222E]">
               Stick to your GP’s recommended dosage and get the best deals that
               fit your budget.
             </h2>
           </div>
 
-          <div className="flex justify-center gap-[100px] w-[100%] lg:gap-[40px] pt-[40px]">
-            <div className="rounded-[40px] w-[50%] relative px-[40px] pt-[100px] pb-[40px] max-w-[494px] bg-[#FEF4D3] shadow-2xl">
+          <div
+            id="dosage-plan-section"
+            className="flex md:flex-row flex-col items-center justify-between lg:justify-center gap-[20px]  w-[100%] lg:gap-[80px] pt-[30px]"
+          >
+            {/* Card 1 */}
+            <div className="relative rounded-[40px] lg:w-[50%] w-[100%] px-[40px] pt-[60px] pb-[40px] max-w-[450px] bg-[#FEF4D3] shadow-2xl">
               <img
-                className="absolute top-0 right-0"
+                className="absolute top-0 right-0 z-0"
                 src={cardPattren}
                 alt=""
               />
-              <h3 className="text-[48px] font-[700] font-montserrat text-[#05222E]">
+
+              <h3 className="relative z-50 text-[48px] font-[700] font-montserrat text-[#05222E]">
                 Mounjaro
               </h3>
-              <p className="text-[16px] max-w-[397px] pt-[11px] pb-[44px] font-[400] font-montserrat text-[#5D6B6F]">
+              <p className="text-[16px] md:max-w-[397px] pt-[11px] pb-[44px] font-[400] font-montserrat text-[#5D6B6F]">
                 A dual-action injectable that helps control appetite and blood
                 sugar—get the best prices with Mango!
               </p>
-              <div className="flex flex-col gap-y-[30px]">
+              <div className="flex flex-col gap-y-[16px]">
                 <div className="flex gap-[5px]">
                   <img src={tickMark} alt="" />
                   <p className="text-[#64626A] font-[600] text-[16px] font-montserrat">
@@ -61,9 +66,9 @@ export default function DosagePlan() {
                 </div>
               </div>
 
-              <div className="pt-[80px]">
+              <div className="pt-[40px]">
                 <NavLink to="/mounjaro-compare">
-                  <button className="bg-[#FCC821] cursor-pointer w-full align-items-center justify-center py-[16px] rounded-[14px]  text-[18px] font-[700] font-montserrat text-[#FFFFFF] inline-flex hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] border-[#FCC821]" >
+                  <button className="bg-[#FCC821] cursor-pointer w-full align-items-center justify-center py-[16px] rounded-[14px]  text-[18px] font-[700] font-montserrat text-[#FFFFFF] inline-flex hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] border-[#FCC821]">
                     Compare{" "}
                     <span className="flex items-center content-center">
                       <FaArrowRight className="ml-2 items-center" />
@@ -72,8 +77,10 @@ export default function DosagePlan() {
                 </NavLink>
               </div>
             </div>
+            {/* Card 1 */}
 
-            <div className="rounded-[40px] relative px-[40px] w-[50%] pt-[100px] pb-[40px] max-w-[494px] bg-[##FFFFFF] shadow-2xl">
+            {/* Card 2 */}
+            <div className="rounded-[40px] relative px-[40px] lg:w-[50%] w-[100%] pt-[60px] pb-[40px] max-w-[450px] bg-[##FFFFFF] shadow-2xl">
               <img
                 className="absolute top-0 right-0"
                 src={cardPattren}
@@ -86,7 +93,7 @@ export default function DosagePlan() {
                 A once-weekly injection designed to reduce appetite and aid
                 weight loss—find the best deals with Mango!
               </p>
-              <div className="flex flex-col gap-y-[30px]">
+              <div className="flex flex-col gap-y-[16px]">
                 <div className="flex gap-[5px]">
                   <img src={tickMark} alt="" />
                   <p className="text-[#64626A] font-[600] text-[16px] font-montserrat">
@@ -119,7 +126,7 @@ export default function DosagePlan() {
                 </div>
               </div>
 
-              <div className="pt-[80px]">
+              <div className="pt-[40px]">
                 <NavLink to="/wegovy-compare">
                   <button className="bg-[#FFFFFF] cursor-pointer w-full align-items-center justify-center py-[16px] rounded-[14px]  text-[18px] font-[700] font-montserrat text-[#FCC821] inline-flex  hover:text-[#FFFFFF] hover:bg-[#FCC821] transition duration-700 border-[2px] border-[#FCC821]">
                     Compare{" "}
@@ -130,6 +137,7 @@ export default function DosagePlan() {
                 </NavLink>
               </div>
             </div>
+            {/* Card 2 */}
           </div>
         </div>
       </section>

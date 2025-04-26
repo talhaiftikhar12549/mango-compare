@@ -10,7 +10,7 @@ export default function NavBar() {
   };
   return (
     <>
-      <header className=" w-full max-w-[1280px] lg:px-[40px] xl:px-0 px-[10px] mx-auto pt-[32px] pb-[34px]">
+      <header className=" w-full max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px] mx-auto pt-[32px] pb-[34px]">
         <div className="flex justify-between items-center max-w-[1280px]">
           <div className="w-[50%] md:w-[30%] lg:w-[40%] ">
             <NavLink to="/" className="pointer">
