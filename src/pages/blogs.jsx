@@ -11,7 +11,8 @@ const Blogs = () => {
         </p>
       </div>
 
-      <div className="grid gap-[40px] grid-cols-3 w-full pb-[200px]">
+      {/* Blog Cards Grid */}
+      <div className="grid gap-[40px] grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full pb-[200px]">
         <BlogCard />
         <BlogCard />
         <BlogCard />
@@ -21,6 +22,6 @@ const Blogs = () => {
       </div>
     </div>
   );
-};  
+};
 
-export default Blogs
+export default Blogs;
