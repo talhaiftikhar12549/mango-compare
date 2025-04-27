@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import couponCodes from "./coupon-Data"
+import couponCodes from "./coupon-Data";
 // Validation schema using Yup
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First name is required"),
@@ -40,8 +40,8 @@ const ContactForm = () => {
         {({ handleSubmit }) => (
           <Form onSubmit={handleSubmit} className="form-container w-full">
             {/* Form Fields */}
-            <div className="flex space-x-5">
-              <div className="flex flex-col">
+            <div className="flex flex-col lg:flex-row space-x-5">
+              <div className="flex w-[100%] flex-col">
                 <label className="font-semibold">First Name</label>
                 <Field
                   type="text"
@@ -55,7 +55,7 @@ const ContactForm = () => {
                 />
               </div>
 
-              <div className="flex flex-col">
+              <div className="flex w-[100%] flex-col lg:mt-[0px] mt-10">
                 <label className="font-semibold">Last Name</label>
                 <Field
                   type="text"
@@ -70,20 +70,18 @@ const ContactForm = () => {
               </div>
             </div>
 
-            <div className="flex space-x-5 mt-10">
-              <div className="flex flex-col w-100">
-                <label className="font-semibold">Email</label>
-                <Field
-                  type="email"
-                  name="email"
-                  className="border-b border-black py-1 px-2"
-                />
-                <ErrorMessage
-                  name="email"
-                  component="div"
-                  className="error text-xs text-red-500"
-                />
-              </div>
+            <div className="flex flex-col mt-10">
+              <label className="font-semibold">Email</label>
+              <Field
+                type="email"
+                name="email"
+                className="border-b border-black py-1 px-2"
+              />
+              <ErrorMessage
+                name="email"
+                component="div"
+                className="error text-xs text-red-500"
+              />
             </div>
 
             <div className="flex flex-col mt-10">
@@ -116,14 +114,18 @@ const ContactForm = () => {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
-            <h2 className="text-[24px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">Free Gift Voucher</h2>
-            
+            <h2 className="text-[24px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
+              Free Gift Voucher
+            </h2>
+
             <p className="text-md mb-4 text-center">
-            Congratulation you get a discount code
+              Congratulation you get a discount code
             </p>
             <p className="text-2xl font-[600] mb-4 text-center">
-              Your Copun Code is:{" "} <br />
-              <span className="font-bold text-3xl text-[#FCC821]">{couponCodes[randomNumber]}</span>
+              Your Copun Code is: <br />
+              <span className="font-bold text-3xl text-[#FCC821]">
+                {couponCodes[randomNumber]}
+              </span>
             </p>
             <button
               onClick={closeModal}

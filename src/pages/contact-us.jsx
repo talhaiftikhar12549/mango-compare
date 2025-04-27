@@ -4,10 +4,9 @@ import { IoMdMail } from "react-icons/io";
 
 import ContactForm from "../components/contact-form";
 
-
 const Contact = () => {
   return (
-    <div className="lg:w-9/12 max-w-[1280px] xl:w-8/12 flex flex-col items-center pb-[200px]">
+    <div className="max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px] mx-auto flex flex-col items-center pb-[200px]">
       {/* HERO SECTION  */}
       <div className="w-full flex flex-col text-center py-10 space-y-2">
         <h1 className="font-bold text-[40px]">Contact Us</h1>
@@ -47,4 +46,4 @@ const Contact = () => {
   );
 };
 
-export default Contact
+export default Contact;

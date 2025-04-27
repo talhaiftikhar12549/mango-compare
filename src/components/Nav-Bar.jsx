@@ -19,7 +19,7 @@ export default function NavBar() {
           </div>
           <div className="hidden md:flex justify-between items-center w-[65%] lg:w-[60%]">
             <div>
-              <ul className="flex gap-[30px] text-[16px] font-[500] font-montserrat text-[#222222]">
+              <ul className="flex lg:gap-[30px] gap-[20px]  text-[16px] font-[500] font-montserrat text-[#222222]">
                 <li>
                   <NavLink
                     to="/"
