@@ -63,7 +63,7 @@ const MounjaroCompare = () => {
         text="A weekly self-injectable weight loss pen, Mounjaro retails at £125 to £219 in the UK."
         image={image1}
       />
-      <div className="max-w-[1280px] text-[20px] font-[500] font-montserrat text-[#202244] item-center">
+      <div className="max-w-[1280px] mx-auto px-4 lg:px-8 xl:px-0 text-[16px] sm:text-[18px] md:text-[20px] font-[500] font-montserrat text-[#202244] text-center md:text-left">
         <p>
           By comparing Mounjaro prices across the UK, the average user can save
           up to 27%—that’s £67.01 per four-week supply just by choosing the
@@ -71,23 +71,26 @@ const MounjaroCompare = () => {
           savings!
         </p>
       </div>
+
       {/* price calculator */}
       <PriceCalculator
         maindata={mounjaroData}
         availableDoasge={availableDoasge}
       />
       {/* price calculator */}
-      <div className="max-w-[1280px]">
-        <p className="text-[18px] font-[400] font-montserrat text-[#6A778B]">
+      <div className="max-w-[1280px] mx-auto px-4 lg:px-8 xl:px-0 space-y-6">
+        <p className="text-[16px] sm:text-[18px] font-[400] font-montserrat text-[#6A778B] text-center md:text-left">
           These dosages are administered subcutaneously once a week, with the
           starting dose typically being 2.5 mg and increasing as needed up to a
           maximum of 15 mg.
         </p>
-        <span className="text-[24px] font-[600] font-montserrat text-[#202244]">
+
+        <span className="block text-[20px] sm:text-[24px] font-[600] font-montserrat text-[#202244] text-center md:text-left">
           Mango helps you get the best price without compromising your
           GP-recommended dosage
         </span>
-        <p className="text-[18px] font-[400] font-montserrat text-[#6A778B]">
+
+        <p className="text-[16px] sm:text-[18px] font-[400] font-montserrat text-[#6A778B] text-center md:text-left">
           Pharmacies associated with Mango are reputable, fully licensed, and
           highly trusted. We ensure the safe supply of weight loss injections
           while keeping your best interests at the forefront.

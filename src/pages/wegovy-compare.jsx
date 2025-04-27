@@ -65,32 +65,35 @@ const WegovyCompare = () => {
         text="Wegovy, the weekly self-injection for weight loss, can cost anywhere from £109 to £269 in the UK."
         image={image1}
       />
-      <div className="max-w-[1280px]">
-        <span className="text-[24px] font-[600] font-montserrat text-[#202244]">
-          Cut your Wegovy costs by up to 28%—compare prices with Mango!
-        </span>
-        <p className="text-[18px] pt-[16px] font-[400] font-montserrat text-[#6A778B]">
-          Wegovy, the weekly self-injection for weight loss, can cost anywhere
-          from £109 to £269 in the UK.
-        </p>
-        <p className="text-[18px] pt-[30px] font-[400] font-montserrat text-[#6A778B]">
-          By using Mango’s price comparison, you can save up to 28%—that’s £74
-          per four-week supply by choosing the most affordable option. Over a
-          year, this adds up to £888 in savings! <br />Wegovy Dosage Options
-        </p>
-      </div>
+      <div className="max-w-[1280px] w-full px-4 md:px-8 xl:px-0 mx-auto">
+  <span className="block text-[22px] md:text-[24px] font-[600] font-montserrat text-[#202244]">
+    Cut your Wegovy costs by up to 28%—compare prices with Mango!
+  </span>
+  <p className="text-[16px] md:text-[18px] pt-[12px] md:pt-[16px] font-[400] font-montserrat text-[#6A778B]">
+    Wegovy, the weekly self-injection for weight loss, can cost anywhere
+    from £109 to £269 in the UK.
+  </p>
+  <p className="text-[16px] md:text-[18px] pt-[20px] md:pt-[30px] font-[400] font-montserrat text-[#6A778B]">
+    By using Mango’s price comparison, you can save up to 28%—that’s £74
+    per four-week supply by choosing the most affordable option. Over a
+    year, this adds up to £888 in savings! <br />
+    <br className="hidden md:block" />
+    Wegovy Dosage Options
+  </p>
+</div>
 
-      <div className="max-w-[1280px] pt-[50px]">
-        <span className="text-[24px] font-[600] font-montserrat text-[#202244]">
-          Mango finds you the best price without compromising your
-          GP-recommended dosage
-        </span>
-        <p className="text-[18px] pt-[16px] font-[400] font-montserrat text-[#6A778B]">
-          Pharmacies associated with Mango are reputable, fully licensed, and
-          highly trusted. We ensure the safe supply of weight loss injections
-          while keeping your best interests at the forefront.
-        </p>
-      </div>
+<div className="max-w-[1280px] w-full px-4 md:px-8 xl:px-0 mx-auto pt-[40px] md:pt-[50px]">
+  <span className="block text-[22px] md:text-[24px] font-[600] font-montserrat text-[#202244]">
+    Mango finds you the best price without compromising your
+    GP-recommended dosage
+  </span>
+  <p className="text-[16px] md:text-[18px] pt-[12px] md:pt-[16px] font-[400] font-montserrat text-[#6A778B]">
+    Pharmacies associated with Mango are reputable, fully licensed, and
+    highly trusted. We ensure the safe supply of weight loss injections
+    while keeping your best interests at the forefront.
+  </p>
+</div>
+
       {/* price calculator */}
       <PriceCalculator maindata={wegovyData} availableDoasge={availableDoasge}/>
       {/* price calculator */}
