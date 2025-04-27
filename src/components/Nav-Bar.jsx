@@ -111,30 +111,56 @@ export default function NavBar() {
                       {option.label}
                     </li>
                   ))} */}
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center">
-                    <NavLink className={"block w-[100%]"} to="/">Home</NavLink>
+                  <li
+                    onClick={toggleMenu}
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
+                  >
+                    <NavLink className={"block w-[100%]"} to="/">
+                      Home
+                    </NavLink>
                   </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center">
-                  <NavLink className={"block w-[100%]"} to="/mounjaro-compare">Mounjaro</NavLink>
+                  <li
+                    onClick={toggleMenu}
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
+                  >
+                    <NavLink
+                      className={"block w-[100%]"}
+                      to="/mounjaro-compare"
+                    >
+                      Mounjaro
+                    </NavLink>
                   </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center">
-                    <NavLink className={"block w-[100%]"} to="/wegovy-compare">Wegovy</NavLink>
+                  <li
+                    onClick={toggleMenu}
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
+                  >
+                    <NavLink className={"block w-[100%]"} to="/wegovy-compare">
+                      Wegovy
+                    </NavLink>
                   </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center">
-                    <NavLink className={"block w-[100%]"} to="/blogs">Blogs</NavLink>
+                  <li
+                    onClick={toggleMenu}
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
+                  >
+                    <NavLink className={"block w-[100%]"} to="/blogs">
+                      Blogs
+                    </NavLink>
                   </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center">
-  <NavLink
-    to="/contact-us"
-    className={({ isActive }) =>
-      isActive
-        ? "block w-full text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold py-[10px] px-[15px]"
-        : "block w-full text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[10px] px-[15px] lg:px-[30px]"
-    }
-  >
-    Contact Us
-  </NavLink>
-</li>
+                  <li
+                    onClick={toggleMenu}
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
+                  >
+                    <NavLink
+                      to="/contact-us"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block w-full text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold py-[10px] px-[15px]"
+                          : "block w-full text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[10px] px-[15px] lg:px-[30px]"
+                      }
+                    >
+                      Contact Us
+                    </NavLink>
+                  </li>
                 </ul>
               )}
             </div>

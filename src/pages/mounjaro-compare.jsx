@@ -73,10 +73,16 @@ const MounjaroCompare = () => {
       </div>
 
       {/* price calculator */}
-      <PriceCalculator
-        maindata={mounjaroData}
-        availableDoasge={availableDoasge}
-      />
+
+      <div className="w-full overflow-x-auto">
+        <div className="min-w-[1024px]">
+          <PriceCalculator
+            maindata={mounjaroData}
+            availableDoasge={availableDoasge}
+          />
+        </div>
+      </div>
+
       {/* price calculator */}
       <div className="max-w-[1280px] mx-auto px-4 lg:px-8 xl:px-0 space-y-6">
         <p className="text-[16px] sm:text-[18px] font-[400] font-montserrat text-[#6A778B] text-center md:text-left">
