@@ -1,16 +1,16 @@
 import PriceFilter from "./Price-Filter";
 import DosageFilter from "./Dosage-filter";
 import { useState } from "react";
-export default function FilterBar({ availableDoasge, maxVal }) {
+export default function FilterBar({ availableDoasge, maxVal, isResetter, minValue }) {
   const [isReset, setIsReset] = useState(false);
 
   const handleReset = () => {
     setIsReset(true);
     setTimeout(() => {
       setIsReset(false);
-    }, 500); // 500 milliseconds = 0.5 seconds
+    }, 500);
   };
-
+console.log("isReset in filter bar", isResetter);
   return (
     <>
       <section className="w-[100%] border border-[#DCDCDC] rounded-[6px] shadow-md">
@@ -31,7 +31,7 @@ export default function FilterBar({ availableDoasge, maxVal }) {
         {/* Header bar */}
 
         {/* Price Bar */}
-        <PriceFilter isReset={isReset} maxVal={maxVal} />
+        <PriceFilter isReset={isReset} maxVal={maxVal} minValue={minValue}/>
         {/* Price Bar */}
 
         {/* Dosage Bar */}

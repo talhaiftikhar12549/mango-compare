@@ -90,10 +90,10 @@ const WegovyCompare = () => {
       </div>
 
       {/* price calculator */}
-      <PriceCalculator
+      {/* <PriceCalculator
         maindata={wegovyData}
         availableDoasge={availableDoasge}
-      />
+      /> */}
 
       <div className="w-full overflow-x-auto">
         <div className="min-w-[1024px]">

@@ -1,48 +1,49 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { incrementByAmount } from "../redux toolkit/compareToolSlice";
-import { mVal } from "../redux toolkit/compareToolSlice";
-const PriceFilter = ({ maxVal }) => {
+import { incrementByAmount, mVal } from "../redux toolkit/compareToolSlice";
+import { Range } from "react-range";
+
+const PriceFilter = ({ maxVal , minValue , isReset}) => {
   const dispatch = useDispatch();
-  const [price, setPrice] = useState(maxVal);
+  const [price, setPrice] = useState([minValue, maxVal]); // two values: min and max
   const [isHide, setIsHide] = useState(true);
   const contentRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState("0px");
-  const [sortOptions, setSortOptions] = useState({
-    rating: false,
-    latest: false,
-    lowToHigh: false,
-    highToLow: false,
-  });
-
-  console.log(maxVal, "maxVal");
-  console.log(price, "price");
-  dispatch(mVal(price));
-  const toggleSort = (key) => {
-    setSortOptions((prev) => ({
-      rating: false,
-      latest: false,
-      lowToHigh: false,
-      highToLow: false,
-      [key]: !prev[key],
-    }));
-    dispatch(incrementByAmount(key));
-  };
-
-  const handleClick = () => setIsHide(!isHide);
-
+console.log("min and max prices coming from price filter",minValue,"   ", maxVal);
   useEffect(() => {
     if (contentRef.current) {
       setMaxHeight(isHide ? `${contentRef.current.scrollHeight}px` : "0px");
     }
   }, [isHide]);
+
+  const handleClick = () => setIsHide(!isHide);
+
+  // Whenever price changes, you can dispatch or update Redux
+  useEffect(() => {
+    dispatch(mVal(price));
+  }, [price, dispatch]);
+
+
+
+  useEffect(() => {
+    if (isReset) {
+      setPrice([minValue, maxVal]);  // ✅ just one set of brackets
+    }
+  }, [isReset, minValue, maxVal]);
+
+  useEffect(() => {
+    if (minValue !== undefined && maxVal !== undefined) {
+      setPrice([minValue, maxVal]);
+    }
+  }, [minValue, maxVal]);
+
   return (
     <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] shadow-md bg-white space-y-4 border-b border-[#DCDCDC] ">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Price</h2>
         <button
           onClick={handleClick}
-          className="text-[16px] min-w-[95.14px]  font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
+          className="text-[16px] min-w-[95.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#DCDCDC] rounded-[100px]"
         >
           {isHide ? "Hide" : "Show"}
         </button>
@@ -50,23 +51,49 @@ const PriceFilter = ({ maxVal }) => {
 
       <div
         ref={contentRef}
-        style={{
-          maxHeight: maxHeight,
-        }}
+        style={{ maxHeight: maxHeight }}
         className="transition-[max-height] duration-500 ease-in-out overflow-hidden"
       >
-        <div className="space-y-[24px] pt-4">
-          <input
-            type="range"
-            min={0}
+        <div className="space-y-[24px] pt-4 px-3">
+          <Range
+            step={1}
+            min={minValue} 
             max={maxVal}
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            className="w-full accent-yellow-400 cursor-pointer"
+            values={price}
+            onChange={(values) => setPrice(values)}
+            renderTrack={({ props, children }) => (
+              <div
+                {...props}
+                style={{
+                  ...props.style,
+                  height: "6px",
+                  width: "100%",
+                  backgroundColor: "#ccc",
+                }}
+              >
+                {children}
+              </div>
+            )}
+            renderThumb={({ props }) => (
+              <div
+                {...props}
+                style={{
+                  ...props.style,
+                  height: "20px",
+                  width: "20px",
+                  borderRadius: "50%",
+                  backgroundColor: "#FFD700", // gold/yellow
+                  cursor: "pointer",
+                  border: "2px solid #fff",
+                  boxShadow: "0 0 5px rgba(0,0,0,0.2)",
+                }}
+              />
+            )}
           />
+
           <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-700">Min. £ 0.00</p>
-            <p className="text-sm text-gray-700">Max. £{price}.00</p>
+            <p className="text-sm text-gray-700">Min. £ {price[0]}.00</p>
+            <p className="text-sm text-gray-700">Max. £ {price[1]}.00</p>
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import { mainDatagetter } from "../redux toolkit/compareToolSlice";
 import { IoClose } from "react-icons/io5";
 import Img from "../assets/price tool/img.png";
 
-export default function PriceCalculator({ maindata, availableDoasge }) {
+export default function PriceCalculator({ maindata, availableDoasge, isResetter }) {
   // Form detail
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -107,6 +107,13 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
     return maxVal;
   };
 
+  const MinValue = () => {
+    // Do something with val, like calculating the max price
+    const minVal = Math.min(...filteredData.map((item) => item.price));
+    console.log("Min value:", minVal);
+    return minVal;
+  };
+
   const pageData = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
     const newval = filteredData.slice(start, start + itemsPerPage);
@@ -129,7 +136,7 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
       <section className="max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px] mx-auto py-[100px] w-[100%]">
         <div className="flex w-[100%]">
           <div className="w-[25%] pr-[20px] ">
-            <FilterBar availableDoasge={availableDoasge} maxVal={MaxValue()} />
+            <FilterBar availableDoasge={availableDoasge} maxVal={MaxValue()} minValue={MinValue()} isResetter={isResetter} />
           </div>
           <div className="w-[75%]">
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">

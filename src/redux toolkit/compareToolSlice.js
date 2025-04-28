@@ -5,6 +5,7 @@ const initialState = {
   mainData: [],
   filteredName: [],
   filteredMaxValue: 0,
+  resetButton: false,
 }
 
 export const compareToolSlice = createSlice({
@@ -36,6 +37,11 @@ export const compareToolSlice = createSlice({
       state.filteredMaxValue = maxVal
       console.log("max value in store",state.filteredMaxValue)
     }, 
+    resetter: (state) => {
+      
+      state.resetButton = true
+      console.log("reset button in store",state.resetButton)
+    },  
   },
 })
 

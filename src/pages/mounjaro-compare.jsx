@@ -79,6 +79,7 @@ const MounjaroCompare = () => {
           <PriceCalculator
             maindata={mounjaroData}
             availableDoasge={availableDoasge}
+            isResetter={true}
           />
         </div>
       </div>

@@ -54,7 +54,7 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
   return (
     <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] border-b border-[#DCDCDC] shadow-md bg-white space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">Dosage</h2>
+        <h2 className="text-lg font-semibold">Dosage Strength</h2>
         <button
           onClick={() => setIsHide(!isHide)}
           className="text-[16px] min-w-[95.14px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
