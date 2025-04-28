@@ -36,7 +36,7 @@ export default function FooterBar() {
 
               {/* Right Column */}
               <div className="w-[100%] md:w-[50%] lg:w-1/2">
-                <div className="flex flex-wrap">
+                <div className="flex flex-wrap just">
                   {/* Contact Column */}
                   <div className="w-full md:w-1/2 mb-8 md:mb-0">
                     <h3 className="text-xl font-semibold mb-4 text-white">

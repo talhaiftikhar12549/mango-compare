@@ -14,6 +14,8 @@ export default function PriceCalculator({
   // Form detail
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [DiscountCode, setDiscountCode] = useState("");
+  const [selectedDiscount, setSelectedDiscount] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("userEmail", email);
@@ -31,11 +33,17 @@ export default function PriceCalculator({
     }
   }, []);
   // Form detail
-
+  const [isDiscountModalOpen, setDiscountIsModalOpen] = useState(false);
   const dispatch = useDispatch();
   dispatch(mainDatagetter(maindata));
   console.log("main data in price calc", maindata);
-
+  const closediscountModal = () => {
+    setDiscountIsModalOpen(false);
+  };
+  const openIscountModal = () => {
+    setDiscountIsModalOpen(true);
+    setSelectedDiscount(discount);
+  };
   // navbar filters Price and Ratting Filter
   const fltrData = useSelector((state) => state.compareTool.mainData);
   const filteredMaxValue = useSelector(
@@ -194,67 +202,99 @@ export default function PriceCalculator({
             </div>
             {/* card section */}
             <div>
-              {pageData.map((srtdata) => (
-                <div
-                  key={srtdata.id}
-                  className="flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10  rounded-[0px] px-[0px] text-[#05222E] text-[16px] font-[600]"
-                >
-                  <div className="w-[25%]">
-                    <div className="flex items-center gap-[20px]">
-                      <img src={Img} alt="Pharmacy logo" />
-                      <p>{srtdata.pharmacyName}</p>
+              <>
+                {pageData.map((srtdata) => (
+                  <div
+                    key={srtdata.id}
+                    className="flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10 rounded-[0px] px-[0px] text-[#05222E] text-[16px] font-[600]"
+                  >
+                    <div className="w-[25%]">
+                      <div className="flex items-center gap-[20px]">
+                        <img src={Img} alt="Pharmacy logo" />
+                        <p>{srtdata.pharmacyName}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="w-[15%] flex items-center justify-center">
-                    <p>{srtdata.dosage}</p>
-                  </div>
-                  <div className="w-[15%] flex items-center justify-center">
-                    {isSubscribed ? (
-                      <p>£ {srtdata.price}</p>
-                    ) : (
+                    <div className="w-[15%] flex items-center justify-center">
+                      <p>{srtdata.dosage}</p>
+                    </div>
+                    <div className="w-[15%] flex items-center justify-center">
+                      {isSubscribed ? (
+                        <p>£ {srtdata.price}</p>
+                      ) : (
+                        <p
+                          onClick={toggelModal}
+                          className="text-[#FCC821] text-[18px] font-[600] cursor-pointer border-b-[2px] border-[#ffffff] hover:border-b-[2px] hover:border-[#FCC821] transition duration-500"
+                        >
+                          View Price
+                        </p>
+                      )}
+                    </div>
+
+                    <div className="w-[15%] flex items-center justify-center cursor-pointer relative group">
                       <p
-                        onClick={toggelModal}
-                        className="text-[#FCC821] text-[18px] font-[600] cursor-pointer border-b-[2px] border-[#ffffff] hover:border-b-[2px] hover:border-[#FCC821] transition duration-500"
+                       onClick={() => openIscountModal(srtdata.discount)}
+                        className="text-[#FCC821] text-[18px] font-[600] cursor-pointer"
                       >
-                        View Price
+                        show
                       </p>
-                    )}
-                  </div>
-
-                  <div className="w-[15%] flex items-center justify-center cursor-pointer relative group">
-                    <p className="text-[#FCC821] text-[18px] font-[600] cursor-pointer">
-                      show
-                    </p>
-                    <div className="absolute bottom-full mb-2 hidden group-hover:flex flex-col items-center">
-                      <div className="relative">
-                        <div className="bg-white border-2 border-[#FCC821] text-black text-[10px] font-medium px-3 py-2 rounded-md shadow-md whitespace-nowrap">
-                          {srtdata.discount === "" ? (
-                            <p>No more discount at the moment</p>
-                          ) : (
-                            <p>{srtdata.discount}</p>
-                          )}
+                      {/* <div className="absolute bottom-full mb-2 hidden group-hover:flex flex-col items-center">
+                        <div className="relative">
+                          <div className="bg-white border-2 border-[#FCC821] text-black text-[10px] font-medium px-3 py-2 rounded-md shadow-md whitespace-nowrap">
+                            {srtdata.discount === "" ? (
+                              <p>No more discount at the moment</p>
+                            ) : (
+                              <p>{srtdata.discount}</p>
+                            )}
+                          </div>
                         </div>
-                        
-                      </div>
+                      </div> */}
+                      {/* {setDiscountCode(srtdata.discount)} */}
+                    </div>
+
+                    <div className="w-[12%] flex items-center justify-center">
+                      <p>{srtdata.rating}</p>
+                    </div>
+                    <div className="w-[18%] flex items-center justify-center text-center">
+                      <a
+                        href={srtdata.websiteURL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <div className="py-[14px] px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer">
+                          Visit Pharmacy
+                        </div>
+                      </a>
                     </div>
                   </div>
+                ))}
 
-                  <div className="w-[12%] flex items-center justify-center">
-                    <p>{srtdata.rating}</p>
+                {/* Modal */}
+                {isDiscountModalOpen && (
+                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
+                    <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
+                      <h2 className="text-[24px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
+                        Free Gift Voucher
+                      </h2>
+
+                      <p className="text-md mb-4 text-center">
+                        Congratulation you get a discount code
+                      </p>
+                      <p className="text-2xl font-[600] mb-4 text-center">
+                        Your Coupon Code is: <br />
+                        <span className="font-bold text-3xl text-[#FCC821]">
+                        {selectedDiscount === '' ? 'No Discount Available' : selectedDiscount}
+                        </span>
+                      </p>
+                      <button
+                        onClick={closediscountModal}
+                        className="w-full cursor-pointer transition duration-700 mt-2 px-4 py-2 bg-[#FCC821] text-white rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
+                      >
+                        Close
+                      </button>
+                    </div>
                   </div>
-                  <div className="w-[18%] flex items-center justify-center text-center">
-                    <a
-                      href={srtdata.websiteURL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <div className="py-[14px] px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer">
-                        Visit Pharmacy
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              ))}
+                )}
+              </>
 
               {/* Pagination */}
               <div className="flex items-center justify-center space-x-2 py-4">
