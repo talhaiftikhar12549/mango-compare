@@ -1,51 +1,58 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: 0,
   mainData: [],
   filteredName: [],
-  filteredMaxValue: 0,
+  mPrice: [],
   resetButton: false,
-}
+};
 
 export const compareToolSlice = createSlice({
-  name: 'compareTool',
+  name: "compareTool",
   initialState,
   reducers: {
     increment: (state) => {
-      state.value += 1
+      state.value += 1;
     },
     decrement: (state) => {
-      state.value -= 1
+      state.value -= 1;
     },
     mainDatagetter: (state, action) => {
       state.mainData = action.payload;
-      console.log("data getter in store",state.mainData)
+      console.log("data getter in store", state.mainData);
     },
     dosageFiltedDta: (state, action) => {
-      const dosgFltrData = action.payload
-      state.mainData = dosgFltrData
-      console.log("dosage filter data in store",state.mainData)
+      const dosgFltrData = action.payload;
+      state.mainData = dosgFltrData;
+      console.log("dosage filter data in store", state.mainData);
     },
-    DosagName: (state, action) => { 
-      const dosgName = action.payload
-      state.filteredName = dosgName
-      console.log("dosage name in store",state.filteredName)
+    DosagName: (state, action) => {
+      const dosgName = action.payload;
+      state.filteredName = dosgName;
+      console.log("dosage name in store", state.filteredName);
     },
     mVal: (state, action) => {
-      const maxVal = action.payload
-      state.filteredMaxValue = maxVal
-      console.log("max value in store",state.filteredMaxValue)
-    }, 
+      const maxVal = action.payload;
+      state.mPrice = maxVal
+      console.log("max value in store", maxVal);
+      console.log("max value in store varibale in store", state.mPrice );
+    },
     resetter: (state) => {
-      
-      state.resetButton = true
-      console.log("reset button in store",state.resetButton)
-    },  
+      state.resetButton = true;
+      console.log("reset button in store", state.resetButton);
+    },
   },
-})
+});
 
+export const {
+  increment,
+  mVal,
+  decrement,
+  incrementByAmount,
+  mainDatagetter,
+  dosageFiltedDta,
+  DosagName,
+} = compareToolSlice.actions;
 
-export const { increment, mVal, decrement, incrementByAmount, mainDatagetter, dosageFiltedDta, DosagName } = compareToolSlice.actions
-
-export default compareToolSlice.reducer
+export default compareToolSlice.reducer;

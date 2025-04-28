@@ -6,7 +6,11 @@ import { mainDatagetter } from "../redux toolkit/compareToolSlice";
 import { IoClose } from "react-icons/io5";
 import Img from "../assets/price tool/img.png";
 
-export default function PriceCalculator({ maindata, availableDoasge, isResetter }) {
+export default function PriceCalculator({
+  maindata,
+  availableDoasge,
+  isResetter,
+}) {
   // Form detail
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -42,6 +46,11 @@ export default function PriceCalculator({ maindata, availableDoasge, isResetter 
   );
   console.log("max value coming from store", filteredMaxValue);
   console.log("data coming from store", fltrData);
+  const maxMinPrice = useSelector((state) => state.compareTool.mPrice);
+  console.log(
+    "min max price coming from store in price calculator component",
+    maxMinPrice
+  );
   const filteredName = useSelector((state) => state.compareTool.filteredName);
   console.log("filter name coming from store", filteredName);
   const [sortPrice, setSortPrice] = useState("lp");
@@ -63,34 +72,62 @@ export default function PriceCalculator({ maindata, availableDoasge, isResetter 
     setFilteredData(() => sortedQuantity);
   };
   const sortedPrice = useMemo(() => {
-    return [...fltrData].sort((a, b) =>
+    return [...filteredData].sort((a, b) =>
       sortPrice === "lp" ? a.price - b.price : b.price - a.price
     );
-  }, [fltrData, sortPrice]);
+  }, [filteredData, sortPrice]);
 
   const sortedQuantity = useMemo(() => {
-    return [...fltrData].sort((a, b) =>
+    return [...filteredData].sort((a, b) =>
       sortQuntity === "lq" ? a.quantity - b.quantity : b.quantity - a.quantity
     );
-  }, [fltrData, sortQuntity]);
+  }, [filteredData, sortQuntity]);
 
   const sortedRating = useMemo(() => {
-    return [...fltrData].sort((a, b) =>
+    return [...filteredData].sort((a, b) =>
       sortRating === "lr" ? a.rating - b.rating : b.rating - a.rating
     );
-  }, [fltrData, sortRating]);
+  }, [filteredData, sortRating]);
+  // useEffect(() => {
+  //   if (filteredName?.length > 0 ) {
+  //     const filtered = fltrData.filter((item) =>
+  //       filteredName.includes(item.dosage)
+  //     );
+  //     setFilteredData(filtered);
+  //     console.log("filteredName:", filteredName);
+  //     console.log("Filtered data with dosage in main component:", filtered);
+  //   } 
+  //   else {
+  //     setFilteredData(maindata);
+  //   }
+  // }, [filteredName, fltrData]);
   useEffect(() => {
-    if (filteredName?.length > 0) {
-      const filtered = fltrData.filter((item) =>
-        filteredName.includes(item.dosage)
-      );
+    if (filteredName?.length > 0 && maxMinPrice?.length === 2) {
+      const [minPrice, maxPrice] = maxMinPrice;
+  
+      const filtered = fltrData.filter((item) => {
+        const isDosageMatch = filteredName.includes(item.dosage);
+        const price = parseFloat(item.price); // 👈 important because your price is a string
+        const isPriceInRange = price >= minPrice && price <= maxPrice;
+        return isDosageMatch && isPriceInRange;
+      });
+  
       setFilteredData(filtered);
       console.log("filteredName:", filteredName);
-      console.log("Filtered data with dosage in main component:", filtered);
+      console.log("Filtered data with dosage and price range:", filtered);
+    } else if (maxMinPrice?.length === 2) {
+      const [minPrice, maxPrice] = maxMinPrice;
+  
+      const filteredByPrice = maindata.filter((item) => {
+        const price = parseFloat(item.price); // 👈 again, parse float
+        return price >= minPrice && price <= maxPrice;
+      });
+  
+      setFilteredData(filteredByPrice);
     } else {
       setFilteredData(maindata);
     }
-  }, [filteredName, fltrData]);
+  }, [filteredName, fltrData, maxMinPrice]);
   // dosage filter
   // card data
 
@@ -102,14 +139,14 @@ export default function PriceCalculator({ maindata, availableDoasge, isResetter 
 
   const MaxValue = () => {
     // Do something with val, like calculating the max price
-    const maxVal = Math.max(...filteredData.map((item) => item.price));
+    const maxVal = Math.max(...maindata.map((item) => item.price));
     console.log("Max value:", maxVal);
     return maxVal;
   };
 
   const MinValue = () => {
     // Do something with val, like calculating the max price
-    const minVal = Math.min(...filteredData.map((item) => item.price));
+    const minVal = Math.min(...maindata.map((item) => item.price));
     console.log("Min value:", minVal);
     return minVal;
   };
@@ -136,7 +173,12 @@ export default function PriceCalculator({ maindata, availableDoasge, isResetter 
       <section className="max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px] mx-auto py-[100px] w-[100%]">
         <div className="flex w-[100%]">
           <div className="w-[25%] pr-[20px] ">
-            <FilterBar availableDoasge={availableDoasge} maxVal={MaxValue()} minValue={MinValue()} isResetter={isResetter} />
+            <FilterBar
+              availableDoasge={availableDoasge}
+              maxVal={MaxValue()}
+              minValue={MinValue()}
+              isResetter={isResetter}
+            />
           </div>
           <div className="w-[75%]">
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">

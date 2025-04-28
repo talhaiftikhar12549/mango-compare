@@ -3,13 +3,18 @@ import { useDispatch } from "react-redux";
 import { incrementByAmount, mVal } from "../redux toolkit/compareToolSlice";
 import { Range } from "react-range";
 
-const PriceFilter = ({ maxVal , minValue , isReset}) => {
+const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const dispatch = useDispatch();
   const [price, setPrice] = useState([minValue, maxVal]); // two values: min and max
   const [isHide, setIsHide] = useState(true);
   const contentRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState("0px");
-console.log("min and max prices coming from price filter",minValue,"   ", maxVal);
+  console.log(
+    "min and max prices coming from price filter",
+    minValue,
+    "   ",
+    maxVal
+  );
   useEffect(() => {
     if (contentRef.current) {
       setMaxHeight(isHide ? `${contentRef.current.scrollHeight}px` : "0px");
@@ -23,11 +28,9 @@ console.log("min and max prices coming from price filter",minValue,"   ", maxVal
     dispatch(mVal(price));
   }, [price, dispatch]);
 
-
-
   useEffect(() => {
     if (isReset) {
-      setPrice([minValue, maxVal]);  // ✅ just one set of brackets
+      setPrice([minValue, maxVal]); // ✅ just one set of brackets
     }
   }, [isReset, minValue, maxVal]);
 
@@ -57,7 +60,7 @@ console.log("min and max prices coming from price filter",minValue,"   ", maxVal
         <div className="space-y-[24px] pt-4 px-3">
           <Range
             step={1}
-            min={minValue} 
+            min={minValue}
             max={maxVal}
             values={price}
             onChange={(values) => setPrice(values)}
@@ -92,8 +95,8 @@ console.log("min and max prices coming from price filter",minValue,"   ", maxVal
           />
 
           <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-700">Min. £ {price[0]}.00</p>
-            <p className="text-sm text-gray-700">Max. £ {price[1]}.00</p>
+            <p className="text-sm text-gray-700">Min. £ {price[0]}</p>
+            <p className="text-sm text-gray-700">Max. £ {price[1]}</p>
           </div>
         </div>
       </div>
