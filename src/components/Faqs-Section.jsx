@@ -20,7 +20,7 @@ export default function FaqsSection({ items }) {
           {items.map((item, index) => (
             <div
               key={index}
-              className={`border w-full border-solid border-[#E6E8EC] p-[20px] md:p-[24px] ${
+              className={`border w-full border-solid border-[#E6E8EC] cursor-pointer  p-[20px] md:p-[24px] ${
                 activeIndex === index ? "bg-[#F5F6F7]" : "bg-white"
               }`}
               onClick={() => handleClick(index)}

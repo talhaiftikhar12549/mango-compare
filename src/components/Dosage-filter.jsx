@@ -34,7 +34,7 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
       console.log("Selected Dosage", selectedDosage);
       dispatch(dosageFiltedDta(filtered));
     } else {
-      dispatch(dosageFiltedDta([])); 
+      dispatch(dosageFiltedDta([]));
     }
   }, [selectedDosage, fltrData, dispatch]);
 
@@ -78,7 +78,7 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
                 type="checkbox"
                 checked={selectedDosage.includes(dose)}
                 onChange={() => selectedDosg(dose)}
-                className="form-checkbox accent-yellow-400"
+                className="form-checkbox accent-yellow-400 cursor-pointer"
               />
               <span
                 className={`text-sm ${

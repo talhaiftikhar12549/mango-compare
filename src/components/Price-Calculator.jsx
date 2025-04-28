@@ -220,9 +220,26 @@ export default function PriceCalculator({
                       </p>
                     )}
                   </div>
-                  <div className="w-[15%] flex items-center justify-center">
-                    <p>{srtdata.quantity}</p>
+
+                  <div className="w-[15%] flex items-center justify-center cursor-pointer relative group">
+                    <p className="text-[#FCC821] text-[18px] font-[600] cursor-pointer">
+                      show
+                    </p>
+                    <div className="absolute bottom-full mb-2 hidden group-hover:flex flex-col items-center">
+                      <div className="relative">
+                        <div className="bg-white border-2 border-[#FCC821] text-black text-[10px] font-medium px-3 py-2 rounded-md shadow-md whitespace-nowrap">
+                          {srtdata.discount === "" ? (
+                            <p>No more discount at the moment</p>
+                          ) : (
+                            <p>{srtdata.discount}</p>
+                          )}
+                        </div>
+
+                        {/* <div className="absolute left-1/2 transform -translate-x-1/2 top-full w-3 h-3 bg-white border-l-2 border-b-2 border-[#FCC821] rotate-45"></div> */}
+                      </div>
+                    </div>
                   </div>
+
                   <div className="w-[12%] flex items-center justify-center">
                     <p>{srtdata.rating}</p>
                   </div>

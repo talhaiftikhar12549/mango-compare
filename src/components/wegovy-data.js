@@ -7,6 +7,9 @@ const wegovyData = [
     price: "129.52",
     quantity: "1",
     date: "10-07-2024",
+    discount: "",
+    
+    
   },
   {
     id: 2,
@@ -17,6 +20,7 @@ const wegovyData = [
     price: "177.03",
     quantity: "16",
     date: "28-06-2024",
+    discount: "",
   },
   {
     id: 3,
@@ -27,6 +31,7 @@ const wegovyData = [
     price: "162.39",
     quantity: "5",
     date: "18-02-2024",
+    discount: "",
   },
   {
     id: 4,
@@ -37,6 +42,7 @@ const wegovyData = [
     price: "143.52",
     quantity: "18",
     date: "01-03-2024",
+    discount: "",
   },
   {
     id: 5,
@@ -47,6 +53,7 @@ const wegovyData = [
     price: "176.08",
     quantity: "17",
     date: "16-02-2024",
+    discount: "",
   },
   {
     id: 6,
@@ -57,6 +64,7 @@ const wegovyData = [
     price: "143.33",
     quantity: "5",
     date: "08-01-2024",
+    discount: "",
   },
   {
     id: 7,
@@ -67,6 +75,7 @@ const wegovyData = [
     price: "163.50",
     quantity: "5",
     date: "23-03-2024",
+    discount: "",
   },
   {
     id: 8,
@@ -77,6 +86,7 @@ const wegovyData = [
     price: "153.42",
     quantity: "4",
     date: "27-06-2024",
+    discount: "",
   },
   {
     id: 9,
@@ -87,6 +97,7 @@ const wegovyData = [
     price: "142.05",
     quantity: "10",
     date: "05-01-2024",
+    discount: "",
   },
   {
     id: 10,
@@ -97,6 +108,7 @@ const wegovyData = [
     price: "143.26",
     quantity: "11",
     date: "08-06-2024",
+    discount: "",
   },
   {
     id: 11,
@@ -107,6 +119,8 @@ const wegovyData = [
     price: "163.50",
     quantity: "5",
     date: "23-03-2024",
+    discount: "",
+    
   },
   {
     id: 12,
@@ -117,6 +131,8 @@ const wegovyData = [
     price: "153.42",
     quantity: "4",
     date: "27-06-2024",
+    discount: "",
+    
   },
   {
     id: 13,
@@ -127,6 +143,8 @@ const wegovyData = [
     price: "142.05",
     quantity: "10",
     date: "05-01-2024",
+    discount: "",
+    
   },
   {
     id: 14,
@@ -137,6 +155,8 @@ const wegovyData = [
     price: "143.26",
     quantity: "11",
     date: "08-06-2024",
+    discount: "",
+    
   },
   {
     id: 15,
@@ -147,6 +167,8 @@ const wegovyData = [
     price: "163.50",
     quantity: "5",
     date: "23-03-2024",
+    discount: "",
+    
   },
   {
     id: 16,
@@ -157,6 +179,8 @@ const wegovyData = [
     price: "153.42",
     quantity: "4",
     date: "27-06-2024",
+    discount: "",
+    
   },
   {
     id: 17,
@@ -167,6 +191,8 @@ const wegovyData = [
     price: "142.05",
     quantity: "10",
     date: "05-01-2024",
+    discount: "",
+    
   },
   {
     id: 18,
@@ -177,6 +203,8 @@ const wegovyData = [
     price: "143.26",
     quantity: "11",
     date: "08-06-2024",
+    discount: "",
+    
   },
   {
     id: 19,
@@ -187,6 +215,8 @@ const wegovyData = [
     price: "163.50",
     quantity: "5",
     date: "23-03-2024",
+    discount: "",
+    
   },
   {
     id: 20,
@@ -197,6 +227,8 @@ const wegovyData = [
     price: "153.42",
     quantity: "4",
     date: "27-06-2024",
+    discount: "",
+    
   },
   {
     id: 21,
@@ -207,6 +239,8 @@ const wegovyData = [
     price: "142.05",
     quantity: "10",
     date: "05-01-2024",
+    discount: "",
+    
   },
   {
     id: 22,
@@ -217,6 +251,8 @@ const wegovyData = [
     price: "143.26",
     quantity: "11",
     date: "08-06-2024",
+    discount: "",
+    
   },
   // …plus 40 more entries following the same pattern
 ];
