@@ -234,8 +234,7 @@ export default function PriceCalculator({
                             <p>{srtdata.discount}</p>
                           )}
                         </div>
-
-                        {/* <div className="absolute left-1/2 transform -translate-x-1/2 top-full w-3 h-3 bg-white border-l-2 border-b-2 border-[#FCC821] rotate-45"></div> */}
+                        
                       </div>
                     </div>
                   </div>
