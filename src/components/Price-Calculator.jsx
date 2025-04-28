@@ -36,10 +36,7 @@ export default function PriceCalculator({
   dispatch(mainDatagetter(maindata));
   console.log("main data in price calc", maindata);
 
-  // useEffect(() => {
-  //   dispatch(mainDatagetter(maindata));
-  // }, [dispatch, maindata]);
-  // navbar filters
+  // navbar filters Price and Ratting Filter
   const fltrData = useSelector((state) => state.compareTool.mainData);
   const filteredMaxValue = useSelector(
     (state) => state.compareTool.filteredMaxValue
@@ -55,9 +52,6 @@ export default function PriceCalculator({
   console.log("filter name coming from store", filteredName);
   const [sortPrice, setSortPrice] = useState("lp");
   const [sortRating, setSortRating] = useState("lr");
-  const [sortQuntity, setSortQuantity] = useState("lq");
-  const [selectedDosage, setSelectedDosage] = useState();
-  const [sortMaxValue, setSortMaxValue] = useState(fltrData);
   const [filteredData, setFilteredData] = useState(fltrData);
   const toggleSortPrice = () => {
     setSortPrice((prev) => (prev === "lp" ? "hp" : "lp"));
@@ -67,106 +61,87 @@ export default function PriceCalculator({
     setSortRating((prev) => (prev === "lr" ? "hr" : "lr"));
     setFilteredData(() => sortedRating);
   };
-  const toggleSortQuantity = () => {
-    setSortQuantity((prev) => (prev === "lq" ? "hq" : "lq"));
-    setFilteredData(() => sortedQuantity);
-  };
+
   const sortedPrice = useMemo(() => {
     return [...filteredData].sort((a, b) =>
       sortPrice === "lp" ? a.price - b.price : b.price - a.price
     );
   }, [filteredData, sortPrice]);
 
-  const sortedQuantity = useMemo(() => {
-    return [...filteredData].sort((a, b) =>
-      sortQuntity === "lq" ? a.quantity - b.quantity : b.quantity - a.quantity
-    );
-  }, [filteredData, sortQuntity]);
-
   const sortedRating = useMemo(() => {
     return [...filteredData].sort((a, b) =>
       sortRating === "lr" ? a.rating - b.rating : b.rating - a.rating
     );
   }, [filteredData, sortRating]);
-  // useEffect(() => {
-  //   if (filteredName?.length > 0 ) {
-  //     const filtered = fltrData.filter((item) =>
-  //       filteredName.includes(item.dosage)
-  //     );
-  //     setFilteredData(filtered);
-  //     console.log("filteredName:", filteredName);
-  //     console.log("Filtered data with dosage in main component:", filtered);
-  //   } 
-  //   else {
-  //     setFilteredData(maindata);
-  //   }
-  // }, [filteredName, fltrData]);
+  // navbar filters Price and Ratting Filter
+
+  //  Filteration Process
   useEffect(() => {
     if (filteredName?.length > 0 && maxMinPrice?.length === 2) {
       const [minPrice, maxPrice] = maxMinPrice;
-  
+
       const filtered = fltrData.filter((item) => {
         const isDosageMatch = filteredName.includes(item.dosage);
-        const price = parseFloat(item.price); // 👈 important because your price is a string
+        const price = parseFloat(item.price);
         const isPriceInRange = price >= minPrice && price <= maxPrice;
         return isDosageMatch && isPriceInRange;
       });
-  
+
       setFilteredData(filtered);
       console.log("filteredName:", filteredName);
       console.log("Filtered data with dosage and price range:", filtered);
     } else if (maxMinPrice?.length === 2) {
       const [minPrice, maxPrice] = maxMinPrice;
-  
+
       const filteredByPrice = maindata.filter((item) => {
-        const price = parseFloat(item.price); // 👈 again, parse float
+        const price = parseFloat(item.price);
         return price >= minPrice && price <= maxPrice;
       });
-  
+
       setFilteredData(filteredByPrice);
     } else {
       setFilteredData(maindata);
     }
   }, [filteredName, fltrData, maxMinPrice]);
-  // dosage filter
-  // card data
+  //  Filteration Process
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
-  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-  const [isSubscribed, setIsSubscribed] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+  // Min Max Logic
   const MaxValue = () => {
-    // Do something with val, like calculating the max price
     const maxVal = Math.max(...maindata.map((item) => item.price));
     console.log("Max value:", maxVal);
     return maxVal;
   };
 
   const MinValue = () => {
-    // Do something with val, like calculating the max price
     const minVal = Math.min(...maindata.map((item) => item.price));
     console.log("Min value:", minVal);
     return minVal;
   };
+  // Min Max Logic
+
+  // card data
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const pageData = useMemo(() => {
     const start = (currentPage - 1) * itemsPerPage;
     const newval = filteredData.slice(start, start + itemsPerPage);
 
-    // Side effect here (usually not ideal inside useMemo)
-
     return newval;
   }, [filteredData, currentPage, itemsPerPage]);
+  // card data
 
+  // Login Modal Open and close modal
   const closeModal = () => {
     setIsModalOpen(false);
   };
   const toggelModal = () => {
     setIsModalOpen(true);
   };
-  // card data
+  // Login Modal Open and close modal
 
   return (
     <>
@@ -219,8 +194,6 @@ export default function PriceCalculator({
             </div>
             {/* card section */}
             <div>
-              {/* <CardResult sortedPrice={filteredData} /> */}
-
               {pageData.map((srtdata) => (
                 <div
                   key={srtdata.id}

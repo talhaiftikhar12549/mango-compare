@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { incrementByAmount, mVal } from "../redux toolkit/compareToolSlice";
+import { mVal } from "../redux toolkit/compareToolSlice";
 import { Range } from "react-range";
 
 const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const dispatch = useDispatch();
-  const [price, setPrice] = useState([minValue, maxVal]); // two values: min and max
+  const [price, setPrice] = useState([minValue, maxVal]);
   const [isHide, setIsHide] = useState(true);
   const contentRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState("0px");
@@ -23,14 +23,13 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
 
   const handleClick = () => setIsHide(!isHide);
 
-  // Whenever price changes, you can dispatch or update Redux
   useEffect(() => {
     dispatch(mVal(price));
   }, [price, dispatch]);
 
   useEffect(() => {
     if (isReset) {
-      setPrice([minValue, maxVal]); // ✅ just one set of brackets
+      setPrice([minValue, maxVal]);
     }
   }, [isReset, minValue, maxVal]);
 
@@ -85,7 +84,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
                   height: "20px",
                   width: "20px",
                   borderRadius: "50%",
-                  backgroundColor: "#FFD700", // gold/yellow
+                  backgroundColor: "#FFD700",
                   cursor: "pointer",
                   border: "2px solid #fff",
                   boxShadow: "0 0 5px rgba(0,0,0,0.2)",
