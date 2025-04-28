@@ -4,7 +4,6 @@ import { IoMdMail } from "react-icons/io";
 
 import ContactForm from "../components/contact-form";
 
-
 const Contact = () => {
   return (
     <div className="max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px] mx-auto flex flex-col items-center pb-[200px]">
@@ -47,4 +46,4 @@ const Contact = () => {
   );
 };
 
-export default Contact
+export default Contact;

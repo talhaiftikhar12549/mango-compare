@@ -18,10 +18,8 @@ export const compareToolSlice = createSlice({
       state.value -= 1
     },
     mainDatagetter: (state, action) => {
-      // state.value += action.payload
       state.mainData = action.payload;
       console.log("data getter in store",state.mainData)
-      // const newdata = state.mainData
     },
     dosageFiltedDta: (state, action) => {
       const dosgFltrData = action.payload
@@ -41,7 +39,7 @@ export const compareToolSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
+
 export const { increment, mVal, decrement, incrementByAmount, mainDatagetter, dosageFiltedDta, DosagName } = compareToolSlice.actions
 
 export default compareToolSlice.reducer

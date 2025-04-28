@@ -3,8 +3,12 @@ import DosageFilter from "./Dosage-filter";
 import { useState } from "react";
 export default function FilterBar({ availableDoasge, maxVal }) {
   const [isReset, setIsReset] = useState(false);
+
   const handleReset = () => {
-    setIsReset(!isReset);
+    setIsReset(true);
+    setTimeout(() => {
+      setIsReset(false);
+    }, 500); // 500 milliseconds = 0.5 seconds
   };
 
   return (

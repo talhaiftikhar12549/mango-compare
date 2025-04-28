@@ -1,5 +1,5 @@
 import Img from "../assets/price tool/img.png";
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from "react";
 import { IoClose } from "react-icons/io5";
 export default function CardResult({ sortedPrice, sortedRating }) {
   const [fullName, setFullName] = useState("");
@@ -35,11 +35,11 @@ export default function CardResult({ sortedPrice, sortedRating }) {
   };
   const toggelModal = () => {
     setIsModalOpen(true);
-  }
- 
+  };
+
   return (
     <>
-      {pageData.map(srtdata => (
+      {pageData.map((srtdata) => (
         <div
           key={srtdata.id}
           className="flex w-full py-[30px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]"
@@ -54,7 +54,16 @@ export default function CardResult({ sortedPrice, sortedRating }) {
             <p>{srtdata.dosage}</p>
           </div>
           <div className="w-[15%] flex items-center justify-center">
-            {isSubscribed ? <p>£ {srtdata.price}</p> : <p onClick={toggelModal} className="text-[#FCC821] text-[18px] font-[600] cursor-pointer border-b-[2px] border-[#ffffff] hover:border-b-[2px] hover:border-[#FCC821] transition duration-500">View Price</p>}
+            {isSubscribed ? (
+              <p>£ {srtdata.price}</p>
+            ) : (
+              <p
+                onClick={toggelModal}
+                className="text-[#FCC821] text-[18px] font-[600] cursor-pointer border-b-[2px] border-[#ffffff] hover:border-b-[2px] hover:border-[#FCC821] transition duration-500"
+              >
+                View Price
+              </p>
+            )}
           </div>
           <div className="w-[15%] flex items-center justify-center">
             <p>{srtdata.quantity}</p>
@@ -63,7 +72,11 @@ export default function CardResult({ sortedPrice, sortedRating }) {
             <p>{srtdata.rating}</p>
           </div>
           <div className="w-[18%] flex items-center justify-center text-center">
-            <a href={srtdata.websiteURL} target="_blank" rel="noopener noreferrer">
+            <a
+              href={srtdata.websiteURL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <div className="py-[14px] px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer">
                 Visit Pharmacy
               </div>
@@ -72,11 +85,10 @@ export default function CardResult({ sortedPrice, sortedRating }) {
         </div>
       ))}
 
-
       {/* Pagination */}
       <div className="flex items-center justify-center space-x-2 py-4">
         <button
-          onClick={() => setCurrentPage(p => Math.max(p - 1, 1))}
+          onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
           disabled={currentPage === 1}
           className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
         >
@@ -87,15 +99,16 @@ export default function CardResult({ sortedPrice, sortedRating }) {
           <button
             key={i + 1}
             onClick={() => setCurrentPage(i + 1)}
-            className={`px-3 py-1 rounded ${currentPage === i + 1 ? 'bg-[#FCC821] text-white' : 'bg-gray-100'
-              }`}
+            className={`px-3 py-1 rounded ${
+              currentPage === i + 1 ? "bg-[#FCC821] text-white" : "bg-gray-100"
+            }`}
           >
             {i + 1}
           </button>
         ))}
 
         <button
-          onClick={() => setCurrentPage(p => Math.min(p + 1, totalPages))}
+          onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
           disabled={currentPage === totalPages}
           className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
         >
@@ -106,22 +119,24 @@ export default function CardResult({ sortedPrice, sortedRating }) {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
-
             <div className="relative flex items-center justify-between mb-4">
               <h2 className="text-[24px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-0 text-center w-full">
                 ADD DETAIL
               </h2>
-              <div onClick={closeModal} className="absolute text-[30px] flex align-items-center right-0 top-0 cursor-pointer">
+              <div
+                onClick={closeModal}
+                className="absolute text-[30px] flex align-items-center right-0 top-0 cursor-pointer"
+              >
                 <IoClose />
               </div>
             </div>
 
-
-
             {/* Form Starts Here */}
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Full Name
+                </label>
                 <input
                   type="text"
                   required
@@ -132,7 +147,9 @@ export default function CardResult({ sortedPrice, sortedRating }) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  Email
+                </label>
                 <input
                   type="email"
                   required
@@ -153,7 +170,6 @@ export default function CardResult({ sortedPrice, sortedRating }) {
           </div>
         </div>
       )}
-
     </>
   );
 }

@@ -19,7 +19,7 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
       } else {
         updatedSelection = [...selectedDosage, dose];
       }
- 
+
       setSelectedDosage(updatedSelection);
       dispatch(DosagName(updatedSelection));
     },
@@ -30,9 +30,8 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
     if (selectedDosage.length > 0) {
       const filtered = fltrData.filter((item) =>
         selectedDosage.includes(item.dosage)
-     
       );
-      console.log("Selected Dosage",selectedDosage)
+      console.log("Selected Dosage", selectedDosage);
       dispatch(dosageFiltedDta(filtered));
     } else {
       dispatch(dosageFiltedDta([])); // Or dispatch all data if needed
@@ -99,11 +98,6 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
 };
 
 export default DosageFilter;
-
-
-
-
-
 
 // import { useRef, useState, useEffect } from "react";
 // import { useSelector, useDispatch } from "react-redux";

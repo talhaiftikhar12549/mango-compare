@@ -137,7 +137,7 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
                 <p>Pharmacy</p>
               </div>
               <div className="w-[15%] flex items-center justify-center">
-                <p className="flex items-center cursor-pointer">Dosage</p>
+                <p className="flex items-center">Dosage</p>
               </div>
               <div className="w-[15%] flex items-center justify-center">
                 <p
@@ -151,7 +151,7 @@ export default function PriceCalculator({ maindata, availableDoasge }) {
                 </p>
               </div>
               <div className="w-[15%] flex items-center justify-center">
-                <p className="flex items-center cursor-pointer">Discount </p>
+                <p className="flex items-center ">Discount </p>
               </div>
               <div className="w-[12%] flex items-center justify-center">
                 <p
