@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export default function HomeHero() {
   return (
     <section className="max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px] mx-auto ">
-      <div className="flex flex-col lg:flex-row justify-between items-center">
+      <div className="flex flex-col lg:flex-row justify-between items-top h-full">
         <div className="w-full lg:w-[60%]">
           <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[60px]  font-[700] font-montserrat text-[#05222E]">
             Giving you the best price comparison in the UK
@@ -38,7 +38,7 @@ export default function HomeHero() {
             </button>
           </div>
         </div>
-        <div className="w-[40%] hidden md:flex justify-end">
+        <div className="w-[40%] h-full hidden py-5 md:flex justify-end">
           <img className="h-full" src={heroImage} alt="Hero" />
         </div>
       </div>

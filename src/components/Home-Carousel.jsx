@@ -27,10 +27,10 @@ const Carousel = () => {
         ].map((text, index) => (
           <div
             key={index}
-            className="flex justify-center items-center min-h-[300px] px-4 sm:px-8 md:px-16"
+            className="flex justify-center items-center  px-4 sm:px-8 md:px-16"
           >
             <div className="w-full">
-              <div className="bg-[#FF9E34] p-6 sm:p-10 md:p-16 rounded-[20px]">
+              <div className="bg-[#FF9E34] p-6 sm:p-10 md:p-16 md:min-h-[317px] rounded-[20px] min-h-[216px] sm:min-h-[242px] lg:min-h-[300px] xl:min-h-[416px]">
                 <h2 className="text-white font-[900] text-[28px] sm:text-[36px] md:text-[42px] xl:text-[64px] font-montserrat text-center">
                   {text}
                 </h2>
