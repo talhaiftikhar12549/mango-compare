@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { mainDatagetter } from "../redux toolkit/compareToolSlice";
 import { IoClose } from "react-icons/io5";
 import Img from "../assets/price tool/img.png";
-
+// import poperGif from "../assets/price tool/poper.gif";
 export default function PriceCalculator({
   maindata,
   availableDoasge,
@@ -248,8 +248,8 @@ export default function PriceCalculator({
                         selectedDiscountId === srtdata.id && (
                           <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
                             <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
-                              <h2 className="text-[20px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
-                                Congratulations! You get a discount code.
+                              <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
+                                Congratulations! <br /> <span className="text-[16px] font-[500]" >You get a Special Mango Compare Discount.</span>
                               </h2>
                               <p
                                 className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]

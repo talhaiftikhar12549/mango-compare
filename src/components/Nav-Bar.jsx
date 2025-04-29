@@ -80,7 +80,7 @@ export default function NavBar() {
                 }
               >
                 <button className=" cursor-pointer  rounded-[10px]">
-                  Contant Now
+                Contact Now
                 </button>
               </NavLink>
             </div>
