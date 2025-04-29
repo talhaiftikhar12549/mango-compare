@@ -9,7 +9,7 @@ export default function FaqsSection({ items }) {
 
   return (
     <>
-      <section className="max-w-[1280px] w-full px-4 md:px-8 xl:px-0 mx-auto flex flex-col justify-start pt-[60px] md:pt-[88px] pb-[120px] md:pb-[200px]">
+      <section className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto flex flex-col justify-start pt-[60px] md:pt-[88px] pb-[120px] md:pb-[200px]">
         <div className="w-full pb-[40px] md:pb-[56px]">
           <h2 className="text-[32px] md:text-[48px] lg:text-[56px] font-[700] text-center font-montserrat text-[#061C3D] leading-tight">
             Frequently Asked Questions

@@ -5,3 +5,9 @@
 body {
     font-family: "Montserrat", sans-serif;
 }
+
+@media (min-width: 1260px) and (max-width: 1290px) {
+    .custom-width {
+      width: 95%;
+    }
+  }

@@ -60,7 +60,7 @@ const WegovyCompare = () => {
         image={image1}
       />
 
-      <div className="max-w-[1280px] w-full px-4 md:px-8 xl:px-0 mx-auto">
+      <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto">
         <span className="block text-[22px] md:text-[24px] font-[600] font-montserrat text-[#202244]">
           Cut your Wegovy costs by up to 28%—compare prices with Mango!
         </span>
@@ -77,7 +77,7 @@ const WegovyCompare = () => {
         </p>
       </div>
 
-      <div className="max-w-[1280px] w-full px-4 md:px-8 xl:px-0 mx-auto pt-[40px] md:pt-[50px]">
+      <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto pt-[40px] md:pt-[50px]">
         <span className="block text-[22px] md:text-[24px] font-[600] font-montserrat text-[#202244]">
           Mango finds you the best price without compromising your
           GP-recommended dosage

@@ -6,7 +6,7 @@ export default function FooterBar() {
   return (
     <>
       <footer className="bg-[#141414] flex justify-center align-items-center w-full pt-[60px]">
-        <div className=" text-white max-w-[1280px] w-[100%] lg:px-[40px] xl:px-0 px-[16px] ">
+        <div className=" text-white max-w-[1280px] custom-width  w-[100%] lg:px-[40px] xl:px-0 px-[16px] ">
           <div className="mx-auto px-0">
             {/* Main Footer */}
             <div className="flex flex-col md:flex-row flex-wrap md:justify-between justify-center align-items-center">
