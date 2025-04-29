@@ -28,7 +28,7 @@ export default function FooterBar() {
                     placeholder="Email address"
                     className="flex-1 min-w-[200px] border-none p-3 text-[18px] text-[#6A778B] outline-none rounded-l-lg font-normal"
                   />
-                  <button className="flex-shrink-0 text-[16px] font-semibold bg-[#FFC836] px-6 md:px-6 sm:px-4 rounded-[10px] cursor-pointer ease-in-out hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] mt-2 sm:mt-0">
+                  <button className="flex-shrink-0 text-[16px] font-semibold bg-[#FFC836] px-6 py-2 md:px-6 sm:px-4 rounded-[10px] cursor-pointer ease-in-out hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] mt-2 sm:mt-0">
                     Subscribe
                   </button>
                 </div>
@@ -53,22 +53,22 @@ export default function FooterBar() {
                   {/* Links & Social Column */}
                   <div className="w-full md:w-1/2 flex flex-col gap-y-[36px]">
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">
+                      <h3 className="text-xl md:text-end text-start font-semibold mb-2 text-white">
                         Recent Projects
                       </h3>
                       {/* insert links or a list here if you have them */}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">
+                      <h3 className="text-xl md:text-end text-start font-semibold mb-2 text-white">
                         Blogs
                       </h3>
                       {/* insert links or a list here if you have them */}
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-2 text-white">
+                      <h3 className="text-xl md:text-end text-start font-semibold mb-2 text-white">
                         Social Media
                       </h3>
-                      <div className="flex items-center justify-start gap-4 py-2">
+                      <div className="flex md:justify-end justify-start items-center  gap-4 py-2">
                         <img
                           src={facebookIcon}
                           alt="Facebook"

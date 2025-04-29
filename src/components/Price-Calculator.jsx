@@ -15,7 +15,7 @@ export default function PriceCalculator({
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [DiscountCode, setDiscountCode] = useState("");
-  const [selectedDiscount, setSelectedDiscount] = useState('');
+  const [selectedDiscount, setSelectedDiscount] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("userEmail", email);
@@ -33,16 +33,22 @@ export default function PriceCalculator({
     }
   }, []);
   // Form detail
-  const [isDiscountModalOpen, setDiscountIsModalOpen] = useState(false);
+
   const dispatch = useDispatch();
   dispatch(mainDatagetter(maindata));
   console.log("main data in price calc", maindata);
-  const closediscountModal = () => {
+  const [isDiscountModalOpen, setDiscountIsModalOpen] = useState(false);
+  const [selectedDiscountId, setSelectedDiscountId] = useState(null);
+
+  // Functions
+  const closeDiscountModal = () => {
     setDiscountIsModalOpen(false);
+    setSelectedDiscountId(null);
   };
-  const openIscountModal = () => {
+
+  const openDiscountModal = (id) => {
     setDiscountIsModalOpen(true);
-    setSelectedDiscount(discount);
+    setSelectedDiscountId(id);
   };
   // navbar filters Price and Ratting Filter
   const fltrData = useSelector((state) => state.compareTool.mainData);
@@ -232,23 +238,39 @@ export default function PriceCalculator({
 
                     <div className="w-[15%] flex items-center justify-center cursor-pointer relative group">
                       <p
-                       onClick={() => openIscountModal(srtdata.discount)}
+                        onClick={() => openDiscountModal(srtdata.id)}
                         className="text-[#FCC821] text-[18px] font-[600] cursor-pointer"
                       >
                         show
                       </p>
-                      {/* <div className="absolute bottom-full mb-2 hidden group-hover:flex flex-col items-center">
-                        <div className="relative">
-                          <div className="bg-white border-2 border-[#FCC821] text-black text-[10px] font-medium px-3 py-2 rounded-md shadow-md whitespace-nowrap">
-                            {srtdata.discount === "" ? (
-                              <p>No more discount at the moment</p>
-                            ) : (
-                              <p>{srtdata.discount}</p>
-                            )}
+                      {/* Show the modal if the modal is open and the selected id matches */}
+                      {isDiscountModalOpen &&
+                        selectedDiscountId === srtdata.id && (
+                          <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
+                            <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
+                              <h2 className="text-[20px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
+                                Congratulations! You get a discount code.
+                              </h2>
+                              <p
+                                className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
+                                     rounded-[10px] py-[10px] px-4"
+                              >
+                                <span className="font-bold text-[#484848]">
+                                  {srtdata.discount === ""
+                                    ? "No discount"
+                                    : srtdata.discount}
+                                </span>
+                              </p>
+
+                              <button
+                                onClick={closeDiscountModal}
+                                className="w-full cursor-pointer transition duration-700 mt-2 px-4 py-2 bg-[#FCC821] text-white rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
+                              >
+                                Close
+                              </button>
+                            </div>
                           </div>
-                        </div>
-                      </div> */}
-                      {/* {setDiscountCode(srtdata.discount)} */}
+                        )}
                     </div>
 
                     <div className="w-[12%] flex items-center justify-center">
@@ -267,33 +289,6 @@ export default function PriceCalculator({
                     </div>
                   </div>
                 ))}
-
-                {/* Modal */}
-                {isDiscountModalOpen && (
-                  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
-                    <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
-                      <h2 className="text-[24px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
-                        Free Gift Voucher
-                      </h2>
-
-                      <p className="text-md mb-4 text-center">
-                        Congratulation you get a discount code
-                      </p>
-                      <p className="text-2xl font-[600] mb-4 text-center">
-                        Your Coupon Code is: <br />
-                        <span className="font-bold text-3xl text-[#FCC821]">
-                        {selectedDiscount === '' ? 'No Discount Available' : selectedDiscount}
-                        </span>
-                      </p>
-                      <button
-                        onClick={closediscountModal}
-                        className="w-full cursor-pointer transition duration-700 mt-2 px-4 py-2 bg-[#FCC821] text-white rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
-                      >
-                        Close
-                      </button>
-                    </div>
-                  </div>
-                )}
               </>
 
               {/* Pagination */}
@@ -332,7 +327,7 @@ export default function PriceCalculator({
               </div>
 
               {isModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
+                <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
                   <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
                     <div className="relative flex items-center justify-between mb-4">
                       <h2 className="text-[24px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-0 text-center w-full">

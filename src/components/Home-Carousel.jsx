@@ -41,6 +41,6 @@ const Carousel = () => {
       </Slider>
     </div>
   );
-};
+};  
 
 export default Carousel;
