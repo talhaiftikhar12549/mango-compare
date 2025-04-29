@@ -175,7 +175,7 @@ export default function PriceCalculator({
                 <p>Pharmacy</p>
               </div>
               <div className="w-[15%] flex items-center justify-center">
-                <p className="flex items-center">Dosage</p>
+                <p className="flex items-center">Strength</p>
               </div>
               <div className="w-[15%] flex items-center justify-center">
                 <p
