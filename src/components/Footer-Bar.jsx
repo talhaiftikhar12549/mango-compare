@@ -2,6 +2,7 @@ import footerLogo from "../assets/footer/footerLogo.png";
 import facebookIcon from "../assets/footer/facebook.png";
 import instaIcon from "../assets/footer/insta.png";
 import linkedInIcon from "../assets/footer/linkedIn.png";
+import { NavLink } from "react-router-dom";
 export default function FooterBar() {
   return (
     <>
@@ -15,7 +16,7 @@ export default function FooterBar() {
                 <img
                   src={footerLogo}
                   alt="Structo Construction Logo"
-                  className="mb-4"
+                  className="mb-4 max-h-[57px]"
                 />
                 <p className="text-[20px] font-normal">
                   Stay updated with the latest in construction trends and news.
@@ -60,7 +61,7 @@ export default function FooterBar() {
                     </div>
                     <div>
                       <h3 className="text-xl md:text-end text-start font-semibold mb-2 text-white">
-                        Blogs
+                        <NavLink to="/blogs">Blogs</NavLink>
                       </h3>
                       {/* insert links or a list here if you have them */}
                     </div>
