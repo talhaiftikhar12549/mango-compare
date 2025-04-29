@@ -14,7 +14,7 @@ export default function NavBar() {
         <div className="flex justify-between items-center max-w-[1280px]">
           <div className="w-[50%] md:w-[30%] lg:w-[40%] ">
             <NavLink to="/" className="pointer">
-              <img src={logo} alt="" />
+              <img className="max-h-[57px]" src={logo} alt="" />
             </NavLink>
           </div>
           <div className="hidden md:flex justify-between items-center w-[65%] lg:w-[60%]">
