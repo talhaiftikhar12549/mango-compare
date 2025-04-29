@@ -95,7 +95,7 @@ export default function FooterBar() {
             <div className="border-t w-full border-gray-700 mt-8 py-4">
               <div className="flex flex-col sm:flex-row items-center w-full">
                 <div className="w-full sm:w-1/2 text-center sm:text-start">
-                  <p>© 2024 Structo Construction. All Rights Reserved.</p>
+                  <p>© 2025 Mango Compare. All Rights Reserved.</p>
                 </div>
                 <div className="w-full sm:w-1/2 flex justify-center sm:justify-end items-center space-x-3 text-center sm:text-end mt-2 sm:mt-0">
                   <p className="cursor-pointer hover:underline">Privacy</p>
