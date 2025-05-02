@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import api from '../services/api';
 
-const AdminDashboard = () => {
+const AdminDashWegovy = () => {
   const { logout } = useAuth();
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -25,7 +25,7 @@ const AdminDashboard = () => {
 
   const fetchListings = async () => {
     try {
-      const { data } = await api.get(`/mounjaro`);
+      const { data } = await api.get(`/wegovy`);
       setListings(data.data);
       setLoading(false);
     } catch (error) {
@@ -88,10 +88,10 @@ const AdminDashboard = () => {
 
     try {
       if (editingId) {
-        await api.put('/mounjaro/' + editingId, data);
+        await api.put('/wegovy/' + editingId, data);
         console.log('Listing updated successfully', data);
       } else {
-        await api.post('/mounjaro', data);
+        await api.post('/wegovy', data);
         console.log('Listing added successfully', data);
       }
       fetchListings();
@@ -104,7 +104,7 @@ const AdminDashboard = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this listing?')) {
       try {
-        await api.delete('/mounjaro/' + id);
+        await api.delete('/wegovy/' + id);
         console.log('Listing deleted successfully');
         fetchListings();
       } catch (error) {
@@ -116,7 +116,7 @@ const AdminDashboard = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Mounjaro Listings Admin</h1>
+        <h1 className="text-2xl font-bold">Wegovy Listings Admin</h1>
         <button
           onClick={logout}
           className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
@@ -314,4 +314,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default AdminDashWegovy;

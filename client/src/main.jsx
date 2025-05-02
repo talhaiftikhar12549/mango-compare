@@ -17,6 +17,7 @@ import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/auth/ProtectedRoute.jsx';
 import AuthForm from "./components/auth/AuthForm.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
+import AdminDashWegovy from "./pages/adminDashWegovy.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -90,10 +91,18 @@ createRoot(document.getElementById("root")).render(
               <Route path="register" element={<AuthForm />} />
               {/* <Route path="register-secret" element={<Register />} /> */}
               <Route
-                path="dashboard"
+                path="mounjaro-pannel"
                 element={
                   <ProtectedRoute>
                     <AdminDashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="wegovy-pannel"
+                element={
+                  <ProtectedRoute>
+                    <AdminDashWegovy />
                   </ProtectedRoute>
                 }
               />

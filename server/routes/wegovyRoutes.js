@@ -1,12 +1,12 @@
 const express = require('express');
 const {
-  getMounjaroListings,
-  getMounjaroListing,
-  createMounjaroListing,
-  updateMounjaroListing,
-  deleteMounjaroListing,
-  getMounjaroStats
-} = require('../controllers/mounjaroController');
+  getWegovyListings,
+  getWegovyListing,
+  createWegovyListing,
+  updateWegovyListing,
+  deleteWegovyListing,
+  getWegovyStats
+} = require('../controllers/wegovyController');
 const { protect } = require('../middleware/auth');
 const upload = require('../middleware/upload');
 
@@ -32,25 +32,25 @@ const handleUploadErrors = (err, req, res, next) => {
 
 // Routes
 router.route('/')
-  .get(getMounjaroListings)
+  .get(getWegovyListings)
   .post(
     protect,
     upload.single('pharmacyLogo'),
     handleUploadErrors,
-    createMounjaroListing
+    createWegovyListing
   );
 
 router.route('/stats/dosage')
-  .get(getMounjaroStats);
+  .get(getWegovyStats);
 
 router.route('/:id')
-  .get(getMounjaroListing)
+  .get(getWegovyListing)
   .put(
     protect,
     upload.single('pharmacyLogo'),
     handleUploadErrors,
-    updateMounjaroListing
+    updateWegovyListing
   )
-  .delete(protect, deleteMounjaroListing);
+  .delete(protect, deleteWegovyListing);
 
 module.exports = router;

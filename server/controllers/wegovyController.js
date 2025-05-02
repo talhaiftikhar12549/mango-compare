@@ -1,18 +1,18 @@
-const Mounjaro = require('../models/Mounjaro');
+const Wegovy = require('../models/Wegovy');
 const ErrorResponse = require('../utils/errorResponse');
 const path = require('path');
 const fs = require('fs');
 
-// @desc    Get all Mounjaro listings
-// @route   GET /api/mounjaro
+// @desc    Get all Wegovy listings
+// @route   GET /api/wegovy
 // @access  Public
-exports.getMounjaroListings = async (req, res, next) => {
+exports.getWegovyListings = async (req, res, next) => {
   try {
     let query;
     let queryStr = JSON.stringify(req.query);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
     
-    query = Mounjaro.find(JSON.parse(queryStr));
+    query = Wegovy.find(JSON.parse(queryStr));
 
     if (req.query.sort) {
       const sortBy = req.query.sort.split(',').join(' ');
@@ -25,11 +25,11 @@ exports.getMounjaroListings = async (req, res, next) => {
     const limit = parseInt(req.query.limit, 10) || 25;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
-    const total = await Mounjaro.countDocuments();
+    const total = await Wegovy.countDocuments();
 
     query = query.skip(startIndex).limit(limit);
 
-    const mounjaroListings = await query;
+    const wegovyListings = await query;
 
     const pagination = {};
     if (endIndex < total) {
@@ -48,21 +48,21 @@ exports.getMounjaroListings = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      count: mounjaroListings.length,
+      count: wegovyListings.length,
       pagination,
-      data: mounjaroListings
+      data: wegovyListings
     });
   } catch (err) {
     next(err);
   }
 };
 
-// @desc    Get single Mounjaro listing
-// @route   GET /api/mounjaro/:id
+// @desc    Get single Wegovy listing
+// @route   GET /api/wegovy/:id
 // @access  Public
-exports.getMounjaroListing = async (req, res, next) => {
+exports.getWegovyListing = async (req, res, next) => {
   try {
-    const listing = await Mounjaro.findById(req.params.id);
+    const listing = await Wegovy.findById(req.params.id);
 
     if (!listing) {
       return next(
@@ -79,10 +79,10 @@ exports.getMounjaroListing = async (req, res, next) => {
   }
 };
 
-// @desc    Create new Mounjaro listing
-// @route   POST /api/mounjaro
+// @desc    Create new Wegovy listing
+// @route   POST /api/wegovy
 // @access  Private
-exports.createMounjaroListing = async (req, res, next) => {
+exports.createWegovyListing = async (req, res, next) => {
   try {
     let logoPath = '';
     console.log("file available or not", req.file);
@@ -92,7 +92,7 @@ exports.createMounjaroListing = async (req, res, next) => {
       console.log("logo path for file", logoPath);
       
     }
-    const listing = await Mounjaro.create({
+    const listing = await Wegovy.create({
       pharmacyLogo: logoPath,
       pharmacy: req.body.pharmacy,
       dosage: req.body.dosage,
@@ -111,12 +111,12 @@ exports.createMounjaroListing = async (req, res, next) => {
   }
 };
 
-// @desc    Update Mounjaro listing
-// @route   PUT /api/mounjaro/:id
+// @desc    Update Wegovy listing
+// @route   PUT /api/wegovy/:id
 // @access  Private
-exports.updateMounjaroListing = async (req, res, next) => {
+exports.updateWegovyListing = async (req, res, next) => {
   try {
-    let listing = await Mounjaro.findById(req.params.id);
+    let listing = await Wegovy.findById(req.params.id);
 
     if (!listing) {
       return next(
@@ -137,7 +137,7 @@ exports.updateMounjaroListing = async (req, res, next) => {
       updatedLogo = `/uploads/${req.file.filename}`;
     }
 
-    listing = await Mounjaro.findByIdAndUpdate(
+    listing = await Wegovy.findByIdAndUpdate(
       req.params.id,
       {
         pharmacyLogo: updatedLogo,
@@ -164,12 +164,12 @@ exports.updateMounjaroListing = async (req, res, next) => {
   }
 };
 
-// @desc    Delete Mounjaro listing
-// @route   DELETE /api/mounjaro/:id
+// @desc    Delete Wegovy listing
+// @route   DELETE /api/wegovy/:id
 // @access  Private
-exports.deleteMounjaroListing = async (req, res, next) => {
+exports.deleteWegovyListing = async (req, res, next) => {
   try {
-    const listing = await Mounjaro.findById(req.params.id);
+    const listing = await Wegovy.findById(req.params.id);
 
     if (!listing) {
       return next(
@@ -196,12 +196,12 @@ exports.deleteMounjaroListing = async (req, res, next) => {
   }
 };
 
-// @desc    Get Mounjaro price statistics by dosage
-// @route   GET /api/mounjaro/stats/dosage
+// @desc    Get Wegovy price statistics by dosage
+// @route   GET /api/wegovy/stats/dosage
 // @access  Public
-exports.getMounjaroStats = async (req, res, next) => {
+exports.getWegovyStats = async (req, res, next) => {
   try {
-    const stats = await Mounjaro.aggregate([
+    const stats = await Wegovy.aggregate([
       {
         $group: {
           _id: '$dosage',
