@@ -68,6 +68,7 @@ export default function NavBar() {
                     Blogs{" "}
                   </NavLink>
                 </li>
+               
               </ul>
             </div>
             <div>
@@ -81,6 +82,19 @@ export default function NavBar() {
               >
                 <button className=" cursor-pointer  rounded-[10px]">
                 Contact Now
+                </button>
+              </NavLink>
+
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[15px] px-[30px]"
+                    : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[15px] px-[15px] lg:px-[30px] "
+                }
+              >
+                <button className=" cursor-pointer  rounded-[10px]">
+                Login
                 </button>
               </NavLink>
             </div>
