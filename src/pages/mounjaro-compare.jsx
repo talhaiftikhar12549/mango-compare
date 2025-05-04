@@ -3,6 +3,7 @@ import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
 import mounjaroData from "../components/mounjaro-data.js";
+
 const MounjaroCompare = () => {
   const faqItems = [
     {
@@ -56,6 +57,7 @@ const MounjaroCompare = () => {
     "15 mg",
   ];
 
+ 
   return (
     <>
       <HeroSection
@@ -75,6 +77,7 @@ const MounjaroCompare = () => {
       {/* price calculator */}
 
       <div className="w-full overflow-x-auto">
+      
         <div className="min-w-[1024px]">
           <PriceCalculator
             maindata={mounjaroData}
