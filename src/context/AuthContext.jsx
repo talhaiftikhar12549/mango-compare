@@ -1,31 +1,32 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginUser, registerUser, checkAuthStatus } from '../services/authService';
+import { loginUser, registerUser } from '../services/authService';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const userData = await checkAuthStatus();
-        setUser(userData);
-        setIsAuthenticated(true);
-      } catch (error) {
-        console.error('Authentication check failed:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    checkAuth();
-  }, []);
+  // useEffect(() => {
+  //   const checkAuth = async () => {
+  //     try {
+  //       const userData = await checkAuthStatus();
+  //       setUser(userData);
+  //       setIsAuthenticated(true);
+  //     } catch (error) {
+  //       console.error('Authentication check failed:', error);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+  //   checkAuth();
+  // }, []);
 
   const login = async (credentials) => {
+    // eslint-disable-next-line no-useless-catch
     try {
       const userData = await loginUser(credentials);
 
@@ -42,6 +43,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (userData) => {
+    // eslint-disable-next-line no-useless-catch
     try {
       const newUser = await registerUser(userData);
       setUser(newUser);
@@ -65,7 +67,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         user,
         isAuthenticated,
-        isLoading,
+        // isLoading,
         login,
         register,
         logout

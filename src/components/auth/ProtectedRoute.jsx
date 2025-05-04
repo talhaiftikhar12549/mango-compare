@@ -1,16 +1,35 @@
 import { Navigate, useLocation } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
+import { useEffect, useState } from 'react';
+import { checkAuthStatus } from '../../services/authService';
 
 const ProtectedRoute = ({ children }) => {
-  const { isAuthenticated, isLoading } = useAuth();
   const location = useLocation();
+  const [isAllowed, setIsAllowed] = useState(null); // null = loading
+  const [error, setError] = useState(null);
 
-  if (isLoading) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>;
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        await checkAuthStatus(); // if successful, user is allowed
+        setIsAllowed(true);
+      } catch (err) {
+        setIsAllowed(false);
+        setError(err);
+      }
+    };
+
+    checkAuth();
+  }, []);
+
+  if (error) {
+    console.log("an error occured while accesing protected route", error);
+    
+  }
+  if (isAllowed === null) {
+    return <div>Loading...</div>; // Optional: loading state
   }
 
-  if (!isAuthenticated) {
-    // Redirect to login page, but save the current location they were trying to go to
+  if (!isAllowed) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 

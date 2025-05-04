@@ -73,15 +73,16 @@ createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <Router>
         <AuthProvider>
+        <Suspense fallback={<div>Loading...</div>}>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route
                 path="mounjaro-compare"
                 element={
-                  <Suspense fallback={<div>Loading...</div>}>
+                 
                     <MounjaroCompare />
-                  </Suspense>
+                  
                 }
               />
               <Route path="wegovy-compare" element={<WegovyCompare />} />
@@ -108,6 +109,7 @@ createRoot(document.getElementById("root")).render(
               />
             </Route>
           </Routes>
+          </Suspense>
         </AuthProvider>
       </Router>
       {/* <RouterProvider router={router} /> */}
