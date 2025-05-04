@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
-import api from '../services/api';
+import { useState, useEffect } from "react";
+import { useAuth } from "../context/AuthContext";
+import api from "../services/api";
+import { NavLink } from "react-router-dom";
 
 const AdminDashWegovy = () => {
   const { logout } = useAuth();
@@ -9,15 +10,22 @@ const AdminDashWegovy = () => {
   const [editingId, setEditingId] = useState(null);
   const [formData, setFormData] = useState({
     pharmacyLogo: null,
-    pharmacy: '',
-    dosage: '2.5 mg',
-    price: '',
-    discount: '',
-    rating: '',
-    website: ''
+    pharmacy: "",
+    dosage: "2.5 mg",
+    price: "",
+    discount: "",
+    rating: "",
+    website: "",
   });
 
-  const dosageOptions = ['2.5 mg', '5 mg', '7.5 mg', '10 mg', '12.5 mg', '15 mg'];
+  const dosageOptions = [
+    "2.5 mg",
+    "5 mg",
+    "7.5 mg",
+    "10 mg",
+    "12.5 mg",
+    "15 mg",
+  ];
 
   useEffect(() => {
     fetchListings();
@@ -29,24 +37,23 @@ const AdminDashWegovy = () => {
       setListings(data.data);
       setLoading(false);
     } catch (error) {
-      console.log('Failed to fetch listings');
+      console.log("Failed to fetch listings", error);
       setLoading(false);
     }
   };
 
   const handleFileChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      pharmacyLogo: e.target.files[0]
+      pharmacyLogo: e.target.files[0],
     }));
   };
 
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -58,57 +65,57 @@ const AdminDashWegovy = () => {
       price: listing.price,
       discount: listing.discount,
       rating: listing.rating,
-      website: listing.website
+      website: listing.website,
     });
   };
 
   const handleCancelEdit = () => {
     setEditingId(null);
     setFormData({
-      pharmacy: '',
-      dosage: '2.5 mg',
-      price: '',
-      discount: '',
-      rating: '',
-      website: ''
+      pharmacy: "",
+      dosage: "2.5 mg",
+      price: "",
+      discount: "",
+      rating: "",
+      website: "",
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = new FormData()
-    data.append('pharmacyLogo', formData.pharmacyLogo);
-    data.append('pharmacy', formData.pharmacy);
-    data.append('dosage', formData.dosage);
-    data.append('price', formData.price);
-    data.append('discount', formData.discount);
-    data.append('rating', formData.rating);
-    data.append('website', formData.website);
+    const data = new FormData();
+    data.append("pharmacyLogo", formData.pharmacyLogo);
+    data.append("pharmacy", formData.pharmacy);
+    data.append("dosage", formData.dosage);
+    data.append("price", formData.price);
+    data.append("discount", formData.discount);
+    data.append("rating", formData.rating);
+    data.append("website", formData.website);
 
     try {
       if (editingId) {
-        await api.put('/wegovy/' + editingId, data);
-        console.log('Listing updated successfully', data);
+        await api.put("/wegovy/" + editingId, data);
+        console.log("Listing updated successfully", data);
       } else {
-        await api.post('/wegovy', data);
-        console.log('Listing added successfully', data);
+        await api.post("/wegovy", data);
+        console.log("Listing added successfully", data);
       }
       fetchListings();
       handleCancelEdit();
     } catch (error) {
-      console.log(error.response?.data?.error || 'Operation failed');
+      console.log(error.response?.data?.error || "Operation failed");
     }
   };
 
   const handleDelete = async (id) => {
-    if (window.confirm('Are you sure you want to delete this listing?')) {
+    if (window.confirm("Are you sure you want to delete this listing?")) {
       try {
-        await api.delete('/wegovy/' + id);
-        console.log('Listing deleted successfully');
+        await api.delete("/wegovy/" + id);
+        console.log("Listing deleted successfully");
         fetchListings();
       } catch (error) {
-        console.log('Failed to delete listing');
+        console.log("Failed to delete listing", error);
       }
     }
   };
@@ -117,18 +124,46 @@ const AdminDashWegovy = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Wegovy Listings Admin</h1>
-        <button
-          onClick={logout}
-          className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-        >
-          Logout
-        </button>
+        <div className="flex justify-center items-center space-x-5">
+          <NavLink
+            to="/mounjaro-pannel"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[15px] px-[30px]"
+                : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[15px] px-[15px] lg:px-[30px] "
+            }
+          >
+            <button className=" cursor-pointer  rounded-[10px]">
+              Mounjaro Pannel
+            </button>
+          </NavLink>
+
+          <NavLink
+            to="/wegovy-pannel"
+            className={({ isActive }) =>
+              isActive
+                ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[15px] px-[30px]"
+                : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[15px] px-[15px] lg:px-[30px] "
+            }
+          >
+            <button className=" cursor-pointer  rounded-[10px]">
+              Wegovy Pannel
+            </button>
+          </NavLink>
+
+          <button
+            onClick={logout}
+            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+          >
+            Logout
+          </button>
+        </div>
       </div>
 
       {/* Add/Edit Form */}
       <div className="bg-white p-6 rounded-lg shadow-md mb-8">
         <h2 className="text-xl font-semibold mb-4">
-          {editingId ? 'Edit Listing' : 'Add New Listing'}
+          {editingId ? "Edit Listing" : "Add New Listing"}
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -162,8 +197,10 @@ const AdminDashWegovy = () => {
                 className="w-full p-2 border rounded"
                 required
               >
-                {dosageOptions.map(option => (
-                  <option key={option} value={option}>{option}</option>
+                {dosageOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
                 ))}
               </select>
             </div>
@@ -225,7 +262,7 @@ const AdminDashWegovy = () => {
               type="submit"
               className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
             >
-              {editingId ? 'Update' : 'Add'} Listing
+              {editingId ? "Update" : "Add"} Listing
             </button>
             {editingId && (
               <button
@@ -249,35 +286,63 @@ const AdminDashWegovy = () => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Logo</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pharmacy</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dosage</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Discount</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Rating</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Website</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Logo
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Pharmacy
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Dosage
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Price
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Discount
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Rating
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Website
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Actions
+                  </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {listings?.map((listing) => (
                   <tr key={listing._id}>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {console.log("image link:", listing.pharmacyLogo)
-                      }
+                      {console.log("image link:", listing.pharmacyLogo)}
                       {listing.pharmacyLogo ? (
-                        <img src={listing.pharmacyLogo} alt="Logo" className="w-16 h-16 object-contain" />
+                        <img
+                          src={listing.pharmacyLogo}
+                          alt="Logo"
+                          className="w-16 h-16 object-contain"
+                        />
                       ) : (
-                        '-'
+                        "-"
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">{listing.pharmacy}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">{listing.dosage}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">${listing.price.toFixed(2)}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">{listing.discount}%</td>
-                    <td className="px-6 py-4 whitespace-nowrap">{listing.rating || '-'}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
-
+                      {listing.pharmacy}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {listing.dosage}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      ${listing.price.toFixed(2)}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {listing.discount}%
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {listing.rating || "-"}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
                       {listing.website ? (
                         <a
                           href={listing.website}
@@ -285,9 +350,11 @@ const AdminDashWegovy = () => {
                           rel="noopener noreferrer"
                           className="text-blue-500 hover:underline"
                         >
-                          {listing.website || '-'}
+                          {listing.website || "-"}
                         </a>
-                      ) : '-'}
+                      ) : (
+                        "-"
+                      )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button
