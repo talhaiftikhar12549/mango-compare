@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+
 const api = axios.create({
-  baseURL: 'https://mango-compare-backend.onrender.com/api', // Your backend base URL
+  baseURL: import.meta.env.VITE_API_URL + '/api'
+  // || 'https://mango-compare-backend.onrender.com/api', // Your backend base URL
 });
 
 // Request interceptor to add token
