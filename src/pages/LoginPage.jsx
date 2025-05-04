@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = ()=> {
 
     const { login } = useAuth();
+
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -21,7 +23,7 @@ const LoginPage = ()=> {
                 password: password,
             });
          
-          navigate('/dashboard');
+          navigate('/mounjaro-pannel');
         } catch (error) {
           setErrors({ submit: error.response?.data?.error || 'An error occurred' });
         } finally {
@@ -75,9 +77,9 @@ const LoginPage = ()=> {
           >
             Log In
           </button>
-          <p className="text-center text-sm text-gray-500">
+          {/* <p className="text-center text-sm text-gray-500">
             Don't have an account? <a href="/register" className="text-purple-600 hover:underline">Sign up</a>
-          </p>
+          </p> */}
         </form>
       </div>
     </div>
