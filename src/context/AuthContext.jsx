@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }) => {
       setUser(userData);
       setIsAuthenticated(true);
       // Redirect to either the protected page they tried to access or home
-      const redirectTo = location.state?.from?.pathname || '/dashboard';
+      const redirectTo = location.state?.from?.pathname || '/mounjaro-pannel';
       navigate(redirectTo);
     } catch (error) {
       throw error;

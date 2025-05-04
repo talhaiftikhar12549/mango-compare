@@ -138,7 +138,7 @@ const AuthForm = ({ isLogin }) => {
         </button>
       </form>
       
-      <div className="mt-4 text-center">
+      {/* <div className="mt-4 text-center">
         {isLogin ? (
           <p>
             Don't have an account?{' '}
@@ -154,7 +154,7 @@ const AuthForm = ({ isLogin }) => {
             </a>
           </p>
         )}
-      </div>
+      </div> */}
     </div>
   );
 };
