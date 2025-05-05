@@ -87,8 +87,8 @@ exports.createWegovyListing = async (req, res, next) => {
     let logoPath = '';
     console.log("file available or not", req.file);
     if (req.file) {
-      const host = `${req.protocol}://${req.get('host')}`;
-      logoPath = `${host}/api/mounjaro/uploads/${req.file.filename}`;
+     
+      logoPath = req.file.path;
       console.log("logo path for file", logoPath);
       
     }
@@ -134,8 +134,8 @@ exports.updateWegovyListing = async (req, res, next) => {
           fs.unlinkSync(oldPath);
         }
       }
-      const host = `${req.protocol}://${req.get('host')}`;
-      updatedLogo = `${host}/api/mounjaro/uploads/${req.file.filename}`;
+      
+      updatedLogo = req.file.path;
     }
 
     listing = await Wegovy.findByIdAndUpdate(
