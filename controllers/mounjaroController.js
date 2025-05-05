@@ -133,6 +133,7 @@ exports.updateMounjaroListing = async (req, res, next) => {
           fs.unlinkSync(oldPath);
         }
       }
+      const host = `${req.protocol}://${req.get('host')}`;
       updatedLogo = `${host}/api/mounjaro/uploads/${req.file.filename}`;
     }
 
