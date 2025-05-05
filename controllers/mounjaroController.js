@@ -89,8 +89,7 @@ exports.createMounjaroListing = async (req, res, next) => {
     if (req.file) {
       const host = `${req.protocol}://${req.get('host')}`;
       logoPath = `${host}/api/mounjaro/uploads/${req.file.filename}`;
-      console.log("logo path for file", logoPath);
-      
+      console.log("logo path for file", logoPath);  
     }
     const listing = await Mounjaro.create({
       pharmacyLogo: logoPath,
@@ -134,7 +133,7 @@ exports.updateMounjaroListing = async (req, res, next) => {
           fs.unlinkSync(oldPath);
         }
       }
-      updatedLogo = `/uploads/${req.file.filename}`;
+      updatedLogo = `${host}/api/mounjaro/uploads/${req.file.filename}`;
     }
 
     listing = await Mounjaro.findByIdAndUpdate(
