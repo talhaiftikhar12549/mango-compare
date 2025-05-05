@@ -134,7 +134,8 @@ exports.updateWegovyListing = async (req, res, next) => {
           fs.unlinkSync(oldPath);
         }
       }
-      updatedLogo = `/uploads/${req.file.filename}`;
+      const host = `${req.protocol}://${req.get('host')}`;
+      updatedLogo = `${host}/api/mounjaro/uploads/${req.file.filename}`;
     }
 
     listing = await Wegovy.findByIdAndUpdate(
