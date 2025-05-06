@@ -224,7 +224,7 @@ export default function PriceCalculator({
                       <p>{srtdata.dosage}</p>
                     </div>
                     <div className="w-[15%] flex items-center justify-center">
-                      {isSubscribed ? (
+                      {/* {isSubscribed ? (
                         <p>£ {srtdata.price}</p>
                       ) : (
                         <p
@@ -233,7 +233,11 @@ export default function PriceCalculator({
                         >
                           View Price
                         </p>
-                      )}
+                      )} */}
+
+
+                        <p>£ {srtdata.price}</p>
+                      
                     </div>
 
                     <div className="w-[15%] flex items-center justify-center cursor-pointer relative group">
