@@ -7,6 +7,7 @@ const wegovyData = [
     price: "129.52",
     quantity: "1",
     date: "10-07-2024",
+    discountedPrice: "25",
     discount: "",
     
     
@@ -20,6 +21,7 @@ const wegovyData = [
     price: "177.03",
     quantity: "16",
     date: "28-06-2024",
+    discountedPrice: "5",
     discount: "",
   },
   {
@@ -31,6 +33,7 @@ const wegovyData = [
     price: "162.39",
     quantity: "5",
     date: "18-02-2024",
+    discountedPrice: "0",
     discount: "",
   },
   {
@@ -42,6 +45,7 @@ const wegovyData = [
     price: "143.52",
     quantity: "18",
     date: "01-03-2024",
+    discountedPrice: "",
     discount: "",
   },
   {
@@ -53,6 +57,7 @@ const wegovyData = [
     price: "176.08",
     quantity: "17",
     date: "16-02-2024",
+    discountedPrice: "",
     discount: "",
   },
   {
@@ -64,6 +69,7 @@ const wegovyData = [
     price: "143.33",
     quantity: "5",
     date: "08-01-2024",
+    discountedPrice: "",
     discount: "",
   },
   {
@@ -75,6 +81,7 @@ const wegovyData = [
     price: "163.50",
     quantity: "5",
     date: "23-03-2024",
+    discountedPrice: "50",
     discount: "",
   },
   {
@@ -86,6 +93,7 @@ const wegovyData = [
     price: "153.42",
     quantity: "4",
     date: "27-06-2024",
+    discountedPrice: "70",
     discount: "",
   },
   {
@@ -97,6 +105,7 @@ const wegovyData = [
     price: "142.05",
     quantity: "10",
     date: "05-01-2024",
+    discountedPrice: "69",
     discount: "",
   },
   {
@@ -108,6 +117,7 @@ const wegovyData = [
     price: "143.26",
     quantity: "11",
     date: "08-06-2024",
+    discountedPrice: "25",
     discount: "",
   },
   {
@@ -119,6 +129,7 @@ const wegovyData = [
     price: "163.50",
     quantity: "5",
     date: "23-03-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -131,6 +142,7 @@ const wegovyData = [
     price: "153.42",
     quantity: "4",
     date: "27-06-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -143,6 +155,7 @@ const wegovyData = [
     price: "142.05",
     quantity: "10",
     date: "05-01-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -155,6 +168,7 @@ const wegovyData = [
     price: "143.26",
     quantity: "11",
     date: "08-06-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -167,6 +181,7 @@ const wegovyData = [
     price: "163.50",
     quantity: "5",
     date: "23-03-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -179,6 +194,7 @@ const wegovyData = [
     price: "153.42",
     quantity: "4",
     date: "27-06-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -191,6 +207,7 @@ const wegovyData = [
     price: "142.05",
     quantity: "10",
     date: "05-01-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -203,6 +220,7 @@ const wegovyData = [
     price: "143.26",
     quantity: "11",
     date: "08-06-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -215,6 +233,7 @@ const wegovyData = [
     price: "163.50",
     quantity: "5",
     date: "23-03-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -227,6 +246,7 @@ const wegovyData = [
     price: "153.42",
     quantity: "4",
     date: "27-06-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -239,6 +259,7 @@ const wegovyData = [
     price: "142.05",
     quantity: "10",
     date: "05-01-2024",
+    discountedPrice: "25",
     discount: "",
     
   },
@@ -251,6 +272,7 @@ const wegovyData = [
     price: "143.26",
     quantity: "11",
     date: "08-06-2024",
+    discountedPrice: "25",
     discount: "",
     
   },

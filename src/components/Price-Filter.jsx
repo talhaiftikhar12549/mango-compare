@@ -99,6 +99,20 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
           </div>
         </div>
       </div>
+      <div>
+        <div className="flex items-center justify-between">
+          <h2 className="text-lg font-semibold">Discount</h2>
+        </div>
+        <div className="pt-[10px]">
+          <label className="flex items-center space-x-[8px] cursor-pointer">
+            <input
+              type="checkbox"
+              className="form-checkbox accent-yellow-400 cursor-pointer"
+            />
+            <span className={`text-sm `}>Apply Discount</span>
+          </label>
+        </div>
+      </div>
     </div>
   );
 };

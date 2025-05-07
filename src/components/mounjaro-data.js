@@ -8,6 +8,7 @@ const mounjaroData = [
     price: "147.89",
     quantity: "20",
     date: "07-05-2024",
+    discountedPrice: "0",
     discount: "SAVE22 | SAVE22NY *22% Off 1st order (Expires 30/4)",
   },
   {
@@ -19,6 +20,7 @@ const mounjaroData = [
     price: "128.59",
     quantity: "1",
     date: "15-01-2024",
+    discountedPrice: "50",
     discount: "FIRST £25 Off 1st order 2.5mg only",
   },
   {
@@ -30,6 +32,7 @@ const mounjaroData = [
     price: "129.74",
     quantity: "7",
     date: "19-11-2024",
+    discountedPrice: "25",
     discount: "",
   },
   {
@@ -41,6 +44,7 @@ const mounjaroData = [
     price: "104.39",
     quantity: "16",
     date: "14-03-2024",
+    discountedPrice: "",
     discount: "CLOUDDOSE £5 Off",
   },
   {
@@ -52,6 +56,7 @@ const mounjaroData = [
     price: "114.92",
     quantity: "6",
     date: "03-08-2024",
+    discountedPrice: "",
     discount: "",
   },
   {
@@ -63,6 +68,7 @@ const mounjaroData = [
     price: "147.74",
     quantity: "11",
     date: "15-01-2024",
+    discountedPrice: "",
     discount: "	APRIL15 | MYHEALTH15 | RETURN15 15% Off",
   },
   {
@@ -74,6 +80,7 @@ const mounjaroData = [
     price: "116.60",
     quantity: "16",
     date: "15-04-2024",
+    discountedPrice: "50",
     discount: "	**35% Off Auto Applied 2.5mg, *25% Off Auto Applied All other doses 1st 1000 customers ",
   },
   {
@@ -85,6 +92,7 @@ const mounjaroData = [
     price: "136.99",
     quantity: "11",
     date: "04-05-2024",
+    discountedPrice: "50",
     discount: "	LOSE15 15% Off new customers Refer a friend - £15 Discount (New order info required) Price Match Available Discounts on multi",
   },
   {
@@ -96,6 +104,7 @@ const mounjaroData = [
     price: "115.10",
     quantity: "20",
     date: "10-08-2024",
+    discountedPrice: "50",
     discount: " 25% Off for the 1st 4 months",
   },
   {
@@ -107,6 +116,7 @@ const mounjaroData = [
     price: "100.05",
     quantity: "8",
     date: "29-03-2024",
+    discountedPrice: "50",
     discount: "",
   },
   {
@@ -118,6 +128,7 @@ const mounjaroData = [
     price: "145.99",
     quantity: "14",
     date: "20-02-2024",
+    discountedPrice: "50",
     discount: "45% Off 1st order. Full price charged each month for subscription",
   },
   {
@@ -129,6 +140,7 @@ const mounjaroData = [
     price: "139.99",
     quantity: "13",
     date: "22-06-2024",
+    discountedPrice: "50",
     discount: "	SAVE2025 *£30 Off 1st order NEWME £20 Off all orders Bluelight discount £15 Maintenance Packages Available",
   },
   {
@@ -140,6 +152,7 @@ const mounjaroData = [
     price: "132.50",
     quantity: "9",
     date: "11-07-2024",
+    discountedPrice: "50",
     discount: "	PCVZNWW6 £50 Off 1st order AZNPD2E3 £20 Off Repeat",
   },
   {
@@ -151,6 +164,7 @@ const mounjaroData = [
     price: "148.00",
     quantity: "17",
     date: "18-09-2024",
+    discountedPrice: "50",
     discount: "	WLNEW30 30% Off new customers",
   },
   // …and 40 more entries in the same pattern

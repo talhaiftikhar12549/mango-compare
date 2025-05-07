@@ -135,7 +135,7 @@ export default function PriceCalculator({
 
   // card data
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10;
+  const itemsPerPage = 20;
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -171,13 +171,13 @@ export default function PriceCalculator({
           </div>
           <div className="w-[75%]">
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
-              <div className="w-[25%] ">
+              <div className="w-[30%] ">
                 <p>Pharmacy</p>
               </div>
-              <div className="w-[15%] flex items-center justify-center">
+              <div className="w-[17%] flex items-center justify-center">
                 <p className="flex items-center">Strength</p>
               </div>
-              <div className="w-[15%] flex items-center justify-center">
+              <div className="w-[18%] flex items-center justify-center">
                 <p
                   className="flex items-center cursor-pointer"
                   onClick={toggleSortPrice}
@@ -188,12 +188,10 @@ export default function PriceCalculator({
                   </span>
                 </p>
               </div>
-              <div className="w-[15%] flex items-center justify-center">
-                <p className="flex items-center ">Discount </p>
-              </div>
-              <div className="w-[12%] flex items-center justify-center">
+
+              <div className="w-[17%] flex items-center justify-center">
                 <p
-                  className="flex items-center cursor-pointer"
+                  className="flex items-center cursor-pointer pl-[30px]"
                   onClick={toggleSortRating}
                 >
                   Rating{" "}
@@ -202,9 +200,12 @@ export default function PriceCalculator({
                   </span>
                 </p>
               </div>
-              <div className="w-[18%] text-center flex items-center justify-center">
-                <p>Website</p>
+              <div className="w-[18%] flex items-center justify-center">
+                <p className="flex items-center ">Website </p>
               </div>
+              {/* <div className="w-[18%] text-center flex items-center justify-center">
+                <p>Website</p>
+              </div> */}
             </div>
             {/* card section */}
             <div>
@@ -214,17 +215,25 @@ export default function PriceCalculator({
                     key={srtdata.id}
                     className="flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10 rounded-[0px] px-[0px] text-[#05222E] text-[16px] font-[600]"
                   >
-                    <div className="w-[25%]">
+                    <div className="w-[30%]">
                       <div className="flex items-center gap-[20px]">
                         <img src={Img} alt="Pharmacy logo" />
-                        <p>{srtdata.pharmacyName}</p>
+
+                        <a
+                          href={srtdata.websiteURL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="cursor-pointer text-[#000000] "
+                        >
+                          {srtdata.pharmacyName}
+                        </a>
                       </div>
                     </div>
-                    <div className="w-[15%] flex items-center justify-center">
+                    <div className="w-[17%] flex items-center justify-center">
                       <p>{srtdata.dosage}</p>
                     </div>
-                    <div className="w-[15%] flex items-center justify-center">
-                      {/* {isSubscribed ? (
+                    {/* <div className="w-[18%] flex items-center justify-center">
+                      {isSubscribed ? (
                         <p>£ {srtdata.price}</p>
                       ) : (
                         <p
@@ -233,28 +242,63 @@ export default function PriceCalculator({
                         >
                           View Price
                         </p>
-                      )} */}
+                      )}
 
-
+                     
+                      {srtdata.discountedPrice == 0 || "" ? <p>£ {srtdata.price}</p> : <p className="line-through">£ {srtdata.price}</p> <p >£ {srtdata.discountedPrice}</p> }
+                    </div> */}
+                    <div className="w-[18%] flex items-center justify-center">
+                      {srtdata.discountedPrice === "0" ||
+                      srtdata.discountedPrice === "" ? (
                         <p>£ {srtdata.price}</p>
-                      
+                      ) : (
+                        <>
+                          <p className="line-through text-[#cccccc] relative after:content-[''] after:absolute after:left-0 after:right-0 after:top-1/2 after:h-[2px] after:[#cccccc] after:-translate-y-1/2">
+                            £ {srtdata.price}
+                          </p>
+                          <p className="ml-2 text-[#000000]">
+                            £ {srtdata.discountedPrice}
+                          </p>
+                        </>
+                      )}
                     </div>
 
-                    <div className="w-[15%] flex items-center justify-center cursor-pointer relative group">
-                      <p
+                    <div className="w-[17%] flex items-center justify-center">
+                      <p>{srtdata.rating}</p>
+                    </div>
+                    <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
+                      <div
                         onClick={() => openDiscountModal(srtdata.id)}
-                        className="text-[#FCC821] text-[18px] font-[600] cursor-pointer"
+                        className="py-[14px] px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
                       >
-                        show
-                      </p>
+                        Visit Pharmacy
+                      </div>
+
                       {/* Show the modal if the modal is open and the selected id matches */}
                       {isDiscountModalOpen &&
                         selectedDiscountId === srtdata.id && (
                           <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
                             <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
-                              <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
-                                Congratulations! <br /> <span className="text-[16px] font-[500]" >You get a Special Mango Compare Discount.</span>
-                              </h2>
+                              {/* <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
+                                Congratulations! <br />{" "}
+                                <span className="text-[16px] font-[500]">
+                                  You get a Special Mango Compare Discount.
+                                </span>
+                              </h2> */}
+                              <div className="relative flex items-center justify-between mb-4">
+                                <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
+                                  Congratulation <br />
+                                  <span className="text-[14px] sm:text-[16px] font-[500]">
+                                    You get a Special Mango Compare Discount.
+                                  </span>
+                                </h2>
+                                <div
+                                  onClick={closeDiscountModal}
+                                  className="absolute text-[30px] flex align-items-center right-0 top-0 cursor-pointer"
+                                >
+                                  <IoClose />
+                                </div>
+                              </div>
                               <p
                                 className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
                                      rounded-[10px] py-[10px] px-4"
@@ -265,22 +309,24 @@ export default function PriceCalculator({
                                     : srtdata.discount}
                                 </span>
                               </p>
-
-                              <button
-                                onClick={closeDiscountModal}
-                                className="w-full cursor-pointer transition duration-700 mt-2 px-4 py-2 bg-[#FCC821] text-white rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
+                              <a
+                                href={srtdata.websiteURL}
+                                target="_blank"
+                                rel="noopener noreferrer"
                               >
-                                Close
-                              </button>
+                                <button
+                                  onClick={closeDiscountModal}
+                                  className="w-full cursor-pointer transition duration-700 mt-2 px-4 py-2 bg-[#FCC821] text-white rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
+                                >
+                                  Visit Pharmacy
+                                </button>
+                              </a>
                             </div>
                           </div>
                         )}
                     </div>
 
-                    <div className="w-[12%] flex items-center justify-center">
-                      <p>{srtdata.rating}</p>
-                    </div>
-                    <div className="w-[18%] flex items-center justify-center text-center">
+                    {/* <div className="w-[18%] flex items-center justify-center text-center">
                       <a
                         href={srtdata.websiteURL}
                         target="_blank"
@@ -290,7 +336,7 @@ export default function PriceCalculator({
                           Visit Pharmacy
                         </div>
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 ))}
               </>
