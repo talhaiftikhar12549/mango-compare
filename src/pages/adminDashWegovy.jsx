@@ -14,6 +14,7 @@ const AdminDashWegovy = () => {
     dosage: "2.5 mg",
     price: "",
     discount: "",
+    discount_code: "",
     rating: "",
     website: "",
   });
@@ -64,6 +65,7 @@ const AdminDashWegovy = () => {
       dosage: listing.dosage,
       price: listing.price,
       discount: listing.discount,
+      discount_code: listing.discount_code,
       rating: listing.rating,
       website: listing.website,
     });
@@ -76,6 +78,7 @@ const AdminDashWegovy = () => {
       dosage: "2.5 mg",
       price: "",
       discount: "",
+      discount_code: "",
       rating: "",
       website: "",
     });
@@ -90,6 +93,7 @@ const AdminDashWegovy = () => {
     data.append("dosage", formData.dosage);
     data.append("price", formData.price);
     data.append("discount", formData.discount);
+    data.append("discount_code", formData.discount_code);
     data.append("rating", formData.rating);
     data.append("website", formData.website);
 
@@ -231,6 +235,17 @@ const AdminDashWegovy = () => {
             </div>
 
             <div>
+              <label className="block text-gray-700 mb-2">Disc. Statement</label>
+              <input
+                type="text"
+                name="discount_code"
+                value={formData.discount_code}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded"
+              />
+            </div>
+
+            <div>
               <label className="block text-gray-700 mb-2">Rating (1-5)</label>
               <input
                 type="number"
@@ -302,6 +317,9 @@ const AdminDashWegovy = () => {
                     Discounted Price
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Disc. Statement
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Rating
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -334,10 +352,13 @@ const AdminDashWegovy = () => {
                       {listing.dosage}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                    £{listing.price.toFixed(2)}
+                      £{listing.price.toFixed(2)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                    £{listing.discount}
+                      £{listing.discount}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      {listing.discount_code || "-"}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {listing.rating || "-"}
