@@ -59,7 +59,7 @@ const WegovyCompare = () => {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const  data  = await axios.get("https://mango-compare-backend.onrender.com/api/mounjaro");
+        const  data  = await axios.get("https://mango-compare-backend.onrender.com/api/wegovy");
 
         if (data) {
           setLoading(false)
