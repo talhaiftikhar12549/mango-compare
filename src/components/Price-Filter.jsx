@@ -37,8 +37,10 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
   useEffect(() => {
     if (isReset) {
       setPrice([minValue, maxVal]);
+      setChecked(false)
+      dispatch(discountedFilter(checked));
     }
-  }, [isReset, minValue, maxVal]);
+  }, [isReset, minValue, maxVal, checked]);
 
   useEffect(() => {
     if (minValue !== undefined && maxVal !== undefined) {
