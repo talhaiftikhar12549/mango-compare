@@ -29,8 +29,8 @@ const MounjaroSchema = new mongoose.Schema({
     min: [0, 'Price cannot be negative']
   },
   discount: {
-    type: String,
-    default: "",
+    type: Number,
+    default: 0,
 
   },
   rating: {
