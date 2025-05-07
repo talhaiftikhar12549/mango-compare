@@ -59,10 +59,15 @@ const MounjaroCompare = () => {
     "15 mg",
   ];
 const [apiDataM, setApiDataM] = useState ([])
+const [loading, setLoading] = useState(true)
+
   useEffect(() => {
     const fetchListings = async () => {
       try {
         const  data  = await axios.get("https://mango-compare-backend.onrender.com/api/mounjaro");
+        if (data.length !== 0) {
+          setLoading(false)
+        }
         const apiDta = data.data.data
         console.log("Api Data Mounjaro", apiDta );
         setApiDataM(apiDta)
@@ -93,14 +98,18 @@ const [apiDataM, setApiDataM] = useState ([])
       {/* price calculator */}
 
       <div className="w-full overflow-x-auto">
+      {loading ? <div className="w-[100vw] h-[50vh] justify-center items-center bg-gray-100 p-52">Loading</div>
+      :
+    
         <div className="min-w-[1024px]">
           <PriceCalculator
-            // maindata={apiDataM}
-            maindata={mounjaroData}
+            maindata={apiDataM}
+            // maindata={mounjaroData}
             availableDoasge={availableDoasge}
             isResetter={true}
           />
         </div>
+    }
       </div>
 
       {/* price calculator */}

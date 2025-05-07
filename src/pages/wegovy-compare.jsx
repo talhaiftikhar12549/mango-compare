@@ -55,10 +55,15 @@ const WegovyCompare = () => {
   ];
   const availableDoasge = ["0.25 mg", "0.5 mg", "1.0 mg", "1.7 mg", "2.4 mg"];
   const [apiDataM, setApiDataM] = useState ([])
+  const [loading, setLoading] = useState(true)
   useEffect(() => {
     const fetchListings = async () => {
       try {
         const  data  = await axios.get("https://mango-compare-backend.onrender.com/api/mounjaro");
+
+        if (data) {
+          setLoading(false)
+        }
         const apiDta = data.data.data
         console.log("Api Data Mounjaro", apiDta );
         setApiDataM(apiDta)
@@ -113,13 +118,16 @@ const WegovyCompare = () => {
       /> */}
 
       <div className="w-full overflow-x-auto">
+      {loading ? <div className="w-[100vw] h-[50vh] justify-center items-center bg-gray-100 p-52">Loading</div>
+      :
         <div className="min-w-[1024px]">
           <PriceCalculator
-          // maindata={apiDataM}
-            maindata={wegovyData}
+          maindata={apiDataM}
+            // maindata={wegovyData}
             availableDoasge={availableDoasge}
           />
         </div>
+}
       </div>
       {/* price calculator */}
       {/* Faqs Section */}
