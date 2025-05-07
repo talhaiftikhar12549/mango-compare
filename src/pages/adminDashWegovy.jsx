@@ -206,7 +206,7 @@ const AdminDashWegovy = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700 mb-2">Price (£)</label>
+              <label className="block text-gray-700 mb-2">Actual Price</label>
               <input
                 type="number"
                 name="price"
@@ -220,7 +220,7 @@ const AdminDashWegovy = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700 mb-2">Discount (%)</label>
+              <label className="block text-gray-700 mb-2">Discounted Price</label>
               <input
                 type="text"
                 name="discount"
