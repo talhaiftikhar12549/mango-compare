@@ -3,6 +3,8 @@ import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
 import mounjaroData from "../components/mounjaro-data.js";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const MounjaroCompare = () => {
   const faqItems = [
@@ -56,8 +58,22 @@ const MounjaroCompare = () => {
     "12.5 mg",
     "15 mg",
   ];
+const [apiDataM, setApiDataM] = useState ([])
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const  data  = await axios.get("https://mango-compare-backend.onrender.com/api/mounjaro");
+        const apiDta = data.data.data
+        console.log("Api Data Mounjaro", apiDta );
+        setApiDataM(apiDta)
+      } catch (error) {
+        console.log("Failed to fetch listings", error);
+      }
+    };
 
- 
+    fetchListings();
+  }, []);
+
   return (
     <>
       <HeroSection
@@ -77,9 +93,9 @@ const MounjaroCompare = () => {
       {/* price calculator */}
 
       <div className="w-full overflow-x-auto">
-      
         <div className="min-w-[1024px]">
           <PriceCalculator
+            // maindata={apiDataM}
             maindata={mounjaroData}
             availableDoasge={availableDoasge}
             isResetter={true}

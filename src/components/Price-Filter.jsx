@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { mVal } from "../redux toolkit/compareToolSlice";
+import { mVal, discountedFilter } from "../redux toolkit/compareToolSlice";
 import { Range } from "react-range";
 
 const PriceFilter = ({ maxVal, minValue, isReset }) => {
@@ -9,6 +9,13 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const [isHide, setIsHide] = useState(true);
   const contentRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState("0px");
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (e) => {
+    const isChecked = e.target.checked;
+    setChecked(isChecked);
+    dispatch(discountedFilter(isChecked)); // Dispatch true or false
+  };
   console.log(
     "min and max prices coming from price filter",
     minValue,
@@ -45,7 +52,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
         <h2 className="text-lg font-semibold">Price</h2>
         <button
           onClick={handleClick}
-          className="text-[16px] min-w-[95.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#DCDCDC] rounded-[100px]"
+          className="text-[16px] min-w-[105.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#DCDCDC] rounded-[100px]"
         >
           {isHide ? "Hide" : "Show"}
         </button>
@@ -98,20 +105,20 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
             <p className="text-sm text-gray-700">Max. £ {price[1]}</p>
           </div>
         </div>
+
+        <div className="pt-[5px]">
+      <div className="pt-[10px]">
+        <label className="flex items-center space-x-[8px] cursor-pointer">
+          <input
+            type="checkbox"
+            className="form-checkbox accent-yellow-400 cursor-pointer"
+            checked={checked}
+            onChange={handleChange}
+          />
+          <span className="text-sm">Apply Discount</span>
+        </label>
       </div>
-      <div>
-        <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Discount</h2>
-        </div>
-        <div className="pt-[10px]">
-          <label className="flex items-center space-x-[8px] cursor-pointer">
-            <input
-              type="checkbox"
-              className="form-checkbox accent-yellow-400 cursor-pointer"
-            />
-            <span className={`text-sm `}>Apply Discount</span>
-          </label>
-        </div>
+    </div>
       </div>
     </div>
   );

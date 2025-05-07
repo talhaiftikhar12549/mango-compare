@@ -6,6 +6,7 @@ const initialState = {
   filteredName: [],
   mPrice: [],
   resetButton: false,
+  isDiscount: false,
 };
 
 export const compareToolSlice = createSlice({
@@ -42,6 +43,10 @@ export const compareToolSlice = createSlice({
       state.resetButton = true;
       console.log("reset button in store", state.resetButton);
     },
+    discountedFilter: (state , action) => {
+      console.log("discount price checkbox in store",action.payload)
+    }
+
   },
 });
 
@@ -53,6 +58,7 @@ export const {
   mainDatagetter,
   dosageFiltedDta,
   DosagName,
+  discountedFilter
 } = compareToolSlice.actions;
 
 export default compareToolSlice.reducer;

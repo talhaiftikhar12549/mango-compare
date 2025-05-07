@@ -13,8 +13,8 @@ import WegovyCompare from "./pages/wegovy-compare.jsx";
 import Contant from "./pages/contact-us.jsx";
 import Blogs from "./pages/blogs.jsx";
 import AdminDashboard from "./pages/adminDashboard.jsx";
-import { AuthProvider } from './context/AuthContext';
-import ProtectedRoute from './components/auth/ProtectedRoute.jsx';
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./components/auth/ProtectedRoute.jsx";
 import AuthForm from "./components/auth/AuthForm.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import AdminDashWegovy from "./pages/adminDashWegovy.jsx";
@@ -73,42 +73,35 @@ createRoot(document.getElementById("root")).render(
     <Provider store={store}>
       <Router>
         <AuthProvider>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route
-                path="mounjaro-compare"
-                element={
-                 
-                    <MounjaroCompare />
-                  
-                }
-              />
-              <Route path="wegovy-compare" element={<WegovyCompare />} />
-              <Route path="contact-us" element={<Contant />} />
-              <Route path="blogs" element={<Blogs />} />
-              <Route path="login" element={<LoginPage />} />
-              <Route path="register" element={<AuthForm />} />
-              {/* <Route path="register-secret" element={<Register />} /> */}
-              <Route
-                path="mounjaro-pannel"
-                element={
-                  <ProtectedRoute>
-                    <AdminDashboard />
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="wegovy-pannel"
-                element={
-                  <ProtectedRoute>
-                    <AdminDashWegovy />
-                  </ProtectedRoute>
-                }
-              />
-            </Route>
-          </Routes>
+          <Suspense fallback={<div>Loading...</div>}>
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="mounjaro-compare" element={<MounjaroCompare />} />
+                <Route path="wegovy-compare" element={<WegovyCompare />} />
+                <Route path="contact-us" element={<Contant />} />
+                <Route path="blogs" element={<Blogs />} />
+                <Route path="login" element={<LoginPage />} />
+                <Route path="register" element={<AuthForm />} />
+                {/* <Route path="register-secret" element={<Register />} /> */}
+                <Route
+                  path="mounjaro-pannel"
+                  element={
+                    <ProtectedRoute>
+                      <AdminDashboard />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="wegovy-pannel"
+                  element={
+                    <ProtectedRoute>
+                      <AdminDashWegovy />
+                    </ProtectedRoute>
+                  }
+                />
+              </Route>
+            </Routes>
           </Suspense>
         </AuthProvider>
       </Router>

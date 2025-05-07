@@ -8,8 +8,7 @@ import Img from "../assets/price tool/img.png";
 // import poperGif from "../assets/price tool/poper.gif";
 export default function PriceCalculator({
   maindata,
-  availableDoasge,
-  isResetter,
+  availableDoasge,  isResetter,
 }) {
   // Form detail
   const [fullName, setFullName] = useState("");
@@ -39,7 +38,7 @@ export default function PriceCalculator({
   console.log("main data in price calc", maindata);
   const [isDiscountModalOpen, setDiscountIsModalOpen] = useState(false);
   const [selectedDiscountId, setSelectedDiscountId] = useState(null);
-
+  
   // Functions
   const closeDiscountModal = () => {
     setDiscountIsModalOpen(false);
@@ -212,7 +211,7 @@ export default function PriceCalculator({
               <>
                 {pageData.map((srtdata) => (
                   <div
-                    key={srtdata.id}
+                    key={srtdata._id}
                     className="flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10 rounded-[0px] px-[0px] text-[#05222E] text-[16px] font-[600]"
                   >
                     <div className="w-[30%]">
@@ -220,12 +219,12 @@ export default function PriceCalculator({
                         <img src={Img} alt="Pharmacy logo" />
 
                         <a
-                          href={srtdata.websiteURL}
+                          href={srtdata.website}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="cursor-pointer text-[#000000] "
                         >
-                          {srtdata.pharmacyName}
+                          {srtdata.pharmacy}
                         </a>
                       </div>
                     </div>
@@ -248,8 +247,7 @@ export default function PriceCalculator({
                       {srtdata.discountedPrice == 0 || "" ? <p>£ {srtdata.price}</p> : <p className="line-through">£ {srtdata.price}</p> <p >£ {srtdata.discountedPrice}</p> }
                     </div> */}
                     <div className="w-[18%] flex items-center justify-center">
-                      {srtdata.discountedPrice === "0" ||
-                      srtdata.discountedPrice === "" ? (
+                      {srtdata.discount === null ? (
                         <p>£ {srtdata.price}</p>
                       ) : (
                         <>
@@ -257,7 +255,7 @@ export default function PriceCalculator({
                             £ {srtdata.price}
                           </p>
                           <p className="ml-2 text-[#000000]">
-                            £ {srtdata.discountedPrice}
+                            £ {srtdata.discount}
                           </p>
                         </>
                       )}
@@ -268,7 +266,7 @@ export default function PriceCalculator({
                     </div>
                     <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
                       <div
-                        onClick={() => openDiscountModal(srtdata.id)}
+                        onClick={() => openDiscountModal(srtdata._id)}
                         className="py-[14px] px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
                       >
                         Visit Pharmacy
@@ -276,7 +274,7 @@ export default function PriceCalculator({
 
                       {/* Show the modal if the modal is open and the selected id matches */}
                       {isDiscountModalOpen &&
-                        selectedDiscountId === srtdata.id && (
+                        selectedDiscountId === srtdata._id && (
                           <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
                             <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
                               {/* <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
@@ -304,13 +302,13 @@ export default function PriceCalculator({
                                      rounded-[10px] py-[10px] px-4"
                               >
                                 <span className="font-bold text-[#484848]">
-                                  {srtdata.discount === ""
+                                  {srtdata.discount_code === ""
                                     ? "No discount"
-                                    : srtdata.discount}
+                                    : srtdata.discount_code}
                                 </span>
                               </p>
                               <a
-                                href={srtdata.websiteURL}
+                                href={srtdata.website}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
