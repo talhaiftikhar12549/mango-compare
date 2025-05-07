@@ -98,7 +98,7 @@ exports.createWegovyListing = async (req, res, next) => {
       dosage: req.body.dosage,
       price: req.body.price,
       discount: req.body.discount,
-      discount_code: req.body.discount,
+      discount_code: req.body.discount_code,
       rating: req.body.rating,
       website: req.body.website,
     });
@@ -147,7 +147,7 @@ exports.updateWegovyListing = async (req, res, next) => {
         dosage: req.body.dosage,
         price: req.body.price,
         discount: req.body.discount,
-        discount_code: req.body.discount,
+        discount_code: req.body.discount_code,
         rating: req.body.rating,
         website: req.body.website,
         
