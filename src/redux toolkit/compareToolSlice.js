@@ -35,18 +35,18 @@ export const compareToolSlice = createSlice({
     },
     mVal: (state, action) => {
       const maxVal = action.payload;
-      state.mPrice = maxVal
+      state.mPrice = maxVal;
       console.log("max value in store", maxVal);
-      console.log("max value in store varibale in store", state.mPrice );
+      console.log("max value in store varibale in store", state.mPrice);
     },
     resetter: (state) => {
       state.resetButton = true;
       console.log("reset button in store", state.resetButton);
     },
-    discountedFilter: (state , action) => {
-      console.log("discount price checkbox in store",action.payload)
-    }
-
+    discountedFilter: (state, action) => {
+      console.log("discount price checkbox in store", action.payload);
+      state.isDiscount = action.payload;
+    },
   },
 });
 
@@ -58,7 +58,7 @@ export const {
   mainDatagetter,
   dosageFiltedDta,
   DosagName,
-  discountedFilter
+  discountedFilter,
 } = compareToolSlice.actions;
 
 export default compareToolSlice.reducer;

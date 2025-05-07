@@ -8,7 +8,8 @@ import Img from "../assets/price tool/img.png";
 // import poperGif from "../assets/price tool/poper.gif";
 export default function PriceCalculator({
   maindata,
-  availableDoasge,  isResetter,
+  availableDoasge,
+  isResetter,
 }) {
   // Form detail
   const [fullName, setFullName] = useState("");
@@ -38,7 +39,7 @@ export default function PriceCalculator({
   console.log("main data in price calc", maindata);
   const [isDiscountModalOpen, setDiscountIsModalOpen] = useState(false);
   const [selectedDiscountId, setSelectedDiscountId] = useState(null);
-  
+
   // Functions
   const closeDiscountModal = () => {
     setDiscountIsModalOpen(false);
@@ -87,35 +88,57 @@ export default function PriceCalculator({
     );
   }, [filteredData, sortRating]);
   // navbar filters Price and Ratting Filter
+  // discounted price filter
 
+  // dicounted price filter
   //  Filteration Process
-  useEffect(() => {
-    if (filteredName?.length > 0 && maxMinPrice?.length === 2) {
-      const [minPrice, maxPrice] = maxMinPrice;
+  const discountedPrice = useSelector((state) => state.compareTool.isDiscount);
+// const [rawData, setRawData] = useState(maindata);
 
-      const filtered = fltrData.filter((item) => {
-        const isDosageMatch = filteredName.includes(item.dosage);
-        const price = parseFloat(item.price);
-        const isPriceInRange = price >= minPrice && price <= maxPrice;
-        return isDosageMatch && isPriceInRange;
-      });
+useEffect(() => {
+  let workingData = [...maindata];
 
-      setFilteredData(filtered);
-      console.log("filteredName:", filteredName);
-      console.log("Filtered data with dosage and price range:", filtered);
-    } else if (maxMinPrice?.length === 2) {
-      const [minPrice, maxPrice] = maxMinPrice;
+  // Apply discount filter if needed
+  if (discountedPrice === true) {
+    workingData = workingData.filter((item) => {
+      const discountedpass = parseFloat(item.discount);
+      return discountedpass;
+    });
+    console.log("Array after discount filter:", workingData);
+  }
 
-      const filteredByPrice = maindata.filter((item) => {
-        const price = parseFloat(item.price);
-        return price >= minPrice && price <= maxPrice;
-      });
+  // Apply dosage and price range filter
+  if (filteredName?.length > 0 && maxMinPrice?.length === 2) {
+    const [minPrice, maxPrice] = maxMinPrice;
 
-      setFilteredData(filteredByPrice);
-    } else {
-      setFilteredData(maindata);
-    }
-  }, [filteredName, fltrData, maxMinPrice]);
+    const filtered = workingData.filter((item) => {
+      const isDosageMatch = filteredName.includes(item.dosage);
+      const price = parseFloat(item.price);
+      const isPriceInRange = price >= minPrice && price <= maxPrice;
+      return isDosageMatch && isPriceInRange;
+    });
+
+    setFilteredData(filtered);
+    console.log("Filtered by dosage and price:", filtered);
+
+  } else if (maxMinPrice?.length === 2) {
+    const [minPrice, maxPrice] = maxMinPrice;
+
+    const filteredByPrice = workingData.filter((item) => {
+      const price = parseFloat(item.price);
+      return price >= minPrice && price <= maxPrice;
+    });
+
+    setFilteredData(filteredByPrice);
+    console.log("Filtered by price only:", filteredByPrice);
+
+  } else {
+    setFilteredData(workingData);
+    console.log("No extra filters applied, using base data:", workingData);
+  }
+
+}, [discountedPrice, filteredName, maxMinPrice, maindata]);
+
   //  Filteration Process
 
   // Min Max Logic
