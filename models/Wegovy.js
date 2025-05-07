@@ -31,7 +31,10 @@ const WegovySchema = new mongoose.Schema({
   discount: {
     type: Number,
     default: 0,
-
+  },
+  discount_code: {
+    type: String,
+    default: '',
   },
   rating: {
     type: Number,

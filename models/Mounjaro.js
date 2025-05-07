@@ -33,6 +33,10 @@ const MounjaroSchema = new mongoose.Schema({
     default: 0,
 
   },
+  discount_code: {
+    type: String,
+    default: '',
+  },
   rating: {
     type: Number,
     min: [0, 'Rating must be at least 0'],
