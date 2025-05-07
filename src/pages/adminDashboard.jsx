@@ -333,10 +333,10 @@ const AdminDashboard = () => {
                       {listing.dosage}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      ${listing.price.toFixed(2)}
+                    £{listing.price.toFixed(2)}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {listing.discount}%
+                    £{listing.discount}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {listing.rating || "-"}
