@@ -98,10 +98,7 @@ exports.createMounjaroListing = async (req, res, next) => {
       dosage: req.body.dosage,
       price: req.body.price,
       discount: req.body.discount,
-      discount_info: {
-        discount_statement: req.body.discount_statement,
-        discount_code: req.body.discount_code
-      },
+       discount_info: req.body.discount_info, 
       rating: req.body.rating,
       website: req.body.website,
     });
@@ -146,14 +143,14 @@ exports.updateMounjaroListing = async (req, res, next) => {
       req.params.id,
       {
         pharmacyLogo: updatedLogo,
-        pharmacy: req.body.pharmacy,
-        dosage: req.body.dosage,
-        price: req.body.price,
-        discount: req.body.discount,
-        discount_code: req.body.discount_code,
-        rating: req.body.rating,
-        website: req.body.website,
-        
+       pharmacy: req.body.pharmacy,
+      medicine: req.body.medicine || 'Mounjaro',
+      dosage: req.body.dosage,
+      price: req.body.price,
+      discount: req.body.discount,
+      discount_info: req.body.discount_info || listing.discount_info,
+      rating: req.body.rating,
+      website: req.body.website,
       },
       {
         new: true,
