@@ -19,14 +19,23 @@ const AdminDashboard = () => {
     website: "",
   });
 
-  const dosageOptions = [
+  const dosageOptionsMounjaro =  [
     "2.5 mg",
     "5 mg",
     "7.5 mg",
     "10 mg",
     "12.5 mg",
     "15 mg",
-  ];
+  ]
+
+  const dosageOptionsWegovy = [
+    "0.25 mg",
+    "0.5 mg",
+    "1.0 mg",
+    "1.7 mg",
+    "2.4 mg",
+    
+  ]
 
   const medicineOptions = ["Mounjaro", "Wegovy"];
 
@@ -225,11 +234,18 @@ const AdminDashboard = () => {
                 className="w-full p-2 border rounded"
                 required
               >
-                {dosageOptions.map((option) => (
+                {formData.medicine === "Mounjaro" ? dosageOptionsMounjaro.map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>
-                ))}
+                ))
+                : 
+                dosageOptionsWegovy.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))
+              }
               </select>
             </div>
 
