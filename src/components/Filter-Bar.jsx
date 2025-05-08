@@ -22,7 +22,7 @@ console.log("isReset in filter bar", isResetter);
           <div>
             <button
               onClick={handleReset}
-              className="text-[16px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
+              className="text-[16px] min-w-[105.14px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
             >
               Reset
             </button>
