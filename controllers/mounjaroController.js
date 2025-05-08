@@ -101,6 +101,7 @@ exports.createMounjaroListing = async (req, res, next) => {
       discount_info: typeof req.body.discount_info === "string" ? JSON.parse(req.body.discount_info) : req.body.discount_info,
       rating: req.body.rating,
       website: req.body.website,
+      applied: req.body.applied
     });
 
     res.status(201).json({
@@ -151,6 +152,7 @@ exports.updateMounjaroListing = async (req, res, next) => {
         discount_info: typeof req.body.discount_info === "string" ? JSON.parse(req.body.discount_info) : req.body.discount_info || listing.discount_info,
         rating: req.body.rating,
         website: req.body.website,
+        applied: req.body.applied
       },
       {
         new: true,

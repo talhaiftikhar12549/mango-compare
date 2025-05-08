@@ -57,6 +57,10 @@ const MounjaroSchema = new mongoose.Schema({
       'Please use a valid URL with HTTP or HTTPS'
     ]
   },
+  applied: {
+    type: Boolean,
+    default: false
+  },
   createdAt: {
     type: Date,
     default: Date.now
