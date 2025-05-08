@@ -94,10 +94,14 @@ exports.createMounjaroListing = async (req, res, next) => {
     const listing = await Mounjaro.create({
       pharmacyLogo: logoPath,
       pharmacy: req.body.pharmacy,
+      medicine: req.body.medicine || 'Mounjaro', // default fallback in case body is missing it
       dosage: req.body.dosage,
       price: req.body.price,
       discount: req.body.discount,
-      discount_code: req.body.discount_code,
+      discount_info: {
+        discount_statement: req.body.discount_statement,
+        discount_code: req.body.discount_code
+      },
       rating: req.body.rating,
       website: req.body.website,
     });
@@ -206,7 +210,7 @@ exports.getMounjaroStats = async (req, res, next) => {
     const stats = await Mounjaro.aggregate([
       {
         $group: {
-          _id: '$dosage',
+          _id: { medicine: '$medicine', dosage: '$dosage' },
           count: { $sum: 1 },
           avgPrice: { $avg: '$price' },
           minPrice: { $min: '$price' },
@@ -215,7 +219,7 @@ exports.getMounjaroStats = async (req, res, next) => {
         }
       },
       {
-        $sort: { _id: 1 }
+        $sort: { '_id.medicine': 1, '_id.dosage': 1 }
       }
     ]);
 

@@ -9,6 +9,7 @@ const errorHandler = require('./middleware/error');
 // Import routes
 const authRoutes = require('./routes/authroutes');
 const mounjaroRoutes = require('./routes/mounjaroRoutes');
+const discountRoutes = require('./routes/discountRoutes');
 const wegovyRoutes = require('./routes/wegovyRoutes');
 
 
@@ -29,6 +30,7 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/mounjaro', mounjaroRoutes);
+app.use('/api/discount', discountRoutes);
 app.use('/api/wegovy', wegovyRoutes);
 
 // Error handling middleware

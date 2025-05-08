@@ -11,6 +11,12 @@ const MounjaroSchema = new mongoose.Schema({
     trim: true,
     maxlength: [100, 'Pharmacy name cannot be more than 100 characters']
   },
+  medicine: {
+    type: String,
+    enum: ['Mounjaro', 'Wegovy'],
+    default: 'Mounjaro',
+    required: true
+  },
   dosage: {
     type: String,
     required: [true, 'Please add the dosage'],
@@ -31,11 +37,10 @@ const MounjaroSchema = new mongoose.Schema({
   discount: {
     type: Number,
     default: 0,
-
   },
-  discount_code: {
-    type: String,
-    default: '',
+  discount_info: {
+    discount_statement: { type: String },
+    discount_code: { type: String },
   },
   rating: {
     type: Number,
