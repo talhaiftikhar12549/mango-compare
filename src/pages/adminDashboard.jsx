@@ -64,7 +64,7 @@ const AdminDashboard = () => {
 
   const fetchListings = async () => {
     try {
-      const { data } = await api.get(`/mounjaro`);
+      const { data } = await api.get(`/medicine`);
       setListings(data.data);
       setLoading(false);
     } catch (error) {
@@ -132,10 +132,10 @@ const AdminDashboard = () => {
 
     try {
       if (editingId) {
-        await api.put("/mounjaro/" + editingId, data);
+        await api.put("/medicine/" + editingId, data);
         console.log("Listing updated successfully", data);
       } else {
-        await api.post("/mounjaro", data);
+        await api.post("/medicine", data);
         console.log("Listing added successfully", data);
       }
       fetchListings();
@@ -148,7 +148,7 @@ const AdminDashboard = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this listing?")) {
       try {
-        await api.delete("/mounjaro/" + id);
+        await api.delete("/medicine/" + id);
         console.log("Listing deleted successfully");
         fetchListings();
       } catch (error) {
