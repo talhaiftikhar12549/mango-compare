@@ -89,6 +89,7 @@ exports.createDiscountListing = async (req, res, next) => {
         medicineId, // Store reference to medicine
         discount_statement,
         discount_code,
+        applied
       });
   
       const updatedMedicine = await Medicine.findByIdAndUpdate(
@@ -97,6 +98,7 @@ exports.createDiscountListing = async (req, res, next) => {
           discount_info: {
             discount_statement,
             discount_code,
+            applied
           },
         },
         {
@@ -142,6 +144,7 @@ exports.updateDiscountListing = async (req, res, next) => {
        pharmacyID: req._id,
       discount_statement: req.body.discount_statement,
       discount_code: req.body.discount_code,
+      applied: req.body.applied
       },
       {
         new: true,
