@@ -41,35 +41,36 @@ export default function FooterBar() {
                   {/* Contact Column */}
                   <div className="w-full md:w-1/2 mb-8 md:mb-0">
                     <h3 className="text-xl font-semibold mb-4 text-white">
-                      Contact
+                      Links
                     </h3>
                     <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
-                      <li>mango@compare.com</li>
-                      <li>Phone: +1 (123) 456‑7890</li>
-                      {/* <li>Hours: 8:00 AM – 6:00 PM</li>
-                      <li>Office Hours: Monday – Friday, 8:00 AM – 6:00 PM</li> */}
+                      <li><NavLink to="/">Home</NavLink></li>
+                      <li><NavLink to="mounjaro-compare">Mounjaro</NavLink></li>
+                      <li><NavLink to="wegovy-compare">Wegovy</NavLink></li>
+                      <li><NavLink to="blogs">Blogs</NavLink></li>
+                      <li><NavLink to="contact-us">Contact Us</NavLink></li>
+                      
                     </ul>
                   </div>
 
                   {/* Links & Social Column */}
                   <div className="w-full md:w-1/2 flex flex-col gap-y-[36px]">
                     <div>
-                      <h3 className="text-xl md:text-end text-start font-semibold mb-2 text-white">
-                        Recent Projects
+                      <h3 className="text-xl font-semibold mb-4 text-white">
+                        Contact
                       </h3>
-                      {/* insert links or a list here if you have them */}
+                      <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
+                        <li>mango@compare.com</li>
+                        <li>Phone: +1 (123) 456‑7890</li>
+                        {/* <li>Hours: 8:00 AM – 6:00 PM</li>
+                        <li>Office Hours: Monday – Friday, 8:00 AM – 6:00 PM</li> */}
+                      </ul>
                     </div>
                     <div>
-                      <h3 className="text-xl md:text-end text-start font-semibold mb-2 text-white">
-                        <NavLink to="/blogs">Blogs</NavLink>
-                      </h3>
-                      {/* insert links or a list here if you have them */}
-                    </div>
-                    <div>
-                      <h3 className="text-xl md:text-end text-start font-semibold mb-2 text-white">
+                      <h3 className="text-xl text-start font-semibold mb-2 text-white">
                         Social Media
                       </h3>
-                      <div className="flex md:justify-end justify-start items-center  gap-4 py-2">
+                      <div className="flex justify-start items-center  gap-4 py-2">
                         <img
                           src={facebookIcon}
                           alt="Facebook"
@@ -88,16 +89,20 @@ export default function FooterBar() {
                       </div>
                     </div>
                   </div>
+
+                  
                 </div>
               </div>
             </div>
+
+           
             {/* Mini Footer */}
             <div className="border-t w-full border-gray-700 mt-8 py-4">
               <div className="flex flex-col sm:flex-row items-center w-full">
                 <div className="w-full sm:w-1/2 text-center sm:text-start">
                   <p>© 2025 Mango Compare. All Rights Reserved.</p>
                 </div>
-                <div className="w-full sm:w-1/2 flex justify-center sm:justify-end items-center space-x-3 text-center sm:text-end mt-2 sm:mt-0">
+                <div className="w-full sm:w-1/2 flex justify-center sm:justify-end items-center space-x-8 text-center sm:text-end mt-2 sm:mt-0">
                   <p className="cursor-pointer hover:underline">Privacy</p>
                   <p className="cursor-pointer hover:underline">
                     Terms &amp; Conditions
