@@ -7,7 +7,7 @@ export default function HomeHero() {
     <section className="max-w-[1280px] custom-width  lg:px-[40px] xl:px-0 px-[16px] mx-auto ">
       <div className="flex flex-col lg:flex-row justify-between items-top h-full">
         <div className="w-full lg:w-[60%]">
-          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[60px]  font-[700] font-montserrat text-[#05222E]">
+          <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[54px]  font-[700] font-montserrat text-[#05222E]">
             Giving you the best price comparison in the UK
           </h1>
 
