@@ -348,8 +348,12 @@ export default function PriceCalculator({
                                         </span>
                                       </div>
 
-                                      <div className="flex items-center space-x-2">
+                                      <div className="flex flex-col items-center space-x-2">
                                         <FaRegCopy className="text-[20px]" />
+
+                                        {item.applied && (
+                                          <p className="text-[12px]">applied</p>
+                                        )}
                                       </div>
 
                                       {/* Tooltip */}
