@@ -1,7 +1,6 @@
 const Discount = require('../models/Discount');
 const ErrorResponse = require('../utils/errorResponse');
-const path = require('path');
-const fs = require('fs');
+const Medicine = require('../models/Medicine');
 
 // @desc    Get all Discount listings
 // @route   GET /api/mounjaro
@@ -83,21 +82,45 @@ exports.getDiscountListing = async (req, res, next) => {
 // @route   POST /api/mounjaro
 // @access  Private
 exports.createDiscountListing = async (req, res, next) => {
-  try {
-    const listing = await Discount.create({
-      pharmacyID: req._id,
-      discount_statement: req.body.discount_statement,
-      discount_code: req.body.discount_code,
-    });
-
-    res.status(201).json({
-      success: true,
-      data: listing
-    });
-  } catch (err) {
-    next(err);
-  }
-};
+    try {
+      const { medicineId, discount_statement, discount_code } = req.body;
+  
+      const discount = await Discount.create({
+        medicineId, // Store reference to medicine
+        discount_statement,
+        discount_code,
+      });
+  
+      const updatedMedicine = await Medicine.findByIdAndUpdate(
+        medicineId,
+        {
+          discount_info: {
+            discount_statement,
+            discount_code,
+          },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+  
+      if (!updatedMedicine) {
+        return next(new ErrorResponse(`Medicine not found with ID: ${medicineId}`, 404));
+      }
+  
+      res.status(201).json({
+        success: true,
+        message: 'Discount created and medicine updated',
+        data: {
+          discount,
+          updatedMedicine,
+        },
+      });
+    } catch (err) {
+      next(err);
+    }
+  };
 
 // @desc    Update Discount listing
 // @route   PUT /api/mounjaro/:id
