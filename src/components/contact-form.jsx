@@ -115,17 +115,13 @@ const ContactForm = () => {
         <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
             <h2 className="text-[20px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
-              Thanks you for you submission 
+              Thanks you  
             </h2>
 
-            <p className="text-md mb-4 text-center">
-              Congratulation you get a discount code
-            </p>
-            <p className="text-2xl font-[600] mb-4 text-center">
-              Your Copun Code is: <br />
-              <span className="font-bold text-3xl text-[#FCC821]">
-                {couponCodes[randomNumber]}
-              </span>
+            
+            <p className="text-xl font-[400] mb-4 text-center">
+            Your form has been submitted successfully. We will contact you soon. <br />
+              
             </p>
             <button
               onClick={closeModal}
