@@ -85,7 +85,7 @@ export default function NavBar() {
                 </button>
               </NavLink>
 
-              <NavLink
+              {/* <NavLink
                 to="/login"
                 className={({ isActive }) =>
                   isActive
@@ -96,7 +96,7 @@ export default function NavBar() {
                 <button className=" cursor-pointer  rounded-[10px]">
                 Login
                 </button>
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
 
