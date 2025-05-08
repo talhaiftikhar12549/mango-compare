@@ -11,10 +11,11 @@ const AdminDashboard = () => {
   const [formData, setFormData] = useState({
     pharmacyLogo: null,
     pharmacy: "",
+    medicine: "Mounjaro",
     dosage: "2.5 mg",
     price: "",
     discount: "",
-    discount_code: "",
+    discount_info: [],
     rating: "",
     website: "",
   });
@@ -28,9 +29,39 @@ const AdminDashboard = () => {
     "15 mg",
   ];
 
+  const medicineOptions = [
+    "Mounjaro",
+    "Wegovy"
+  ]
+
   useEffect(() => {
     fetchListings();
   }, []);
+
+  const handleAddDiscount = () => {
+    if (formData.discount_info.length < 5) {
+      setFormData((prev) => ({
+        ...prev,
+        discount_info: [...prev.discount_info, { discount_statement: "", discount_code: "" }],
+      }));
+    }
+  };
+
+  const handleRemoveDiscount = (index) => {
+    setFormData((prev) => {
+      const updated = [...prev.discount_info];
+      updated.splice(index, 1);
+      return { ...prev, discount_info: updated };
+    });
+  };
+
+  const handleDiscountInfoChange = (index, field, value) => {
+    setFormData((prev) => {
+      const updated = [...prev.discount_info];
+      updated[index][field] = value;
+      return { ...prev, discount_info: updated };
+    });
+  };
 
   const fetchListings = async () => {
     try {
@@ -62,10 +93,11 @@ const AdminDashboard = () => {
     setEditingId(listing._id);
     setFormData({
       pharmacy: listing.pharmacy,
+      medicine: listing.medicine,
       dosage: listing.dosage,
       price: listing.price,
       discount: listing.discount,
-      discount_code: listing.discount_code,
+      discount_info: listing.discount_info,
       rating: listing.rating,
       website: listing.website,
     });
@@ -75,10 +107,11 @@ const AdminDashboard = () => {
     setEditingId(null);
     setFormData({
       pharmacy: "",
+      medicine: "Mounjaro",
       dosage: "2.5 mg",
       price: "",
       discount: "",
-      discount_code: "",
+      discount_info: [],
       rating: "",
       website: "",
     });
@@ -90,10 +123,11 @@ const AdminDashboard = () => {
     const data = new FormData();
     data.append("pharmacyLogo", formData.pharmacyLogo);
     data.append("pharmacy", formData.pharmacy);
+    data.append("medicine", formData.medicine);
     data.append("dosage", formData.dosage);
     data.append("price", formData.price);
     data.append("discount", formData.discount);
-    data.append("discount_code", formData.discount_code);
+    data.append("discount_info", JSON.stringify(formData.discount_info));
     data.append("rating", formData.rating);
     data.append("website", formData.website);
 
@@ -193,6 +227,23 @@ const AdminDashboard = () => {
             </div>
 
             <div>
+              <label className="block text-gray-700 mb-2">Medicine</label>
+              <select
+                name="medicine"
+                value={formData.medicine}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded"
+                required
+              >
+                {medicineOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
               <label className="block text-gray-700 mb-2">Dosage</label>
               <select
                 name="dosage"
@@ -234,12 +285,12 @@ const AdminDashboard = () => {
               />
             </div>
 
-            <div>
-              <label className="block text-gray-700 mb-2">Disc. Statement</label>
+            <div className="hidden">
+              <label className="block text-gray-700 mb-2">Disc. Info</label>
               <input
                 type="text"
-                name="discount_code"
-                value={formData.discount_code}
+                name="discount_info"
+                value={formData.discount_info}
                 onChange={handleInputChange}
                 className="w-full p-2 border rounded"
               />
@@ -271,6 +322,68 @@ const AdminDashboard = () => {
               />
             </div>
           </div>
+
+          <div className="mt-6">
+            <label className="block text-gray-700 mb-2 text-lg font-semibold">
+              Discount Info (up to 5)
+            </label>
+            {formData.discount_info.map((info, index) => (
+              <div
+                key={index}
+                className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 border p-4 rounded-lg bg-gray-50"
+              >
+               
+                <div>
+                  <label className="block text-gray-700 mb-2">Discount Statement</label>
+                  <input
+                    type="text"
+                    name="discount_statement"
+                    value={info.discount_statement}
+                    onChange={(e) =>
+                      handleDiscountInfoChange(index, "discount_statement", e.target.value)
+                    }
+                    className="w-full p-2 border rounded"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 mb-2">Discounted Code</label>
+                  <input
+                    type="text"
+                    name="discount_code"
+                    value={info.discount_code}
+                    onChange={(e) =>
+                      handleDiscountInfoChange(index, "discount_code", e.target.value)
+                    }
+                    className="w-full p-2 border rounded"
+                    required
+                  />
+                </div>
+
+
+                <div className="flex items-end">
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveDiscount(index)}
+                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            ))}
+            {formData.discount_info.length < 5 && (
+              <button
+                type="button"
+                onClick={handleAddDiscount}
+                className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 mt-2"
+              >
+                + Add Discount
+              </button>
+            )}
+          </div>
+
 
           <div className="mt-4 flex space-x-2">
             <button
@@ -308,6 +421,9 @@ const AdminDashboard = () => {
                     Pharmacy
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Medicine
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Dosage
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -317,7 +433,7 @@ const AdminDashboard = () => {
                     Discounted Price
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Disc. Statement
+                    Disc. Info
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Rating
@@ -348,6 +464,9 @@ const AdminDashboard = () => {
                       {listing.pharmacy}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
+                      {listing.medicine}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
                       {listing.dosage}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -357,7 +476,17 @@ const AdminDashboard = () => {
                       £{listing.discount}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {listing.discount_code || "-"}
+
+                      {listing.discount_info.map((data, index) => {
+                        return <ul key={index} className="mb-5">
+                          <li>
+                            Disc Statement: {data?.discount_statement}
+                          </li>
+                          <li>
+                            Disc Code: {data?.discount_code}
+                          </li>
+                        </ul>
+                      })}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       {listing.rating || "-"}
