@@ -11,7 +11,7 @@ exports.getMounjaroListings = async (req, res, next) => {
     let query;
     let queryStr = JSON.stringify(req.query);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
-    
+
     query = Mounjaro.find(JSON.parse(queryStr));
 
     if (req.query.sort) {
@@ -89,7 +89,7 @@ exports.createMounjaroListing = async (req, res, next) => {
     if (req.file) {
       // const host = `${req.protocol}://${req.get('host')}`;
       logoPath = req.file.path;
-      console.log("logo path for file", logoPath);  
+      console.log("logo path for file", logoPath);
     }
     const listing = await Mounjaro.create({
       pharmacyLogo: logoPath,
@@ -98,7 +98,7 @@ exports.createMounjaroListing = async (req, res, next) => {
       dosage: req.body.dosage,
       price: req.body.price,
       discount: req.body.discount,
-       discount_info: req.body.discount_info, 
+      discount_info: typeof req.body.discount_info === "string" ? JSON.parse(req.body.discount_info) : req.body.discount_info,
       rating: req.body.rating,
       website: req.body.website,
     });
@@ -143,14 +143,14 @@ exports.updateMounjaroListing = async (req, res, next) => {
       req.params.id,
       {
         pharmacyLogo: updatedLogo,
-       pharmacy: req.body.pharmacy,
-      medicine: req.body.medicine || 'Mounjaro',
-      dosage: req.body.dosage,
-      price: req.body.price,
-      discount: req.body.discount,
-      discount_info: req.body.discount_info || listing.discount_info,
-      rating: req.body.rating,
-      website: req.body.website,
+        pharmacy: req.body.pharmacy,
+        medicine: req.body.medicine || 'Mounjaro',
+        dosage: req.body.dosage,
+        price: req.body.price,
+        discount: req.body.discount,
+        discount_info: typeof req.body.discount_info === "string" ? JSON.parse(req.body.discount_info) : req.body.discount_info || listing.discount_info,
+        rating: req.body.rating,
+        website: req.body.website,
       },
       {
         new: true,
