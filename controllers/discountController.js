@@ -1,6 +1,6 @@
 const Discount = require('../models/Discount');
 const ErrorResponse = require('../utils/errorResponse');
-const Medicine = require('../models/Medicine');
+const Medicine = require('../models/Mounjaro');
 
 // @desc    Get all Discount listings
 // @route   GET /api/mounjaro
