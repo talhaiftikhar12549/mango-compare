@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import api from "../services/api";
-import { NavLink } from "react-router-dom";
 
 const AdminDashboard = () => {
   const { logout } = useAuth();
@@ -163,32 +162,6 @@ const AdminDashboard = () => {
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-bold">Mounjaro Listings Admin</h1>
         <div className="flex justify-center items-center space-x-5">
-          <NavLink
-            to="/mounjaro-pannel"
-            className={({ isActive }) =>
-              isActive
-                ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[15px] px-[30px]"
-                : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[15px] px-[15px] lg:px-[30px] "
-            }
-          >
-            <button className=" cursor-pointer  rounded-[10px]">
-              Mounjaro Pannel
-            </button>
-          </NavLink>
-
-          <NavLink
-            to="/wegovy-pannel"
-            className={({ isActive }) =>
-              isActive
-                ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[15px] px-[30px]"
-                : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[15px] px-[15px] lg:px-[30px] "
-            }
-          >
-            <button className=" cursor-pointer  rounded-[10px]">
-              Wegovy Pannel
-            </button>
-          </NavLink>
-
           <button
             onClick={logout}
             className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
