@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { mainDatagetter } from "../redux toolkit/compareToolSlice";
 import { IoClose } from "react-icons/io5";
 import Img from "../assets/price tool/img.png";
+import { FaRegCopy } from "react-icons/fa";
 // import poperGif from "../assets/price tool/poper.gif";
 export default function PriceCalculator({
   maindata,
@@ -33,7 +34,22 @@ export default function PriceCalculator({
     }
   }, []);
   // Form detail
+  // copun code copy
+  const couponCodes = ["code1", "code2", "code3"];
+  const [copiedCode, setCopiedCode] = useState(null);
 
+  const handleCopy = (code) => {
+    navigator.clipboard
+      .writeText(code)
+      .then(() => {
+        setCopiedCode(code);
+        setTimeout(() => setCopiedCode(null), 1500); // Hide tooltip after 1.5s
+      })
+      .catch((err) => {
+        console.error("Copy failed", err);
+      });
+  };
+  // copun code copy
   const dispatch = useDispatch();
   dispatch(mainDatagetter(maindata));
   console.log("main data in price calc", maindata);
@@ -319,6 +335,30 @@ export default function PriceCalculator({
                                   <IoClose />
                                 </div>
                               </div>
+                              {srtdata.discount_code && (
+                                <>
+                                  {couponCodes.map((code, idx) => (
+                                    <div
+                                      key={idx}
+                                      onClick={() => handleCopy(code)}
+                                      className="relative group w-full cursor-pointer transition duration-300 px-4 py-2 my-2 text-[#FCC821] bg-white border-[2px] border-[#FCC821] flex items-center justify-between rounded"
+                                    >
+                                      <span>{code}</span>
+                                      <div className="flex items-center space-x-2">
+                                        <FaRegCopy className="text-[20px]" />
+                                      </div>
+
+                                      {/* Tooltip */}
+                                      {copiedCode === code && (
+                                        <div className="absolute -top-7 right-2 bg-[#FCC821] text-black text-xs px-2 py-1 rounded shadow transition-opacity duration-300">
+                                          Copied!
+                                        </div>
+                                      )}
+                                    </div>
+                                  ))}
+                                </>
+                              )}
+
                               <p
                                 className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
                                      rounded-[10px] py-[10px] px-4"
