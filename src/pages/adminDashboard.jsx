@@ -483,7 +483,7 @@ const AdminDashboard = () => {
                           <ul key={index} className="mb-5">
                             <li>Disc Statement: {data?.discount_statement}</li>
                             <li>Disc Code: {data?.discount_code}</li>
-                            <li>Applied: {data?.applied}</li>
+                            <li>Applied: {data?.applied === true ? <span className="bg-green-400 text-white px-2 py-1 text-xs">Yes</span> : <span className="bg-red-400 text-white px-2 py-1 text-xs ">No</span>}</li>
                           </ul>
                         );
                       })}
