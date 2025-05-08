@@ -57,7 +57,7 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
         <h2 className="text-lg font-semibold">Strength</h2>
         <button
           onClick={() => setIsHide(!isHide)}
-          className="text-[16px] min-w-[105.14px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
+          className="text-[16px] min-w-[95.14px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
         >
           {isHide ? "Hide" : "Show"}
         </button>

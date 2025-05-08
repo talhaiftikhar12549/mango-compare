@@ -65,7 +65,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
           <h2 className="text-lg font-semibold">Price</h2>
           <button
             onClick={handleClick}
-            className="text-[16px] min-w-[105.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#DCDCDC] rounded-[100px]"
+            className="text-[16px] min-w-[95.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#DCDCDC] rounded-[100px]"
           >
             {isHide ? "Hide" : "Show"}
           </button>
@@ -126,7 +126,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
             <h2 className="text-lg font-semibold">Discount</h2>
             <button
               onClick={handleClickDiscount}
-              className="text-[16px] min-w-[105.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#DCDCDC] rounded-[100px]"
+              className="text-[16px] min-w-[95.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#DCDCDC] rounded-[100px]"
             >
               {isHideDiscount ? "Hide" : "Show"}
             </button>
