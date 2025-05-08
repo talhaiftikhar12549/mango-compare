@@ -5,6 +5,7 @@ import FaqsSection from "../components/Faqs-Section.jsx";
 import mounjaroData from "../components/mounjaro-data.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../services/api.js";
 
 const MounjaroCompare = () => {
   const faqItems = [
@@ -64,11 +65,14 @@ const [loading, setLoading] = useState(true)
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const  data  = await axios.get("https://mango-compare-backend.onrender.com/api/mounjaro");
+        const response = await api.get("/medicine");
+        console.log("API data",response.data.data)
+         const data = response.data.data.filter((item) => item.medicine === "Mounjaro");
+        
         if (data.length !== 0) {
           setLoading(false)
         }
-        const apiDta = data.data.data
+        const apiDta = data
         console.log("Api Data Mounjaro", apiDta );
         setApiDataM(apiDta)
       } catch (error) {

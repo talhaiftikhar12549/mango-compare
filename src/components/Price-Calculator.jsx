@@ -315,12 +315,6 @@ export default function PriceCalculator({
                         selectedDiscountId === srtdata._id && (
                           <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
                             <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
-                              {/* <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
-                                Congratulations! <br />{" "}
-                                <span className="text-[16px] font-[500]">
-                                  You get a Special Mango Compare Discount.
-                                </span>
-                              </h2> */}
                               <div className="relative flex items-center justify-between mb-4">
                                 <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
                                   Congratulation <br />
@@ -335,21 +329,31 @@ export default function PriceCalculator({
                                   <IoClose />
                                 </div>
                               </div>
-                              {srtdata.discount_code && (
+                              {srtdata.discount_info && (
                                 <>
-                                  {couponCodes.map((code, idx) => (
+                                  {srtdata.discount_info.map((item, idx) => (
                                     <div
-                                      key={idx}
-                                      onClick={() => handleCopy(code)}
+                                      key={item._id || idx}
+                                      onClick={() =>
+                                        handleCopy(item.discount_code)
+                                      }
                                       className="relative group w-full cursor-pointer transition duration-300 px-4 py-2 my-2 text-[#FCC821] bg-white border-[2px] border-[#FCC821] flex items-center justify-between rounded"
                                     >
-                                      <span>{code}</span>
+                                      <div className="flex flex-col">
+                                        <span className="font-semibold">
+                                          {item.discount_code}
+                                        </span>
+                                        <span className="text-xs text-black">
+                                          {item.discount_statement}
+                                        </span>
+                                      </div>
+
                                       <div className="flex items-center space-x-2">
                                         <FaRegCopy className="text-[20px]" />
                                       </div>
 
                                       {/* Tooltip */}
-                                      {copiedCode === code && (
+                                      {copiedCode === item.discount_code && (
                                         <div className="absolute -top-7 right-2 bg-[#FCC821] text-black text-xs px-2 py-1 rounded shadow transition-opacity duration-300">
                                           Copied!
                                         </div>
@@ -359,16 +363,18 @@ export default function PriceCalculator({
                                 </>
                               )}
 
-                              <p
-                                className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
-                                     rounded-[10px] py-[10px] px-4"
-                              >
-                                <span className="font-bold text-[#484848]">
-                                  {srtdata.discount_code === ""
-                                    ? "No discount"
-                                    : srtdata.discount_code}
-                                </span>
-                              </p>
+                              {(!srtdata.discount_info ||
+                                srtdata.discount_info.length === 0) && (
+                                <p
+                                  className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
+               rounded-[10px] py-[10px] px-4"
+                                >
+                                  <span className="font-bold text-[#484848]">
+                                    Sorry, no discount available
+                                  </span>
+                                </p>
+                              )}
+
                               <a
                                 href={srtdata.website}
                                 target="_blank"

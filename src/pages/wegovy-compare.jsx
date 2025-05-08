@@ -5,6 +5,7 @@ import FaqsSection from "../components/Faqs-Section.jsx";
 import wegovyData from "../components/wegovy-data.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../services/api.js";
 const WegovyCompare = () => {
   const faqItems = [
     {
@@ -59,12 +60,14 @@ const WegovyCompare = () => {
   useEffect(() => {
     const fetchListings = async () => {
       try {
-        const  data  = await axios.get("https://mango-compare-backend.onrender.com/api/mounjaro");
-
-        if (data) {
+        const response = await api.get("/medicine");
+        console.log("API data",response.data.data)
+         const data = response.data.data.filter((item) => item.medicine === "Wegovy");
+        
+        if (data.length !== 0) {
           setLoading(false)
         }
-        const apiDta = data.data.data
+        const apiDta = data
         console.log("Api Data Mounjaro", apiDta );
         setApiDataM(apiDta)
       } catch (error) {
