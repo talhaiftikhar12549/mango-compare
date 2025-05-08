@@ -28,10 +28,7 @@ const AdminDashboard = () => {
     "15 mg",
   ];
 
-  const medicineOptions = [
-    "Mounjaro",
-    "Wegovy"
-  ]
+  const medicineOptions = ["Mounjaro", "Wegovy"];
 
   useEffect(() => {
     fetchListings();
@@ -41,7 +38,10 @@ const AdminDashboard = () => {
     if (formData.discount_info.length < 5) {
       setFormData((prev) => ({
         ...prev,
-        discount_info: [...prev.discount_info, { discount_statement: "", discount_code: "", applied: false }],
+        discount_info: [
+          ...prev.discount_info,
+          { discount_statement: "", discount_code: "", applied: false },
+        ],
       }));
     }
   };
@@ -136,7 +136,7 @@ const AdminDashboard = () => {
         console.log("Listing updated successfully", data);
       } else {
         await api.post("/medicine", data);
-        console.log("Listing added successfully", data);
+        console.log("Listing added successfully", data, formData);
       }
       fetchListings();
       handleCancelEdit();
@@ -248,7 +248,9 @@ const AdminDashboard = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700 mb-2">Discounted Price</label>
+              <label className="block text-gray-700 mb-2">
+                Discounted Price
+              </label>
               <input
                 type="text"
                 name="discount"
@@ -294,8 +296,6 @@ const AdminDashboard = () => {
                 placeholder="https://example.com"
               />
             </div>
-
-         
           </div>
 
           <div className="mt-6">
@@ -307,15 +307,20 @@ const AdminDashboard = () => {
                 key={index}
                 className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4 border p-4 rounded-lg bg-gray-50"
               >
-               
                 <div>
-                  <label className="block text-gray-700 mb-2">Discount Statement</label>
+                  <label className="block text-gray-700 mb-2">
+                    Discount Statement
+                  </label>
                   <input
                     type="text"
                     name="discount_statement"
                     value={info.discount_statement}
                     onChange={(e) =>
-                      handleDiscountInfoChange(index, "discount_statement", e.target.value)
+                      handleDiscountInfoChange(
+                        index,
+                        "discount_statement",
+                        e.target.value
+                      )
                     }
                     className="w-full p-2 border rounded"
                     required
@@ -323,32 +328,41 @@ const AdminDashboard = () => {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 mb-2">Discounted Code</label>
+                  <label className="block text-gray-700 mb-2">
+                    Discounted Code
+                  </label>
                   <input
                     type="text"
                     name="discount_code"
                     value={info.discount_code}
                     onChange={(e) =>
-                      handleDiscountInfoChange(index, "discount_code", e.target.value)
+                      handleDiscountInfoChange(
+                        index,
+                        "discount_code",
+                        e.target.value
+                      )
                     }
                     className="w-full p-2 border rounded"
                     required
                   />
                 </div>
 
-                <div className="flex flex-col items-start"> 
-            <label className="block text-gray-700 mb-2">Applied</label>
-              <input
-                type="checkbox"
-                name="applied"
-                checked={info.applied}
-                onChange={(e) =>
-                  handleDiscountInfoChange(index, "applied", e.target.checked)
-                }
-                className=" p-2 mt-5 w-5 h-5 border rounded"
-              />
-            </div>
-
+                <div className="flex flex-col items-start">
+                  <label className="block text-gray-700 mb-2">Applied</label>
+                  <input
+                    type="checkbox"
+                    name="applied"
+                    checked={info.applied}
+                    onChange={(e) =>
+                      handleDiscountInfoChange(
+                        index,
+                        "applied",
+                        e.target.checked
+                      )
+                    }
+                    className=" p-2 mt-5 w-5 h-5 border rounded"
+                  />
+                </div>
 
                 <div className="flex items-end">
                   <button
@@ -371,7 +385,6 @@ const AdminDashboard = () => {
               </button>
             )}
           </div>
-
 
           <div className="mt-4 flex space-x-2">
             <button
@@ -464,16 +477,15 @@ const AdminDashboard = () => {
                       £{listing.discount}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-
+                 
                       {listing.discount_info.map((data, index) => {
-                        return <ul key={index} className="mb-5">
-                          <li>
-                            Disc Statement: {data?.discount_statement}
-                          </li>
-                          <li>
-                            Disc Code: {data?.discount_code}
-                          </li>
-                        </ul>
+                        return (
+                          <ul key={index} className="mb-5">
+                            <li>Disc Statement: {data?.discount_statement}</li>
+                            <li>Disc Code: {data?.discount_code}</li>
+                            <li>Applied: {data?.applied}</li>
+                          </ul>
+                        );
                       })}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
