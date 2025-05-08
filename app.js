@@ -29,7 +29,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/mounjaro', mounjaroRoutes);
+app.use('/api/medicine', mounjaroRoutes);
 app.use('/api/discount', discountRoutes);
 app.use('/api/wegovy', wegovyRoutes);
 
