@@ -17,7 +17,6 @@ const AdminDashboard = () => {
     discount_info: [],
     rating: "",
     website: "",
-    applied: false
   });
 
   const dosageOptions = [
@@ -42,7 +41,7 @@ const AdminDashboard = () => {
     if (formData.discount_info.length < 5) {
       setFormData((prev) => ({
         ...prev,
-        discount_info: [...prev.discount_info, { discount_statement: "", discount_code: "" }],
+        discount_info: [...prev.discount_info, { discount_statement: "", discount_code: "", applied: false }],
       }));
     }
   };
@@ -81,13 +80,6 @@ const AdminDashboard = () => {
     }));
   };
 
-  const handleCheckbox = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      applied: e.target.checked,
-    }));
-  };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -107,7 +99,6 @@ const AdminDashboard = () => {
       discount_info: listing.discount_info,
       rating: listing.rating,
       website: listing.website,
-      applied: listing.applied
     });
   };
 
@@ -122,7 +113,6 @@ const AdminDashboard = () => {
       discount_info: [],
       rating: "",
       website: "",
-      applied: false
     });
   };
 
@@ -139,7 +129,6 @@ const AdminDashboard = () => {
     data.append("discount_info", JSON.stringify(formData.discount_info));
     data.append("rating", formData.rating);
     data.append("website", formData.website);
-    data.append("applied", formData.applied);
 
     try {
       if (editingId) {
@@ -306,22 +295,8 @@ const AdminDashboard = () => {
               />
             </div>
 
-
-          <div className="flex flex-col items-start">
-              
-            <label className="block text-gray-700 mb-2">Applied</label>
-              <input
-                type="checkbox"
-                name="applied"
-                checked={formData.applied}
-                onChange={handleCheckbox}
-                className=" p-2 mt-5 w-5 h-5 border rounded"
-              />
-
-            </div>
+         
           </div>
-
-       
 
           <div className="mt-6">
             <label className="block text-gray-700 mb-2 text-lg font-semibold">
@@ -360,6 +335,19 @@ const AdminDashboard = () => {
                     required
                   />
                 </div>
+
+                <div className="flex flex-col items-start"> 
+            <label className="block text-gray-700 mb-2">Applied</label>
+              <input
+                type="checkbox"
+                name="applied"
+                checked={info.applied}
+                onChange={(e) =>
+                  handleDiscountInfoChange(index, "applied", e.target.checked)
+                }
+                className=" p-2 mt-5 w-5 h-5 border rounded"
+              />
+            </div>
 
 
                 <div className="flex items-end">
