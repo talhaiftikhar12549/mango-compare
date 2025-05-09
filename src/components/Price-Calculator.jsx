@@ -250,8 +250,11 @@ export default function PriceCalculator({
                   >
                     <div className="w-[30%]">
                       <div className="flex items-center gap-[20px]">
-                        <img src={Img} alt="Pharmacy logo" />
-
+                      {srtdata.pharmacyLogo == ""?<img src={Img} alt="Pharmacy logo" /> : <img className="w-[80px]" src={srtdata.pharmacyLogo} alt="Pharmacy logo" />
+                        
+                      }
+                        
+                        
                         <a
                           href={srtdata.website}
                           target="_blank"
@@ -356,8 +359,6 @@ export default function PriceCalculator({
 
                                       <div className="flex flex-col items-center space-x-2">
                                         <FaRegCopy className="text-[20px]" />
-
-
                                       </div>
 
                                       {/* Tooltip */}
@@ -373,15 +374,15 @@ export default function PriceCalculator({
 
                               {(!srtdata.discount_info ||
                                 srtdata.discount_info.length === 0) && (
-                                  <p
-                                    className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
+                                <p
+                                  className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
                rounded-[10px] py-[10px] px-4"
-                                  >
-                                    <span className="font-bold text-[#484848]">
-                                      Sorry, no discount available
-                                    </span>
-                                  </p>
-                                )}
+                                >
+                                  <span className="font-bold text-[#484848]">
+                                    Sorry, no discount available
+                                  </span>
+                                </p>
+                              )}
 
                               <a
                                 href={srtdata.website}
@@ -429,10 +430,11 @@ export default function PriceCalculator({
                   <button
                     key={i + 1}
                     onClick={() => setCurrentPage(i + 1)}
-                    className={`px-3 py-1 rounded ${currentPage === i + 1
-                      ? "bg-[#FCC821] text-white"
-                      : "bg-gray-100"
-                      }`}
+                    className={`px-3 py-1 rounded ${
+                      currentPage === i + 1
+                        ? "bg-[#FCC821] text-white"
+                        : "bg-gray-100"
+                    }`}
                   >
                     {i + 1}
                   </button>
