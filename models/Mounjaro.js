@@ -20,14 +20,14 @@ const MounjaroSchema = new mongoose.Schema({
   dosage: {
     type: String,
     required: [true, 'Please add the dosage'],
-    enum: [
-      '2.5 mg',
-      '5 mg',
-      '7.5 mg',
-      '10 mg',
-      '12.5 mg',
-      '15 mg'
-    ]
+    // enum: [
+    //   '2.5 mg',
+    //   '5 mg',
+    //   '7.5 mg',
+    //   '10 mg',
+    //   '12.5 mg',
+    //   '15 mg'
+    // ]
   },
   price: {
     type: Number,
