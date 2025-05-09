@@ -337,8 +337,14 @@ export default function PriceCalculator({
                                       onClick={() =>
                                         handleCopy(item.discount_code)
                                       }
-                                      className="relative group w-full cursor-pointer transition duration-300 px-4 py-2 my-2 text-[#FCC821] bg-white border-[2px] border-[#FCC821] flex items-center justify-between rounded"
+                                      className="relative group w-full cursor-pointer transition duration-300 px-4 py-2 my-5 text-[#FCC821] bg-white border-[2px] border-[#FCC821] flex items-center justify-between rounded"
                                     >
+                                      {item.applied && (
+                                        <p className="text-[12px] text-[#ffffff] absolute top-[-18px] bg-[#FCC821] left-[-2px] px-[6px] rounded-tl-[2px] rounded-tr-[2px]">
+                                          applied
+                                        </p>
+                                      )}
+
                                       <div className="flex flex-col">
                                         <span className="font-semibold">
                                           {item.discount_code}
@@ -351,9 +357,7 @@ export default function PriceCalculator({
                                       <div className="flex flex-col items-center space-x-2">
                                         <FaRegCopy className="text-[20px]" />
 
-                                        {item.applied && (
-                                          <p className="text-[12px]">applied</p>
-                                        )}
+
                                       </div>
 
                                       {/* Tooltip */}
@@ -369,15 +373,15 @@ export default function PriceCalculator({
 
                               {(!srtdata.discount_info ||
                                 srtdata.discount_info.length === 0) && (
-                                <p
-                                  className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
+                                  <p
+                                    className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
                rounded-[10px] py-[10px] px-4"
-                                >
-                                  <span className="font-bold text-[#484848]">
-                                    Sorry, no discount available
-                                  </span>
-                                </p>
-                              )}
+                                  >
+                                    <span className="font-bold text-[#484848]">
+                                      Sorry, no discount available
+                                    </span>
+                                  </p>
+                                )}
 
                               <a
                                 href={srtdata.website}
@@ -425,11 +429,10 @@ export default function PriceCalculator({
                   <button
                     key={i + 1}
                     onClick={() => setCurrentPage(i + 1)}
-                    className={`px-3 py-1 rounded ${
-                      currentPage === i + 1
-                        ? "bg-[#FCC821] text-white"
-                        : "bg-gray-100"
-                    }`}
+                    className={`px-3 py-1 rounded ${currentPage === i + 1
+                      ? "bg-[#FCC821] text-white"
+                      : "bg-gray-100"
+                      }`}
                   >
                     {i + 1}
                   </button>
