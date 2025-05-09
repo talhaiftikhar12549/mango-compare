@@ -15,6 +15,9 @@ const storage = new CloudinaryStorage({
   params: {
     folder: 'uploads', // Cloudinary folder name
     allowed_formats: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
+    use_filename: false,
+    unique_filename: true,
+    overwrite: false,
     public_id: (req, file) => {
       const ext = file.originalname.split('.').pop();
       return `${Date.now()}-${Math.round(Math.random() * 1E9)}.${ext}`;
