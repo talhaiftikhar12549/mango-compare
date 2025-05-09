@@ -11,7 +11,7 @@ const AdminDashboard = () => {
     pharmacyLogo: null,
     pharmacy: "",
     medicine: "Mounjaro",
-    dosage: "Please Select Dosage",
+    dosage: "",
     price: "",
     discount: "",
     discount_info: [],
@@ -19,24 +19,10 @@ const AdminDashboard = () => {
     website: "",
   });
 
-  const dosageOptionsMounjaro =  [
-    "2.5 mg",
-    "5 mg",
-    "7.5 mg",
-    "10 mg",
-    "12.5 mg",
-    "15 mg",
-  ]
-
-  const dosageOptionsWegovy = [
-    "0.25 mg",
-    "0.5 mg",
-    "1.0 mg",
-    "1.7 mg",
-    "2.4 mg",
-    
-  ]
-
+  const dosageMap = {
+    Mounjaro: ["2.5 mg", "5 mg", "7.5 mg", "10 mg", "12.5 mg", "15 mg"],
+    Wegovy: ["0.25 mg", "0.5 mg", "1 mg", "1.7 mg", "2.4 mg"],
+  };
   const medicineOptions = ["Mounjaro", "Wegovy"];
 
   useEffect(() => {
@@ -97,6 +83,14 @@ const AdminDashboard = () => {
     }));
   };
 
+  useEffect(() => {
+    const defaultDosage = dosageMap[formData.medicine]?.[0] || "";
+    setFormData((prev) => ({
+      ...prev,
+      dosage: defaultDosage,
+    }));
+  }, [formData.medicine]);
+
   const handleEdit = (listing) => {
     setEditingId(listing._id);
     setFormData({
@@ -116,7 +110,7 @@ const AdminDashboard = () => {
     setFormData({
       pharmacy: "",
       medicine: "Mounjaro",
-      dosage: formData.medicine === "Mounjaro" ? "2.5 mg" : "0.25 mg",
+      dosage: "",
       price: "",
       discount: "",
       discount_info: [],
@@ -234,18 +228,11 @@ const AdminDashboard = () => {
                 className="w-full p-2 border rounded"
                 required
               >
-                {formData.medicine === "Mounjaro" ? dosageOptionsMounjaro.map((option) => (
-                  <option key={option} defaultValue={"2.5 mg"} value={option}>
+                {(dosageMap[formData.medicine] || []).map((option) => (
+                  <option key={option} value={option}>
                     {option}
                   </option>
-                ))
-                : 
-                dosageOptionsWegovy.map((option) => (
-                  <option key={option} defaultValue={"0.25 mg"} value={option}>
-                    {option}
-                  </option>
-                ))
-              }
+                ))}
               </select>
             </div>
 
@@ -339,7 +326,6 @@ const AdminDashboard = () => {
                       )
                     }
                     className="w-full p-2 border rounded"
-                    
                   />
                 </div>
 
@@ -359,7 +345,6 @@ const AdminDashboard = () => {
                       )
                     }
                     className="w-full p-2 border rounded"
-                    
                   />
                 </div>
 
@@ -492,14 +477,24 @@ const AdminDashboard = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       £{listing.discount}
                     </td>
-                    <td className="px-6 py-4 min-w-[150px]">
-                 
+                    <td className="px-6 py-4">
                       {listing.discount_info.map((data, index) => {
                         return (
                           <ul key={index} className="mb-5">
                             <li>Disc Statement: {data?.discount_statement}</li>
                             <li>Disc Code: {data?.discount_code}</li>
-                            <li>Applied: {data?.applied === true ? <span className="bg-green-400 text-white px-2 py-1 text-xs">Yes</span> : <span className="bg-red-400 text-white px-2 py-1 text-xs ">No</span>}</li>
+                            <li>
+                              Applied:{" "}
+                              {data?.applied === true ? (
+                                <span className="bg-green-400 text-white px-2 py-1 text-xs">
+                                  Yes
+                                </span>
+                              ) : (
+                                <span className="bg-red-400 text-white px-2 py-1 text-xs ">
+                                  No
+                                </span>
+                              )}
+                            </li>
                           </ul>
                         );
                       })}
