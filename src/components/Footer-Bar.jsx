@@ -1,8 +1,11 @@
 import footerLogo from "../assets/footer/footerLogo.png";
-import facebookIcon from "../assets/footer/facebook.png";
-import instaIcon from "../assets/footer/insta.png";
-import linkedInIcon from "../assets/footer/linkedIn.png";
 import { NavLink } from "react-router-dom";
+import { FaFacebookF } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaRedditAlien } from "react-icons/fa";
+import { IoLogoTiktok } from "react-icons/io5";
+import { RiTwitterXLine } from "react-icons/ri";
+import { FaQuora } from "react-icons/fa";
 export default function FooterBar() {
   return (
     <>
@@ -44,12 +47,21 @@ export default function FooterBar() {
                       Links
                     </h3>
                     <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
-                      <li><NavLink to="/">Home</NavLink></li>
-                      <li><NavLink to="mounjaro-compare">Mounjaro</NavLink></li>
-                      <li><NavLink to="wegovy-compare">Wegovy</NavLink></li>
-                      <li><NavLink to="blogs">Blogs</NavLink></li>
-                      <li><NavLink to="contact-us">Contact Us</NavLink></li>
-                      
+                      <li>
+                        <NavLink to="/">Home</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="mounjaro-compare">Mounjaro</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="wegovy-compare">Wegovy</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="blogs">Blogs</NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="contact-us">Contact Us</NavLink>
+                      </li>
                     </ul>
                   </div>
 
@@ -70,32 +82,56 @@ export default function FooterBar() {
                       <h3 className="text-xl text-start font-semibold mb-2 text-white">
                         Social Media
                       </h3>
-                      <div className="flex justify-start items-center  gap-4 py-2">
-                        <img
-                          src={facebookIcon}
-                          alt="Facebook"
-                          className="h-6 w-6"
-                        />
-                        <img
-                          src={instaIcon}
-                          alt="Instagram"
-                          className="h-6 w-6"
-                        />
-                        <img
-                          src={linkedInIcon}
-                          alt="LinkedIn"
-                          className="h-6 w-6"
-                        />
+                      <div className="flex justify-start items-center  gap-3 py-2">
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://www.facebook.com/share/12KVqbtETnb/"
+                        >
+                          <FaFacebookF className="text-[24px] pointer" />
+                        </a>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://www.instagram.com/mangocompare/"
+                        >
+                          <FaInstagram className="text-[24px] pointer" />
+                        </a>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://www.reddit.com/user/FlynnnRiderrr/"
+                        >
+                          <FaRedditAlien className="text-[24px] pointer" />
+                        </a>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://www.tiktok.com/@mangocompare"
+                        >
+                          <IoLogoTiktok className="text-[24px] pointer" />
+                        </a>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://x.com/MangoCompare"
+                        >
+                          <RiTwitterXLine className="text-[24px] pointer" />
+                        </a>
+                        <a
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href="https://www.quora.com/profile/Flynn-Rider-198"
+                        >
+                          <FaQuora className="text-[24px] pointer" />
+                        </a>
                       </div>
                     </div>
                   </div>
-
-                  
                 </div>
               </div>
             </div>
 
-           
             {/* Mini Footer */}
             <div className="border-t w-full border-gray-700 mt-8 py-4">
               <div className="flex flex-col sm:flex-row items-center w-full">
