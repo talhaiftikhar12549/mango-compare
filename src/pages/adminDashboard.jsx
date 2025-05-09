@@ -11,7 +11,7 @@ const AdminDashboard = () => {
     pharmacyLogo: null,
     pharmacy: "",
     medicine: "Mounjaro",
-    dosage: "2.5 mg",
+    dosage: "Please Select Dosage",
     price: "",
     discount: "",
     discount_info: [],
@@ -116,7 +116,7 @@ const AdminDashboard = () => {
     setFormData({
       pharmacy: "",
       medicine: "Mounjaro",
-      dosage: "2.5 mg",
+      dosage: formData.medicine === "Mounjaro" ? "2.5 mg" : "0.25 mg",
       price: "",
       discount: "",
       discount_info: [],
@@ -235,13 +235,13 @@ const AdminDashboard = () => {
                 required
               >
                 {formData.medicine === "Mounjaro" ? dosageOptionsMounjaro.map((option) => (
-                  <option key={option} value={option}>
+                  <option key={option} defaultValue={"2.5 mg"} value={option}>
                     {option}
                   </option>
                 ))
                 : 
                 dosageOptionsWegovy.map((option) => (
-                  <option key={option} value={option}>
+                  <option key={option} defaultValue={"0.25 mg"} value={option}>
                     {option}
                   </option>
                 ))
@@ -492,7 +492,7 @@ const AdminDashboard = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       £{listing.discount}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 min-w-[150px]">
                  
                       {listing.discount_info.map((data, index) => {
                         return (
@@ -507,7 +507,7 @@ const AdminDashboard = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       {listing.rating || "-"}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4">
                       {listing.website ? (
                         <a
                           href={listing.website}
