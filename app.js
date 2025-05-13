@@ -11,6 +11,7 @@ const authRoutes = require('./routes/authroutes');
 const mounjaroRoutes = require('./routes/mounjaroRoutes');
 const discountRoutes = require('./routes/discountRoutes');
 const wegovyRoutes = require('./routes/wegovyRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 
 
 // Initialize Express app
@@ -32,6 +33,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/medicine', mounjaroRoutes);
 app.use('/api/discount', discountRoutes);
 app.use('/api/wegovy', wegovyRoutes);
+app.use('/api/contact', contactRoutes);
 
 // Error handling middleware
 app.use(errorHandler);
