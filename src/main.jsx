@@ -18,6 +18,8 @@ import ProtectedRoute from "./components/auth/ProtectedRoute.jsx";
 import AuthForm from "./components/auth/AuthForm.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import AdminDashWegovy from "./pages/adminDashWegovy.jsx";
+import ThankYouPage from "./pages/thankyou.jsx";
+import FormDetails from "./pages/formDetails.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -83,6 +85,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="blogs" element={<Blogs />} />
                 <Route path="login" element={<LoginPage />} />
                 <Route path="register" element={<AuthForm />} />
+                <Route path="/thank-you" element={<ThankYouPage />} />
                 {/* <Route path="register-secret" element={<Register />} /> */}
                 <Route
                   path="mounjaro-pannel"
@@ -93,10 +96,10 @@ createRoot(document.getElementById("root")).render(
                   }
                 />
                 <Route
-                  path="wegovy-pannel"
+                  path="form-info"
                   element={
                     <ProtectedRoute>
-                      <AdminDashWegovy />
+                      <FormDetails />
                     </ProtectedRoute>
                   }
                 />
