@@ -5,9 +5,9 @@ import { PiShareLight } from "react-icons/pi";
 import { FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-export const BlogCard = () => {
+export const BlogCard = (blog) => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
-
+  console.log(blog, "blog data as a prop in card component");
   const handleClick = () => {
     setShowMoreInfo(true);
   };
@@ -16,16 +16,18 @@ export const BlogCard = () => {
       <div className="bg-white shadow-lg w-[100%] p-[24px] space-y-5 rounded-xl">
         <p className="text-[#FCC821] font-bold">TECHNOLOGY</p>
         <h3 className="text-[28px] font-[400] text-[#05222E]">
-          Make sure to include in your wheel hire
+          {blog.blog.title}
         </h3>
 
-        <p className="text-[#666666] font-[16px]">
+        <p className="text-[#666666] font-[16px] line-clamp-5">
           Get all your ducks in a row good optics close the loop and zeitgeist
           so manage quarterly sales are great to hear for me Pipeline quarterly
           sales are at an all-time low future-proof, or 60% to 30% is a lot of
           persent Take five
         </p>
-
+        <p className="text-[#666666] font-[16px]">
+          {blog.blog.excerpt}
+        </p>
         <div className="flex space-x-5 text-[#666666]">
           <span className="flex justify-center items-center space-x-2 ">
             <FaEye /> <p>5k views</p>

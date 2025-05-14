@@ -11,12 +11,12 @@ const Blogs = () => {
         const response = await api.get("/blogs");
         console.log("API Blog List data", response.data.data);
         const data = response.data.data;
-
+        console.log("apiDataB", apiDataB);
         if (data.length !== 0) {
           setLoading(false);
         }
         const apiDta = data;
-        console.log("Blogs Data", apiDta);
+        console.log("apiDataB", apiDta);
         setApiDataB(apiDta);
       } catch (error) {
         console.log("Failed to fetch listings", error);
@@ -45,7 +45,7 @@ const Blogs = () => {
           <div className="grid gap-[40px] grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full pb-[200px]">
             {apiDataB.map((blg, index) => (
               <BlogCard key={index} blog={blg} />
-            ))}
+            ) )}
           </div>
         )}
       </div>
