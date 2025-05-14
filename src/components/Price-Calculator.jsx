@@ -337,7 +337,7 @@ export default function PriceCalculator({
                     <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
                       <div
                         onClick={() => openDiscountModal(srtdata._id)}
-                        className="py-[14px] px-[8px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                        className="py-[14px] px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
                       >
                         Visit Pharmacy
                       </div>
