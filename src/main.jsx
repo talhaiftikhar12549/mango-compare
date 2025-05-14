@@ -20,6 +20,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import AdminDashWegovy from "./pages/adminDashWegovy.jsx";
 import ThankYouPage from "./pages/thankyou.jsx";
 import FormDetails from "./pages/formDetails.jsx";
+import CreateBlogForm from "./components/BlogForm/CreateBlogForm.jsx";
 
 // const router = createBrowserRouter([
 //   {
@@ -100,6 +101,14 @@ createRoot(document.getElementById("root")).render(
                   element={
                     <ProtectedRoute>
                       <FormDetails />
+                    </ProtectedRoute>
+                  }
+                />
+                 <Route
+                  path="create-blog"
+                  element={
+                    <ProtectedRoute>
+                      <CreateBlogForm />
                     </ProtectedRoute>
                   }
                 />
