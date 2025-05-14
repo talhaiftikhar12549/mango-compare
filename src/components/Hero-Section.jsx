@@ -2,7 +2,7 @@ export default function HeroSection({ heading, text, image }) {
   return (
     <>
       <section className="max-w-[1280px] custom-width  lg:px-[40px] xl:px-0 px-[16px] mx-auto pb-[80px]">
-        <div className="flex flex-col md:flex-row w-full gap-[40px] md:gap-[80px] items-center">
+        <div className="flex flex-col md:flex-row w-full gap-[40px] md:gap-[80px] items-start">
           {/* Left Side */}
           <div className="w-full md:w-1/2 text-center md:text-left">
             <h1 className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[54px] leading-tight md:leading-[70px] font-[700] font-montserrat text-[#05222E]">
