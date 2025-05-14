@@ -2,9 +2,7 @@ import image1 from "../assets/mounjaro compare/mounjarohero.png";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
-import mounjaroData from "../components/mounjaro-data.js";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import api from "../services/api.js";
 
 const MounjaroCompare = () => {

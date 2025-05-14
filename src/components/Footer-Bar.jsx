@@ -82,7 +82,7 @@ export default function FooterBar() {
                       <h3 className="text-xl text-start font-semibold mb-2 text-white">
                         Social Media
                       </h3>
-                      <div className="flex justify-start items-center  gap-3 py-2">
+                      <div className="flex justify-start items-center  gap-2 py-2">
                         <a
                           target="_blank"
                           rel="noopener noreferrer"

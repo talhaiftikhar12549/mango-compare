@@ -1,10 +1,9 @@
 import { StrictMode } from "react";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import Layout from "./pages/layout.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import App from "./App.jsx";
 import { Home } from "./pages/home.jsx";
 import { store } from "./redux toolkit/store.js";
 import { Provider } from "react-redux";
@@ -17,59 +16,10 @@ import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/auth/ProtectedRoute.jsx";
 import AuthForm from "./components/auth/AuthForm.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import AdminDashWegovy from "./pages/adminDashWegovy.jsx";
 import ThankYouPage from "./pages/thankyou.jsx";
 import FormDetails from "./pages/formDetails.jsx";
 import CreateBlogForm from "./components/BlogForm/CreateBlogForm.jsx";
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Layout />,
-//     children: [
-//       {
-//         index: true,
-//         element: <Home />,
-//       },
-//       {
-//         path: "/mounjaro-compare",
-//         element: (
-//           <Suspense fallback={<div>Loading...</div>}>
-//             <MounjaroCompare />
-//           </Suspense>
-//         ),
-//       },
-//       {
-//         path: "/wegovy-compare",
-//         element: <WegovyCompare />,
-//       },
-//       {
-//         path: "/contact-us",
-//         element: <Contant />,
-//       },
-//       {
-//         path: "/blogs",
-//         element: <Blogs />,
-//       },
-//       {
-//         path: "/login",
-//         element: <AuthForm />,
-//       },
-//       // {
-//       //   path: "/register-secret",
-//       //   element: <Register />,
-//       // },
-//       {
-//         path: "/dashboard",
-//         element: (
-//           <ProtectedRoute>
-//             <AdminDashboard />
-//           </ProtectedRoute>
-//         ),
-//       },
-//     ],
-//   },
-// ]);
+import SingleBlog from "./pages/singleBlog.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -87,7 +37,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="login" element={<LoginPage />} />
                 <Route path="register" element={<AuthForm />} />
                 <Route path="/thank-you" element={<ThankYouPage />} />
-                {/* <Route path="register-secret" element={<Register />} /> */}
+                <Route path="/single-blog" element={<SingleBlog />} />
                 <Route
                   path="mounjaro-pannel"
                   element={
@@ -104,7 +54,7 @@ createRoot(document.getElementById("root")).render(
                     </ProtectedRoute>
                   }
                 />
-                 <Route
+                <Route
                   path="create-blog"
                   element={
                     <ProtectedRoute>
@@ -117,7 +67,6 @@ createRoot(document.getElementById("root")).render(
           </Suspense>
         </AuthProvider>
       </Router>
-      {/* <RouterProvider router={router} /> */}
     </Provider>
   </StrictMode>
 );
