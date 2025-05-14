@@ -34,6 +34,7 @@ app.use('/api/medicine', mounjaroRoutes);
 app.use('/api/discount', discountRoutes);
 app.use('/api/wegovy', wegovyRoutes);
 app.use('/api/contact', contactRoutes);
+app.use('/api/blogs', contactRoutes);
 
 // Error handling middleware
 app.use(errorHandler);
