@@ -1,4 +1,4 @@
-const Blog = require('../models/Blog');
+const Blog = require('../models/Blogs');
 const ErrorResponse = require('../utils/errorResponse');
 const path = require('path');
 const fs = require('fs');
