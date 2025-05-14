@@ -5,33 +5,31 @@ import { dosageFiltedDta, DosagName } from "../redux toolkit/compareToolSlice";
 const DosageFilter = ({ availableDoasge, isReset }) => {
   const dispatch = useDispatch();
   const [isHide, setIsHide] = useState(true);
-  const [selectedDosage, setSelectedDosage] = useState([]);
+  const [selectedDosage, setSelectedDosage] = useState(null);
   const contentRef = useRef(null);
   const [maxHeight, setMaxHeight] = useState("0px");
   const fltrData = useSelector((state) => state.compareTool.mainData);
   const dosages = availableDoasge || [];
 
-  const selectedDosg = useCallback(
-    (dose) => {
-      let updatedSelection;
-      if (selectedDosage.includes(dose)) {
-        updatedSelection = selectedDosage.filter((d) => d !== dose);
-      } else {
-        updatedSelection = [...selectedDosage, dose];
-      }
+  // Select first dosage by default
+  useEffect(() => {
+    if (dosages.length > 0 && selectedDosage === null) {
+      setSelectedDosage(dosages[0]);
+      dispatch(DosagName([dosages[0]]));
+    }
+  }, [dosages, selectedDosage, dispatch]);
 
-      setSelectedDosage(updatedSelection);
-      dispatch(DosagName(updatedSelection));
+  const handleDosageSelect = useCallback(
+    (dose) => {
+      setSelectedDosage(dose);
+      dispatch(DosagName([dose]));
     },
-    [selectedDosage, dispatch]
+    [dispatch]
   );
 
   useEffect(() => {
-    if (selectedDosage.length > 0) {
-      const filtered = fltrData.filter((item) =>
-        selectedDosage.includes(item.dosage)
-      );
-      console.log("Selected Dosage", selectedDosage);
+    if (selectedDosage) {
+      const filtered = fltrData.filter((item) => item.dosage === selectedDosage);
       dispatch(dosageFiltedDta(filtered));
     } else {
       dispatch(dosageFiltedDta([]));
@@ -46,10 +44,15 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
 
   useEffect(() => {
     if (isReset) {
-      setSelectedDosage([]);
-      dispatch(DosagName([]));
+      if (dosages.length > 0) {
+        setSelectedDosage(dosages[0]);
+        dispatch(DosagName([dosages[0]]));
+      } else {
+        setSelectedDosage(null);
+        dispatch(DosagName([]));
+      }
     }
-  }, [isReset, dispatch]);
+  }, [isReset, dispatch, dosages]);
 
   return (
     <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] border-b border-[#DCDCDC] shadow-md bg-white space-y-4">
@@ -75,14 +78,16 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
               className="flex items-center space-x-[8px] cursor-pointer"
             >
               <input
-                type="checkbox"
-                checked={selectedDosage.includes(dose)}
-                onChange={() => selectedDosg(dose)}
-                className="form-checkbox accent-yellow-400 cursor-pointer"
+                type="radio"
+                name="dosage"
+                value={dose}
+                checked={selectedDosage === dose}
+                onChange={() => handleDosageSelect(dose)}
+                className="w-5 h-5 rounded-full border-2 border-yellow-400 checked:bg-yellow-400 checked:border-yellow-400 appearance-none cursor-pointer relative"
               />
               <span
                 className={`text-sm ${
-                  selectedDosage.includes(dose)
+                  selectedDosage === dose
                     ? "text-black font-medium"
                     : "text-gray-500"
                 }`}

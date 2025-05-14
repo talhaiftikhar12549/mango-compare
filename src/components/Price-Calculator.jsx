@@ -250,11 +250,16 @@ export default function PriceCalculator({
                   >
                     <div className="w-[30%]">
                       <div className="flex items-center gap-[20px]">
-                      {srtdata.pharmacyLogo == ""?<img src={Img} alt="Pharmacy logo" /> : <img className="w-[80px]" src={srtdata.pharmacyLogo} alt="Pharmacy logo" />
-                        
-                      }
-                        
-                        
+                        {srtdata.pharmacyLogo == "" ? (
+                          <img src={Img} alt="Pharmacy logo" />
+                        ) : (
+                          <img
+                            className="w-[80px]"
+                            src={srtdata.pharmacyLogo}
+                            alt="Pharmacy logo"
+                          />
+                        )}
+
                         <a
                           href={srtdata.website}
                           target="_blank"
