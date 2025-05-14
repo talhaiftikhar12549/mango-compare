@@ -189,12 +189,25 @@ export default function PriceCalculator({
     setIsModalOpen(true);
   };
   // Login Modal Open and close modal
-
+  // filter toggel
+  const [filterBar, setIsFilterBar] = useState(false);
+  const filterBarHandler = () => {
+    setIsFilterBar(!filterBar);
+  };
+  // filter toggel
   return (
     <>
       <section className="max-w-[1280px] custom-width  lg:px-[40px] xl:px-0 px-[16px] mx-auto py-[100px] w-[100%]">
+        <div className="flex md:hidden pb-2">
+          <div
+            onClick={filterBarHandler}
+            className="py-[14px] font-semibold px-[8px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+          >
+            Show Filters
+          </div>
+        </div>
         <div className="flex w-[100%]">
-          <div className="w-[25%] pr-[20px] ">
+          <div className="hidden md:block w-[25%] pr-[20px]">
             <FilterBar
               availableDoasge={availableDoasge}
               maxVal={MaxValue()}
@@ -202,6 +215,17 @@ export default function PriceCalculator({
               isResetter={isResetter}
             />
           </div>
+          {filterBar && (
+            <div className="block md:hidden w-[25%]  pr-[20px]">
+              <FilterBar
+                availableDoasge={availableDoasge}
+                maxVal={MaxValue()}
+                minValue={MinValue()}
+                isResetter={isResetter}
+              />
+            </div>
+          )}
+
           <div className="w-[75%]">
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
               <div className="w-[30%] ">
