@@ -55,21 +55,23 @@ const WegovyCompare = () => {
     },
   ];
   const availableDoasge = ["0.25 mg", "0.5 mg", "1.0 mg", "1.7 mg", "2.4 mg"];
-  const [apiDataM, setApiDataM] = useState ([])
-  const [loading, setLoading] = useState(true)
+  const [apiDataM, setApiDataM] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchListings = async () => {
       try {
         const response = await api.get("/medicine");
-        console.log("API data",response.data.data)
-         const data = response.data.data.filter((item) => item.medicine === "Wegovy");
-        
+        console.log("API data", response.data.data);
+        const data = response.data.data.filter(
+          (item) => item.medicine === "Wegovy"
+        );
+
         if (data.length !== 0) {
-          setLoading(false)
+          setLoading(false);
         }
-        const apiDta = data
-        console.log("Api Data Mounjaro", apiDta );
-        setApiDataM(apiDta)
+        const apiDta = data;
+        console.log("Api Data Mounjaro", apiDta);
+        setApiDataM(apiDta);
       } catch (error) {
         console.log("Failed to fetch listings", error);
       }
@@ -121,16 +123,19 @@ const WegovyCompare = () => {
       /> */}
 
       <div className="w-full overflow-x-auto">
-      {loading ? <div className="w-[100vw] h-[50vh] justify-center items-center bg-gray-100 p-52">Loading</div>
-      :
-        <div className="min-w-[1024px]">
-          <PriceCalculator
-          maindata={apiDataM}
-            // maindata={wegovyData}
-            availableDoasge={availableDoasge}
-          />
-        </div>
-}
+        {loading ? (
+          <div className="w-full h-[50vh] flex justify-center items-center ">
+            <div className="animate-spin rounded-full h-16 w-16 border-4 border-[#FCC821] border-t-transparent"></div>
+          </div>
+        ) : (
+          <div className="min-w-[1024px]">
+            <PriceCalculator
+              maindata={apiDataM}
+              // maindata={wegovyData}
+              availableDoasge={availableDoasge}
+            />
+          </div>
+        )}
       </div>
       {/* price calculator */}
       {/* Faqs Section */}

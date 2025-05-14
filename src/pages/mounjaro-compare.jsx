@@ -57,22 +57,24 @@ const MounjaroCompare = () => {
     "12.5 mg",
     "15 mg",
   ];
-const [apiDataM, setApiDataM] = useState ([])
-const [loading, setLoading] = useState(true)
+  const [apiDataM, setApiDataM] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchListings = async () => {
       try {
         const response = await api.get("/medicine");
-        console.log("API data",response.data.data)
-         const data = response.data.data.filter((item) => item.medicine === "Mounjaro");
-        
+        console.log("API data", response.data.data);
+        const data = response.data.data.filter(
+          (item) => item.medicine === "Mounjaro"
+        );
+
         if (data.length !== 0) {
-          setLoading(false)
+          setLoading(false);
         }
-        const apiDta = data
-        console.log("Api Data Mounjaro", apiDta );
-        setApiDataM(apiDta)
+        const apiDta = data;
+        console.log("Api Data Mounjaro", apiDta);
+        setApiDataM(apiDta);
       } catch (error) {
         console.log("Failed to fetch listings", error);
       }
@@ -100,18 +102,20 @@ const [loading, setLoading] = useState(true)
       {/* price calculator */}
 
       <div className="w-full overflow-x-auto">
-      {loading ? <div className="w-[100vw] h-[50vh] justify-center items-center bg-gray-100 p-52">Loading</div>
-      :
-    
-        <div className="min-w-[1024px]">
-          <PriceCalculator
-            maindata={apiDataM}
-            // maindata={mounjaroData}
-            availableDoasge={availableDoasge}
-            isResetter={true}
-          />
-        </div>
-    }
+        {loading ? (
+          <div className="w-full h-[50vh] flex justify-center items-center ">
+            <div className="animate-spin rounded-full h-16 w-16 border-4 border-[#FCC821] border-t-transparent"></div>
+          </div>
+        ) : (
+          <div className="min-w-[1024px]">
+            <PriceCalculator
+              maindata={apiDataM}
+              // maindata={mounjaroData}
+              availableDoasge={availableDoasge}
+              isResetter={true}
+            />
+          </div>
+        )}
       </div>
 
       {/* price calculator */}
