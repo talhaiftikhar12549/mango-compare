@@ -4,7 +4,7 @@ import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
 import { useEffect, useState } from "react";
 import api from "../services/api.js";
-
+import PriceCalculatorSkeleton from './PriceCalculatorSkeleton';
 const MounjaroCompare = () => {
   const faqItems = [
     {
@@ -99,21 +99,18 @@ const MounjaroCompare = () => {
 
       {/* price calculator */}
 
-      <div className="w-full overflow-x-auto">
-        {loading ? (
-          <div className="w-full h-[50vh] flex justify-center items-center ">
-            <div className="animate-spin rounded-full h-16 w-16 border-4 border-[#FCC821] border-t-transparent"></div>
-          </div>
-        ) : (
-          <div className="min-w-[1024px]">
-            <PriceCalculator
-              maindata={apiDataM}
-              availableDoasge={availableDoasge}
-              isResetter={true}
-            />
-          </div>
-        )}
-      </div>
+     <div className="w-full overflow-x-auto">
+  {loading ? (
+    <PriceCalculatorSkeleton />
+  ) : (
+    <div className="min-w-[1024px]">
+      <PriceCalculator
+        maindata={apiDataM}
+        availableDoasge={availableDoasge}
+      />
+    </div>
+  )}
+</div>
 
       {/* price calculator */}
       <div className="max-w-[1280px] custom-width  mx-auto px-4 lg:px-8 xl:px-0 space-y-6">

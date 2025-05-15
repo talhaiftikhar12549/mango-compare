@@ -4,6 +4,7 @@ import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
 import { useEffect, useState } from "react";
 import api from "../services/api.js";
+import PriceCalculatorSkeleton from './PriceCalculatorSkeleton';
 const WegovyCompare = () => {
   const faqItems = [
     {
@@ -115,20 +116,17 @@ const WegovyCompare = () => {
       {/* price calculator */}
 
       <div className="w-full overflow-x-auto">
-        {loading ? (
-          <div className="w-full h-[50vh] flex justify-center items-center ">
-            <div className="animate-spin rounded-full h-16 w-16 border-4 border-[#FCC821] border-t-transparent"></div>
-          </div>
-        ) : (
-          <div className="min-w-[1024px]">
-            <PriceCalculator
-              maindata={apiDataM}
-              
-              availableDoasge={availableDoasge}
-            />
-          </div>
-        )}
-      </div>
+  {loading ? (
+    <PriceCalculatorSkeleton />
+  ) : (
+    <div className="min-w-[1024px]">
+      <PriceCalculator
+        maindata={apiDataM}
+        availableDoasge={availableDoasge}
+      />
+    </div>
+  )}
+</div>
       {/* price calculator */}
       {/* Faqs Section */}
 
