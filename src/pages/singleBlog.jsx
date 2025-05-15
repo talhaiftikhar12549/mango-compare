@@ -83,12 +83,12 @@ export default function SingleBlog() {
         </div>
 
         <div className="flex flex-wrap gap-2">
-          {(blog.tags || []).map((tag, i) => (
+          {(blog.tags?.[0]?.split(",") || []).map((tag, i) => (
             <p
               key={i}
               className="py-[8px] px-[10px] bg-[#FCC821] rounded-[8px] text-sm sm:text-base"
             >
-              {tag}
+              {tag.trim()}
             </p>
           ))}
         </div>
