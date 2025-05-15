@@ -5,20 +5,15 @@ import blogImageFallback from "../assets/Post Thumbnail.png";
 import authImage from "../assets/9e3a4d582a45a8c496e0fef1f9efb92f06fd9293.jpg";
 
 export default function SingleBlog() {
-  const { id } = useParams();
+  const { slug } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchBlog = async () => {
       try {
-        const response = await api.get(`/blogs/`);
-        const blogList = response.data.data;
-        const matchedBlog = blogList.find(
-          (item) => String(item._id) === String(id)
-        );
-        setBlog(matchedBlog);
-        console.log("matchedBlog", matchedBlog);
+        const response = await api.get(`/blogs/${slug}`);
+        setBlog(response.data.data);
       } catch (error) {
         console.error("Failed to fetch blog data:", error);
       } finally {
@@ -27,7 +22,7 @@ export default function SingleBlog() {
     };
 
     fetchBlog();
-  }, [id]);
+  }, [slug]);
 
   if (loading) {
     return (
@@ -58,7 +53,7 @@ export default function SingleBlog() {
       </h1>
 
       <div className="flex flex-col sm:flex-row justify-between pt-4 text-[#515151] text-sm sm:text-[14px] font-semibold gap-2">
-        <p> Published Date : {new Date(blog.createdAt).toLocaleDateString()}</p>
+        <p>Published Date: {new Date(blog.createdAt).toLocaleDateString()}</p>
         <p>Views: {blog.views || 0}</p>
       </div>
 
@@ -93,13 +88,15 @@ export default function SingleBlog() {
           ))}
         </div>
       </div>
+
       <div className="py-6">
         <p className="text-[30px] sm:text-[18px] font-[600] text-[#05222E] leading-[160%] whitespace-pre-line">
           {blog.excerpt}
         </p>
       </div>
+
       <div className="py-6">
-        <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%] ">
+        <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%]">
           {blog.content}
         </p>
       </div>
