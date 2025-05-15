@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 import blogImageFallback from "../assets/Post Thumbnail.png";
 import authImage from "../assets/9e3a4d582a45a8c496e0fef1f9efb92f06fd9293.jpg";
+import { FaEye } from "react-icons/fa";
+import { FaRegCalendarAlt } from "react-icons/fa";
 
 export default function SingleBlog() {
   const { slug } = useParams();
@@ -52,11 +54,6 @@ export default function SingleBlog() {
         {blog.title}
       </h1>
 
-      <div className="flex flex-col sm:flex-row justify-between pt-4 text-[#515151] text-sm sm:text-[14px] font-semibold gap-2">
-        <p>Published Date: {new Date(blog.createdAt).toLocaleDateString()}</p>
-        <p>Views: {blog.views || 0}</p>
-      </div>
-
       <div className="pt-5">
         <img
           className="w-full rounded-md"
@@ -75,22 +72,22 @@ export default function SingleBlog() {
           <p className="font-bold text-sm sm:text-[14px]">
             {blog.author?.name || "admin"}
           </p>
-        </div>
+          <div className="flex flex-row justify-between pl-[10px] sm:pl-[30px]  text-[#515151] text-sm sm:text-[16px] font-semibold sm:gap-9 gap-6">
+            <div className="flex items-center justify-center">
+              <FaRegCalendarAlt /> &nbsp;
+              {new Date(blog.createdAt).toLocaleDateString()}
+            </div>
 
-        <div className="flex flex-wrap gap-2">
-          {(blog.tags?.[0]?.split(",") || []).map((tag, i) => (
-            <p
-              key={i}
-              className="py-[8px] px-[10px] bg-[#FCC821] rounded-[8px] text-sm sm:text-base"
-            >
-              {tag.trim()}
-            </p>
-          ))}
+            <div className="flex items-center justify-center">
+              <FaEye /> &nbsp; { blog.views || 0}
+            </div>
+          </div>
         </div>
+        <div className="flex flex-col sm:flex-row justify-between pt-4 text-[#515151] text-sm sm:text-[14px] font-semibold gap-5"></div>
       </div>
 
       <div className="py-6">
-        <p className="text-[30px] sm:text-[18px] font-[600] text-[#05222E] leading-[160%] whitespace-pre-line">
+        <p className="text-[18px] sm:text-[24px] font-[600] text-[#05222E] leading-[160%] whitespace-pre-line">
           {blog.excerpt}
         </p>
       </div>
