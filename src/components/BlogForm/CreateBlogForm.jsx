@@ -37,7 +37,7 @@ const CreateBlogForm = () => {
       const payload = new FormData();
       for (const key in formData) {
         if (key === 'keywords' || key === 'categories' || key === 'tags') {
-          payload.append(key, JSON.stringify(formData[key].split(',').map(str => str.trim())));
+          payload.append(key, formData[key].split(',').map(str => str.trim()));
         } else {
           payload.append(key, formData[key]);
         }
