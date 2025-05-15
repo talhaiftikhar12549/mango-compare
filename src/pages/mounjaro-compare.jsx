@@ -64,7 +64,6 @@ const MounjaroCompare = () => {
     const fetchListings = async () => {
       try {
         const response = await api.get("/medicine");
-        console.log("API data", response.data.data);
         const data = response.data.data.filter(
           (item) => item.medicine === "Mounjaro"
         );
@@ -73,7 +72,6 @@ const MounjaroCompare = () => {
           setLoading(false);
         }
         const apiDta = data;
-        console.log("Api Data Mounjaro", apiDta);
         setApiDataM(apiDta);
       } catch (error) {
         console.log("Failed to fetch listings", error);
@@ -110,7 +108,6 @@ const MounjaroCompare = () => {
           <div className="min-w-[1024px]">
             <PriceCalculator
               maindata={apiDataM}
-              // maindata={mounjaroData}
               availableDoasge={availableDoasge}
               isResetter={true}
             />

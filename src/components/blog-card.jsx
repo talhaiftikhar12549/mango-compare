@@ -1,4 +1,3 @@
-import { FaLocationDot } from "react-icons/fa6";
 import { FaEye } from "react-icons/fa";
 import { AiFillLike } from "react-icons/ai";
 import { PiShareLight } from "react-icons/pi";
@@ -7,7 +6,6 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 export const BlogCard = (blog) => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
-  console.log(blog, "blog data as a prop in card component");
   const handleClick = () => {
     setShowMoreInfo(true);
   };
@@ -25,9 +23,7 @@ export const BlogCard = (blog) => {
           sales are at an all-time low future-proof, or 60% to 30% is a lot of
           persent Take five
         </p>
-        <p className="text-[#666666] font-[16px]">
-          {blog.blog.excerpt}
-        </p>
+        <p className="text-[#666666] font-[16px]">{blog.blog.excerpt}</p>
         <div className="flex space-x-5 text-[#666666]">
           <span className="flex justify-center items-center space-x-2 ">
             <FaEye /> <p>5k views</p>
@@ -51,7 +47,7 @@ export const BlogCard = (blog) => {
           </button>
         </NavLink>
       </div>
-      {showMoreInfo && <singleBlog />}
+      
     </>
   );
 };

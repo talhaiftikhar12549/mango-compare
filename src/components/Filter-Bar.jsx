@@ -1,7 +1,7 @@
 import PriceFilter from "./Price-Filter";
 import DosageFilter from "./Dosage-filter";
 import { useState } from "react";
-export default function FilterBar({ availableDoasge, maxVal, isResetter, minValue }) {
+export default function FilterBar({ availableDoasge, maxVal, minValue }) {
   const [isReset, setIsReset] = useState(false);
 
   const handleReset = () => {
@@ -10,7 +10,7 @@ export default function FilterBar({ availableDoasge, maxVal, isResetter, minValu
       setIsReset(false);
     }, 500);
   };
-console.log("isReset in filter bar", isResetter);
+
   return (
     <>
       <section className="w-[100%] border border-[#DCDCDC] rounded-[6px] shadow-md">

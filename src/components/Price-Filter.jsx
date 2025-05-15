@@ -17,14 +17,8 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const handleChange = (e) => {
     const isChecked = e.target.checked;
     setChecked(isChecked);
-    dispatch(discountedFilter(isChecked)); // Dispatch true or false
+    dispatch(discountedFilter(isChecked));
   };
-  console.log(
-    "min and max prices coming from price filter",
-    minValue,
-    "   ",
-    maxVal
-  );
   useEffect(() => {
     if (contentRef.current) {
       setMaxHeight(isHide ? `113px` : "0px");

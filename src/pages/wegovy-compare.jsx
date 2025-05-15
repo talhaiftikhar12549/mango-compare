@@ -2,9 +2,7 @@ import image1 from "../assets/wegovy compare/wegovyhero.png";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
-import wegovyData from "../components/wegovy-data.js";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import api from "../services/api.js";
 const WegovyCompare = () => {
   const faqItems = [
@@ -61,7 +59,6 @@ const WegovyCompare = () => {
     const fetchListings = async () => {
       try {
         const response = await api.get("/medicine");
-        console.log("API data", response.data.data);
         const data = response.data.data.filter(
           (item) => item.medicine === "Wegovy"
         );
@@ -70,7 +67,6 @@ const WegovyCompare = () => {
           setLoading(false);
         }
         const apiDta = data;
-        console.log("Api Data Mounjaro", apiDta);
         setApiDataM(apiDta);
       } catch (error) {
         console.log("Failed to fetch listings", error);
@@ -117,10 +113,6 @@ const WegovyCompare = () => {
       </div>
 
       {/* price calculator */}
-      {/* <PriceCalculator
-        maindata={wegovyData}
-        availableDoasge={availableDoasge}
-      /> */}
 
       <div className="w-full overflow-x-auto">
         {loading ? (
@@ -131,7 +123,7 @@ const WegovyCompare = () => {
           <div className="min-w-[1024px]">
             <PriceCalculator
               maindata={apiDataM}
-              // maindata={wegovyData}
+              
               availableDoasge={availableDoasge}
             />
           </div>

@@ -6,7 +6,6 @@ import { mainDatagetter } from "../redux toolkit/compareToolSlice";
 import { IoClose } from "react-icons/io5";
 import Img from "../assets/price tool/img.png";
 import { FaRegCopy } from "react-icons/fa";
-// import poperGif from "../assets/price tool/poper.gif";
 export default function PriceCalculator({
   maindata,
   availableDoasge,
@@ -21,7 +20,7 @@ export default function PriceCalculator({
     e.preventDefault();
     localStorage.setItem("userEmail", email);
     localStorage.setItem("fullName", fullName);
-    console.log("Saved to localStorage:", { fullName, email });
+
     if (email !== "") {
       setIsSubscribed(true);
     }
@@ -35,7 +34,7 @@ export default function PriceCalculator({
   }, []);
   // Form detail
   // copun code copy
-  const couponCodes = ["code1", "code2", "code3"];
+  // const couponCodes = ["code1", "code2", "code3"];
   const [copiedCode, setCopiedCode] = useState(null);
 
   const handleCopy = (code) => {
@@ -43,7 +42,7 @@ export default function PriceCalculator({
       .writeText(code)
       .then(() => {
         setCopiedCode(code);
-        setTimeout(() => setCopiedCode(null), 1500); // Hide tooltip after 1.5s
+        setTimeout(() => setCopiedCode(null), 1500);
       })
       .catch((err) => {
         console.error("Copy failed", err);
@@ -52,7 +51,7 @@ export default function PriceCalculator({
   // copun code copy
   const dispatch = useDispatch();
   dispatch(mainDatagetter(maindata));
-  console.log("main data in price calc", maindata);
+
   const [isDiscountModalOpen, setDiscountIsModalOpen] = useState(false);
   const [selectedDiscountId, setSelectedDiscountId] = useState(null);
 
@@ -71,15 +70,8 @@ export default function PriceCalculator({
   const filteredMaxValue = useSelector(
     (state) => state.compareTool.filteredMaxValue
   );
-  console.log("max value coming from store", filteredMaxValue);
-  console.log("data coming from store", fltrData);
   const maxMinPrice = useSelector((state) => state.compareTool.mPrice);
-  console.log(
-    "min max price coming from store in price calculator component",
-    maxMinPrice
-  );
   const filteredName = useSelector((state) => state.compareTool.filteredName);
-  console.log("filter name coming from store", filteredName);
   const [sortPrice, setSortPrice] = useState("lp");
   const [sortRating, setSortRating] = useState("lr");
   const [filteredData, setFilteredData] = useState(fltrData);
@@ -118,7 +110,6 @@ export default function PriceCalculator({
         const discountedpass = parseFloat(item.discount);
         return discountedpass;
       });
-      console.log("Array after discount filter:", workingData);
     }
 
     // Apply dosage and price range filter
@@ -133,7 +124,6 @@ export default function PriceCalculator({
       });
 
       setFilteredData(filtered);
-      console.log("Filtered by dosage and price:", filtered);
     } else if (maxMinPrice?.length === 2) {
       const [minPrice, maxPrice] = maxMinPrice;
 
@@ -143,10 +133,8 @@ export default function PriceCalculator({
       });
 
       setFilteredData(filteredByPrice);
-      console.log("Filtered by price only:", filteredByPrice);
     } else {
       setFilteredData(workingData);
-      console.log("No extra filters applied, using base data:", workingData);
     }
   }, [discountedPrice, filteredName, maxMinPrice, maindata]);
 
@@ -155,13 +143,11 @@ export default function PriceCalculator({
   // Min Max Logic
   const MaxValue = () => {
     const maxVal = Math.max(...maindata.map((item) => item.price));
-    console.log("Max value:", maxVal);
     return maxVal;
   };
 
   const MinValue = () => {
     const minVal = Math.min(...maindata.map((item) => item.price));
-    console.log("Min value:", minVal);
     return minVal;
   };
   // Min Max Logic
@@ -260,9 +246,6 @@ export default function PriceCalculator({
               <div className="w-[18%] flex items-center justify-center">
                 <p className="flex items-center ">Website </p>
               </div>
-              {/* <div className="w-[18%] text-center flex items-center justify-center">
-                <p>Website</p>
-              </div> */}
             </div>
             {/* card section */}
             <div>
@@ -297,21 +280,6 @@ export default function PriceCalculator({
                     <div className="w-[17%] flex items-center justify-center">
                       <p>{srtdata.dosage}</p>
                     </div>
-                    {/* <div className="w-[18%] flex items-center justify-center">
-                      {isSubscribed ? (
-                        <p>£ {srtdata.price}</p>
-                      ) : (
-                        <p
-                          onClick={toggelModal}
-                          className="text-[#FCC821] text-[18px] font-[600] cursor-pointer border-b-[2px] border-[#ffffff] hover:border-b-[2px] hover:border-[#FCC821] transition duration-500"
-                        >
-                          View Price
-                        </p>
-                      )}
-
-                     
-                      {srtdata.discountedPrice == 0 || "" ? <p>£ {srtdata.price}</p> : <p className="line-through">£ {srtdata.price}</p> <p >£ {srtdata.discountedPrice}</p> }
-                    </div> */}
                     <div className="w-[18%] flex items-center justify-center">
                       {discountedPrice ? (
                         srtdata.discount === null ? (
@@ -403,10 +371,7 @@ export default function PriceCalculator({
 
                               {(!srtdata.discount_info ||
                                 srtdata.discount_info.length === 0) && (
-                                <p
-                                  className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504]
-               rounded-[10px] py-[10px] px-4"
-                                >
+                                <p className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504] rounded-[10px] py-[10px] px-4">
                                   <span className="font-bold text-[#484848]">
                                     Sorry, no discount available
                                   </span>
@@ -429,18 +394,7 @@ export default function PriceCalculator({
                           </div>
                         )}
                     </div>
-
-                    {/* <div className="w-[18%] flex items-center justify-center text-center">
-                      <a
-                        href={srtdata.websiteURL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <div className="py-[14px] px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer">
-                          Visit Pharmacy
-                        </div>
-                      </a>
-                    </div> */}
+                    
                   </div>
                 ))}
               </>
