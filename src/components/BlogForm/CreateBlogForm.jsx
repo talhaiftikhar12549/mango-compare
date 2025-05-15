@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef  } from 'react';
 import axios from 'axios';
 import api from '../../services/api';
 
@@ -15,6 +15,8 @@ const CreateBlogForm = () => {
     status: 'draft',
     featuredImage: null,
   });
+
+  const fileInputRef = useRef(null);
 
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState(null);
@@ -43,13 +45,18 @@ const CreateBlogForm = () => {
         }
       }
 
-      const res = await api.post('/blogs', payload, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      
+
+    await api.post('/blogs', payload)
+
+      console.log(formData);
+      console.log(payload);
+
+      
+      
 
       setMessage('Blog created successfully!');
+      
       setFormData({
         title: '',
         meta_title: '',
@@ -62,6 +69,7 @@ const CreateBlogForm = () => {
         status: 'draft',
         featuredImage: null,
       });
+      fileInputRef.current.value = null;
     } catch (err) {
       setMessage(err.response?.data?.error || 'Something went wrong.');
     } finally {
@@ -118,6 +126,7 @@ const CreateBlogForm = () => {
             accept="image/*"
             onChange={handleChange}
             className="w-full border rounded p-2"
+            ref={fileInputRef}
           />
         </div>
 
