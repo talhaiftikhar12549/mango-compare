@@ -13,7 +13,6 @@ export const BlogCard = (blog) => {
     <>
       <div className="bg-white shadow-lg w-[100%] p-[24px] space-y-5 rounded-xl">
         <p className="text-[#FCC821] font-bold">{blog.blog.categories[0]}</p>
-        {console.log(blog.blog.categories)}
         <h3 className="text-[28px] font-[400] text-[#05222E] ">
           {blog.blog.title}
         </h3>
