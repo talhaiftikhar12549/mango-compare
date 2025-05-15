@@ -79,7 +79,7 @@ export default function SingleBlog() {
             </div>
 
             <div className="flex items-center justify-center">
-              <FaEye /> &nbsp; { blog.views || 0}
+              <FaEye /> &nbsp; {blog.views || 0}
             </div>
           </div>
         </div>

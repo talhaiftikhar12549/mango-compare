@@ -12,6 +12,7 @@ export const BlogCard = (blog) => {
   return (
     <>
       <div className="bg-white shadow-lg w-[100%] p-[24px] space-y-5 rounded-xl">
+        <img src={blog.blog.featuredImage} alt="" />
         <p className="text-[#FCC821] font-bold">{blog.blog.categories[0]}</p>
         <h3 className="text-[28px] font-[400] text-[#05222E] ">
           {blog.blog.title}
@@ -25,14 +26,6 @@ export const BlogCard = (blog) => {
           <span className="flex justify-center items-center space-x-2 ">
             <FaEye /> <p>{blog.blog.views} views</p>
           </span>
-
-          {/* <span className="flex justify-center items-center space-x-2 ">
-            <PiShareLight /> <p>5k views</p>
-          </span>
-
-          <span className="flex justify-center items-center space-x-2 ">
-            <AiFillLike /> <p>5k views</p>
-          </span> */}
         </div>
         <NavLink to={`/single-blog/${blog.blog.slug}`}>
           <button
