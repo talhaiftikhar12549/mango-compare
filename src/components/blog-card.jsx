@@ -29,7 +29,7 @@ export const BlogCard = (blog) => {
         </div>
         <NavLink to={`/single-blog/${blog.blog.slug}`}>
           <button
-            className="bg-[#FCC821] cursor-pointer px-10 mt-[67px] py-3 rounded-full  text-white text-semibold flex justify-center items-center space-x-5 hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] border-[#FCC821]"
+            className="bg-[#FCC821] cursor-pointer px-10 mt-[24px] py-3 rounded-full  text-white text-semibold flex justify-center items-center space-x-5 hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] border-[#FCC821]"
             type="submit"
             onClick={handleClick}
           >
