@@ -60,7 +60,7 @@ export default function SingleBlog() {
       <div className="pt-5">
         <img
           className="w-full rounded-md"
-          src={blog.image || blogImageFallback}
+          src={blog.featuredImage || blogImageFallback}
           alt="Blog Thumbnail"
         />
       </div>
