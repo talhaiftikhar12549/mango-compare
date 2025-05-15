@@ -38,7 +38,7 @@ router.route('/')
     createBlog
   );
 
-router.route('/:id')
+router.route('/:idOrSlug')
   .get(getSingleBlog)
   .put(
     protect,
