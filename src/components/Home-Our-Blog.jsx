@@ -3,7 +3,7 @@ import blogImg1 from "../assets/home/blog-img1.png"; // fallback image
 import { FaArrowRight } from "react-icons/fa";
 import api from "../services/api";
 import { NavLink } from "react-router-dom";
-import  BlogSkeleton  from "../pages/blogSkeleton";
+import BlogSkeleton from "../pages/blogSkeleton";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
