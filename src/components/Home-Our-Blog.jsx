@@ -7,6 +7,12 @@ import BlogSkeleton from "../pages/blogSkeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 export default function HomeOurBlog() {
+  const getExcerpt = (text, wordLimit = 25) => {
+    const words = text.split(" ");
+    return words.length > wordLimit
+      ? words.slice(0, wordLimit).join("    ") + " ..."
+      : text;
+  };
   const [apiDataB, setApiDataB] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -47,24 +53,31 @@ export default function HomeOurBlog() {
           <div className="flex flex-col md:flex-row items-center w-full gap-[22px]">
             {apiDataB.slice(0, 3).map((blog, index) => (
               <div key={index} className="max-w-[413px]">
-                <img
-                  src={blog.featuredImage || blogImg1}
-                  alt={blog.title || "Blog Image"}
-                  className="rounded-lg"
-                />
-                <h3 className="text-[22px] pt-[20px] pb-[10px] font-[500] font-montserrat text-[#000000]">
-                  {blog.title || "Untitled Blog"}
-                </h3>
-                <p className="text-[14px] font-[400] font-montserrat text-[#5B5C67]">
-                  {blog.excerpt ||
-                    "Lorem ipsum dolor sit amet consectetur. Pellentesque arcu nisl at aliquam vitae donec consequat cursus vel. Viverra."}
-                </p>
-                <NavLink to={`/single-blog/${blog.slug}`}>
-                  <h4 className="text-[18px] pt-[10px] font-[600] font-montserrat text-[#FCC821] inline-flex items-center cursor-pointer">
-                    Read More
-                    <FaArrowRight className="ml-2" />
-                  </h4>
-                </NavLink>
+                <div>
+                  <img
+                    src={blog.featuredImage || blogImg1}
+                    alt={blog.title || "Blog Image"}
+                    className="rounded-lg"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-[22px] pt-[20px] pb-[10px] font-[500] font-montserrat text-[#000000]">
+                    {blog.title || "Untitled Blog"}
+                  </h3>
+                  <p className="text-[14px] font-[400] font-montserrat text-[#5B5C67]">
+                    {getExcerpt(
+                      blog.excerpt ||
+                        "Lorem ipsum dolor sit amet consectetur. Pellentesque arcu nisl at aliquam vitae donec consequat cursus vel. Viverra.",
+                      25
+                    )}
+                  </p>
+                  <NavLink to={`/single-blog/${blog.slug}`}>
+                    <h4 className="text-[18px] pt-[10px] font-[600] font-montserrat text-[#FCC821] inline-flex items-center cursor-pointer">
+                      Read More
+                      <FaArrowRight className="ml-2" />
+                    </h4>
+                  </NavLink>
+                </div>
               </div>
             ))}
           </div>
