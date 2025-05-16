@@ -72,7 +72,7 @@ export default function FooterBar() {
                         Contact
                       </h3>
                       <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
-                        <li>mango@compare.com</li>
+                        <li>info@mangocompare.co.uk</li>
                         <li>Phone: +1 (123) 456‑7890</li>
                         {/* <li>Hours: 8:00 AM – 6:00 PM</li>
                         <li>Office Hours: Monday – Friday, 8:00 AM – 6:00 PM</li> */}
@@ -97,13 +97,13 @@ export default function FooterBar() {
                         >
                           <FaInstagram className="text-[24px] pointer" />
                         </a>
-                        <a
+                        {/* <a
                           target="_blank"
                           rel="noopener noreferrer"
                           href="https://www.reddit.com/user/FlynnnRiderrr/"
                         >
                           <FaRedditAlien className="text-[24px] pointer" />
-                        </a>
+                        </a> */}
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
@@ -118,13 +118,13 @@ export default function FooterBar() {
                         >
                           <RiTwitterXLine className="text-[24px] pointer" />
                         </a>
-                        <a
+                        {/* <a
                           target="_blank"
                           rel="noopener noreferrer"
                           href="https://www.quora.com/profile/Flynn-Rider-198"
                         >
                           <FaQuora className="text-[24px] pointer" />
-                        </a>
+                        </a> */}
                       </div>
                     </div>
                   </div>
