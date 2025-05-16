@@ -106,15 +106,18 @@ export default function PriceCalculator({
     let workingData = [...maindata];
 
     // Apply discount filter if needed
+    // if (discountedPrice === true) {
+    //   // workingData = workingData.filter((item) => {
+    //   //   const discountedpass = parseFloat(item.discount);
+    //   //   return discountedpass;
+    //   // });
+    //   workingData;
+    //   console.log(workingData, "workingData");
+    // }
     if (discountedPrice === true) {
-      // workingData = workingData.filter((item) => {
-      //   const discountedpass = parseFloat(item.discount);
-      //   return discountedpass;
-      // });
-      workingData
-      console.log(workingData,"workingData")
+      workingData = workingData.sort((a, b) => a.price - b.price);
+      console.log(workingData, "workingData");
     }
-
     // Apply dosage and price range filter
     if (filteredName?.length > 0 && maxMinPrice?.length === 2) {
       const [minPrice, maxPrice] = maxMinPrice;
