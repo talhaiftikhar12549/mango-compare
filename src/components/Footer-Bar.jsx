@@ -26,7 +26,7 @@ export default function FooterBar() {
                   Sign up for our newsletter!
                 </p>
 
-                <div className="mt-[50px] relative flex flex-wrap bg-white rounded-lg p-2 shadow-md">
+                {/* <div className="mt-[50px] relative flex flex-wrap bg-white rounded-lg p-2 shadow-md">
                   <input
                     type="email"
                     placeholder="Email address"
@@ -35,7 +35,7 @@ export default function FooterBar() {
                   <button className="flex-shrink-0 text-[16px] font-semibold bg-[#FFC836] px-6 py-2 md:px-6 sm:px-4 rounded-[10px] cursor-pointer ease-in-out hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] mt-2 sm:mt-0">
                     Subscribe
                   </button>
-                </div>
+                </div> */}
               </div>
 
               {/* Right Column */}
@@ -81,7 +81,7 @@ export default function FooterBar() {
                           </a>
                         </li>
 
-                        <li>Phone: +1 (123) 456‑7890</li>
+                        {/* <li>Phone: +1 (123) 456‑7890</li> */}
                       </ul>
                     </div>
                     <div>
@@ -141,15 +141,17 @@ export default function FooterBar() {
             {/* Mini Footer */}
             <div className="border-t w-full border-gray-700 mt-8 py-4">
               <div className="flex flex-col sm:flex-row items-center w-full">
-                <div className="w-full sm:w-1/2 text-center sm:text-start">
-                  <p>© 2025 Mango Compare. All Rights Reserved.</p>
+                <div className="w-full  text-center sm:text-start">
+                  <p className="text-center">
+                    © 2025 Mango Compare. All Rights Reserved.
+                  </p>
                 </div>
-                <div className="w-full sm:w-1/2 flex justify-center sm:justify-end items-center space-x-8 text-center sm:text-end mt-2 sm:mt-0">
+                {/* <div className="w-full sm:w-1/2 flex justify-center sm:justify-end items-center space-x-8 text-center sm:text-end mt-2 sm:mt-0">
                   <p className="cursor-pointer hover:underline">Privacy</p>
                   <p className="cursor-pointer hover:underline">
                     Terms &amp; Conditions
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

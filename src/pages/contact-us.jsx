@@ -15,35 +15,34 @@ const Contact = () => {
 
       {/* CONTACT FORM CONTAINER  */}
       <div className="w-full flex justify-center h-[580px] items-center bg-white shadow-xl">
-       <div className="hidden md:block w-[40%] h-full bg-[#FCCE37] py-10 px-8 xl:px-10 rounded-md">
-  <h3 className="font-bold text-2xl">Contact Information</h3>
+        <div className="hidden md:block w-[40%] h-full bg-[#FCCE37] py-10 px-8 xl:px-10 rounded-md">
+          <h3 className="font-bold text-2xl">Contact Information</h3>
 
-  <p className="mt-2">Say something to start a live chat!</p>
+          <p className="mt-2">Say something to start a live chat!</p>
 
-  <div className="mt-10 space-y-10">
-    <div className="flex flex-wrap items-center space-x-5">
-      <BiSolidPhoneCall className="text-lg" />
-      <p className="break-words whitespace-normal">+1012 3456 789</p>
-    </div>
+          <div className="mt-10 space-y-10">
+            {/* <div className="flex flex-wrap items-center space-x-5">
+              <BiSolidPhoneCall className="text-lg" />
+              <p className="break-words whitespace-normal">+1012 3456 789</p>
+            </div> */}
 
-    <div className="flex flex-wrap items-center space-x-5">
-      <IoMdMail className="text-lg" />
-      <p className="break-words whitespace-normal max-w-full">
-        info@mangocompare.co.uk
-      </p>
-    </div>
+            <div className="flex flex-wrap items-center space-x-5">
+              <IoMdMail className="text-lg" />
+              <p className="break-words whitespace-normal max-w-full">
+                info@mangocompare.co.uk
+              </p>
+            </div>
 
-    <div className="flex flex-wrap items-center space-x-5">
-      <FaLocationDot className="text-xl" />
-      <p className="break-words whitespace-normal lg:w-2/3">
-        132 Dartmouth Street Boston, Massachusetts 02156 United States
-      </p>
-    </div>
-  </div>
-</div>
+            {/* <div className="flex flex-wrap items-center space-x-5">
+              <FaLocationDot className="text-xl" />
+              <p className="break-words whitespace-normal lg:w-2/3">
+                132 Dartmouth Street Boston, Massachusetts 02156 United States
+              </p>
+            </div> */}
+          </div>
+        </div>
 
-
-        <div className="w-[100%] sm:w-[60%] px-5 sm:px-10  py-5 sm:py-10 flex items-center">
+        <div className="w-[100%] md:w-[60%] px-5 sm:px-10  py-5 sm:py-10 flex items-center">
           <ContactForm />
         </div>
       </div>
