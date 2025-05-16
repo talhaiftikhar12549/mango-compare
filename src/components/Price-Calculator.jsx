@@ -43,7 +43,7 @@ export default function PriceCalculator({
       .then(() => {
         setCopiedCode(code);
         setTimeout(() => setCopiedCode(null), 1500);
-        console.log("discount code copied",code)
+        console.log("discount code copied", code);
       })
       .catch((err) => {
         console.error("Copy failed", err);
@@ -107,10 +107,12 @@ export default function PriceCalculator({
 
     // Apply discount filter if needed
     if (discountedPrice === true) {
-      workingData = workingData.filter((item) => {
-        const discountedpass = parseFloat(item.discount);
-        return discountedpass;
-      });
+      // workingData = workingData.filter((item) => {
+      //   const discountedpass = parseFloat(item.discount);
+      //   return discountedpass;
+      // });
+      workingData
+      console.log(workingData,"workingData")
     }
 
     // Apply dosage and price range filter
