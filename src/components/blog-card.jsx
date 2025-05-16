@@ -1,6 +1,3 @@
-import { FaEye } from "react-icons/fa";
-import { AiFillLike } from "react-icons/ai";
-import { PiShareLight } from "react-icons/pi";
 import { FaArrowRight } from "react-icons/fa";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -9,33 +6,48 @@ export const BlogCard = (blog) => {
   const handleClick = () => {
     setShowMoreInfo(true);
   };
+  const getExcerpt = (text, wordLimit = 25) => {
+    const words = text.split(" ");
+    return words.length > wordLimit
+      ? words.slice(0, wordLimit).join(" ") + "..."
+      : text;
+  };
   return (
     <>
-      <div className="bg-white shadow-lg w-[100%] p-[24px] space-y-5 rounded-xl">
-        <img src={blog.blog.featuredImage} alt="" />
-        <p className="text-[#FCC821] font-bold">{blog.blog.categories[0]}</p>
-        <h3 className="text-[28px] font-[400] text-[#05222E] ">
-          {blog.blog.title}
-        </h3>
+      <div className="flex flex-col md:flex-row items-center w-full gap-[22px]">
+        <div className="max-w-[413px] flex flex-col justify-between h-[100%]">
+          <div className="flex items-start ">
+            <img
+              src={blog.blog.featuredImage}
+              alt={blog.blog.title}
+              className="rounded-lg"
+            />
+          </div>
 
-        <p className="text-[#666666] font-[16px] line-clamp-5">
-          {blog.blog.excerpt}
-        </p>
+          <div className="flex flex-col justify-between flex-1">
+            <h3 className="text-[22px] pt-[20px] pb-[10px] font-[500] font-montserrat text-[#000000]">
+              {blog.blog.title}
+            </h3>
 
-        <div className="flex space-x-5 text-[#666666]">
-          <span className="flex justify-center items-center space-x-2 ">
-            <FaEye /> <p>{blog.blog.views} views</p>
-          </span>
+            <p className="text-[14px] font-[400] font-montserrat text-[#5B5C67]">
+              {getExcerpt(
+                blog.blog.excerpt ||
+                  "Lorem ipsum dolor sit amet consectetur. Pellentesque arcu nisl at aliquam vitae donec consequat cursus vel. Viverra.",
+                25
+              )}
+            </p>
+
+            <NavLink to={`/single-blog/${blog.blog.slug}`}>
+              <h4
+                onClick={handleClick}
+                className="text-[18px] pt-[10px] font-[600] font-montserrat text-[#FCC821] inline-flex items-center cursor-pointer"
+              >
+                Read More
+                <FaArrowRight className="ml-2" />
+              </h4>
+            </NavLink>
+          </div>
         </div>
-        <NavLink to={`/single-blog/${blog.blog.slug}`}>
-          <button
-            className="bg-[#FCC821] cursor-pointer px-10 mt-[24px] py-3 rounded-full  text-white text-semibold flex justify-center items-center space-x-5 hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] border-[#FCC821]"
-            type="submit"
-            onClick={handleClick}
-          >
-            <p>Read More</p> <FaArrowRight />
-          </button>
-        </NavLink>
       </div>
     </>
   );

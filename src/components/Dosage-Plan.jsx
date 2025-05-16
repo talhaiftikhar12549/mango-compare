@@ -19,7 +19,7 @@ export default function DosagePlan() {
             className="flex md:flex-row flex-col items-center justify-between lg:justify-center gap-[20px]  w-[100%] lg:gap-[80px] pt-[30px]"
           >
             {/* Card 1 */}
-            <div className="relative rounded-[40px] lg:w-[50%] w-[100%] px-[40px] pt-[60px] pb-[40px] max-w-[450px] bg-[#FEF4D3] shadow-2xl">
+            <div className="relative rounded-[40px] lg:w-[50%] w-[100%] sm:px-[40px] px-[24px] pt-[60px] pb-[40px] max-w-[450px] bg-[#FEF4D3] shadow-2xl">
               <img
                 className="absolute top-0 right-0 z-0"
                 src={cardPattren}

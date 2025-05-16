@@ -7,27 +7,24 @@ import FooterBar from "../components/Footer-Bar.jsx";
 export const Home = () => {
   return (
     <>
-     {/* Home Hero */}
-     {/* <NavBar /> */}
+      {/* Home Hero */}
+      {/* <NavBar /> */}
       {/* Home Hero */}
       {/* Home Hero */}
       <Herohome />
       {/* Home Hero */}
 
-
       {/* Home Dosage Plan */}
       <DosagePlan />
       {/* Home Dosage Plan */}
 
-     
       {/* Home Dosage Plan */}
       <Carousel />
       {/* Home Dosage Plan */}
-     
+
       {/* Home Our Blog */}
       <HomeOurBlog />
       {/* Home Our Blog */}
-
 
       {/* Home Our Blog */}
       {/* <FooterBar /> */}
