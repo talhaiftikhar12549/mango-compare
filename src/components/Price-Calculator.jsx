@@ -43,6 +43,7 @@ export default function PriceCalculator({
       .then(() => {
         setCopiedCode(code);
         setTimeout(() => setCopiedCode(null), 1500);
+        console.log("discount code copied",code)
       })
       .catch((err) => {
         console.error("Copy failed", err);
@@ -334,10 +335,7 @@ export default function PriceCalculator({
                                   {srtdata.discount_info.map((item, idx) => (
                                     <div
                                       key={item._id || idx}
-                                      onClick={() =>
-                                        handleCopy(item.discount_code)
-                                      }
-                                      className="relative group w-full cursor-pointer transition duration-300 px-4 py-2 my-5 text-[#FCC821] bg-white border-[2px] border-[#FCC821] flex items-center justify-between rounded"
+                                      className="relative group w-full  transition duration-300 px-4 py-2 my-5 text-[#FCC821] bg-white border-[2px] border-[#FCC821] flex items-center justify-between rounded"
                                     >
                                       {item.applied && (
                                         <p className="text-[12px] text-[#ffffff] absolute top-[-18px] bg-[#FCC821] left-[-2px] px-[6px] rounded-tl-[2px] rounded-tr-[2px]">
@@ -353,10 +351,16 @@ export default function PriceCalculator({
                                           {item.discount_statement}
                                         </span>
                                       </div>
-
-                                      <div className="flex flex-col items-center space-x-2">
-                                        <FaRegCopy className="text-[20px]" />
-                                      </div>
+                                      {item.discount_code && (
+                                        <div
+                                          onClick={() =>
+                                            handleCopy(item.discount_code)
+                                          }
+                                          className="flex flex-col items-center space-x-2 cursor-pointer"
+                                        >
+                                          <FaRegCopy className="text-[20px]" />
+                                        </div>
+                                      )}
 
                                       {/* Tooltip */}
                                       {copiedCode === item.discount_code && (
