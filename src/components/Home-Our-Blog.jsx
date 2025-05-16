@@ -59,7 +59,7 @@ export default function HomeOurBlog() {
                   {blog.excerpt ||
                     "Lorem ipsum dolor sit amet consectetur. Pellentesque arcu nisl at aliquam vitae donec consequat cursus vel. Viverra."}
                 </p>
-                <NavLink to={`/blogs`}>
+                <NavLink to={`/single-blog/${blog.slug}`}>
                   <h4 className="text-[18px] pt-[10px] font-[600] font-montserrat text-[#FCC821] inline-flex items-center cursor-pointer">
                     Read More
                     <FaArrowRight className="ml-2" />
