@@ -1,6 +1,8 @@
 import { BlogCard } from "../components/blog-card";
 import api from "../services/api.js";
 import { useState, useEffect } from "react";
+import BlogSkeleton from "../pages/blogSkeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 const Blogs = () => {
   const [apiDataB, setApiDataB] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,8 +37,10 @@ const Blogs = () => {
       {/* Blog Cards Grid */}
       <div className="w-full overflow-x-auto">
         {loading ? (
-          <div className="w-full h-[50vh] flex justify-center items-center ">
-            <div className="animate-spin rounded-full h-16 w-16 border-4 border-[#FCC821] border-t-transparent"></div>
+          <div className="max-w-[1280px] flex flex-col md:flex-row items-center w-full gap-[22px]">
+            {[1, 2, 3].map((_, index) => (
+              <BlogSkeleton key={index} />
+            ))}
           </div>
         ) : (
           <div className="grid gap-[40px] grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full pb-[200px]">

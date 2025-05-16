@@ -2,7 +2,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const BlogSkeleton = () => (
-  <div className="max-w-[413px] w-full">
+  <div className="max-w-[413px] w-full pb-[50px]">
     <Skeleton height={200} borderRadius={8} />
     <div className="pt-[20px] pb-[10px]">
       <Skeleton height={24} width="75%" />

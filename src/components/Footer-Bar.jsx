@@ -72,10 +72,16 @@ export default function FooterBar() {
                         Contact
                       </h3>
                       <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
-                        <li>info@mangocompare.co.uk</li>
+                        <li className="whitespace-normal break-words max-w-full">
+                          <a
+                            href="mailto:info@mangocompare.co.uk"
+                            className="pointer"
+                          >
+                            info@mangocompare.co.uk
+                          </a>
+                        </li>
+
                         <li>Phone: +1 (123) 456‑7890</li>
-                        {/* <li>Hours: 8:00 AM – 6:00 PM</li>
-                        <li>Office Hours: Monday – Friday, 8:00 AM – 6:00 PM</li> */}
                       </ul>
                     </div>
                     <div>
