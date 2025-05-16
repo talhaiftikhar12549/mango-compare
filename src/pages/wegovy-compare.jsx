@@ -4,7 +4,7 @@ import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
 import { useEffect, useState } from "react";
 import api from "../services/api.js";
-import PriceCalculatorSkeleton from './PriceCalculatorSkeleton';
+import PriceCalculatorSkeleton from "./PriceCalculatorSkeleton";
 const WegovyCompare = () => {
   const faqItems = [
     {
@@ -56,26 +56,54 @@ const WegovyCompare = () => {
   const availableDoasge = ["0.25 mg", "0.5 mg", "1.0 mg", "1.7 mg", "2.4 mg"];
   const [apiDataM, setApiDataM] = useState([]);
   const [loading, setLoading] = useState(true);
+  // useEffect(() => {
+  //   const fetchListings = async () => {
+  //     try {
+  //       const response = await api.get("/medicine");
+  //       const data = response.data.data.filter(
+  //         (item) => item.medicine === "Wegovy"
+  //       );
+
+  //       if (data.length !== 0) {
+  //         setLoading(false);
+  //       }
+  //       const apiDta = data;
+  //       setApiDataM(apiDta);
+  //     } catch (error) {
+  //       console.log("Failed to fetch listings", error);
+  //     }
+  //   };
+
+  //   fetchListings();
+  // }, []);
+
+
   useEffect(() => {
-    const fetchListings = async () => {
-      try {
-        const response = await api.get("/medicine");
+  const fetchListings = async () => {
+    try {
+      const response = await api.get("/medicine");
         const data = response.data.data.filter(
           (item) => item.medicine === "Wegovy"
         );
 
-        if (data.length !== 0) {
-          setLoading(false);
-        }
-        const apiDta = data;
-        setApiDataM(apiDta);
-      } catch (error) {
-        console.log("Failed to fetch listings", error);
+      if (data.length !== 0) {
+        setLoading(false);
       }
-    };
 
-    fetchListings();
-  }, []);
+      // Sort alphabetically by pharmacy name
+      const apiDta = data
+        .slice()
+        .sort((a, b) => a.pharmacy.localeCompare(b.pharmacy));
+
+      setApiDataM(apiDta);
+      console.log(apiDta, "apiDta in page");
+    } catch (error) {
+      console.log("Failed to fetch listings", error);
+    }
+  };
+
+  fetchListings();
+}, []);
   return (
     <>
       <HeroSection
@@ -116,17 +144,17 @@ const WegovyCompare = () => {
       {/* price calculator */}
 
       <div className="w-full overflow-x-auto">
-  {loading ? (
-    <PriceCalculatorSkeleton />
-  ) : (
-    <div className="min-w-[1024px]">
-      <PriceCalculator
-        maindata={apiDataM}
-        availableDoasge={availableDoasge}
-      />
-    </div>
-  )}
-</div>
+        {loading ? (
+          <PriceCalculatorSkeleton />
+        ) : (
+          <div className="min-w-[1024px]">
+            <PriceCalculator
+              maindata={apiDataM}
+              availableDoasge={availableDoasge}
+            />
+          </div>
+        )}
+      </div>
       {/* price calculator */}
       {/* Faqs Section */}
 

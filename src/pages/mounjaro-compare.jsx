@@ -60,26 +60,34 @@ const MounjaroCompare = () => {
   const [apiDataM, setApiDataM] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchListings = async () => {
-      try {
-        const response = await api.get("/medicine");
-        const data = response.data.data.filter(
-          (item) => item.medicine === "Mounjaro"
-        );
+useEffect(() => {
+  const fetchListings = async () => {
+    try {
+      const response = await api.get("/medicine");
 
-        if (data.length !== 0) {
-          setLoading(false);
-        }
-        const apiDta = data;
-        setApiDataM(apiDta);
-      } catch (error) {
-        console.log("Failed to fetch listings", error);
+      const data = response.data.data.filter(
+        (item) => item.medicine === "Mounjaro"
+      );
+
+      if (data.length !== 0) {
+        setLoading(false);
       }
-    };
 
-    fetchListings();
-  }, []);
+      // Sort alphabetically by pharmacy name
+      const apiDta = data
+        .slice()
+        .sort((a, b) => a.pharmacy.localeCompare(b.pharmacy));
+
+      setApiDataM(apiDta);
+      console.log(apiDta, "apiDta in page");
+    } catch (error) {
+      console.log("Failed to fetch listings", error);
+    }
+  };
+
+  fetchListings();
+}, []);
+
 
   return (
     <>

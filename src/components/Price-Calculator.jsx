@@ -105,19 +105,16 @@ export default function PriceCalculator({
   useEffect(() => {
     let workingData = [...maindata];
 
-    // Apply discount filter if needed
-    // if (discountedPrice === true) {
-    //   // workingData = workingData.filter((item) => {
-    //   //   const discountedpass = parseFloat(item.discount);
-    //   //   return discountedpass;
-    //   // });
-    //   workingData;
-    //   console.log(workingData, "workingData");
-    // }
     if (discountedPrice === true) {
-      workingData = workingData.sort((a, b) => a.price - b.price);
-      console.log(workingData, "workingData");
+      workingData = workingData.sort((a, b) => {
+        const aValue =
+          a.discount !== null ? parseFloat(a.discount) : parseFloat(a.price);
+        const bValue =
+          b.discount !== null ? parseFloat(b.discount) : parseFloat(b.price);
+        return aValue - bValue; // ascending order
+      });
     }
+
     // Apply dosage and price range filter
     if (filteredName?.length > 0 && maxMinPrice?.length === 2) {
       const [minPrice, maxPrice] = maxMinPrice;
