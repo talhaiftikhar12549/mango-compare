@@ -29,8 +29,6 @@ export const AuthProvider = ({ children }) => {
     // eslint-disable-next-line no-useless-catch
     try {
       const userData = await loginUser(credentials);
-
-      console.log("user data", userData);
       
       setUser(userData);
       setIsAuthenticated(true);

@@ -1,6 +1,6 @@
-import React, { useState, useRef  } from 'react';
-import axios from 'axios';
+import { useState, useRef  } from 'react';
 import api from '../../services/api';
+import { Editor } from '@tinymce/tinymce-react';
 
 const CreateBlogForm = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +17,7 @@ const CreateBlogForm = () => {
   });
 
   const fileInputRef = useRef(null);
+  const editorRef = useRef(null);
 
   const [submitting, setSubmitting] = useState(false);
   const [message, setMessage] = useState(null);
@@ -28,6 +29,10 @@ const CreateBlogForm = () => {
     } else {
       setFormData({ ...formData, [name]: value });
     }
+  };
+
+  const handleEditorChange = (content) => {
+    setFormData((prevData) => ({ ...prevData, content }));
   };
 
   const handleSubmit = async (e) => {
@@ -87,7 +92,7 @@ const CreateBlogForm = () => {
           ['Meta Title', 'meta_title'],
           ['Meta Description', 'meta_description'],
           ['Excerpt', 'excerpt'],
-          ['Content', 'content'],
+          // ['Content', 'content'],
           ['Keywords (comma-separated)', 'keywords'],
           ['Categories (comma-separated)', 'categories'],
           ['Tags (comma-separated)', 'tags'],
@@ -104,6 +109,31 @@ const CreateBlogForm = () => {
             />
           </div>
         ))}
+
+        <div>
+           <Editor
+          apiKey="huens675y3x2jk7vhyp5g3m4tbfcehhzmufrp75cw3tnb0bj"
+          onInit={(evt, editor) => editorRef.current = editor}
+          initialValue=""
+          value={formData.content}
+          init={{
+            height: 400,
+            menubar: false,
+             plugins: [
+          // Core editing features
+          'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+          // Your account includes a free trial of TinyMCE premium features
+          // Try the most popular premium features until May 30, 2025:
+          'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'mentions', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown','importword', 'exportword', 'exportpdf'
+        ],
+            toolbar:
+              'undo redo | formatselect | bold italic backcolor | \
+              alignleft aligncenter alignright alignjustify | \
+              bullist numlist outdent indent | removeformat | help'
+          }}
+          onEditorChange={handleEditorChange}
+        />
+        </div>
 
         <div>
           <label className="block text-sm font-medium">Status</label>
