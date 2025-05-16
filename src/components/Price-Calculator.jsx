@@ -394,7 +394,6 @@ export default function PriceCalculator({
                           </div>
                         )}
                     </div>
-                    
                   </div>
                 ))}
               </>

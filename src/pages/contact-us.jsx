@@ -26,7 +26,7 @@ const Contact = () => {
             </span>
 
             <span className="flex content-center items-center space-x-5">
-              <IoMdMail className="text-lg" /> <p>demo@gmail.com</p>
+              <IoMdMail className="text-lg" /> <p>info@mangocompare.co.uk</p>
             </span>
 
             <span className="flex content-center items-center space-x-5">
