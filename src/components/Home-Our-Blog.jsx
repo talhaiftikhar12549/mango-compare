@@ -3,6 +3,9 @@ import blogImg1 from "../assets/home/blog-img1.png"; // fallback image
 import { FaArrowRight } from "react-icons/fa";
 import api from "../services/api";
 import { NavLink } from "react-router-dom";
+import  BlogSkeleton  from "../pages/blogSkeleton";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 export default function HomeOurBlog() {
   const [apiDataB, setApiDataB] = useState([]);
@@ -36,8 +39,10 @@ export default function HomeOurBlog() {
         </div>
 
         {loading ? (
-          <div className="w-full h-[50vh] flex justify-center items-center ">
-            <div className="animate-spin rounded-full h-16 w-16 border-4 border-[#FCC821] border-t-transparent"></div>
+          <div className="flex flex-col md:flex-row items-center w-full gap-[22px]">
+            {[1, 2, 3].map((_, index) => (
+              <BlogSkeleton key={index} />
+            ))}
           </div>
         ) : (
           <div className="flex flex-col md:flex-row items-center w-full gap-[22px]">
@@ -46,6 +51,7 @@ export default function HomeOurBlog() {
                 <img
                   src={blog.featuredImage || blogImg1}
                   alt={blog.title || "Blog Image"}
+                  className="rounded-lg"
                 />
                 <h3 className="text-[22px] pt-[20px] pb-[10px] font-[500] font-montserrat text-[#000000]">
                   {blog.title || "Untitled Blog"}
