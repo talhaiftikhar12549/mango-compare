@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../context/AuthContext";
 import api from "../services/api";
 
 const AdminDashboard = () => {
   const { logout } = useAuth();
+  const fileInputRef = useRef(null);
+
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState(null);
@@ -94,20 +96,22 @@ const AdminDashboard = () => {
   const handleEdit = (listing) => {
     setEditingId(listing._id);
     setFormData({
-      pharmacy: listing.pharmacy,
-      medicine: listing.medicine,
-      dosage: listing.dosage,
-      price: listing.price,
-      discount: listing.discount,
-      discount_info: listing.discount_info,
-      rating: listing.rating,
-      website: listing.website,
+      pharmacyLogo: listing.pharmacyLogo ?? "",
+      pharmacy: listing.pharmacy ?? "",
+      medicine: listing.medicine ?? "Mounjaro",
+      dosage: listing.dosage ?? "",
+      price: listing.price ?? "",
+      discount: listing.discount ?? "",
+      discount_info: listing.discount_info ?? [],
+      rating: listing.rating ?? "",
+      website: listing.website ?? "",
     });
   };
 
   const handleCancelEdit = () => {
     setEditingId(null);
     setFormData({
+      pharmacyLogo: "",
       pharmacy: "",
       medicine: "Mounjaro",
       dosage: "",
@@ -117,7 +121,11 @@ const AdminDashboard = () => {
       rating: "",
       website: "",
     });
+
+    fileInputRef.current.value = null;
   };
+
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -188,6 +196,7 @@ const AdminDashboard = () => {
                 accept="image/*"
                 onChange={handleFileChange}
                 className="w-full p-2 border rounded"
+                ref={fileInputRef}
               />
             </div>
             <div>
@@ -257,7 +266,7 @@ const AdminDashboard = () => {
               <input
                 type="text"
                 name="discount"
-                value={formData.discount}
+                value={formData.discount ?? ""}
                 onChange={handleInputChange}
                 className="w-full p-2 border rounded"
               />
@@ -416,7 +425,7 @@ const AdminDashboard = () => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Actions
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -446,13 +455,13 @@ const AdminDashboard = () => {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Website
                   </th>
-                 
+
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {listings?.map((listing) => (
                   <tr key={listing._id}>
-                     <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 whitespace-nowrap">
                       <button
                         onClick={() => handleEdit(listing)}
                         className="text-indigo-600 hover:text-indigo-900 mr-3"
@@ -531,7 +540,7 @@ const AdminDashboard = () => {
                         "-"
                       )}
                     </td>
-                   
+
                   </tr>
                 ))}
               </tbody>
