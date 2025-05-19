@@ -120,7 +120,7 @@ export default function PriceCalculator({
   //     );
   //   }
   // }, [filteredData, sortPrice, discountedPrice]);
-// const sortedPrice = useMemo(() => {
+  // const sortedPrice = useMemo(() => {
   //   return [...filteredData].sort((a, b) =>
   //     sortPrice === "lp" ? a.price - b.price : b.price - a.price
   //   );
@@ -136,22 +136,20 @@ export default function PriceCalculator({
   //  Filteration Process
   const discountedPrice = useSelector((state) => state.compareTool.isDiscount);
 
-const sortedPrice = useMemo(() => {
-  if (discountedPrice === true) {
-    console.log("coming from if statement");
-    return sortPrice === "hp"
-      ? [...discountedFilteredPrice]
-      : [...discountedFilteredPrice].reverse();
-  } else {
-    console.log("coming from else statement");
-    return [...filteredData].sort((a, b) =>
-      sortPrice === "lp" ? a.price - b.price : b.price - a.price
-    );
-  }
-}, [filteredData, sortPrice, discountedFilteredPrice, discountedPrice]);
+  const sortedPrice = useMemo(() => {
+    if (discountedPrice === true) {
+      console.log("coming from if statement");
+      return sortPrice === "hp"
+        ? [...discountedFilteredPrice]
+        : [...discountedFilteredPrice].reverse();
+    } else {
+      console.log("coming from else statement");
+      return [...filteredData].sort((a, b) =>
+        sortPrice === "lp" ? a.price - b.price : b.price - a.price
+      );
+    }
+  }, [filteredData, sortPrice, discountedFilteredPrice, discountedPrice]);
 
-
-  
   useEffect(() => {
     let workingData = [...maindata];
 
@@ -392,8 +390,9 @@ const sortedPrice = useMemo(() => {
                               <div className="relative flex items-center justify-between mb-4">
                                 <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
                                   Congratulation <br />
-                                  <span className="text-[14px] sm:text-[16px] font-[500]">
-                                    You get a Special Mango Compare Discount.
+                                  <span className="text-[14px] sm:text-[16px] font-[500] leading-0">
+                                    This pharmacy is offering a discount on this
+                                    item.
                                   </span>
                                 </h2>
                                 <div
@@ -412,14 +411,18 @@ const sortedPrice = useMemo(() => {
                                     >
                                       {item.applied && (
                                         <p className="text-[12px] text-[#ffffff] absolute top-[-18px] bg-[#FCC821] left-[-2px] px-[6px] rounded-tl-[2px] rounded-tr-[2px]">
-                                          applied
+                                          Applied
                                         </p>
                                       )}
+                                      
 
                                       <div className="flex flex-col">
                                         <span className="font-semibold">
                                           {item.discount_code}
                                         </span>
+                                        <p className="text-[13px] text-[#000] font-[600]">
+                                          {item.discount_type}
+                                        </p>
                                         <span className="text-xs text-black">
                                           {item.discount_statement}
                                         </span>
@@ -442,8 +445,11 @@ const sortedPrice = useMemo(() => {
                                         </div>
                                       )}
                                     </div>
+                                    
                                   ))}
+                                  
                                 </>
+
                               )}
 
                               {(!srtdata.discount_info ||

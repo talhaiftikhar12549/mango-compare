@@ -114,13 +114,13 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#FEF4D3]">
+      <div className="bg-[#FCC821]">
         <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] shadow-md space-y-4 border-b border-[#DCDCDC] ">
           <div className="flex items-center justify-between ">
-            <h2 className="text-lg font-semibold">Discount</h2>
+            <h2 className="text-lg font-semibold text-[#000000]">Discount</h2>
             <button
               onClick={handleClickDiscount}
-              className="text-[16px] min-w-[95.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#DCDCDC] rounded-[100px]"
+              className="text-[16px] min-w-[95.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#000000] rounded-[100px] text-[#000000]"
             >
               {isHideDiscount ? "Hide" : "Show"}
             </button>
@@ -132,22 +132,22 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
           >
             <div className="pt-[10px]">
               <label className="flex items-center justify-between  space-x-3 cursor-pointer">
-                <span className="text-sm text-gray-500">Apply Discount</span>
-                <div className="relative">
+                <span className="text-sm text-[#000000]">Apply Discount</span>
+                <div className="relative ">
                   <input
                     type="checkbox"
-                    className="sr-only"
+                    className="sr-only "
                     checked={checked}
                     onChange={handleChange}
                   />
                   <div
                     className={`w-14 h-8 rounded-full transition-colors duration-300 ${
-                      checked ? "bg-[#FCC821]" : "bg-gray-300"
+                      checked ? "bg-[#ffffff] border border-gray-300" : "bg-gray-300 border border-gray-300 "
                     }`}
                   ></div>
                   <div
-                    className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow-md transition-transform duration-300 transform ${
-                      checked ? "translate-x-6" : ""
+                    className={`absolute top-1 left-1 w-6 h-6  rounded-full shadow-md transition-transform duration-300 transform ${
+                      checked ? "translate-x-6 bg-[#FCC821]" : "bg-[#ffffff]"
                     }`}
                   ></div>
                 </div>
