@@ -104,28 +104,6 @@ export default function PriceCalculator({
     });
   }, [filteredData, sortPharmacy]);
 
-  // const sortedPrice = useMemo(() => {
-  //   if (discountedPrice === true) {
-  //     return [...filteredData].sort((a, b) => {
-  //       const aValue =
-  //         a.discount !== null ? parseFloat(a.discount) : parseFloat(a.price);
-  //       const bValue =
-  //         b.discount !== null ? parseFloat(b.discount) : parseFloat(b.price);
-
-  //       return sortPrice === "lp" ? aValue - bValue : bValue - aValue;
-  //     });
-  //   } else {
-  //     return [...filteredData].sort((a, b) =>
-  //       sortPrice === "lp" ? a.price - b.price : b.price - a.price
-  //     );
-  //   }
-  // }, [filteredData, sortPrice, discountedPrice]);
-  // const sortedPrice = useMemo(() => {
-  //   return [...filteredData].sort((a, b) =>
-  //     sortPrice === "lp" ? a.price - b.price : b.price - a.price
-  //   );
-  // }, [filteredData, sortPrice]);
-
   const sortedRating = useMemo(() => {
     return [...filteredData].sort((a, b) =>
       sortRating === "lr" ? a.rating - b.rating : b.rating - a.rating
@@ -159,7 +137,7 @@ export default function PriceCalculator({
           a.discount !== null ? parseFloat(a.discount) : parseFloat(a.price);
         const bValue =
           b.discount !== null ? parseFloat(b.discount) : parseFloat(b.price);
-        return aValue - bValue; // ascending order
+        return aValue - bValue;
       });
       console.log(workingData);
       setDiscountedFilteredPrice(workingData);
@@ -228,6 +206,7 @@ export default function PriceCalculator({
     setIsModalOpen(true);
   };
   // Login Modal Open and close modal
+
   // filter toggel
   const [filterBar, setIsFilterBar] = useState(false);
   const filterBarHandler = () => {
@@ -305,6 +284,9 @@ export default function PriceCalculator({
                 </p>
               </div>
               <div className="w-[18%] flex items-center justify-center">
+                <p className="flex items-center ">Delivery</p>
+              </div>
+              <div className="w-[18%] flex items-center justify-center">
                 <p className="flex items-center ">Website </p>
               </div>
             </div>
@@ -316,7 +298,7 @@ export default function PriceCalculator({
                     key={srtdata._id}
                     className="flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10 rounded-[0px] px-[0px] text-[#05222E] text-[14px] font-[400]"
                   >
-                    <div className="w-[30%] flex items-center justify-start">
+                    <div className="w-[25%] flex items-center justify-start">
                       <div className="flex items-center gap-[20px]">
                         {srtdata.pharmacyLogo == "" ? (
                           <img src={Img} alt="Pharmacy logo" />
@@ -338,10 +320,10 @@ export default function PriceCalculator({
                         </a>
                       </div>
                     </div>
-                    <div className="w-[17%] flex items-center justify-center">
+                    <div className="w-[15%] flex items-center justify-center">
                       <p>{srtdata.dosage}</p>
                     </div>
-                    <div className="w-[18%] flex items-center justify-center">
+                    <div className="w-[15%] flex items-center justify-center">
                       {discountedPrice ? (
                         srtdata.discount === null ? (
                           <p>£ {srtdata.price}</p>
@@ -360,8 +342,11 @@ export default function PriceCalculator({
                       )}
                     </div>
 
-                    <div className="w-[17%] flex items-center justify-center">
+                    <div className="w-[15%] flex items-center justify-center">
                       <p>{srtdata.rating}</p>
+                    </div>
+                    <div className="w-[15%] flex items-center justify-center">
+                      meow
                     </div>
                     <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
                       {srtdata.discount == null ? (
@@ -389,10 +374,9 @@ export default function PriceCalculator({
                             <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
                               <div className="relative flex items-center justify-between mb-4">
                                 <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
-                                  Congratulation <br />
+                                  Discount Info <br />
                                   <span className="text-[14px] sm:text-[16px] font-[500] leading-0">
-                                    This pharmacy is offering a discount on this
-                                    item.
+                                    Use the following code(s) at checkout to get the discount:
                                   </span>
                                 </h2>
                                 <div
@@ -414,15 +398,14 @@ export default function PriceCalculator({
                                           Applied
                                         </p>
                                       )}
-                                      
 
                                       <div className="flex flex-col">
                                         <span className="font-semibold">
-                                          {item.discount_code}
-                                        </span>
-                                        <p className="text-[13px] text-[#000] font-[600]">
                                           {item.discount_type}
-                                        </p>
+                                        </span>
+                                        {/* <p className="text-[13px] text-[#000] font-[600]">
+                                          
+                                        </p> */}
                                         <span className="text-xs text-black">
                                           {item.discount_statement}
                                         </span>
@@ -432,9 +415,10 @@ export default function PriceCalculator({
                                           onClick={() =>
                                             handleCopy(item.discount_code)
                                           }
-                                          className="flex flex-col items-center space-x-2 cursor-pointer"
+                                          className="flex flex-col items-center text-[8px] font-[500] cursor-pointer"
                                         >
                                           <FaRegCopy className="text-[20px]" />
+                                          Copy Code
                                         </div>
                                       )}
 
@@ -445,11 +429,8 @@ export default function PriceCalculator({
                                         </div>
                                       )}
                                     </div>
-                                    
                                   ))}
-                                  
                                 </>
-
                               )}
 
                               {(!srtdata.discount_info ||
