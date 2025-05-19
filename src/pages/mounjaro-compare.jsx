@@ -79,7 +79,7 @@ useEffect(() => {
         .sort((a, b) => a.pharmacy.localeCompare(b.pharmacy));
 
       setApiDataM(apiDta);
-      console.log(apiDta, "apiDta in page");
+     
     } catch (error) {
       console.log("Failed to fetch listings", error);
     }

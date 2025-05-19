@@ -12,10 +12,12 @@ export default function PriceCalculator({
   isResetter,
 }) {
   // Form detail
+  const [discountedFilteredPrice, setDiscountedFilteredPrice] = useState([]);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [DiscountCode, setDiscountCode] = useState("");
   const [selectedDiscount, setSelectedDiscount] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
     localStorage.setItem("userEmail", email);
@@ -90,13 +92,6 @@ export default function PriceCalculator({
     setFilteredData(() => sortedRating);
   };
 
-  const sortedPrice = useMemo(() => {
-    return [...filteredData].sort((a, b) =>
-      sortPrice === "lp" ? a.price - b.price : b.price - a.price
-    );
-  }, [filteredData, sortPrice]);
-  console.log("filteredData", filteredData);
-
   const sortedPharmacy = useMemo(() => {
     return [...filteredData].sort((a, b) => {
       const nameA = a.pharmacy.toLowerCase();
@@ -108,12 +103,14 @@ export default function PriceCalculator({
       }
     });
   }, [filteredData, sortPharmacy]);
-  console.log("filteredData", filteredData);
+
   // const sortedPrice = useMemo(() => {
   //   if (discountedPrice === true) {
   //     return [...filteredData].sort((a, b) => {
-  //       const aValue = a.discount !== null ? parseFloat(a.discount) : parseFloat(a.price);
-  //       const bValue = b.discount !== null ? parseFloat(b.discount) : parseFloat(b.price);
+  //       const aValue =
+  //         a.discount !== null ? parseFloat(a.discount) : parseFloat(a.price);
+  //       const bValue =
+  //         b.discount !== null ? parseFloat(b.discount) : parseFloat(b.price);
 
   //       return sortPrice === "lp" ? aValue - bValue : bValue - aValue;
   //     });
@@ -123,6 +120,11 @@ export default function PriceCalculator({
   //     );
   //   }
   // }, [filteredData, sortPrice, discountedPrice]);
+// const sortedPrice = useMemo(() => {
+  //   return [...filteredData].sort((a, b) =>
+  //     sortPrice === "lp" ? a.price - b.price : b.price - a.price
+  //   );
+  // }, [filteredData, sortPrice]);
 
   const sortedRating = useMemo(() => {
     return [...filteredData].sort((a, b) =>
@@ -133,8 +135,23 @@ export default function PriceCalculator({
 
   //  Filteration Process
   const discountedPrice = useSelector((state) => state.compareTool.isDiscount);
-  // const [rawData, setRawData] = useState(maindata);
 
+const sortedPrice = useMemo(() => {
+  if (discountedPrice === true) {
+    console.log("coming from if statement");
+    return sortPrice === "hp"
+      ? [...discountedFilteredPrice]
+      : [...discountedFilteredPrice].reverse();
+  } else {
+    console.log("coming from else statement");
+    return [...filteredData].sort((a, b) =>
+      sortPrice === "lp" ? a.price - b.price : b.price - a.price
+    );
+  }
+}, [filteredData, sortPrice, discountedFilteredPrice, discountedPrice]);
+
+
+  
   useEffect(() => {
     let workingData = [...maindata];
 
@@ -146,8 +163,10 @@ export default function PriceCalculator({
           b.discount !== null ? parseFloat(b.discount) : parseFloat(b.price);
         return aValue - bValue; // ascending order
       });
+      console.log(workingData);
+      setDiscountedFilteredPrice(workingData);
     }
-    console.log("filteredData", filteredData);
+
     // Apply dosage and price range filter
     if (filteredName?.length > 0 && maxMinPrice?.length === 2) {
       const [minPrice, maxPrice] = maxMinPrice;
@@ -348,16 +367,14 @@ export default function PriceCalculator({
                     </div>
                     <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
                       {srtdata.discount == null ? (
-                        
-                          <a
-                            href={srtdata.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="py-[14px] px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
-                          >
-                            Visit Pharmacy
-                          </a>
-                       
+                        <a
+                          href={srtdata.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="py-[14px] px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                        >
+                          Visit Pharmacy
+                        </a>
                       ) : (
                         <div
                           onClick={() => openDiscountModal(srtdata._id)}
