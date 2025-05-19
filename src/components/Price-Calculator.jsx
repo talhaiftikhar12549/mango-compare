@@ -99,12 +99,12 @@ export default function PriceCalculator({
 
   const sortedPharmacy = useMemo(() => {
     return [...filteredData].sort((a, b) => {
-      const nameA = a.pharmacy.toLowerCase(); // use actual key name
+      const nameA = a.pharmacy.toLowerCase();
       const nameB = b.pharmacy.toLowerCase();
       if (sortPharmacy === "asc") {
-        return nameA.localeCompare(nameB); // A → Z
+        return nameA.localeCompare(nameB);
       } else {
-        return nameB.localeCompare(nameA); // Z → A
+        return nameB.localeCompare(nameA);
       }
     });
   }, [filteredData, sortPharmacy]);
@@ -347,12 +347,25 @@ export default function PriceCalculator({
                       <p>{srtdata.rating}</p>
                     </div>
                     <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
-                      <div
-                        onClick={() => openDiscountModal(srtdata._id)}
-                        className="py-[14px] px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
-                      >
-                        Visit Pharmacy
-                      </div>
+                      {srtdata.discount == null ? (
+                        
+                          <a
+                            href={srtdata.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="py-[14px] px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                          >
+                            Visit Pharmacy
+                          </a>
+                       
+                      ) : (
+                        <div
+                          onClick={() => openDiscountModal(srtdata._id)}
+                          className="py-[14px] px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                        >
+                          Visit Pharmacy
+                        </div>
+                      )}
 
                       {/* Show the modal if the modal is open and the selected id matches */}
                       {isDiscountModalOpen &&
