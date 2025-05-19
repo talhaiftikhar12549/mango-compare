@@ -18,7 +18,7 @@ const Contact = () => {
         <div className="hidden md:block w-[40%] h-full bg-[#FCCE37] py-10 px-8 xl:px-10 rounded-md">
           <h3 className="font-bold text-2xl">Contact Information</h3>
 
-          <p className="mt-2">Say something to start a live chat!</p>
+          <p className="mt-2">Say something to start a chat!</p>
 
           <div className="mt-10 space-y-10">
             {/* <div className="flex flex-wrap items-center space-x-5">
