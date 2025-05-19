@@ -37,7 +37,7 @@ const AdminDashboard = () => {
         ...prev,
         discount_info: [
           ...prev.discount_info,
-          { discount_statement: "", discount_code: "", applied: false },
+          { discount_statement: "", discount_type: "", discount_code: "", applied: false },
         ],
       }));
     }
@@ -338,6 +338,25 @@ const AdminDashboard = () => {
                   />
                 </div>
 
+                 <div>
+                  <label className="block text-gray-700 mb-2">
+                    Discount Type
+                  </label>
+                  <input
+                    type="text"
+                    name="discount_type"
+                    value={info.discount_type}
+                    onChange={(e) =>
+                      handleDiscountInfoChange(
+                        index,
+                        "discount_type",
+                        e.target.value
+                      )
+                    }
+                    className="w-full p-2 border rounded"
+                  />
+                </div>
+
                 <div>
                   <label className="block text-gray-700 mb-2">
                     Discounted Code
@@ -505,8 +524,13 @@ const AdminDashboard = () => {
                       {listing.discount_info.map((data, index) => {
                         return (
                           <ul key={index} className="mb-5">
-                            <li>Disc Statement: {data?.discount_statement}</li>
-                            <li>Disc Code: {data?.discount_code}</li>
+                            {console.log(data)}
+                            <li><p className="font-bold">Disc Statement:</p> {data?.discount_statement}</li>
+
+                             <li><p className="font-bold">Disc Type:</p> {data?.discount_type}</li>
+                            
+                            <li><p className="font-bold">Disc Code:</p> {data?.discount_code}</li>
+
                             <li>
                               Applied:{" "}
                               {data?.applied === true ? (
