@@ -74,11 +74,16 @@ export default function PriceCalculator({
   const maxMinPrice = useSelector((state) => state.compareTool.mPrice);
   const filteredName = useSelector((state) => state.compareTool.filteredName);
   const [sortPrice, setSortPrice] = useState("lp");
+  const [sortPharmacy, setSortPharmacy] = useState("des");
   const [sortRating, setSortRating] = useState("lr");
   const [filteredData, setFilteredData] = useState(fltrData);
   const toggleSortPrice = () => {
     setSortPrice((prev) => (prev === "lp" ? "hp" : "lp"));
     setFilteredData(() => sortedPrice);
+  };
+  const togglePharmacy = () => {
+    setSortPharmacy((prev) => (prev === "asc" ? "des" : "asc"));
+    setFilteredData(() => sortedPharmacy);
   };
   const toggleSortRating = () => {
     setSortRating((prev) => (prev === "lr" ? "hr" : "lr"));
@@ -90,6 +95,34 @@ export default function PriceCalculator({
       sortPrice === "lp" ? a.price - b.price : b.price - a.price
     );
   }, [filteredData, sortPrice]);
+  console.log("filteredData", filteredData);
+
+  const sortedPharmacy = useMemo(() => {
+    return [...filteredData].sort((a, b) => {
+      const nameA = a.pharmacy.toLowerCase(); // use actual key name
+      const nameB = b.pharmacy.toLowerCase();
+      if (sortPharmacy === "asc") {
+        return nameA.localeCompare(nameB); // A → Z
+      } else {
+        return nameB.localeCompare(nameA); // Z → A
+      }
+    });
+  }, [filteredData, sortPharmacy]);
+  console.log("filteredData", filteredData);
+  // const sortedPrice = useMemo(() => {
+  //   if (discountedPrice === true) {
+  //     return [...filteredData].sort((a, b) => {
+  //       const aValue = a.discount !== null ? parseFloat(a.discount) : parseFloat(a.price);
+  //       const bValue = b.discount !== null ? parseFloat(b.discount) : parseFloat(b.price);
+
+  //       return sortPrice === "lp" ? aValue - bValue : bValue - aValue;
+  //     });
+  //   } else {
+  //     return [...filteredData].sort((a, b) =>
+  //       sortPrice === "lp" ? a.price - b.price : b.price - a.price
+  //     );
+  //   }
+  // }, [filteredData, sortPrice, discountedPrice]);
 
   const sortedRating = useMemo(() => {
     return [...filteredData].sort((a, b) =>
@@ -114,7 +147,7 @@ export default function PriceCalculator({
         return aValue - bValue; // ascending order
       });
     }
-
+    console.log("filteredData", filteredData);
     // Apply dosage and price range filter
     if (filteredName?.length > 0 && maxMinPrice?.length === 2) {
       const [minPrice, maxPrice] = maxMinPrice;
@@ -218,7 +251,15 @@ export default function PriceCalculator({
           <div className="w-[75%]">
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
               <div className="w-[30%] ">
-                <p>Pharmacy</p>
+                <p
+                  className="flex items-center cursor-pointer"
+                  onClick={togglePharmacy}
+                >
+                  Pharmacy{" "}
+                  <span className="pl-[5px] flex items-center">
+                    <LuArrowUpDown />
+                  </span>
+                </p>
               </div>
               <div className="w-[17%] flex items-center justify-center">
                 <p className="flex items-center">Strength</p>
@@ -256,9 +297,9 @@ export default function PriceCalculator({
                 {pageData.map((srtdata) => (
                   <div
                     key={srtdata._id}
-                    className="flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10 rounded-[0px] px-[0px] text-[#05222E] text-[16px] font-[600]"
+                    className="flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10 rounded-[0px] px-[0px] text-[#05222E] text-[14px] font-[400]"
                   >
-                    <div className="w-[30%]">
+                    <div className="w-[30%] flex items-center justify-start">
                       <div className="flex items-center gap-[20px]">
                         {srtdata.pharmacyLogo == "" ? (
                           <img src={Img} alt="Pharmacy logo" />
@@ -274,7 +315,7 @@ export default function PriceCalculator({
                           href={srtdata.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="cursor-pointer text-[#000000] "
+                          className="cursor-pointer text-[#000000] text-[14px] font-[400]"
                         >
                           {srtdata.pharmacy}
                         </a>
