@@ -41,6 +41,7 @@ const MounjaroSchema = new mongoose.Schema({
   discount_info: [
     {
       discount_statement: { type: String },
+       discount_type: { type: String },
       discount_code: { type: String },
       applied: { type: Boolean }
     }
