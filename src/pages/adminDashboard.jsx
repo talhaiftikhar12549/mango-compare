@@ -524,7 +524,6 @@ const AdminDashboard = () => {
                       {listing.discount_info.map((data, index) => {
                         return (
                           <ul key={index} className="mb-5">
-                            {console.log(data)}
                             <li><p className="font-bold">Disc Statement:</p> {data?.discount_statement}</li>
 
                              <li><p className="font-bold">Disc Type:</p> {data?.discount_type}</li>
