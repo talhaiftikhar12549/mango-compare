@@ -88,6 +88,7 @@ exports.createDiscountListing = async (req, res, next) => {
       const discount = await Discount.create({
         medicineId, // Store reference to medicine
         discount_statement,
+        discount_type,
         discount_code,
         applied
       });
@@ -97,6 +98,7 @@ exports.createDiscountListing = async (req, res, next) => {
         {
           discount_info: {
             discount_statement,
+            discount_type,
             discount_code,
             applied
           },
@@ -143,6 +145,7 @@ exports.updateDiscountListing = async (req, res, next) => {
       {
        pharmacyID: req._id,
       discount_statement: req.body.discount_statement,
+      discount_type: req.body.discount_type,
       discount_code: req.body.discount_code,
       applied: req.body.applied
       },

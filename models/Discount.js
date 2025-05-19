@@ -10,6 +10,11 @@ const DiscountSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  discount_type: {
+    type: String,
+    default: "New Customer",
+    required: true,
+  },
   discount_code: {
     type: String,
     required: true,
