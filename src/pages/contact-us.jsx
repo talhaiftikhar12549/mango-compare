@@ -21,10 +21,6 @@ const Contact = () => {
           <p className="mt-2">Say something to start a chat!</p>
 
           <div className="mt-10 space-y-10">
-            {/* <div className="flex flex-wrap items-center space-x-5">
-              <BiSolidPhoneCall className="text-lg" />
-              <p className="break-words whitespace-normal">+1012 3456 789</p>
-            </div> */}
 
             <div className="flex flex-wrap items-center space-x-5">
               <IoMdMail className="text-lg" />
@@ -32,13 +28,7 @@ const Contact = () => {
                 info@mangocompare.co.uk
               </p>
             </div>
-
-            {/* <div className="flex flex-wrap items-center space-x-5">
-              <FaLocationDot className="text-xl" />
-              <p className="break-words whitespace-normal lg:w-2/3">
-                132 Dartmouth Street Boston, Massachusetts 02156 United States
-              </p>
-            </div> */}
+            
           </div>
         </div>
 

@@ -5,6 +5,7 @@ import blogImageFallback from "../assets/Post Thumbnail.png";
 import authImage from "../assets/9e3a4d582a45a8c496e0fef1f9efb92f06fd9293.jpg";
 import { FaEye } from "react-icons/fa";
 import { FaRegCalendarAlt } from "react-icons/fa";
+import SkeletonRow from "./singleBlogSkeleton";
 
 export default function SingleBlog() {
   const { slug } = useParams();
@@ -28,9 +29,12 @@ export default function SingleBlog() {
 
   if (loading) {
     return (
-      <section className="max-w-[1280px] mx-auto h-[50vh] flex justify-center items-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-4 border-[#FCC821] border-t-transparent"></div>
-      </section>
+      <>
+
+        {/* <div className="animate-spin rounded-full h-16 w-16 border-4 border-[#FCC821] border-t-transparent"></div> */}
+      <SkeletonRow />
+      
+      </>
     );
   }
 
@@ -44,58 +48,60 @@ export default function SingleBlog() {
 
   return (
     <section className="max-w-[1280px] custom-width px-4 sm:px-6 lg:px-[40px] xl:px-0 mx-auto pb-[80px]">
-      <div className="flex">
-        <p className="py-[1px] px-[10px] bg-[#FCC821] rounded-[3px] text-sm sm:text-base">
-          {blog.categories || "General"}
-        </p>
-      </div>
-
-      <h1 className="text-[28px] sm:text-[36px] lg:text-[46px] font-bold leading-tight mt-4">
-        {blog.title}
-      </h1>
-
-      <div className="pt-5">
-        <img
-          className="w-full rounded-md"
-          src={blog.featuredImage || blogImageFallback}
-          alt="Blog Thumbnail"
-        />
-      </div>
-
-      <div className="flex flex-col sm:flex-row justify-between gap-4 mt-4">
-        <div className="flex gap-3 items-center">
-          <img
-            className="rounded-full h-[42px] w-[42px]"
-            src={authImage}
-            alt="Author"
-          />
-          <p className="font-bold text-sm sm:text-[14px]">
-            {blog.author?.name || "admin"}
+      <div className=" w-[100%] md:w-[75%] flex justify-content-center items-center flex-col mx-auto">
+        <div className="w-[100%] flex justify-start items-center">
+          <p className="py-[1px] px-[10px] bg-[#FCC821] rounded-[3px] text-sm sm:text-base">
+            {blog.categories || "General"}
           </p>
-          <div className="flex flex-row justify-between pl-[10px] sm:pl-[30px]  text-[#515151] text-sm sm:text-[16px] font-semibold sm:gap-9 gap-6">
-            <div className="flex items-center justify-center">
-              <FaRegCalendarAlt /> &nbsp;
-              {new Date(blog.createdAt).toLocaleDateString()}
-            </div>
+        </div>
 
-            <div className="flex items-center justify-center">
-              <FaEye /> &nbsp; {blog.views || 0}
+        <h1 className="text-[28px] sm:text-[36px] lg:text-[46px] font-bold leading-tight mt-4">
+          {blog.title}
+        </h1>
+
+        <div className="pt-5">
+          <img
+            className="w-full rounded-md"
+            src={blog.featuredImage || blogImageFallback}
+            alt="Blog Thumbnail"
+          />
+        </div>
+
+        <div className="flex flex-col w-[100%] justify-start items-center sm:flex-row  gap-4 mt-4">
+          <div className="flex gap-3 items-center">
+            <img
+              className="rounded-full h-[42px] w-[42px]"
+              src={authImage}
+              alt="Author"
+            />
+            <p className="font-bold text-sm sm:text-[14px]">
+              {blog.author?.name || "admin"}
+            </p>
+            <div className="flex flex-row justify-between pl-[10px] sm:pl-[30px]  text-[#515151] text-sm sm:text-[16px] font-semibold sm:gap-9 gap-6">
+              <div className="flex items-center justify-center">
+                <FaRegCalendarAlt /> &nbsp;
+                {new Date(blog.createdAt).toLocaleDateString()}
+              </div>
+
+              <div className="flex items-center justify-center">
+                <FaEye /> &nbsp; {blog.views || 0}
+              </div>
             </div>
           </div>
+          <div className="flex flex-col sm:flex-row justify-between pt-4 text-[#515151] text-sm sm:text-[14px] font-semibold gap-5"></div>
         </div>
-        <div className="flex flex-col sm:flex-row justify-between pt-4 text-[#515151] text-sm sm:text-[14px] font-semibold gap-5"></div>
-      </div>
 
-      <div className="py-6">
-        <p className="text-[18px] sm:text-[24px] font-[600] text-[#05222E] leading-[160%] whitespace-pre-line">
-          {blog.excerpt}
-        </p>
-      </div>
+        <div className="py-6">
+          <p className="text-[18px] sm:text-[24px] font-[600] text-[#05222E] leading-[160%] whitespace-pre-line">
+            {blog.excerpt}
+          </p>
+        </div>
 
-      <div className="py-6">
-        <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%]">
-          {blog.content}
-        </p>
+        <div className="py-6">
+          <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%]">
+            {blog.content}
+          </p>
+        </div>
       </div>
     </section>
   );
