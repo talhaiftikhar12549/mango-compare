@@ -106,7 +106,7 @@ const ContactForm = () => {
           <div className="flex justify-end my-5">
             <button
               type="submit"
-              className="bg-[#FCC821] px-10 py-5 rounded-md text-white font-semibold hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821] transition duration-700 cursor-pointer flex items-center justify-center gap-2"
+              className="bg-[#FCC821] py-[15px] px-[30px] rounded-md text-white font-semibold hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821] transition duration-700 cursor-pointer flex items-center justify-center gap-2"
               disabled={loading}
             >
               {loading && (
