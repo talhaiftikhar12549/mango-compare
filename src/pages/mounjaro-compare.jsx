@@ -4,7 +4,7 @@ import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
 import { useEffect, useState } from "react";
 import api from "../services/api.js";
-import PriceCalculatorSkeleton from './PriceCalculatorSkeleton';
+import PriceCalculatorSkeleton from "./PriceCalculatorSkeleton";
 const MounjaroCompare = () => {
   const faqItems = [
     {
@@ -46,7 +46,7 @@ const MounjaroCompare = () => {
     {
       question: "Which UK pharmacy offers the best prices for Mounjaro?",
       answer:
-        "Mounjaro prices vary across UK pharmacies, but /// offers Mounjaro at £ 0.00 Mango makes it easy to find the best deal. Compare prices from trusted pharmacies and save up to 27% on your prescription—Find the best price now!",
+        "Mounjaro prices vary across UK pharmacies, but Medicine Marketplace offers Mounjaro at £99. Mango makes it easy to find the best deal. Compare prices from trusted pharmacies and save up to 27% on your prescription—Find the best price now!",
     },
   ];
   const availableDoasge = [
@@ -60,34 +60,32 @@ const MounjaroCompare = () => {
   const [apiDataM, setApiDataM] = useState([]);
   const [loading, setLoading] = useState(true);
 
-useEffect(() => {
-  const fetchListings = async () => {
-    try {
-      const response = await api.get("/medicine");
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const response = await api.get("/medicine");
 
-      const data = response.data.data.filter(
-        (item) => item.medicine === "Mounjaro"
-      );
+        const data = response.data.data.filter(
+          (item) => item.medicine === "Mounjaro"
+        );
 
-      if (data.length !== 0) {
-        setLoading(false);
+        if (data.length !== 0) {
+          setLoading(false);
+        }
+
+        // Sort alphabetically by pharmacy name
+        const apiDta = data
+          .slice()
+          .sort((a, b) => a.pharmacy.localeCompare(b.pharmacy));
+
+        setApiDataM(apiDta);
+      } catch (error) {
+        console.log("Failed to fetch listings", error);
       }
+    };
 
-      // Sort alphabetically by pharmacy name
-      const apiDta = data
-        .slice()
-        .sort((a, b) => a.pharmacy.localeCompare(b.pharmacy));
-
-      setApiDataM(apiDta);
-     
-    } catch (error) {
-      console.log("Failed to fetch listings", error);
-    }
-  };
-
-  fetchListings();
-}, []);
-
+    fetchListings();
+  }, []);
 
   return (
     <>
@@ -107,18 +105,18 @@ useEffect(() => {
 
       {/* price calculator */}
 
-     <div className="w-full overflow-x-auto">
-  {loading ? (
-    <PriceCalculatorSkeleton />
-  ) : (
-    <div className="min-w-[1024px]">
-      <PriceCalculator
-        maindata={apiDataM}
-        availableDoasge={availableDoasge}
-      />
-    </div>
-  )}
-</div>
+      <div className="w-full overflow-x-auto">
+        {loading ? (
+          <PriceCalculatorSkeleton />
+        ) : (
+          <div className="min-w-[1024px]">
+            <PriceCalculator
+              maindata={apiDataM}
+              availableDoasge={availableDoasge}
+            />
+          </div>
+        )}
+      </div>
 
       {/* price calculator */}
       <div className="max-w-[1280px] custom-width  mx-auto px-4 lg:px-8 xl:px-0 space-y-6">

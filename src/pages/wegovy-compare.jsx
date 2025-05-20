@@ -45,7 +45,7 @@ const WegovyCompare = () => {
     {
       question: "Which UK pharmacy offers the best prices for Wegovy?",
       answer:
-        "__ offers Wegovy at £___. However, prices vary, and the cheapest option can change frequently. Mango does the work for you—compare prices now and save!",
+        "Swift Doctor offers Wegovy at £99. However, prices vary, and the cheapest option can change frequently. Mango does the work for you-compare prices now and save!",
     },
     {
       question: "How often do Wegovy prices change?",

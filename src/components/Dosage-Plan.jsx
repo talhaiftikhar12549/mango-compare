@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 export default function DosagePlan() {
   return (
     <>
-      <section className="max-w-[1280px] pb-[100px] lg:px-[40px] xl:px-0 px-[16px] mx-auto">
+      <section className="max-w-[1280px] pb-[40px] md:pb-[100px] lg:px-[40px] xl:px-0 px-[16px] mx-auto">
         <div>
           <div className="md:w-[80%] w-[100%] mx-auto text-center pt-[100px]">
             <h2 className="md:text-[28px] text-[18px] font-[700] font-montserrat text-[#05222E]">

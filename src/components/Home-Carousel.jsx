@@ -58,7 +58,7 @@ const Carousel = () => {
                 <div className="absolute inset-0 opacity-70"></div>
 
                 {/* Text */}
-                <h2 className="relative z-10 text-white font-[900] text-[28px] sm:text-[36px] md:text-[42px] xl:text-[48px] font-montserrat text-center px-4">
+                <h2 className="relative z-10 text-white font-[900] text-[24px] sm:text-[36px] md:text-[42px] xl:text-[48px] font-montserrat text-center px-4">
                   {slide.text}
                 </h2>
               </div>
