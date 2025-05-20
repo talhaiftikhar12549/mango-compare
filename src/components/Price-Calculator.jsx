@@ -244,7 +244,7 @@ export default function PriceCalculator({
             </div>
           )}
 
-          <div className="w-[75%]">
+          <div className={`w-[75%] ${filterBar ? "w-[75%]" : "w-[100%]"}`}>
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
               <div className="w-[25%] ">
                 <p

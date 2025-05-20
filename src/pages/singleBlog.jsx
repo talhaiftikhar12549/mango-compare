@@ -30,10 +30,7 @@ export default function SingleBlog() {
   if (loading) {
     return (
       <>
-
-        {/* <div className="animate-spin rounded-full h-16 w-16 border-4 border-[#FCC821] border-t-transparent"></div> */}
-      <SkeletonRow />
-      
+        <SkeletonRow />
       </>
     );
   }
@@ -59,9 +56,9 @@ export default function SingleBlog() {
           {blog.title}
         </h1>
 
-        <div className="pt-5">
+        <div className="pt-5 w-[100%] flex justify-center items-center">
           <img
-            className="w-full rounded-md"
+            className="w-fit h-auto rounded-m "
             src={blog.featuredImage || blogImageFallback}
             alt="Blog Thumbnail"
           />
