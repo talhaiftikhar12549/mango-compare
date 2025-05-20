@@ -38,6 +38,10 @@ const MounjaroSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  delivery_fee: {
+    type: String,
+    default: "",
+  },
   discount_info: [
     {
       discount_statement: { type: String },
