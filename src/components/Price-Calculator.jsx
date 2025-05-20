@@ -296,7 +296,11 @@ export default function PriceCalculator({
                 {pageData.map((srtdata) => (
                   <div
                     key={srtdata._id}
-                    className="flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10 rounded-[0px] px-[0px] text-[#05222E] text-[14px] font-[400]"
+                    className={`flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10 rounded-[0px] px-[0px] text-[#05222E] text-[14px] font-[400] ${
+                      discountedPrice && srtdata.discount
+                        ? "bg-[#fffbec]"
+                        : "bg-white"
+                    }`}
                   >
                     <div className="w-[25%] flex items-center justify-start">
                       <div className="flex items-center gap-[20px]">
@@ -311,10 +315,9 @@ export default function PriceCalculator({
                         )}
 
                         <a
-                          href={srtdata.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="cursor-pointer text-[#000000] text-[14px] font-[400]"
+                          className=" text-[#000000] text-[14px] font-[400]"
                         >
                           {srtdata.pharmacy}
                         </a>
@@ -376,7 +379,8 @@ export default function PriceCalculator({
                                 <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
                                   Discount Info <br />
                                   <span className="text-[14px] sm:text-[16px] font-[500] leading-0">
-                                    Use the following code(s) at checkout to get the discount:
+                                    Use the following code(s) at checkout to get
+                                    the discount:
                                   </span>
                                 </h2>
                                 <div

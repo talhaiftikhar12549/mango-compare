@@ -22,19 +22,10 @@ export default function FooterBar() {
                   className="mb-4 max-h-[57px]"
                 />
                 <p className="text-[16px] font-normal">
-                 Mango is the UK’s go-to price comparison platform for weight loss medications, helping you find the best deals on GP-prescribed Mounjaro and Wegovy.
+                  Mango is the UK’s go-to price comparison platform for weight
+                  loss medications, helping you find the best deals on
+                  GP-prescribed Mounjaro and Wegovy.
                 </p>
-
-                {/* <div className="mt-[50px] relative flex flex-wrap bg-white rounded-lg p-2 shadow-md">
-                  <input
-                    type="email"
-                    placeholder="Email address"
-                    className="flex-1 min-w-[200px] border-none p-3 text-[18px] text-[#6A778B] outline-none rounded-l-lg font-normal"
-                  />
-                  <button className="flex-shrink-0 text-[16px] font-semibold bg-[#FFC836] px-6 py-2 md:px-6 sm:px-4 rounded-[10px] cursor-pointer ease-in-out hover:text-[#FCC821] hover:bg-[#ffffff] transition duration-700 border-[2px] mt-2 sm:mt-0">
-                    Subscribe
-                  </button>
-                </div> */}
               </div>
 
               {/* Right Column */}
@@ -46,19 +37,19 @@ export default function FooterBar() {
                       Links
                     </h3>
                     <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
-                      <li>
+                      <li className="hover:text-[#FCC821]">
                         <NavLink to="/">Home</NavLink>
                       </li>
-                      <li>
+                      <li className="hover:text-[#FCC821]">
                         <NavLink to="mounjaro-compare">Mounjaro</NavLink>
                       </li>
-                      <li>
+                      <li className="hover:text-[#FCC821]">
                         <NavLink to="wegovy-compare">Wegovy</NavLink>
                       </li>
-                      <li>
+                      <li className="hover:text-[#FCC821]">
                         <NavLink to="blogs">Blogs</NavLink>
                       </li>
-                      <li>
+                      <li className="hover:text-[#FCC821]">
                         <NavLink to="contact-us">Contact Us</NavLink>
                       </li>
                     </ul>
@@ -92,36 +83,69 @@ export default function FooterBar() {
                           target="_blank"
                           rel="noopener noreferrer"
                           href="https://www.facebook.com/share/12KVqbtETnb/"
+                          className="transition-transform duration-200 hover:scale-110"
                         >
-                          <FaFacebookF className="text-[24px] pointer" />
+                          <FaFacebookF
+                            className="text-[24px] transition-colors duration-200"
+                            style={{ color: "#FFFFFF" }} // initial color
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.color = "#FCC821")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.color = "#FFFFFF")
+                            }
+                          />
                         </a>
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
                           href="https://www.instagram.com/mangocompare/"
+                          className="transition-transform duration-200 hover:scale-110"
                         >
-                          <FaInstagram className="text-[24px] pointer" />
+                          <FaInstagram
+                            className="text-[24px] transition-colors duration-200"
+                            style={{ color: "#FFFFFF" }} // initial color
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.color = "#FCC821")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.color = "#FFFFFF")
+                            }
+                          />
                         </a>
-                        {/* <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          href="https://www.reddit.com/user/FlynnnRiderrr/"
-                        >
-                          <FaRedditAlien className="text-[24px] pointer" />
-                        </a> */}
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
                           href="https://www.tiktok.com/@mangocompare"
+                          className="transition-transform duration-200 hover:scale-110"
                         >
-                          <IoLogoTiktok className="text-[24px] pointer" />
+                          <IoLogoTiktok
+                            className="text-[24px] transition-colors duration-200"
+                            style={{ color: "#FFFFFF" }} // initial color
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.color = "#FCC821")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.color = "#FFFFFF")
+                            }
+                          />
                         </a>
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
                           href="https://x.com/MangoCompare"
+                          className="transition-transform duration-200 hover:scale-110"
                         >
-                          <RiTwitterXLine className="text-[24px] pointer" />
+                          <RiTwitterXLine
+                            className="text-[24px] transition-colors duration-200"
+                            style={{ color: "#FFFFFF" }} // initial color
+                            onMouseEnter={(e) =>
+                              (e.currentTarget.style.color = "#FCC821")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.currentTarget.style.color = "#FFFFFF")
+                            }
+                          />
                         </a>
                         {/* <a
                           target="_blank"

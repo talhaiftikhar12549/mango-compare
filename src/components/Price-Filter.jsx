@@ -142,7 +142,9 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
                   />
                   <div
                     className={`w-14 h-8 rounded-full transition-colors duration-300 ${
-                      checked ? "bg-[#ffffff] border border-gray-300" : "bg-gray-300 border border-gray-300 "
+                      checked
+                        ? "bg-[#ffffff] border border-gray-300"
+                        : "bg-gray-300 border border-gray-300 "
                     }`}
                   ></div>
                   <div
