@@ -48,11 +48,7 @@ const Blogs = () => {
               <BlogCard key={index} blog={blg} />
             ))}
           </div>
-          // <div className=" flex flex-col md:flex-row items-center w-full gap-[22px]">
-          //   {[1, 2, 3].map((_, index) => (
-          //     <BlogSkeleton key={index} />
-          //   ))}
-          // </div>
+          
         )}
       </div>
     </div>

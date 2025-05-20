@@ -37,20 +37,20 @@ export default function FooterBar() {
                       Links
                     </h3>
                     <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
-                      <li className="hover:text-[#FCC821]">
-                        <NavLink to="/">Home</NavLink>
+                      <li >
+                        <NavLink className="hover:text-[#FCC821]" to="/">Home</NavLink>
                       </li>
-                      <li className="hover:text-[#FCC821]">
-                        <NavLink to="mounjaro-compare">Mounjaro</NavLink>
+                      <li >
+                        <NavLink className="hover:text-[#FCC821]"  to="mounjaro-compare">Mounjaro</NavLink>
                       </li>
-                      <li className="hover:text-[#FCC821]">
-                        <NavLink to="wegovy-compare">Wegovy</NavLink>
+                      <li >
+                        <NavLink className="hover:text-[#FCC821]" to="wegovy-compare">Wegovy</NavLink>
                       </li>
-                      <li className="hover:text-[#FCC821]">
-                        <NavLink to="blogs">Blogs</NavLink>
+                      <li >
+                        <NavLink className="hover:text-[#FCC821]" to="blogs">Blogs</NavLink>
                       </li>
-                      <li className="hover:text-[#FCC821]">
-                        <NavLink to="contact-us">Contact Us</NavLink>
+                      <li >
+                        <NavLink className="hover:text-[#FCC821]" to="contact-us">Contact Us</NavLink>
                       </li>
                     </ul>
                   </div>
