@@ -6,6 +6,8 @@ const AdminDashboard = () => {
   const { logout } = useAuth();
   const fileInputRef = useRef(null);
 
+  const [submitting, setSubmitting] = useState(false);
+
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState(null);
@@ -16,6 +18,7 @@ const AdminDashboard = () => {
     dosage: "",
     price: "",
     discount: "",
+    delivery_fee: "",
     discount_info: [],
     rating: "",
     website: "",
@@ -102,10 +105,13 @@ const AdminDashboard = () => {
       dosage: listing.dosage ?? "",
       price: listing.price ?? "",
       discount: listing.discount ?? "",
+      delivery_fee: listing.delivery_fee ?? "",
       discount_info: listing.discount_info ?? [],
       rating: listing.rating ?? "",
       website: listing.website ?? "",
     });
+
+     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleCancelEdit = () => {
@@ -117,6 +123,7 @@ const AdminDashboard = () => {
       dosage: "",
       price: "",
       discount: "",
+      delivery_fee: "",
       discount_info: [],
       rating: "",
       website: "",
@@ -130,6 +137,8 @@ const AdminDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setSubmitting(true)
+
     const data = new FormData();
     data.append("pharmacyLogo", formData.pharmacyLogo);
     data.append("pharmacy", formData.pharmacy);
@@ -137,6 +146,7 @@ const AdminDashboard = () => {
     data.append("dosage", formData.dosage);
     data.append("price", formData.price);
     data.append("discount", formData.discount);
+    data.append("delivery_fee", formData.delivery_fee)
     data.append("discount_info", JSON.stringify(formData.discount_info));
     data.append("rating", formData.rating);
     data.append("website", formData.website);
@@ -151,7 +161,9 @@ const AdminDashboard = () => {
       }
       fetchListings();
       handleCancelEdit();
+      setSubmitting(false)
     } catch (error) {
+      setSubmitting(false)
       console.log(error.response?.data?.error || "Operation failed");
     }
   };
@@ -272,6 +284,19 @@ const AdminDashboard = () => {
               />
             </div>
 
+            <div>
+              <label className="block text-gray-700 mb-2">
+                Delivery Fee
+              </label>
+              <input
+                type="text"
+                name="delivery_fee"
+                value={formData.delivery_fee ?? ""}
+                onChange={handleInputChange}
+                className="w-full p-2 border rounded"
+              />
+            </div>
+
             <div className="hidden">
               <label className="block text-gray-700 mb-2">Disc. Info</label>
               <input
@@ -338,7 +363,7 @@ const AdminDashboard = () => {
                   />
                 </div>
 
-                 <div>
+                <div>
                   <label className="block text-gray-700 mb-2">
                     Discount Type
                   </label>
@@ -418,9 +443,38 @@ const AdminDashboard = () => {
           <div className="mt-4 flex space-x-2">
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:opacity-50 flex items-center"
+              disabled={submitting}
             >
-              {editingId ? "Update" : "Add"} Listing
+              {submitting ? (
+                <>
+                  <svg
+                    className="animate-spin mr-2 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                    />
+                  </svg>
+                  Saving...
+                </>
+              ) : editingId ? (
+                "Update Listing"
+              ) : (
+                "Add Listing"
+              )}
             </button>
             {editingId && (
               <button
@@ -466,6 +520,9 @@ const AdminDashboard = () => {
                     Discounted Price
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Delivery Fee
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Disc. Info
                   </th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -483,13 +540,13 @@ const AdminDashboard = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <button
                         onClick={() => handleEdit(listing)}
-                        className="text-indigo-600 hover:text-indigo-900 mr-3"
+                        className="text-indigo-600 hover:text-indigo-900 mr-3 cursor-pointer"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDelete(listing._id)}
-                        className="text-red-600 hover:text-red-900"
+                        className="text-red-600 hover:text-red-900 cursor-pointer"
                       >
                         Delete
                       </button>
@@ -520,14 +577,17 @@ const AdminDashboard = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       £{listing.discount}
                     </td>
+                    <td className="px-6 py-4 whitespace-nowrap">
+                      £{listing.delivery_fee}
+                    </td>
                     <td className="px-6 py-4">
                       {listing.discount_info.map((data, index) => {
                         return (
                           <ul key={index} className="mb-5">
                             <li><p className="font-bold">Disc Statement:</p> {data?.discount_statement}</li>
 
-                             <li><p className="font-bold">Disc Type:</p> {data?.discount_type}</li>
-                            
+                            <li><p className="font-bold">Disc Type:</p> {data?.discount_type}</li>
+
                             <li><p className="font-bold">Disc Code:</p> {data?.discount_code}</li>
 
                             <li>
