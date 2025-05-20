@@ -219,9 +219,9 @@ export default function PriceCalculator({
         <div className="flex md:hidden pb-2">
           <div
             onClick={filterBarHandler}
-            className="py-[14px] font-semibold px-[8px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+            className="py-[14px] w-[101.27px] font-semibold px-[8px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
           >
-            Show Filters
+           {filterBar? "Hide Filter" : "Show Filter" }
           </div>
         </div>
         <div className="flex w-[100%]">

@@ -108,8 +108,8 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
             />
 
             <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-700">Min. £ {price[0]}</p>
-              <p className="text-sm text-gray-700">Max. £ {price[1]}</p>
+              <p className="xl:text-sm text-[12px] text-gray-700">Min. £ {price[0]}</p>
+              <p className="xl:text-sm text-[12px] text-gray-700">Max. £ {price[1]}</p>
             </div>
           </div>
         </div>

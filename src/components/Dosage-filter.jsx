@@ -29,7 +29,9 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
 
   useEffect(() => {
     if (selectedDosage) {
-      const filtered = fltrData.filter((item) => item.dosage === selectedDosage);
+      const filtered = fltrData.filter(
+        (item) => item.dosage === selectedDosage
+      );
       dispatch(dosageFiltedDta(filtered));
     } else {
       dispatch(dosageFiltedDta([]));
@@ -73,18 +75,27 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
       >
         <div className="space-y-[24px]">
           {dosages.map((dose) => (
-            <label
-              key={dose}
-              className="flex items-center space-x-[8px] cursor-pointer"
-            >
+            <label className="flex items-center space-x-2 cursor-pointer">
               <input
                 type="radio"
                 name="dosage"
                 value={dose}
                 checked={selectedDosage === dose}
                 onChange={() => handleDosageSelect(dose)}
-                className="w-5 h-5 rounded-full border-2 border-yellow-400 checked:bg-yellow-400 checked:border-yellow-400 appearance-none cursor-pointer relative"
+                className="peer hidden"
               />
+              <div
+                className={`w-5 h-5 rounded-full border-2 flex items-center justify-center 
+      ${
+        selectedDosage === dose
+          ? "bg-yellow-400 border-yellow-400"
+          : "border-yellow-400"
+      }`}
+              >
+                {selectedDosage === dose && (
+                  <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
+                )}
+              </div>
               <span
                 className={`text-sm ${
                   selectedDosage === dose
