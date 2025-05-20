@@ -246,7 +246,7 @@ export default function PriceCalculator({
 
           <div className="w-[75%]">
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
-              <div className="w-[30%] ">
+              <div className="w-[25%] ">
                 <p
                   className="flex items-center cursor-pointer"
                   onClick={togglePharmacy}
@@ -260,7 +260,7 @@ export default function PriceCalculator({
               <div className="w-[17%] flex items-center justify-center">
                 <p className="flex items-center">Strength</p>
               </div>
-              <div className="w-[18%] flex items-center justify-center">
+              <div className="w-[15%] flex items-center justify-center">
                 <p
                   className="flex items-center cursor-pointer"
                   onClick={toggleSortPrice}
@@ -346,7 +346,7 @@ export default function PriceCalculator({
                       <p>{srtdata.rating}</p>
                     </div>
                     <div className="w-[15%] flex items-center justify-center">
-                      meow
+                      {srtdata.delivery_fee}
                     </div>
                     <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
                       {srtdata.discount == null ? (
