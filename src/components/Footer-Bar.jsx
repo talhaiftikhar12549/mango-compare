@@ -21,9 +21,8 @@ export default function FooterBar() {
                   alt="Structo Construction Logo"
                   className="mb-4 max-h-[57px]"
                 />
-                <p className="text-[20px] font-normal">
-                  Stay updated with the latest in construction trends and news.
-                  Sign up for our newsletter!
+                <p className="text-[16px] font-normal">
+                 Mango is the UK’s go-to price comparison platform for weight loss medications, helping you find the best deals on GP-prescribed Mounjaro and Wegovy.
                 </p>
 
                 {/* <div className="mt-[50px] relative flex flex-wrap bg-white rounded-lg p-2 shadow-md">
