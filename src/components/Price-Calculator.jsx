@@ -6,6 +6,7 @@ import { mainDatagetter } from "../redux toolkit/compareToolSlice";
 import { IoClose } from "react-icons/io5";
 import Img from "../assets/price tool/img.png";
 import { FaRegCopy } from "react-icons/fa";
+
 export default function PriceCalculator({
   maindata,
   availableDoasge,
