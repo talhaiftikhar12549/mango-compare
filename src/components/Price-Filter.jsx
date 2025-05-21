@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { mVal, discountedFilter } from "../redux toolkit/compareToolSlice";
 import { Range } from "react-range";
+import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 
 const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const dispatch = useDispatch();
@@ -59,9 +61,9 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
           <h2 className="text-lg font-semibold">Price</h2>
           <button
             onClick={handleClick}
-            className="text-[16px] min-w-[95.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#DCDCDC] rounded-[100px]"
+            className="text-[20px]  font-[500] py-[4px]   cursor-pointer "
           >
-            {isHide ? "Hide" : "Show"}
+            {isHide ? <IoIosArrowUp /> : <IoIosArrowDown />}
           </button>
         </div>
 
@@ -120,9 +122,9 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
             <h2 className="text-lg font-semibold text-[#000000]">Discount</h2>
             <button
               onClick={handleClickDiscount}
-              className="text-[16px] min-w-[95.14px] font-[500] py-[4px] px-[24px] border cursor-pointer border-[#000000] rounded-[100px] text-[#000000]"
+              className="text-[20px]  font-[500] py-[4px]   cursor-pointer "
             >
-              {isHideDiscount ? "Hide" : "Show"}
+              {isHideDiscount ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </button>
           </div>
           <div

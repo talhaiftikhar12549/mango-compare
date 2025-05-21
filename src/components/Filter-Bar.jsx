@@ -13,7 +13,7 @@ export default function FilterBar({ availableDoasge, maxVal, minValue }) {
 
   return (
     <>
-      <section className="w-[100%] border border-[#DCDCDC] rounded-[6px] shadow-md">
+      <section className="w-[100%] border border-[#DCDCDC] rounded-[10px] shadow-md">
         {/* Header bar */}
         <div className="flex items-center justify-between w-[100%] border-b border-[#DCDCDC] py-[20px] px-[20px]">
           <div className="text-[20px] font-[600]">

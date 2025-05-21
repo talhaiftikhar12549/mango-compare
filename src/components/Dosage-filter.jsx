@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import { dosageFiltedDta, DosagName } from "../redux toolkit/compareToolSlice";
 
 const DosageFilter = ({ availableDoasge, isReset }) => {
@@ -57,14 +59,14 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
   }, [isReset, dispatch, dosages]);
 
   return (
-    <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] border-b border-[#DCDCDC] shadow-md bg-white space-y-4">
+    <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] border-b border-[#DCDCDC] shadow-md bg-white space-y-4 rounded-b-[10px]">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Strength</h2>
         <button
           onClick={() => setIsHide(!isHide)}
-          className="text-[16px] min-w-[95.14px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
+          className="text-[20px]  cursor-pointer font-[500] py-[4px] "
         >
-          {isHide ? "Hide" : "Show"}
+          {isHide ? <IoIosArrowUp /> : <IoIosArrowDown />}
         </button>
       </div>
 

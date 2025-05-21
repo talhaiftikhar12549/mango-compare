@@ -1,6 +1,6 @@
 import FilterBar from "./Filter-Bar";
 import { LuArrowUpDown } from "react-icons/lu";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { mainDatagetter } from "../redux toolkit/compareToolSlice";
 import { IoClose } from "react-icons/io5";
@@ -212,6 +212,27 @@ export default function PriceCalculator({
   const filterBarHandler = () => {
     setIsFilterBar(!filterBar);
   };
+
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (
+        isDiscountModalOpen && 
+        modalRef.current && 
+        !modalRef.current.contains(event.target)
+      ) {
+        closeDiscountModal();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDiscountModalOpen]);
+
+
   // filter toggel
   return (
     <>
@@ -257,7 +278,7 @@ export default function PriceCalculator({
                   </span>
                 </p>
               </div>
-              <div className="w-[17%] flex items-center justify-center">
+              <div className="w-[12%] flex items-center justify-center">
                 <p className="flex items-center">Strength</p>
               </div>
               <div className="w-[15%] flex items-center justify-center">
@@ -272,7 +293,7 @@ export default function PriceCalculator({
                 </p>
               </div>
 
-              <div className="w-[17%] flex items-center justify-center">
+              <div className="w-[12%] flex items-center justify-center">
                 <p
                   className="flex items-center cursor-pointer pl-[30px]"
                   onClick={toggleSortRating}
@@ -283,11 +304,11 @@ export default function PriceCalculator({
                   </span>
                 </p>
               </div>
-              <div className="w-[18%] flex items-center justify-center">
+              <div className="w-[20%] flex items-center justify-center">
                 <p className="flex items-center ">Delivery</p>
               </div>
               <div className="w-[18%] flex items-center justify-center">
-                <p className="flex items-center ">Website </p>
+               
               </div>
             </div>
             {/* card section */}
@@ -308,7 +329,7 @@ export default function PriceCalculator({
                           <img src={Img} alt="Pharmacy logo" />
                         ) : (
                           <img
-                            className="w-[80px]"
+                            className="w-[80px] "
                             src={srtdata.pharmacyLogo}
                             alt="Pharmacy logo"
                           />
@@ -317,13 +338,13 @@ export default function PriceCalculator({
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
-                          className=" text-[#000000] text-[14px] font-[400]"
+                          className=" text-[#000000] text-[14px] font-[600]"
                         >
                           {srtdata.pharmacy}
                         </a>
                       </div>
                     </div>
-                    <div className="w-[15%] flex items-center justify-center">
+                    <div className="w-[12%] flex items-center justify-center">
                       <p>{srtdata.dosage}</p>
                     </div>
                     <div className="w-[15%] flex items-center justify-center">
@@ -345,10 +366,10 @@ export default function PriceCalculator({
                       )}
                     </div>
 
-                    <div className="w-[15%] flex items-center justify-center">
+                    <div className="w-[12%] flex items-center justify-center">
                       <p>{srtdata.rating}</p>
                     </div>
-                    <div className="w-[15%] flex items-center justify-center">
+                    <div className="w-[20%] flex items-center justify-center text-center capitalize">
                       {srtdata.delivery_fee}
                     </div>
                     <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
@@ -357,16 +378,16 @@ export default function PriceCalculator({
                           href={srtdata.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="py-[14px] px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
                         >
                           Visit Pharmacy
                         </a>
                       ) : (
                         <div
                           onClick={() => openDiscountModal(srtdata._id)}
-                          className="py-[14px] px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
                         >
-                          Visit Pharmacy
+                          Discount Info
                         </div>
                       )}
 
@@ -374,7 +395,7 @@ export default function PriceCalculator({
                       {isDiscountModalOpen &&
                         selectedDiscountId === srtdata._id && (
                           <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
-                            <div className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
+                            <div ref={modalRef} className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
                               <div className="relative flex items-center justify-between mb-4">
                                 <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
                                   Discount Info <br />
@@ -453,7 +474,7 @@ export default function PriceCalculator({
                               >
                                 <button
                                   onClick={closeDiscountModal}
-                                  className="w-full cursor-pointer transition duration-700 mt-2 px-4 py-2 bg-[#FCC821] text-white rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
+                                  className="w-full cursor-pointer transition duration-700 mt-2 px-4 py-2 bg-[#FCC821] text-black font-semibold rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
                                 >
                                   Visit Pharmacy
                                 </button>
