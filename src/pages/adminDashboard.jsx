@@ -578,7 +578,7 @@ const AdminDashboard = () => {
                       £{listing.discount}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      £{listing.delivery_fee}
+                      {listing.delivery_fee}
                     </td>
                     <td className="px-6 py-4">
                       {listing.discount_info.map((data, index) => {
@@ -623,7 +623,6 @@ const AdminDashboard = () => {
                         "-"
                       )}
                     </td>
-
                   </tr>
                 ))}
               </tbody>
