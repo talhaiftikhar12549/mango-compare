@@ -11,3 +11,16 @@ body {
       width: 95%;
     }
   }
+
+  ul {
+    list-style: disc;
+  }
+
+  li {
+    list-style: disc;
+     list-style-type: decimal;
+  }
+
+  ol {
+        padding-inline-start: 20px !important;
+  }

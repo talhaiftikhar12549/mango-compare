@@ -6,6 +6,8 @@ import authImage from "../assets/9e3a4d582a45a8c496e0fef1f9efb92f06fd9293.jpg";
 import { FaEye } from "react-icons/fa";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import SkeletonRow from "./singleBlogSkeleton";
+import { Helmet } from "react-helmet";
+import DOMPurify from 'dompurify';
 
 export default function SingleBlog() {
   const { slug } = useParams();
@@ -45,6 +47,18 @@ export default function SingleBlog() {
 
   return (
     <section className="max-w-[1280px] custom-width px-4 sm:px-6 lg:px-[40px] xl:px-0 mx-auto pb-[80px]">
+       <Helmet>
+        <title>{blog.meta_title} | My Blog</title>
+        <meta name="description" content={blog.meta_description || blog.content.slice(0, 150)} />
+        <meta name="keywords" content={blog.keywords?.join(", ")} />
+        <meta name="tags" content={blog.tags?.join(", ")} />
+        <meta name="categories" content={blog.categories?.join(", ")} />
+        <meta property="og:title" content={blog.meta_title} />
+        <meta property="og:description" content={blog.meta_description || blog.content.slice(0, 150)} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://mangocompare.co.uk/single-blog/${blog.slug}`} />
+        <meta property="og:image" content={blog.featuredImage} />
+      </Helmet>
       <div className=" w-[100%] md:w-[75%] flex justify-content-center items-center flex-col mx-auto">
         <div className="w-[100%] flex justify-start items-center">
           <p className="py-[1px] px-[10px] bg-[#FCC821] rounded-[3px] text-sm sm:text-base">
@@ -95,9 +109,10 @@ export default function SingleBlog() {
         </div>
 
         <div className="py-6">
-          <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%]">
+          <div className="prose" dangerouslySetInnerHTML={{ __html:  DOMPurify.sanitize(blog.content) }} />
+          {/* <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%]">
             {blog.content}
-          </p>
+          </p> */}
         </div>
       </div>
     </section>
