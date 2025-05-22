@@ -29,6 +29,7 @@ export default function PriceCalculator({
     }
     closeModal();
   };
+
   useEffect(() => {
     const storedEmail = localStorage.getItem("userEmail");
     if (storedEmail) {
@@ -46,7 +47,6 @@ export default function PriceCalculator({
       .then(() => {
         setCopiedCode(code);
         setTimeout(() => setCopiedCode(null), 1500);
-        console.log("discount code copied", code);
       })
       .catch((err) => {
         console.error("Copy failed", err);
@@ -69,6 +69,7 @@ export default function PriceCalculator({
     setDiscountIsModalOpen(true);
     setSelectedDiscountId(id);
   };
+  
   // navbar filters Price and Ratting Filter
   const fltrData = useSelector((state) => state.compareTool.mainData);
   const filteredMaxValue = useSelector(
@@ -117,12 +118,10 @@ export default function PriceCalculator({
 
   const sortedPrice = useMemo(() => {
     if (discountedPrice === true) {
-      console.log("coming from if statement");
       return sortPrice === "hp"
         ? [...discountedFilteredPrice]
         : [...discountedFilteredPrice].reverse();
     } else {
-      console.log("coming from else statement");
       return [...filteredData].sort((a, b) =>
         sortPrice === "lp" ? a.price - b.price : b.price - a.price
       );
@@ -140,7 +139,6 @@ export default function PriceCalculator({
           b.discount !== null ? parseFloat(b.discount) : parseFloat(b.price);
         return aValue - bValue;
       });
-      console.log(workingData);
       setDiscountedFilteredPrice(workingData);
     }
 
@@ -383,14 +381,21 @@ export default function PriceCalculator({
                         >
                           Visit Pharmacy
                         </a>
-                      ) : (
+                      ) : discountedPrice ? (
                         <div
                           onClick={() => openDiscountModal(srtdata._id)}
-                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] hover:bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] text-[#FCC821] hover:text-black bg-white transition duration-700 cursor-pointer"
                         >
                           Discount Info
                         </div>
-                      )}
+                      ) :  <a
+                          href={srtdata.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                        >
+                          Visit Pharmacy
+                        </a> }
 
                       {/* Show the modal if the modal is open and the selected id matches */}
                       {isDiscountModalOpen &&

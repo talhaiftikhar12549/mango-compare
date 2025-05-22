@@ -43,6 +43,8 @@ export const compareToolSlice = createSlice({
   },
 });
 
+export const selectIsDiscount = (state) => state.compareTool.isDiscount;
+
 export const {
   increment,
   mVal,
