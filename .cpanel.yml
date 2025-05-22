@@ -1,7 +1,6 @@
 ---
 deployment:
   tasks:
-    - export NODE_ENV=production
-    - /opt/cpanel/ea-nodejs18/bin/npm install
-    - /opt/cpanel/ea-nodejs18/bin/npm run build
-    - rsync -av --delete dist/ ~/public_html/
+    - export DEPLOYPATH=/home/example/public_html/
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp style.css $DEPLOYPATH
