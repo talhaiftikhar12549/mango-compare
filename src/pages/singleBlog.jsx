@@ -47,9 +47,18 @@ export default function SingleBlog() {
     <section className="max-w-[1280px] custom-width px-4 sm:px-6 lg:px-[40px] xl:px-0 mx-auto pb-[80px]">
       <div className=" w-[100%] md:w-[75%] flex justify-content-center items-center flex-col mx-auto">
         <div className="w-[100%] flex justify-start items-center">
-          <p className="py-[1px] px-[10px] bg-[#FCC821] rounded-[3px] text-sm sm:text-base">
-            {blog.categories || "General"}
-          </p>
+          <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
+            {Array.isArray(blog.categories) &&
+              blog.categories.length > 0 &&
+              blog.categories[0].split(",").map((cat, index) => (
+                <p
+                  key={index}
+                  className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
+                >
+                  {cat.trim()}
+                </p>
+              ))}
+          </div>
         </div>
 
         <h1 className="text-[28px] sm:text-[36px] lg:text-[46px] font-bold leading-tight mt-4">
