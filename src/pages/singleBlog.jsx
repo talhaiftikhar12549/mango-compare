@@ -112,12 +112,6 @@ export default function SingleBlog() {
         </div>
 
         <div className="py-6">
-          <p className="text-[18px] sm:text-[24px] font-[600] text-[#05222E] leading-[160%] whitespace-pre-line">
-            {blog.excerpt}
-          </p>
-        </div>
-
-        <div className="py-6">
           <div className="prose" dangerouslySetInnerHTML={{ __html:  DOMPurify.sanitize(blog.content) }} />
           {/* <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%]">
             {blog.content}

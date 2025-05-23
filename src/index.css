@@ -12,6 +12,10 @@ body {
     }
   }
 
+  .prose p {
+    margin-bottom: 10px !important;
+  }
+
   ul {
     list-style: disc;
   }
