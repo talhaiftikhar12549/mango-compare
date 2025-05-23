@@ -18,9 +18,8 @@ export default function NavBar() {
             </NavLink>
           </div>
           <div className="hidden md:flex justify-between items-center w-[65%] lg:w-[60%]">
-            <div>
-              <ul className="flex lg:gap-[30px] gap-[20px]  text-[16px] font-[500] font-montserrat text-[#222222]">
-                <li>
+              <div className="space-x-8">
+
                   <NavLink
                     to="/"
                     className={({ isActive }) =>
@@ -31,8 +30,8 @@ export default function NavBar() {
                   >
                     Home
                   </NavLink>
-                </li>
-                <li>
+                
+                
                   <NavLink
                     to="/mounjaro-compare"
                     className={({ isActive }) =>
@@ -43,8 +42,8 @@ export default function NavBar() {
                   >
                     Mounjaro{" "}
                   </NavLink>
-                </li>
-                <li>
+                
+                
                   <NavLink
                     to="/wegovy-compare"
                     className={({ isActive }) =>
@@ -55,8 +54,8 @@ export default function NavBar() {
                   >
                     Wegovy{" "}
                   </NavLink>
-                </li>
-                <li>
+                
+                
                   <NavLink
                     to="/blogs"
                     className={({ isActive }) =>
@@ -67,10 +66,12 @@ export default function NavBar() {
                   >
                     Blogs{" "}
                   </NavLink>
-                </li>
+                
+              </div>
+            
                
-              </ul>
-            </div>
+             
+          
             <div>
               <NavLink
                 to="/contact-us"
@@ -102,17 +103,16 @@ export default function NavBar() {
 
           <div className="md:hidden flex">
             <div>
-              {" "}
               <div
                 onClick={toggleMenu}
                 className="bg-[#FCC821] h-[40px] w-[40px] flex flex-col justify-center items-center cursor-pointer rounded"
               >
-                <div className="px-3 my-0.5 py-[1px]  bg-[#ffffff]"></div>
-                <div className="px-3 my-0.5 py-[1px]  bg-[#ffffff]"></div>
-                <div className="px-3 my-0.5 py-[1px]  bg-[#ffffff]"></div>
+                <div className="px-3 my-0.5 py-[1px]  bg-[#FFFFFF]"></div>
+                <div className="px-3 my-0.5 py-[1px]  bg-[#FFFFFF]"></div>
+                <div className="px-3 my-0.5 py-[1px]  bg-[#FFFFFF]"></div>
               </div>
               {isOpen && (
-                <ul className="absolute right-3 top-20  border bg-[#ffffff] border-[#FCC821] rounded-md shadow-xl mt-2 w-48 z-10">
+                <span className="absolute right-3 top-20  border bg-[#FFFFFF] border-[#FCC821] rounded-md shadow-xl mt-2 w-48 z-10">
                   {/* {options.map((option, index) => (
                     <li
                       key={index}
@@ -125,15 +125,15 @@ export default function NavBar() {
                       {option.label}
                     </li>
                   ))} */}
-                  <li
+                  <p
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
                   >
                     <NavLink className={"block w-[100%]"} to="/">
                       Home
                     </NavLink>
-                  </li>
-                  <li
+                  </p>
+                  <p
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
                   >
@@ -143,24 +143,24 @@ export default function NavBar() {
                     >
                       Mounjaro
                     </NavLink>
-                  </li>
-                  <li
+                  </p>
+                  <p
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
                   >
                     <NavLink className={"block w-[100%]"} to="/wegovy-compare">
                       Wegovy
                     </NavLink>
-                  </li>
-                  <li
+                  </p>
+                  <p
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
                   >
                     <NavLink className={"block w-[100%]"} to="/blogs">
                       Blogs
                     </NavLink>
-                  </li>
-                  <li
+                  </p>
+                  <p
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
                   >
@@ -174,11 +174,11 @@ export default function NavBar() {
                     >
                       Contact Us
                     </NavLink>
-                  </li>
-                </ul>
+                  </p>
+                </span>
               )}
             </div>
-          </div>
+            </div>
         </div>
       </header>
     </>

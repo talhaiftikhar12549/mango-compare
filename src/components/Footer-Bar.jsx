@@ -36,23 +36,23 @@ export default function FooterBar() {
                     <h3 className="text-xl font-semibold mb-4 text-white">
                       Links
                     </h3>
-                    <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
-                      <li >
+                    <span className="w-3/4 space-y-[16px] pt-[24px] text-gray-300 flex flex-col space-y-5">
+                    
                         <NavLink className="hover:text-[#FCC821]" to="/">Home</NavLink>
-                      </li>
-                      <li >
+                    
+                     
                         <NavLink className="hover:text-[#FCC821]"  to="mounjaro-compare">Mounjaro</NavLink>
-                      </li>
-                      <li >
+                      
+                  
                         <NavLink className="hover:text-[#FCC821]" to="wegovy-compare">Wegovy</NavLink>
-                      </li>
-                      <li >
+                   
+                      
                         <NavLink className="hover:text-[#FCC821]" to="blogs">Blogs</NavLink>
-                      </li>
-                      <li >
+                  
+                    
                         <NavLink className="hover:text-[#FCC821]" to="contact-us">Contact Us</NavLink>
-                      </li>
-                    </ul>
+                    
+                    </span>
                   </div>
 
                   {/* Links & Social Column */}
@@ -61,18 +61,18 @@ export default function FooterBar() {
                       <h3 className="text-xl font-semibold mb-4 text-white">
                         Contact
                       </h3>
-                      <ul className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
-                        <li className="whitespace-normal break-words max-w-full">
+                      <span className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
+                        <p className="whitespace-normal break-words max-w-full mt-10">
                           <a
                             href="mailto:info@mangocompare.co.uk"
                             className="pointer"
                           >
                             info@mangocompare.co.uk
                           </a>
-                        </li>
+                        </p>
 
                         {/* <li>Phone: +1 (123) 456‑7890</li> */}
-                      </ul>
+                      </span>
                     </div>
                     <div>
                       <h3 className="text-xl text-start font-semibold mb-2 text-white">
