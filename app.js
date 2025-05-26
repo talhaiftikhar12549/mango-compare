@@ -13,7 +13,7 @@ const discountRoutes = require('./routes/discountRoutes');
 const wegovyRoutes = require('./routes/wegovyRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const blogsRoutes = require('./routes/blogsRoutes');
-
+const postsRoutes = require('./routes/postsRoutes');
 
 
 // Initialize Express app
@@ -37,6 +37,8 @@ app.use('/api/discount', discountRoutes);
 app.use('/api/wegovy', wegovyRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/blogs', blogsRoutes);
+app.use('/api/posts', postsRoutes);
+
 
 // Error handling middleware
 app.use(errorHandler);
