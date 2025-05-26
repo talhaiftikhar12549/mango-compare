@@ -10,7 +10,7 @@ exports.getPosts = async (req, res, next) => {
     let queryStr = JSON.stringify(req.query);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
 
-    query = Posts.find(JSON.parse(queryStr)).populate('author', 'username');
+    query = Posts.find(JSON.parse(queryStr)).populate('author', 'name');
 
     if (req.query.sort) {
       const sortBy = req.query.sort.split(',').join(' ');
@@ -53,7 +53,7 @@ exports.getPosts = async (req, res, next) => {
 // @access  Public
 exports.getPost = async (req, res, next) => {
   try {
-    const post = await Posts.findById(req.params.id).populate('author', 'username');
+    const post = await Posts.findById(req.params.id).populate('author', 'name');
 
     if (!post) {
       return next(new ErrorResponse(`Post not found with ID: ${req.params.id}`, 404));
@@ -147,3 +147,80 @@ exports.deletePost = async (req, res, next) => {
     next(err);
   }
 };
+
+// @desc    Upvote a post
+// @route   POST /api/posts/:id/upvote
+// @access  Private
+exports.upvotePost = async (req, res, next) => {
+  try {
+    const post = await Posts.findById(req.params.id);
+
+    if (!post) {
+      return next(new ErrorResponse('Post not found', 404));
+    }
+
+    // Remove downvote if user had downvoted before
+    post.downvotes = post.downvotes.filter(
+      (userId) => userId.toString() !== req.user.id
+    );
+
+    // If already upvoted, remove it (toggle)
+    const hasUpvoted = post.upvotes.includes(req.user.id);
+    if (hasUpvoted) {
+      post.upvotes = post.upvotes.filter(
+        (userId) => userId.toString() !== req.user.id
+      );
+    } else {
+      post.upvotes.push(req.user.id);
+    }
+
+    await post.save();
+
+    res.status(200).json({
+      success: true,
+      upvotes: post.upvotes.length,
+      downvotes: post.downvotes.length,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+// @desc    Downvote a post
+// @route   POST /api/posts/:id/downvote
+// @access  Private
+exports.downvotePost = async (req, res, next) => {
+  try {
+    const post = await Posts.findById(req.params.id);
+
+    if (!post) {
+      return next(new ErrorResponse('Post not found', 404));
+    }
+
+    // Remove upvote if user had upvoted before
+    post.upvotes = post.upvotes.filter(
+      (userId) => userId.toString() !== req.user.id
+    );
+
+    // If already downvoted, remove it (toggle)
+    const hasDownvoted = post.downvotes.includes(req.user.id);
+    if (hasDownvoted) {
+      post.downvotes = post.downvotes.filter(
+        (userId) => userId.toString() !== req.user.id
+      );
+    } else {
+      post.downvotes.push(req.user.id);
+    }
+
+    await post.save();
+
+    res.status(200).json({
+      success: true,
+      upvotes: post.upvotes.length,
+      downvotes: post.downvotes.length,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
