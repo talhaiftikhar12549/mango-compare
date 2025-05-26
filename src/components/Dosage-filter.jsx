@@ -59,7 +59,7 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
   }, [isReset, dispatch, dosages]);
 
   return (
-    <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] border-b border-[#DCDCDC] shadow-md bg-white space-y-4 rounded-b-[10px]">
+    <div className="w-[75%] md:w-full max-w-xs px-[20px] pb-[38px] pt-[24px] border-b border-[#DCDCDC] shadow-md bg-white space-y-4 rounded-b-[10px]">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Strength</h2>
         <button

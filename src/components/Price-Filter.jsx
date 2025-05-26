@@ -56,7 +56,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
 
   return (
     <>
-      <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] shadow-md bg-white space-y-4 border-b border-[#DCDCDC] ">
+      <div className="w-[75%] md:w-full max-w-xs px-[20px] pb-[38px] pt-[24px] shadow-md bg-white space-y-4 border-b border-[#DCDCDC] ">
         <div className="flex items-center justify-between">
           <h2 className="text-lg font-semibold">Price</h2>
           <button
@@ -116,7 +116,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
           </div>
         </div>
       </div>
-      <div className="bg-[#FCC821]">
+      <div className="bg-[#FCC821] w-[75%] md:w-full">
         <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] shadow-md space-y-4 border-b border-[#DCDCDC] ">
           <div className="flex items-center justify-between ">
             <h2 className="text-lg font-semibold text-[#000000]">Discount</h2>

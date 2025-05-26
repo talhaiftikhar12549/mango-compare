@@ -254,8 +254,9 @@ export default function PriceCalculator({
             />
           </div>
           {filterBar && (
-            <div className="block md:hidden w-[25%]  pr-[20px]">
+            <div className="fixed md:static top-0 left-0 z-50 md:hidden w-[100%] pr-[20px]">
               <FilterBar
+                closeFilter={filterBarHandler}
                 availableDoasge={availableDoasge}
                 maxVal={MaxValue()}
                 minValue={MinValue()}
@@ -264,9 +265,9 @@ export default function PriceCalculator({
             </div>
           )}
 
-          <div className={`w-[75%] ${filterBar ? "w-[75%]" : "w-[100%]"}`}>
+          <div className={`w-full md:w-[75%] ${filterBar ? "md:w-[75%]" : "w-[100%]"}`}>
             <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
-              <div className="w-[25%] ">
+              <div className="w-[15%] md:w-[25%] ">
                 <p
                   className="flex items-center cursor-pointer"
                   onClick={togglePharmacy}
@@ -322,13 +323,13 @@ export default function PriceCalculator({
                         : "bg-white"
                     }`}
                   >
-                    <div className="w-[25%] flex items-center justify-start">
-                      <div className="flex items-center gap-[20px]">
+                    <div className="w-[15%] md:w-[25%] flex items-center justify-start">
+                      <div className="flex flex-col md:flex-row justify-center md:justify-start md:items-center gap-2 md:gap-[20px]">
                         {srtdata.pharmacyLogo == "" ? (
                           <img src={Img} alt="Pharmacy logo" />
                         ) : (
                           <img
-                            className="w-[80px] "
+                            className="w-[60px] md:w-[80px] "
                             src={srtdata.pharmacyLogo}
                             alt="Pharmacy logo"
                           />
