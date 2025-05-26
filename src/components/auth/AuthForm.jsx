@@ -6,6 +6,7 @@ const AuthForm = ({ isLogin }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
+    confirm_password: '',
     name: isLogin ? '' : ''
   });
   const [errors, setErrors] = useState({});
@@ -34,6 +35,12 @@ const AuthForm = ({ isLogin }) => {
       newErrors.password = 'Password is required';
     } else if (formData.password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters';
+    }
+
+    if (!isLogin && formData.password !== formData.confirm_password ) {
+      newErrors.confirm_password = 'Passwords do not match';
+      formData.password = ''
+      formData.confirm_password = ''
     }
     
     if (!isLogin && !formData.name) {
@@ -64,7 +71,7 @@ const AuthForm = ({ isLogin }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+    <div className="max-w-md mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
       <h2 className="text-2xl font-bold mb-6 text-center">
         {isLogin ? 'Login' : 'Register'}
       </h2>
@@ -128,6 +135,23 @@ const AuthForm = ({ isLogin }) => {
             <p className="text-red-500 text-sm mt-1">{errors.password}</p>
           )}
         </div>
+
+       {!isLogin && <div className="mb-6">
+          <label className="block text-gray-700 mb-2" htmlFor="confirm_password">
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            id="confirm_password"
+            name="confirm_password"
+            value={formData.confirm_password}
+            onChange={handleChange}
+            className={`w-full p-2 border rounded ${errors.confirm_password ? 'border-red-500' : 'border-gray-300'}`}
+          />
+          {errors.confirm_password && (
+            <p className="text-red-500 text-sm mt-1">{errors.confirm_password}</p>
+          )}
+        </div> }
         
         <button
           type="submit"
@@ -138,7 +162,7 @@ const AuthForm = ({ isLogin }) => {
         </button>
       </form>
       
-      {/* <div className="mt-4 text-center">
+      <div className="mt-4 text-center">
         {isLogin ? (
           <p>
             Don't have an account?{' '}
@@ -154,7 +178,7 @@ const AuthForm = ({ isLogin }) => {
             </a>
           </p>
         )}
-      </div> */}
+      </div>
     </div>
   );
 };

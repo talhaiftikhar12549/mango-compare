@@ -2,16 +2,21 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { checkAuthStatus } from '../../services/authService';
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children, allowedRoles }) => {
   const location = useLocation();
   const [isAllowed, setIsAllowed] = useState(null); // null = loading
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+   useEffect(() => {
     const checkAuth = async () => {
       try {
-        await checkAuthStatus(); // if successful, user is allowed
-        setIsAllowed(true);
+        const userData = await checkAuthStatus(); // must return role
+       
+        if (allowedRoles && !allowedRoles.includes(userData.data.role)) {
+          setIsAllowed(false);
+        } else {
+          setIsAllowed(true);
+        }
       } catch (err) {
         setIsAllowed(false);
         setError(err);
@@ -19,7 +24,7 @@ const ProtectedRoute = ({ children }) => {
     };
 
     checkAuth();
-  }, []);
+  }, [allowedRoles]);
 
   if (error) {
     console.log("an error occured while accesing protected route", error);

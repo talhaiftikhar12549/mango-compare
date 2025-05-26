@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const { login } = useAuth();
-
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,7 +19,6 @@ const LoginPage = () => {
         password: password,
       });
 
-      navigate("/mounjaro-pannel");
     } catch (error) {
       setErrors({ submit: error.response?.data?.error || "An error occurred" });
     } finally {

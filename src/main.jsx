@@ -20,6 +20,7 @@ import ThankYouPage from "./pages/thankyou.jsx";
 import FormDetails from "./pages/formDetails.jsx";
 import CreateBlogForm from "./components/BlogForm/CreateBlogForm.jsx";
 import SingleBlog from "./pages/singleBlog.jsx";
+import Forums from "./pages/forums.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -41,7 +42,7 @@ createRoot(document.getElementById("root")).render(
                 <Route
                   path="mounjaro-pannel"
                   element={
-                    <ProtectedRoute>
+                    <ProtectedRoute allowedRoles={['admin']}>
                       <AdminDashboard />
                     </ProtectedRoute>
                   }
@@ -49,7 +50,7 @@ createRoot(document.getElementById("root")).render(
                 <Route
                   path="form-info"
                   element={
-                    <ProtectedRoute>
+                    <ProtectedRoute allowedRoles={['admin']}>
                       <FormDetails />
                     </ProtectedRoute>
                   }
@@ -57,8 +58,17 @@ createRoot(document.getElementById("root")).render(
                 <Route
                   path="create-blog"
                   element={
-                    <ProtectedRoute>
+                    <ProtectedRoute allowedRoles={['admin']}>
                       <CreateBlogForm />
+                    </ProtectedRoute>
+                  }
+                />
+
+                <Route
+                  path="forums"
+                  element={
+                    <ProtectedRoute allowedRoles={['admin', 'user']}>
+                      <Forums />
                     </ProtectedRoute>
                   }
                 />
