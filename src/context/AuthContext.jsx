@@ -29,14 +29,14 @@ export const AuthProvider = ({ children }) => {
     // eslint-disable-next-line no-useless-catch
     try {
       const userData = await loginUser(credentials);
-      
+
       setUser(userData);
 
       setIsAuthenticated(true);
 
       // Redirect to either the protected page they tried to access or home
-      const redirectTo =  userData.role === "admin" ? '/mounjaro-pannel' :  "/";   
-      
+      const redirectTo = userData.role === "admin" ? '/mounjaro-pannel' : "/";
+
       navigate(redirectTo);
     } catch (error) {
       throw error;
