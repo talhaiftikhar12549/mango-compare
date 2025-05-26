@@ -6,14 +6,15 @@ const ErrorResponse = require('../utils/errorResponse');
 // @route   POST /api/auth/register
 // @access  Public
 exports.register = async (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { name, email, password, role } = req.body;
 
   try {
     // Create user
     const user = await User.create({
       name,
       email,
-      password
+      password,
+      role
     });
 
     sendTokenResponse(user, 200, res);
