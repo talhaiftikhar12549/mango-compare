@@ -40,14 +40,14 @@ export default function ForumPost() {
   };
 
   const handleEdit = () => {
-    setEditContent(post.content);
+    setEditContent(post.body);
     setIsEditing(true);
   };
 
   const handleEditSubmit = async () => {
     try {
       await api.put(`/posts/${post._id}`, {
-        content: editContent,
+        body: editContent,
       });
       setIsEditing(false);
       fetchPost();
@@ -60,7 +60,7 @@ export default function ForumPost() {
     if (window.confirm('Are you sure you want to delete this post?')) {
       try {
         await api.delete(`/posts/${post._id}`);
-        navigate('/forums');
+        navigate('/posts');
       } catch (err) {
         console.error('Delete failed', err);
       }
@@ -77,7 +77,7 @@ export default function ForumPost() {
       <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
       <p className="text-sm text-gray-500 mb-4">by {post.author?.name}</p>
 
-      {user && post.author?._id === user._id && (
+      {user && post.author?._id === user.id && (
         <div className="flex space-x-3 mb-4">
           <button
             onClick={handleEdit}
@@ -118,7 +118,7 @@ export default function ForumPost() {
           </div>
         </div>
       ) : (
-        <p className="mb-6">{post.content}</p>
+        <p className="mb-6">{post.body}</p>
       )}
 
       {/* Comment Form */}
