@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { loginUser, registerUser } from '../services/authService';
 
@@ -31,6 +31,7 @@ export const AuthProvider = ({ children }) => {
       const userData = await loginUser(credentials);
 
       setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
 
       setIsAuthenticated(true);
 
@@ -58,10 +59,19 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     // Clear token from localStorage if you're using it
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setUser(null);
     setIsAuthenticated(false);
     navigate('/login');
   };
+
+  useEffect(() => {
+  const savedUser = localStorage.getItem('user');
+  if (savedUser) {
+    setUser(JSON.parse(savedUser));
+    setIsAuthenticated(true);
+  }
+}, []);
 
   return (
     <AuthContext.Provider

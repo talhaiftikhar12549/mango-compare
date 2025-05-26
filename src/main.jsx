@@ -21,6 +21,7 @@ import FormDetails from "./pages/formDetails.jsx";
 import CreateBlogForm from "./components/BlogForm/CreateBlogForm.jsx";
 import SingleBlog from "./pages/singleBlog.jsx";
 import Forums from "./pages/forums.jsx";
+import SinglePost from "./pages/singlePost.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -65,10 +66,19 @@ createRoot(document.getElementById("root")).render(
                 />
 
                 <Route
-                  path="forums"
+                  path="posts"
                   element={
                     <ProtectedRoute allowedRoles={['admin', 'user']}>
                       <Forums />
+                    </ProtectedRoute>
+                  }
+                />
+
+                 <Route
+                  path="posts/:id"
+                  element={
+                    <ProtectedRoute allowedRoles={['admin', 'user']}>
+                      <SinglePost />
                     </ProtectedRoute>
                   }
                 />
