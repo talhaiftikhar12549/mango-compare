@@ -94,6 +94,8 @@ const sendTokenResponse = (user, statusCode, res) => {
   res.status(statusCode).json({
     success: true,
     role: user.role,
+    name: user.name,
+    id: user._id,
     token // Send the token in the response body
   });
 };
