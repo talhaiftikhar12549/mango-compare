@@ -2,7 +2,8 @@ import axios from 'axios';
 
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL + '/api'
+  //  baseURL: import.meta.env.VITE_API_URL + '/api',
+   baseURL: 'http://localhost:5000' + '/api'
   // || 'https://mango-compare-backend.onrender.com/api', // Your backend base URL
 });
 

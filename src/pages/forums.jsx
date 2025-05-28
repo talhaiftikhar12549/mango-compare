@@ -1,35 +1,167 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
+import { useAuth } from '../context/AuthContext';
+import Select from 'react-select';
+
+// icons 
+import { IoSearchOutline } from "react-icons/io5";
+import { PostsCard } from '../components/Forums/PostsCard';
 
 export default function Forums() {
-  const [posts, setPosts] = useState([]);
-  const navigate = useNavigate();
+    const [posts, setPosts] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [search, setSearch] = useState("")
+    const [selectedCategory, setSelectedCategory] = useState({ value: 'recents', label: 'Recent Posts' });
+    const [newPost, setNewPost] = useState({ title: '', body: '' });
+    const { user } = useAuth();
 
-  useEffect(() => {
+    const categories = [
+        { value: 'recents', label: 'Recent Posts' },
+        { value: 'popular', label: 'Most Popular' },
+        { value: 'recommended', label: 'Recommended' },
+    ];
+
+    const communities = [
+        { name: "General Discussion" },
+        { name: "Wegovy Experience" },
+        { name: "Mounjaro Experience" },
+        { name: "Lifestyle & Diet" },
+        { name: "News & Research" },
+    ]
+
+    useEffect(() => {
+        fetchPosts();
+    }, [search, selectedCategory?.value]);
+
     const fetchPosts = async () => {
-      const res = await api.get('/posts');
-      setPosts(res.data.data);
-    };
-    fetchPosts();
-  }, []);
+        let sortParam = '';
+        if (selectedCategory.value === 'popular') sortParam = 'upvotes';
+        else if (selectedCategory.value === 'recents') sortParam = '-createdAt';
 
-  return (
-    <div className="max-w-5xl mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-6 text-center">All Forums</h1>
-      <div className="space-y-4">
-        {posts.map(post => (
-          <div
-            key={post._id}
-            className="border p-4 rounded-xl shadow cursor-pointer hover:bg-gray-50"
-            onClick={() => navigate(`/posts/${post._id}`)}
-          >
-            <h2 className="text-xl font-semibold">{post.title}</h2>
-            <p className="text-gray-500 text-sm">By {post.author?.name}</p>
-            <p className="text-gray-700 mt-2 line-clamp-3">{post.body}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+        const res = await api.get('/posts', {
+            params: {
+                search,
+                sort: sortParam
+            }
+        });
+        setPosts(res.data.data);
+    };
+
+    const handleCreatePost = async (e) => {
+        e.preventDefault();
+        try {
+            await api.post('/posts', newPost);
+            setShowModal(false);
+            setNewPost({ title: '', body: '' });
+            fetchPosts();
+        } catch (err) {
+            console.error('Post creation failed:', err);
+        }
+    };
+
+    const handleSearch = (e) => {
+        setSearch(e.target.value)
+    }
+
+    return (
+        <div className="w-full mx-auto px-[10vw] py-6">
+            <div className="flex justify-between items-center mb-6">
+
+                <div className='flex space-x-4'>
+                    <h1 className="text-3xl font-bold">Home</h1>
+                    <Select
+                        defaultValue={selectedCategory}
+                        onChange={setSelectedCategory}
+                        options={categories}
+                    />
+
+                    <div className='flex items-center'>
+                        <input type="search"
+                            value={search}
+                            onChange={handleSearch}
+                            placeholder='Search...'
+                            className='w-full border border-gray-300 rounded pl-2 pr-7 py-1.5' />
+
+                        <IoSearchOutline className='-ml-7 text-gray-400' />
+
+                    </div>
+
+                </div>
+
+                {user && (
+                    <button
+                        onClick={() => setShowModal(true)}
+                        className="bg-[#FCC821] text-white px-4 py-2 rounded hover:bg-yellow-300 cursor-pointer"
+                    >
+                        Create Post
+                    </button>
+                )}
+            </div>
+
+            <div className='w-full flex space-x-5 py-10'>
+                <div className='w-[20vw]'>
+                    <h2 className="text-lg font-semibold">Communities</h2>
+
+                    <div className='w-full px-5 py-5 space-y-3'>
+                        {communities.map((community, index) => {
+                            return <div className='flex space-x-2 text-black hover:text-[#FCC821] cursor-pointer' key={index}><p>{`>`}</p> <p>{community.name}</p></div>
+                        })}
+
+                    </div>
+                </div>
+
+                <div className="w-full space-y-4 flex flex-col items-center">
+                    {posts.map((post) => (
+                        <div className='w-full' id={post._id}>
+                            <PostsCard post={post} fetchPosts={fetchPosts} />
+                        </div>
+                    ))}
+                </div>
+
+            </div>
+
+            {/* Modal */}
+            {showModal && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="bg-white w-full max-w-lg p-6 rounded-lg shadow-lg relative">
+                        <button
+                            className="absolute top-2 right-3 text-gray-500 hover:text-red-500 text-xl"
+                            onClick={() => setShowModal(false)}
+                        >
+                            &times;
+                        </button>
+                        <h2 className="text-xl font-bold mb-4">Create a New Post</h2>
+                        <form onSubmit={handleCreatePost} className="space-y-4">
+                            <div>
+                                <label className="block text-sm font-medium">Title</label>
+                                <input
+                                    type="text"
+                                    className="w-full border p-2 rounded"
+                                    value={newPost.title}
+                                    onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
+                                    required
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium">Body</label>
+                                <textarea
+                                    className="w-full border p-2 rounded"
+                                    rows="4"
+                                    value={newPost.body}
+                                    onChange={(e) => setNewPost({ ...newPost, body: e.target.value })}
+                                    required
+                                ></textarea>
+                            </div>
+                            <button
+                                type="submit"
+                                className="w-full bg-[#FCC821] text-white py-2 rounded hover:bg-yellow-300 cursor-pointer"
+                            >
+                                Post
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
 }

@@ -46,7 +46,7 @@ export default function SingleBlog() {
   }
 
   return (
-    <section className="max-w-[1280px] custom-width px-4 sm:px-6 lg:px-[40px] xl:px-0 mx-auto pb-[80px]">
+    <section className="w-full md:max-w-[1280px] custom-width px-4 sm:px-6 lg:px-[40px] xl:px-0 mx-auto pb-[80px]">
        <Helmet>
         <title>{blog.meta_title} | My Blog</title>
         <meta name="description" content={blog.meta_description || blog.content.slice(0, 150)} />
@@ -111,7 +111,7 @@ export default function SingleBlog() {
           <div className="flex flex-col sm:flex-row justify-between pt-4 text-[#515151] text-sm sm:text-[14px] font-semibold gap-5"></div>
         </div>
 
-        <div className="py-6">
+        <div className="py-6 w-full">
           <div className="prose" dangerouslySetInnerHTML={{ __html:  DOMPurify.sanitize(blog.content) }} />
           {/* <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%]">
             {blog.content}

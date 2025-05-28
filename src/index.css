@@ -12,6 +12,16 @@ body {
     }
   }
 
+  @media  (max-width: 760px) {
+    table {
+      width: 400px !important;
+    }
+  }
+
+  .prose {
+    width: 100%;
+  }
+
   .prose p {
     margin-bottom: 10px !important;
   }
