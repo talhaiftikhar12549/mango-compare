@@ -7,7 +7,7 @@ import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 import { PostsCard } from "../components/Forums/PostsCard";
 import ForumPageSkeleton from "../components/ForumPageSkeleton";
-import { HiMenu } from "react-icons/hi";
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Forums() {
   const [posts, setPosts] = useState([]);
@@ -58,7 +58,9 @@ export default function Forums() {
           search,
           sort: sortParam,
           community:
-            selectedCommunity.value !== "" ? selectedCommunity.value : undefined,
+            selectedCommunity.value !== ""
+              ? selectedCommunity.value
+              : undefined,
         },
       });
       setPosts(res.data.data);
@@ -87,8 +89,8 @@ export default function Forums() {
   return (
     <div className="max-w-[1280px] w-full lg:px-[40px] xl:px-0 px-[16px]">
       {/* Sidebar toggle button for small screens */}
-      <div className="md:hidden flex justify-between items-center py-4">
-        <h2 className="text-xl font-bold">Forums</h2>
+      <div className="md:hidden flex justify-start items-center py-4">
+        {/* <h2 className="text-xl font-bold">Forums</h2> */}
         <button
           className="text-2xl text-[#FCC821]"
           onClick={() => setShowSidebar(!showSidebar)}
@@ -100,14 +102,27 @@ export default function Forums() {
       <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-5 py-10 relative">
         {/* Sidebar */}
         <div
-          className={`w-full md:w-[25%] border-r border-gray-300 bg-white md:static fixed z-50 top-0 left-0 h-full p-4 md:p-0 transform transition-transform duration-300 ease-in-out md:translate-x-0 ${
+          className={`w-full md:w-[25%] md:static fixed z-50 top-0 left-0 h-full md:h-auto bg-white md:bg-transparent transform transition-transform duration-300 ease-in-out md:translate-x-0 ${
             showSidebar ? "translate-x-0" : "-translate-x-full"
-          } md:relative md:block`}
+          } md:relative md:block max-w-[75%]`}
         >
+          {/* Close button on mobile sidebar */}
+          <div className="md:hidden flex justify-end p-4">
+            <button
+              onClick={() => setShowSidebar(false)}
+              className="text-2xl text-gray-600"
+            >
+              <HiX />
+            </button>
+          </div>
+
           <div className="py-[10px]">
             <h2
               onClick={() => {
-                setSelectedCategory({ value: "recents", label: "Recent Posts" });
+                setSelectedCategory({
+                  value: "recents",
+                  label: "Recent Posts",
+                });
                 setShowSidebar(false);
               }}
               className={`text-lg text-[18px] font-[600] px-[18px] py-[12px] cursor-pointer flex items-center justify-start gap-2 ${
@@ -122,7 +137,10 @@ export default function Forums() {
 
             <h2
               onClick={() => {
-                setSelectedCategory({ value: "popular", label: "Most Popular" });
+                setSelectedCategory({
+                  value: "popular",
+                  label: "Most Popular",
+                });
                 setShowSidebar(false);
               }}
               className={`text-lg text-[18px] font-[600] px-[18px] py-[12px] cursor-pointer flex items-center justify-start gap-2 ${
