@@ -6,11 +6,13 @@ import { TiHome } from "react-icons/ti";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 import { PostsCard } from "../components/Forums/PostsCard";
+import ForumPageSkeleton from "../components/ForumPageSkeleton";
 
 export default function Forums() {
   const [posts, setPosts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [search, setSearch] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState({
     value: "recents",
     label: "Recent Posts",
@@ -22,11 +24,11 @@ export default function Forums() {
   });
   const { user } = useAuth();
 
-  // const categories = [
-  //   { value: "recents", label: "Recent Posts" },
-  //   { value: "popular", label: "Most Popular" },
-  //   { value: "recommended", label: "Recommended" },
-  // ];
+  const categories = [
+    { value: "recents", label: "Recent Posts" },
+    { value: "popular", label: "Most Popular" },
+    { value: "recommended", label: "Recommended" },
+  ];
 
   const communities = [
     { value: "", label: "All" },
@@ -42,19 +44,27 @@ export default function Forums() {
   }, [search, selectedCategory?.value, selectedCommunity]);
 
   const fetchPosts = async () => {
-    let sortParam = "";
-    if (selectedCategory.value === "popular") sortParam = "upvoteCount";
-    else if (selectedCategory.value === "recents") sortParam = "-createdAt";
+    setIsLoading(true);
+    try {
+      let sortParam = "";
+      if (selectedCategory.value === "popular") sortParam = "upvoteCount";
+      else if (selectedCategory.value === "recents") sortParam = "-createdAt";
 
-    const res = await api.get("/posts", {
-      params: {
-        search,
-        sort: sortParam,
-        community:
-          selectedCommunity.value !== "" ? selectedCommunity.value : undefined,
-      },
-    });
-    setPosts(res.data.data);
+      const res = await api.get("/posts", {
+        params: {
+          search,
+          sort: sortParam,
+          community:
+            selectedCommunity.value !== "" ? selectedCommunity.value : undefined,
+        },
+      });
+      setPosts(res.data.data);
+    } catch (err) {
+      console.error("Failed to fetch posts:", err);
+      setPosts([]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleCreatePost = async (e) => {
@@ -73,20 +83,12 @@ export default function Forums() {
     setSearch(e.target.value);
   };
 
-  console.log("posts", posts);
   return (
-    <div className="max-w-[1280px] w-[100%] lg:px-[40px] xl:px-0 px-[16px]">
-      {/* <h1 className="py-[20px]" >Forums</h1> */}
-      <div className="w-[100%] flex justify-between items-center mb-6">
+    <div className="max-w-[1280px] w-full lg:px-[40px] xl:px-0 px-[16px]">
+      <div className="w-full flex justify-between items-center mb-6">
         <div className="w-25%"></div>
         <div className="w-[75%]">
           <div className="flex space-x-4 justify-end">
-            {/* <Select
-              defaultValue={selectedCategory}
-              onChange={setSelectedCategory}
-              options={categories}
-            /> */}
-
             {user && (
               <button
                 onClick={() => setShowModal(true)}
@@ -100,35 +102,30 @@ export default function Forums() {
       </div>
 
       <div className="w-full flex space-x-5 py-10">
-        {/* left panel  */}
-        <div className="w-[25%]  border-r border-gray-300">
-          <div className=" py-[10px] ">
+        {/* Sidebar */}
+        <div className="w-[25%] border-r border-gray-300">
+          <div className="py-[10px]">
             <h2
-              onClick={() =>
-                setSelectedCategory({
-                  value: "recents",
-                  label: "Recent Posts",
-                })
-              }
-              className={`text-lg text-[18px] font-[600] px-[18px] py-[12px] cursor-pointer flex items-center justify-star gap-2 ${
+              onClick={() => {
+                setSelectedCategory({ value: "recents", label: "Recent Posts" });
+              }}
+              className={`text-lg font-[600] px-[18px] py-[12px] cursor-pointer flex items-center gap-2 ${
                 selectedCategory.value === "recents"
-                  ? " text-[#FCC821] font-semibold bg-[#fffaec]"
+                  ? "text-[#FCC821] font-semibold bg-[#fffaec]"
                   : "text-gray-700 hover:text-[#FCC821]"
               }`}
             >
               <TiHome />
               Home
             </h2>
+
             <h2
-              onClick={() =>
-                setSelectedCategory({
-                  value: "popular",
-                  label: "Most Popular",
-                })
-              }
-              className={`text-lg text-[18px] font-[600] px-[18px] py-[12px] cursor-pointer flex items-center justify-star gap-2 ${
+              onClick={() => {
+                setSelectedCategory({ value: "popular", label: "Most Popular" });
+              }}
+              className={`text-lg font-[600] px-[18px] py-[12px] cursor-pointer flex items-center gap-2 ${
                 selectedCategory.value === "popular"
-                  ? " text-[#FCC821] font-semibold bg-[#fffaec]"
+                  ? "text-[#FCC821] font-semibold bg-[#fffaec]"
                   : "text-gray-700 hover:text-[#FCC821]"
               }`}
             >
@@ -138,57 +135,59 @@ export default function Forums() {
           </div>
 
           <div className="border-t border-gray-300 pt-5">
-            <h2 className="text-lg text-[14px] text-gray-300 font-[600] px-[18px] py-[12px] ">
+            <h2 className="text-sm text-gray-300 font-[600] px-[18px] py-[12px]">
               Communities
             </h2>
           </div>
 
-          <div className="w-full   space-y-3 px-[20px]">
+          <div className="space-y-3 px-[20px]">
             {communities.map((community, index) => (
-              <div className=" py-[8px]" key={index}>
+              <div className="py-[8px]" key={index}>
                 <div
-                  onClick={() => setSelectedCommunity(community)}
-                  className={`flex space-x-2 cursor-pointer py-[8px] hover:bg-[#fffaec]  p-[16px] rounded-[6px] transition-colors duration-300 ease-in-out ${
+                  onClick={() => {
+                    setSelectedCommunity(community);
+                  }}
+                  className={`flex space-x-2 cursor-pointer p-[16px] rounded-[6px] transition-colors duration-300 ease-in-out ${
                     selectedCommunity.value === community.value
                       ? "text-[#FCC821] font-semibold bg-[#fffaec]"
-                      : "text-gray-500 hover:text-[#FCC821]"
+                      : "text-gray-500 hover:text-[#FCC821] hover:bg-[#fffaec]"
                   }`}
                 >
-                  <p className="">{community.label}</p>
+                  <p>{community.label}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* communitiesy cards  */}
+        {/* Main Content */}
         <div className="w-[75%] space-y-4 flex flex-col items-center">
           <div className="w-full">
-            <div className="flex space-x-4 w-[100%] items-center justify-center">
+            <div className="flex space-x-4 w-full items-center justify-center">
               <div className="flex items-center w-[50%]">
                 <input
                   type="search"
                   value={search}
                   onChange={handleSearch}
                   placeholder="Search..."
-                  className="w-full border-2 border-[#FCC821] rounded-[10px] py-[8px] pl-2 pr-7 py-1.5 text-gray-400"
+                  className="w-full border-2 border-[#FCC821] rounded-[10px] py-[8px] pl-2 pr-7 text-gray-400"
                 />
-
                 <IoSearchOutline className="-ml-7 text-gray-400" />
               </div>
             </div>
           </div>
-          <div>
-            {/* {!selectedCommunity ? <p>data laoading</p> : <p>it loaded</p>} */}
-          </div>
-          {posts.length > 0 ? (
+
+          {/* Loader or Posts */}
+          {isLoading ? (
+            <ForumPageSkeleton />
+          ) : posts.length > 0 ? (
             posts.map((post) => (
-              <div className="w-full" key={post._id} id={post._id}>
+              <div className="w-full" key={post._id}>
                 <PostsCard post={post} fetchPosts={fetchPosts} />
               </div>
             ))
           ) : (
-            <p>No posts available.</p>
+            <p className="text-gray-400 text-center mt-10">No posts available.</p>
           )}
         </div>
       </div>
@@ -230,8 +229,8 @@ export default function Forums() {
                 ></textarea>
               </div>
 
-              <div className="">
-                <label className="block text-sm font-medium"> Community</label>
+              <div>
+                <label className="block text-sm font-medium">Community</label>
                 <select
                   value={newPost.community || ""}
                   onChange={(e) =>
@@ -244,10 +243,10 @@ export default function Forums() {
                     Select community
                   </option>
                   {communities
-                    .filter((c) => c.name !== "All")
+                    .filter((c) => c.value !== "")
                     .map((c, index) => (
-                      <option key={index} value={c.name}>
-                        {c.name}
+                      <option key={index} value={c.value}>
+                        {c.label}
                       </option>
                     ))}
                 </select>
