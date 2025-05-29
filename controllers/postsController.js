@@ -6,29 +6,52 @@ const ErrorResponse = require('../utils/errorResponse');
 // @access  Public
 exports.getPosts = async (req, res, next) => {
   try {
-    let query;
-    let queryStr = JSON.stringify(req.query);
+    let queryObj = { ...req.query };
+    const removeFields = ['sort', 'page', 'limit', 'search'];
+    removeFields.forEach(param => delete queryObj[param]);
+
+    // Add advanced filtering (gt, gte, lt, lte, in)
+    let queryStr = JSON.stringify(queryObj);
     queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)\b/g, match => `$${match}`);
+    let filter = JSON.parse(queryStr);
 
-    query = Posts.find(JSON.parse(queryStr)).populate('author', 'name');
+    // Add search filter
+    if (req.query.search) {
+      filter.title = { $regex: req.query.search, $options: 'i' }; // case-insensitive
+    }
 
-    if (req.query.sort) {
+    // filter by community 
+    if (req.query.community) {
+      filter.community = req.query.community;
+    }
+
+    // Start building the query
+    let query = Posts.find(filter).populate('author', 'name');
+
+    // Sort
+    if (req.query.sort === 'upvoteCount') {
+      query = query.sort({ upvoteCount: -1, createdAt: -1});
+      
+    } else if (req.query.sort) {
       const sortBy = req.query.sort.split(',').join(' ');
       query = query.sort(sortBy);
     } else {
       query = query.sort('-createdAt');
     }
 
+    // Pagination
     const page = parseInt(req.query.page, 10) || 1;
     const limit = parseInt(req.query.limit, 10) || 10;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
-    const total = await Posts.countDocuments();
+    const total = await Posts.countDocuments(filter);
 
     query = query.skip(startIndex).limit(limit);
 
+    // Execute query
     const posts = await query;
 
+    // Pagination result
     const pagination = {};
     if (endIndex < total) {
       pagination.next = { page: page + 1, limit };
@@ -164,8 +187,11 @@ exports.upvotePost = async (req, res, next) => {
       (userId) => userId.toString() !== req.user.id
     );
 
-    // If already upvoted, remove it (toggle)
-    const hasUpvoted = post.upvotes.includes(req.user.id);
+    // Toggle upvote
+    const hasUpvoted = post.upvotes.some(
+      (userId) => userId.toString() === req.user.id
+    );
+
     if (hasUpvoted) {
       post.upvotes = post.upvotes.filter(
         (userId) => userId.toString() !== req.user.id
@@ -174,17 +200,22 @@ exports.upvotePost = async (req, res, next) => {
       post.upvotes.push(req.user.id);
     }
 
+    // Update the upvoteCount after toggling
+    post.upvoteCount = post.upvotes.length;
+
     await post.save();
 
     res.status(200).json({
       success: true,
       upvotes: post.upvotes.length,
       downvotes: post.downvotes.length,
+      upvotesCount: post.upvotesCount,
     });
   } catch (err) {
     next(err);
   }
 };
+
 
 // @desc    Downvote a post
 // @route   POST /api/posts/:id/downvote
