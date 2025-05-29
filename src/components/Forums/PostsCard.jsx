@@ -30,8 +30,8 @@ export const PostsCard = ({ post, fetchPosts }) => {
   };
 
   return (
-    <div className="w-5/6 flex flex-col gap-4 border-b border-gray-300  cursor-pointer transition">
-      <div className="hover:bg-[#fffaec] transition-colors duration-300 ease-in-out rounded-[10px] p-4 mb-[10px]">
+    <div className="w-[100%]flex flex-col gap-4 border-b border-gray-300  cursor-pointer transition ">
+      <div className="hover:bg-[#fffaec] border-[#dcdcdc] transition-colors duration-300 ease-in-out rounded-[10px] p-4 mb-[10px]">
         <div
           onClick={() => navigate(`/posts/${post._id}`)}
           className="flex-1 space-y-2"
@@ -66,19 +66,19 @@ export const PostsCard = ({ post, fetchPosts }) => {
           <div
             disabled={loadingVotes[`post-upvote`]}
             onClick={() => handleVote(post._id, "upvote")}
-            className="flex items-center space-x-2 text-gray-500 text-lg border border-[#dcdcdc] py-[4px] px-[8px] rounded-[20px]"
+            className="flex items-center space-x-2 text-gray-500 text-lg text-[18px] border border-[#dcdcdc] py-[4px] px-[8px] rounded-[20px]  hover:text-[#FCC821] transition-colors duration-300 ease-in-out "
           >
             <TbArrowNarrowUp /> <p>{post.upvotes?.length || 0}</p>
           </div>
           <div
             onClick={() => navigate(`/posts/${post._id}`)}
-            className="flex items-center space-x-2 text-gray-500 text-lg border border-[#dcdcdc] py-[4px] px-[8px] rounded-[20px]"
+            className="flex items-center space-x-2 text-gray-500 text-lg border border-[#dcdcdc] py-[4px] px-[8px] rounded-[20px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
           >
             <IoChatboxOutline /> <p>{post.commentsCount || 0}</p>
           </div>
           <div
             onClick={() => handleCopy(post._id)}
-            className="flex items-center space-x-2 text-gray-500 text-lg border border-[#dcdcdc] py-[4px] px-[6px] rounded-[20px]"
+            className="flex items-center space-x-2 text-gray-500 text-lg border border-[#dcdcdc] py-[4px] px-[6px] rounded-[20px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
           >
             <IoArrowRedoSharp />
             <p>Share</p>

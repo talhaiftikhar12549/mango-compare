@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import Select from "react-select";
-
+import { TiHome } from "react-icons/ti";
+import { BsArrowUpRightCircleFill } from "react-icons/bs";
 // icons
 import { IoSearchOutline } from "react-icons/io5";
 import { PostsCard } from "../components/Forums/PostsCard";
@@ -22,11 +23,11 @@ export default function Forums() {
   });
   const { user } = useAuth();
 
-  const categories = [
-    { value: "recents", label: "Recent Posts" },
-    { value: "popular", label: "Most Popular" },
-    { value: "recommended", label: "Recommended" },
-  ];
+  // const categories = [
+  //   { value: "recents", label: "Recent Posts" },
+  //   { value: "popular", label: "Most Popular" },
+  //   { value: "recommended", label: "Recommended" },
+  // ];
 
   const communities = [
     { value: "", label: "All" },
@@ -73,58 +74,90 @@ export default function Forums() {
     setSearch(e.target.value);
   };
 
+  console.log("posts", posts);
   return (
     <div className="w-full max-w-[1280px] mx-auto py-6">
-      <div className="flex justify-between items-center mb-6">
-        <div className="flex space-x-4">
-          <h1 className="text-3xl font-bold">Home</h1>
-          <Select
-            defaultValue={selectedCategory}
-            onChange={setSelectedCategory}
-            options={categories}
-          />
-
-          <div className="flex items-center">
-            <input
-              type="search"
-              value={search}
-              onChange={handleSearch}
-              placeholder="Search..."
-              className="w-full border border-gray-300 rounded pl-2 pr-7 py-1.5"
-            />
-
-            <IoSearchOutline className="-ml-7 text-gray-400" />
+       {/* <h1 className="py-[20px]" >Forums</h1> */}
+      <div className="w-[100%] flex justify-between items-center mb-6">
+       
+        <div className="w-25%"></div>
+        <div className="w-[75%]">
+          <div className="flex space-x-4 justify-end">
+            {/* <Select
+              defaultValue={selectedCategory}
+              onChange={setSelectedCategory}
+              options={categories}
+            /> */}
+            
+            {user && (
+              <button
+                onClick={() => setShowModal(true)}
+                className="bg-[#FCC821] text-white px-4 py-2 rounded hover:bg-yellow-300 cursor-pointer"
+              >
+                Create Post
+              </button>
+            )}
           </div>
         </div>
-
-        {user && (
-          <button
-            onClick={() => setShowModal(true)}
-            className="bg-[#FCC821] text-white px-4 py-2 rounded hover:bg-yellow-300 cursor-pointer"
-          >
-            Create Post
-          </button>
-        )}
       </div>
 
       <div className="w-full flex space-x-5 py-10">
         {/* left panel  */}
-        <div className="w-[25%] border border-[#DCDCDC] p-[20px] rounded-[10px] shadow-md">
-          <h2 className="text-lg font-semibold">Communities</h2>
+        <div className="w-[25%]  border-r border-gray-300">
+          <div className=" py-[10px] ">
+            <h2
+              onClick={() =>
+                setSelectedCategory({
+                  value: "recents",
+                  label: "Recent Posts",
+                })
+              }
+              className={`text-lg text-[18px] font-[600] px-[18px] py-[12px] cursor-pointer flex items-center justify-star gap-2 ${
+                selectedCategory.value === "recents"
+                  ? " text-[#FCC821] font-semibold bg-[#fffaec]"
+                  : "text-gray-700 hover:text-[#FCC821]"
+              }`}
+            >
+              <TiHome />
+              Home
+            </h2>
+            <h2
+              onClick={() =>
+                setSelectedCategory({
+                  value: "popular",
+                  label: "Most Popular",
+                })
+              }
+              className={`text-lg text-[18px] font-[600] px-[18px] py-[12px] cursor-pointer flex items-center justify-star gap-2 ${
+                selectedCategory.value === "popular"
+                  ? " text-[#FCC821] font-semibold bg-[#fffaec]"
+                  : "text-gray-700 hover:text-[#FCC821]"
+              }`}
+            >
+              <BsArrowUpRightCircleFill />
+              Popular
+            </h2>
+          </div>
 
-          <div className="w-full px-5 py-5 space-y-3">
+          <div className="border-t border-gray-300 pt-5">
+            <h2 className="text-lg text-[14px] text-gray-300 font-[600] px-[18px] py-[12px] ">
+              Communities
+            </h2>
+          </div>
+
+          <div className="w-full   space-y-3 px-[20px]">
             {communities.map((community, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedCommunity(community)}
-                className={`flex space-x-2 cursor-pointer ${
-                  selectedCommunity.value === community.value
-                    ? "text-[#FCC821] font-semibold"
-                    : "text-black hover:text-[#FCC821]"
-                }`}
-              >
-                <p>{`>`}</p>
-                <p>{community.label}</p>
+              <div className=" py-[8px]" key={index}>
+                <div
+                  onClick={() => setSelectedCommunity(community)}
+                  className={`flex space-x-2 cursor-pointer py-[8px] hover:bg-[#fffaec]  p-[16px] rounded-[6px] transition-colors duration-300 ease-in-out ${
+                    selectedCommunity.value === community.value
+                      ? "text-[#FCC821] font-semibold bg-[#fffaec]"
+                      : "text-gray-500 hover:text-[#FCC821]"
+                  }`}
+                >
+                  <p className="">{community.label}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -132,13 +165,33 @@ export default function Forums() {
 
         {/* communitiesy cards  */}
         <div className="w-[75%] space-y-4 flex flex-col items-center">
-          {posts.map((post) => {
-            return (
-              <div className="w-full" id={post._id}>
+          <div className="w-full">
+            <div className="flex space-x-4 w-[100%] items-center justify-center">
+              <div className="flex items-center w-[50%]">
+                <input
+                  type="search"
+                  value={search}
+                  onChange={handleSearch}
+                  placeholder="Search..."
+                  className="w-full border-2 border-[#FCC821] rounded-[10px] py-[8px] pl-2 pr-7 py-1.5 text-gray-400"
+                />
+
+                <IoSearchOutline className="-ml-7 text-gray-400" />
+              </div>
+            </div>
+          </div>
+          <div>
+            {/* {!selectedCommunity ? <p>data laoading</p> : <p>it loaded</p>} */}
+          </div>
+          {posts.length > 0 ? (
+            posts.map((post) => (
+              <div className="w-full" key={post._id} id={post._id}>
                 <PostsCard post={post} fetchPosts={fetchPosts} />
               </div>
-            );
-          })}
+            ))
+          ) : (
+            <p>No posts available.</p>
+          )}
         </div>
       </div>
 
