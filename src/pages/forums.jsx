@@ -13,6 +13,7 @@ export default function Forums() {
     const [search, setSearch] = useState("")
     const [selectedCategory, setSelectedCategory] = useState({ value: 'recents', label: 'Recent Posts' });
     const [newPost, setNewPost] = useState({ title: '', body: '' });
+    const [selectedCommunity, setSelectedCommunity] = useState({ value: '', label: 'All' });
     const { user } = useAuth();
 
     const categories = [
@@ -22,26 +23,28 @@ export default function Forums() {
     ];
 
     const communities = [
-        { name: "General Discussion" },
-        { name: "Wegovy Experience" },
-        { name: "Mounjaro Experience" },
-        { name: "Lifestyle & Diet" },
-        { name: "News & Research" },
+        { value: '', label: 'All' },
+        { value: 'General Discussion', label: 'General Discussion' },
+        { value: 'Wegovy Experience', label: 'Wegovy Experience' },
+        { value: 'Mounjaro Experience', label: 'Mounjaro Experience' },
+        { value: 'Lifestyle & Diet', label: 'Lifestyle & Diet' },
+        { value: 'News & Research', label: 'News & Research' },
     ]
 
     useEffect(() => {
         fetchPosts();
-    }, [search, selectedCategory?.value]);
+    }, [search, selectedCategory?.value, selectedCommunity]);
 
     const fetchPosts = async () => {
         let sortParam = '';
-        if (selectedCategory.value === 'popular') sortParam = 'upvotes';
+        if (selectedCategory.value === 'popular') sortParam = 'upvoteCount';
         else if (selectedCategory.value === 'recents') sortParam = '-createdAt';
 
         const res = await api.get('/posts', {
             params: {
                 search,
-                sort: sortParam
+                sort: sortParam,
+                community: selectedCommunity.value !== "" ? selectedCommunity.value : undefined
             }
         });
         setPosts(res.data.data);
@@ -103,19 +106,29 @@ export default function Forums() {
                     <h2 className="text-lg font-semibold">Communities</h2>
 
                     <div className='w-full px-5 py-5 space-y-3'>
-                        {communities.map((community, index) => {
-                            return <div className='flex space-x-2 text-black hover:text-[#FCC821] cursor-pointer' key={index}><p>{`>`}</p> <p>{community.name}</p></div>
-                        })}
+                        {communities.map((community, index) => (
+                            <div
+                                key={index}
+                                onClick={() => setSelectedCommunity(community)}
+                                className={`flex space-x-2 cursor-pointer ${selectedCommunity.value === community.value ? 'text-[#FCC821] font-semibold' : 'text-black hover:text-[#FCC821]'
+                                    }`}
+                            >
+                                <p>{`>`}</p>
+                                <p>{community.label}</p>
+                            </div>
+                        ))}
 
                     </div>
                 </div>
 
                 <div className="w-full space-y-4 flex flex-col items-center">
-                    {posts.map((post) => (
-                        <div className='w-full' id={post._id}>
+                    {posts.map((post) => {
+                       return <div className='w-full' id={post._id}>
                             <PostsCard post={post} fetchPosts={fetchPosts} />
                         </div>
-                    ))}
+
+                    }
+                    )}
                 </div>
 
             </div>
@@ -152,6 +165,22 @@ export default function Forums() {
                                     required
                                 ></textarea>
                             </div>
+
+                            <div>
+                                <label className="block text-sm font-medium">Community</label>
+                                <select
+                                    value={newPost.community || ''}
+                                    onChange={(e) => setNewPost({ ...newPost, community: e.target.value })}
+                                    className="w-full border p-2 rounded"
+                                    required
+                                >
+                                    <option value="" disabled>Select community</option>
+                                    {communities.filter(c => c.name !== "All").map((c, index) => (
+                                        <option key={index} value={c.name}>{c.name}</option>
+                                    ))}
+                                </select>
+                            </div>
+
                             <button
                                 type="submit"
                                 className="w-full bg-[#FCC821] text-white py-2 rounded hover:bg-yellow-300 cursor-pointer"

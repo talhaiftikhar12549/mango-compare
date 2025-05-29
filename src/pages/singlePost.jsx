@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
 import { TbArrowNarrowUp, TbArrowNarrowDown } from "react-icons/tb";
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 export default function ForumPost() {
     const { id } = useParams();
@@ -20,6 +21,7 @@ export default function ForumPost() {
     const [submittingComment, setSubmittingComment] = useState(false);
     const [editingCommentId, setEditingCommentId] = useState(null);
     const [editingContent, setEditingContent] = useState('');
+    const [expandedReplies, setExpandedReplies] = useState({});
 
     useEffect(() => {
         fetchPost();
@@ -47,6 +49,13 @@ export default function ForumPost() {
         const res = await api.get(`/comments/post/${id}`);
         setComments(res.data.data);
     };
+
+    const toggleReplies = (commentId) => {
+  setExpandedReplies(prev => ({
+    ...prev,
+    [commentId]: !prev[commentId]
+  }));
+};
 
     const handleCommentSubmit = async (e, parentComment = null) => {
         e.preventDefault();
@@ -230,6 +239,8 @@ export default function ForumPost() {
                 <div key={comment._id} className="mb-4">
                     <div className="bg-gray-100 p-3 rounded-lg">
                         <p className="text-sm text-gray-700">{comment.author?.name}</p>
+
+                        {/* comment content and its editing box  */}
                         {editingCommentId === comment._id ? (
                             <div className="mt-2">
                                 <textarea
@@ -241,7 +252,7 @@ export default function ForumPost() {
                                 <div className="mt-2 flex space-x-2">
                                     <button
                                         onClick={handleEditCommentSubmit}
-                                        className="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+                                        className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-green-700"
                                     >
                                         Save
                                     </button>
@@ -256,36 +267,54 @@ export default function ForumPost() {
                         ) : (
                             <p className="text-gray-800">{comment.content}</p>
                         )}
-                        <div className="flex items-center space-x-2 mt-2">
 
-                            <button
-                                onClick={() => setReplyingTo(comment._id)}
-                                className="text-blue-600 text-sm hover:underline ml-4"
-                            >
-                                Reply
-                            </button>
-
-                            {user && comment.author?._id === user.id && (
+                        {/* edit delete reply collapse comments  */}
+                        <div className="flex items-center justify-between mt-2">
+                            <div className='flex items-center space-x-2'>
                                 <button
-                                    onClick={() => handleEditComment(comment._id, comment.content)}
-                                    className="text-yellow-600 text-sm hover:underline ml-4"
+                                    onClick={() => setReplyingTo(comment._id)}
+                                    className="text-blue-600 text-sm hover:underline ml-4"
                                 >
-                                    Edit
+                                    Reply
                                 </button>
-                            )}
 
-                            <button
-                                onClick={() => handleDeleteComment(comment._id)}
-                                className="text-red-600 text-sm hover:underline ml-4"
-                            >
-                                Delete
-                            </button>
+                                {user && comment.author?._id === user.id && (
+                                    <>
+                                    <button
+                                        onClick={() => handleEditComment(comment._id, comment.content)}
+                                        className="text-yellow-600 text-sm hover:underline ml-4"
+                                    >
+                                        Edit
+                                    </button>
+                                <button
+                                    onClick={() => handleDeleteComment(comment._id)}
+                                    className="text-red-600 text-sm hover:underline ml-4"
+                                >
+                                    Delete
+                                </button>
+                                    
+                                    </>
+                                )}
+
+                            </div>
+
+                            <div className='mr-3 text-xs text-gray-400 flex items-center space-x-2'>
+                                <p>
+                                    Replies {`(${comment.replies?.length})`}
+                                </p>
+                                
+
+                                <div onClick={() => toggleReplies(comment._id)} className='hover:text-black cursor-pointer' >
+
+                               {expandedReplies[comment._id] ? <FaChevronUp /> : <FaChevronDown />} 
+                                </div>
+                                
+                            </div>
+
                         </div>
-
-
                     </div>
 
-                    {/* Reply Form */}
+                    {/* Reply Form for comments */}
                     {replyingTo === comment._id && (
                         <form
                             onSubmit={(e) => handleCommentSubmit(e, comment._id)}
@@ -318,7 +347,8 @@ export default function ForumPost() {
                         </form>
                     )}
 
-                    {comment.replies?.length > 0 && (
+                    {/* edit delete replies  */}
+                    {expandedReplies[comment._id] && comment.replies?.length > 0 && (
                         <div className="ml-6 mt-2 space-y-2">
                             {comment.replies.map((reply) => (
                                 <div key={reply._id} className="bg-white border-l-4 border-blue-300 p-2 rounded-md">
@@ -334,7 +364,7 @@ export default function ForumPost() {
                                             <div className="mt-2 flex space-x-2">
                                                 <button
                                                     onClick={handleEditCommentSubmit}
-                                                    className="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700"
+                                                    className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-green-700"
                                                 >
                                                     Save
                                                 </button>
@@ -351,19 +381,21 @@ export default function ForumPost() {
                                     )}
                                     <div className="flex items-center space-x-2 mt-2">
                                         {user && reply.author?._id === user.id && (
+                                            <>
                                             <button
                                                 onClick={() => handleEditComment(reply._id, reply.content)}
                                                 className="text-yellow-600 text-sm hover:underline ml-4"
                                             >
                                                 Edit
                                             </button>
-                                        )}
                                         <button
                                             onClick={() => handleDeleteComment(reply._id)}
                                             className="text-red-600 text-sm hover:underline ml-4"
                                         >
                                             Delete
                                         </button>
+                                        </>
+                                        )}
                                     </div>
                                 </div>
                             ))}
