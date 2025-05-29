@@ -67,7 +67,7 @@ export default function Forums() {
     }
 
     return (
-        <div className="w-full mx-auto px-[10vw] py-6">
+        <div className="w-full max-w-[1280px] mx-auto py-6">
             <div className="flex justify-between items-center mb-6">
 
                 <div className='flex space-x-4'>

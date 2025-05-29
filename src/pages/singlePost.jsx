@@ -146,6 +146,11 @@ export default function ForumPost() {
 
     return (
         <div className="max-w-3xl mx-auto p-4">
+              <div className="w-full flex">
+                    <p className="py-1 px-2 bg-[#FCC821] rounded text-xs">
+                        {post.community}
+                    </p>
+                </div>
             <h1 className="text-3xl font-bold mb-2">{post.title}</h1>
             <p className="text-sm text-gray-500 mb-4">by {post.author?.name}</p>
 
