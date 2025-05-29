@@ -34,12 +34,11 @@ export const PostsCard = ({ post, fetchPosts }) => {
             className="w-5/6 flex flex-col gap-4 border-b border-gray-300 p-4 hover:bg-gray-50 cursor-pointer transition"
         >
             <div onClick={() => navigate(`/posts/${post._id}`)} className="flex-1 space-y-2">
-                <div className="w-full flex"> 
+                <div className="w-full flex">
                     <p className="py-1 px-2 bg-[#FCC821] rounded text-xs">
-                     {post.community}
-                    
+                        {post.community}
                     </p>
-                     </div>
+                </div>
                 <div className='flex items-center space-x-5'>
                     <div className='w-14 h-14 border border-2 border-gray-400 text-white font-bold bg-red-700 rounded-full flex items-center justify-center text-3xl'>
                         {post.author?.name.slice(0, 1).toUpperCase()}
