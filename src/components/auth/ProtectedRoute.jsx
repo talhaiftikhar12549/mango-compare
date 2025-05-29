@@ -1,17 +1,18 @@
-import { Navigate, useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { checkAuthStatus } from '../../services/authService';
+import { Navigate, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { checkAuthStatus } from "../../services/authService";
+import PostSkeleton from "../postSkeleton";
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const location = useLocation();
   const [isAllowed, setIsAllowed] = useState(null); // null = loading
   const [error, setError] = useState(null);
 
-   useEffect(() => {
+  useEffect(() => {
     const checkAuth = async () => {
       try {
         const userData = await checkAuthStatus(); // must return role
-       
+
         if (allowedRoles && !allowedRoles.includes(userData.data.role)) {
           setIsAllowed(false);
         } else {
@@ -28,10 +29,9 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 
   if (error) {
     console.log("an error occured while accesing protected route", error);
-    
   }
   if (isAllowed === null) {
-    return <div>Loading...</div>; // Optional: loading state
+    return <PostSkeleton />;
   }
 
   if (!isAllowed) {

@@ -4,7 +4,6 @@ import { useAuth } from "../context/AuthContext";
 import Select from "react-select";
 import { TiHome } from "react-icons/ti";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
-// icons
 import { IoSearchOutline } from "react-icons/io5";
 import { PostsCard } from "../components/Forums/PostsCard";
 
@@ -76,10 +75,9 @@ export default function Forums() {
 
   console.log("posts", posts);
   return (
-    <div className="w-full max-w-[1280px] mx-auto py-6">
-       {/* <h1 className="py-[20px]" >Forums</h1> */}
+    <div className="max-w-[1280px] w-[100%] lg:px-[40px] xl:px-0 px-[16px]">
+      {/* <h1 className="py-[20px]" >Forums</h1> */}
       <div className="w-[100%] flex justify-between items-center mb-6">
-       
         <div className="w-25%"></div>
         <div className="w-[75%]">
           <div className="flex space-x-4 justify-end">
@@ -88,7 +86,7 @@ export default function Forums() {
               onChange={setSelectedCategory}
               options={categories}
             /> */}
-            
+
             {user && (
               <button
                 onClick={() => setShowModal(true)}
