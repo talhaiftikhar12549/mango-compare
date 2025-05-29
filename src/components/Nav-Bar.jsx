@@ -6,25 +6,25 @@ export default function NavBar() {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-    console.log("aaaa");
+   
   };
   return (
     <>
       <header className=" w-full max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto pt-[32px] pb-[34px]">
         <div className="flex justify-between items-center max-w-[1280px]">
-          <div className="w-[50%] md:w-[30%] lg:w-[35%] ">
+          <div className="w-[50%] md:w-[25%] lg:w-[35%] ">
             <NavLink to="/" className="pointer">
               <img className="max-h-[57px]" src={logo} alt="" />
             </NavLink>
           </div>
-          <div className="hidden md:flex justify-between items-center w-[65%] lg:w-[65%]">
-            <div className="space-x-8">
+          <div className="hidden md:flex justify-between items-center w-[65%] md:w-[70%] lg:w-[65%]">
+            <div className="space-x-0 md:space-x-4 lg:space-x-7 ">
               <NavLink
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222]"
-                    : "text-[#6A778B] font-bold"
+                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
+                    : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
                 }
               >
                 Home
@@ -34,8 +34,8 @@ export default function NavBar() {
                 to="/mounjaro-compare"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222]"
-                    : "text-[#6A778B] font-bold"
+                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
+                    : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
                 }
               >
                 Mounjaro{" "}
@@ -45,8 +45,8 @@ export default function NavBar() {
                 to="/wegovy-compare"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222]"
-                    : "text-[#6A778B] font-bold"
+                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
+                    : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
                 }
               >
                 Wegovy{" "}
@@ -56,8 +56,8 @@ export default function NavBar() {
                 to="/blogs"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222]"
-                    : "text-[#6A778B] font-bold"
+                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
+                    : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
                 }
               >
                 Blogs{" "}
@@ -67,8 +67,8 @@ export default function NavBar() {
                 to="/posts"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222]"
-                    : "text-[#6A778B] font-bold"
+                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
+                    : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
                 }
               >
                 Forum{" "}
