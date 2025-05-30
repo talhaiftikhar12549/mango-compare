@@ -49,5 +49,6 @@ export default function HomeHero() {
         </div>
       </div>
     </section>
+    
   );
 }

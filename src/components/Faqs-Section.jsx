@@ -9,14 +9,14 @@ export default function FaqsSection({ items }) {
 
   return (
     <>
-      <section className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto flex flex-col justify-start pt-[60px] md:pt-[88px] pb-[40px] md:pb-[200px] ">
-        <div className="w-full pb-[40px] md:pb-[56px]">
-          <h2 className="text-[32px] md:text-[48px] lg:text-[56px] font-[700] text-center font-montserrat text-[#061C3D] leading-tight">
+      <section className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto flex flex-col justify-start  md:py-[50px] pb-[40px]  ">
+        <div className="w-full">
+          <h2 className="text-[24px] md:text-[32px] lg:text-[36px] font-[700] text-center font-montserrat text-[#061C3D] leading-tight">
             Frequently Asked Questions
           </h2>
         </div>
 
-        <div className="pt-[40px] md:pt-[56px] flex flex-col gap-y-[16px]">
+        <div className="mt-5 flex flex-col gap-y-[16px]">
           {items.map((item, index) => (
             <div
               key={index}
