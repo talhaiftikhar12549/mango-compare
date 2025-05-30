@@ -40,7 +40,7 @@ const Carousel = () => {
   ];
 
   return (
-    <div className="w-[95%] max-w-[1280px] mx-auto py-10">
+    <div className="w-[95%] max-w-[1280px] mx-auto py-[50px]">
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div

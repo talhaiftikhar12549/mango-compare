@@ -36,7 +36,7 @@ export default function HomeOurBlog() {
 
   return (
     <>
-      <section className="max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] w-full py-[40px] md:py-[100px] ">
+      <section className="max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] w-full py-[40px] md:py-[50px] ">
         <div className="d-flex pb-[50px] w-full justify-content-center align-items-center">
           <h2 className="text-[39px] text-center font-[700] font-montserrat text-[#05222E]">
             Our Blogs

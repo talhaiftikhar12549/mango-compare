@@ -6,11 +6,10 @@ export default function NavBar() {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-   
   };
   return (
     <>
-      <header className=" w-full max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto pt-[32px] pb-[34px]">
+      <header className=" w-full max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto py-[16px]">
         <div className="flex justify-between items-center max-w-[1280px]">
           <div className="w-[50%] md:w-[25%] lg:w-[35%] ">
             <NavLink to="/" className="pointer">
@@ -23,8 +22,8 @@ export default function NavBar() {
                 to="/"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
-                    : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
+                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
+                    : "text-[#6A778B] font-bold"
                 }
               >
                 Home
@@ -34,8 +33,8 @@ export default function NavBar() {
                 to="/mounjaro-compare"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
-                    : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
+                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
+                    : "text-[#6A778B] font-bold"
                 }
               >
                 Mounjaro{" "}
@@ -45,8 +44,8 @@ export default function NavBar() {
                 to="/wegovy-compare"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
-                    : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
+                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
+                    : "text-[#6A778B] font-bold"
                 }
               >
                 Wegovy{" "}
@@ -56,8 +55,8 @@ export default function NavBar() {
                 to="/blogs"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
-                    : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
+                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
+                    : "text-[#6A778B] font-bold"
                 }
               >
                 Blogs{" "}
@@ -67,7 +66,7 @@ export default function NavBar() {
                 to="/posts"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#222222] font-bold border-b pb-[10px] solid-2px-[#222222] mr-[6px] lg:mr-[16px]"
+                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821] mr-[6px] lg:mr-[16px]"
                     : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
                 }
               >
@@ -80,8 +79,8 @@ export default function NavBar() {
                 to="/contact-us"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[15px] px-[30px]"
-                    : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[15px] px-[15px] lg:px-[30px] "
+                    ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[12px] px-[32px]"
+                    : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[12px] px-[32px]"
                 }
               >
                 <button className=" cursor-pointer  rounded-[10px]">
@@ -103,7 +102,6 @@ export default function NavBar() {
               </div>
               {isOpen && (
                 <span className="absolute right-3 top-20  border bg-[#FFFFFF] border-[#FCC821] rounded-md shadow-xl mt-2 w-48 z-10">
-                  
                   <p
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"

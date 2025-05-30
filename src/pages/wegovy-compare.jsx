@@ -58,54 +58,52 @@ const WegovyCompare = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  const fetchListings = async () => {
-    try {
-      const response = await api.get("/medicine");
+    const fetchListings = async () => {
+      try {
+        const response = await api.get("/medicine");
         const data = response.data.data.filter(
           (item) => item.medicine === "Wegovy"
         );
 
-      if (data.length !== 0) {
-        setLoading(false);
+        if (data.length !== 0) {
+          setLoading(false);
+        }
+
+        // Sort alphabetically by pharmacy name
+        const apiDta = data
+          .slice()
+          .sort((a, b) => a.pharmacy.localeCompare(b.pharmacy));
+
+        setApiDataM(apiDta);
+      } catch (error) {
+        console.log("Failed to fetch listings", error);
       }
+    };
 
-      // Sort alphabetically by pharmacy name
-      const apiDta = data
-        .slice()
-        .sort((a, b) => a.pharmacy.localeCompare(b.pharmacy));
-
-      setApiDataM(apiDta);
-     
-    } catch (error) {
-      console.log("Failed to fetch listings", error);
-    }
-  };
-
-  fetchListings();
-}, []);
+    fetchListings();
+  }, []);
   return (
     <>
       <HeroSection
         heading="Cut your Wegovy costs by up to 28% compare prices with Mango!"
         text="Wegovy, the weekly self-injection for weight loss, can cost anywhere from £109 to £269 in the UK."
+        text2="  By using Mango’s price comparison, you can save up to 28%—that’s £74
+          per four-week supply by choosing the most affordable option. Over a
+          year, this adds up to £888 in savings!"
         image={image1}
       />
 
       <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto">
-        <span className="block text-[22px] md:text-[24px] font-[600] font-montserrat text-[#202244]">
-          Cut your Wegovy costs by up to 28%—compare prices with Mango!
-        </span>
-        <p className="text-[16px] md:text-[18px] pt-[12px] md:pt-[16px] font-[400] font-montserrat text-[#6A778B]">
-          Wegovy, the weekly self-injection for weight loss, can cost anywhere
-          from £109 to £269 in the UK.
-        </p>
-        <p className="text-[16px] md:text-[18px] pt-[20px] md:pt-[30px] font-[400] font-montserrat text-[#6A778B]">
-          By using Mango’s price comparison, you can save up to 28%—that’s £74
-          per four-week supply by choosing the most affordable option. Over a
-          year, this adds up to £888 in savings! <br />
-          <br className="hidden md:block" />
+        {/* <h3 className="block text-[22px] md:text-[24px] font-[600] font-montserrat text-[#202244]">
           Wegovy Dosage Options
-        </p>
+        </h3> */}
+        {/* <ul className="text-[16px] md:text-[18px] pt-[12px] md:pt-[16px] font-[400] font-montserrat text-[#6A778B] list-none">
+          <li className="pl-3 ">0.25 mg/0.5 mL</li>
+          <li className="pl-3 ">0.5 mg/0.5 mL</li>
+          <li className="pl-3 ">1.0 mg/0.5 mL</li>
+          <li className="pl-3 ">1.7 mg/0.75 mL</li>
+          <li className="pl-3 ">2.4 mg/0.75 mL</li>
+        </ul> */}
       </div>
 
       <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto pt-[40px] md:pt-[50px]">
