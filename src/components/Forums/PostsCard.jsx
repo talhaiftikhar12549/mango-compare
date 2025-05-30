@@ -78,23 +78,23 @@ export const PostsCard = ({ post, fetchPosts }) => {
           <div></div>
         </div>
 
-        <div className="w-full flex space-x-4 gap-[5px] text-center text-sm text-gray-500">
+        <div className="w-full flex space-x-4 text-center text-sm text-gray-500">
           <div
             disabled={loadingVotes[`post-upvote`]}
             onClick={() => handleVote(post._id, "upvote")}
-            className="flex items-center space-x-3 text-gray-500 text-lg text-[18px] border border-[#dcdcdc] py-[4px] px-[8px] rounded-[20px]  hover:text-[#FCC821] transition-colors duration-300 ease-in-out "
+            className="flex items-center space-x-3 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px]  hover:text-[#FCC821] transition-colors duration-300 ease-in-out "
           >
             <TbArrowBigUpFilled /> <p>{post.upvotes?.length || 0}</p>
           </div>
           <div
             onClick={() => navigate(`/posts/${post._id}`)}
-            className="flex items-center space-x-2 text-gray-500 text-lg border border-[#dcdcdc] py-[4px] px-[8px] rounded-[20px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
+            className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
           >
             <FaMessage /> <p>{post.commentsCount || 0}</p>
           </div>
           <div
             onClick={() => handleCopy(post._id)}
-            className="flex items-center space-x-2 text-gray-500 text-lg border border-[#dcdcdc] py-[4px] px-[6px] rounded-[20px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
+            className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
           >
             <IoArrowRedoSharp />
             <p>Share</p>
