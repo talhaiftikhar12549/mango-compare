@@ -1,4 +1,4 @@
-import image1 from "../assets/wegovy compare/wegovyhero.png";
+import image1 from "../assets/wegovy compare/wegovy.jpg";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
@@ -106,7 +106,7 @@ const WegovyCompare = () => {
         </ul> */}
       </div>
 
-      <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto pt-[40px] md:pt-[50px]">
+      {/* <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto pt-[40px] md:pt-[50px]">
         <span className="block text-[22px] md:text-[24px] font-[600] font-montserrat text-[#202244]">
           Mango finds you the best price without compromising your
           GP-recommended dosage
@@ -116,7 +116,7 @@ const WegovyCompare = () => {
           highly trusted. We ensure the safe supply of weight loss injections
           while keeping your best interests at the forefront.
         </p>
-      </div>
+      </div> */}
 
       {/* price calculator */}
 

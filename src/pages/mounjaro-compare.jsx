@@ -1,4 +1,4 @@
-import image1 from "../assets/mounjaro compare/mounjarohero.png";
+import image1 from "../assets/mounjaro compare/mounjaro.jpg";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
@@ -116,13 +116,13 @@ const MounjaroCompare = () => {
 
       {/* price calculator */}
       <div className="max-w-[1280px] custom-width mx-auto px-4 lg:px-8 xl:px-0 space-y-6">
-        <p className="text-[16px] sm:text-[18px] font-[400] font-montserrat text-[#6A778B] text-center md:text-left">
+        {/* <p className="text-[16px] hidden md:flex sm:text-[18px] font-[400] font-montserrat text-[#6A778B] text-center md:text-left">
           These dosages are administered subcutaneously once a week, with the
           starting dose typically being 2.5 mg and increasing as needed up to a
           maximum of 15 mg.
-        </p>
+        </p> */}
 
-        <span className="block text-[20px] sm:text-[24px] font-[600] font-montserrat text-[#202244] text-center md:text-left">
+        {/* <span className="block  text-[20px] sm:text-[24px] font-[600] font-montserrat text-[#202244] text-center md:text-left">
           Mango helps you get the best price without compromising your
           GP-recommended dosage
         </span>
@@ -131,7 +131,7 @@ const MounjaroCompare = () => {
           Pharmacies associated with Mango are reputable, fully licensed, and
           highly trusted. We ensure the safe supply of weight loss injections
           while keeping your best interests at the forefront.
-        </p>
+        </p> */}
       </div>
 
       {/* Faqs Section */}

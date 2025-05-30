@@ -1,7 +1,7 @@
 import { BiSolidPhoneCall } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
-
+import cardPattren from "../assets/home/cardPattren.png";
 import ContactForm from "../components/contact-form";
 
 const Contact = () => {
@@ -14,21 +14,25 @@ const Contact = () => {
       </div>
 
       {/* CONTACT FORM CONTAINER  */}
-      <div className="w-full flex justify-center h-[580px] items-center bg-white shadow-xl">
-        <div className="hidden md:block w-[40%] h-full bg-[#FCCE37] py-10 px-8 xl:px-10 rounded-md">
+      <div className="w-full flex justify-center h-[580px] items-center bg-white shadow-xl ">
+        <div className="hidden md:block w-[40%] h-full bg-[#FCCE37] py-10 px-8 xl:px-10 rounded-md relative">
+          <img
+            className="absolute bottom-0 left-0 z-2 rotate-180"
+            src={cardPattren}
+            alt=""
+          />
+
           <h3 className="font-bold text-2xl">Contact Information</h3>
 
           <p className="mt-2">Say something to start a chat!</p>
 
           <div className="mt-10 space-y-10">
-
             <div className="flex flex-wrap items-center space-x-5">
               <IoMdMail className="text-lg" />
               <p className="break-words whitespace-normal max-w-full">
                 info@mangocompare.co.uk
               </p>
             </div>
-            
           </div>
         </div>
 

@@ -1,12 +1,12 @@
 import React from "react";
-import heroImage from "../assets/home/heroImage.png";
+import heroImage from "../assets/home/home.jpg";
 import { NavLink } from "react-router-dom";
 
 export default function HomeHero() {
   return (
     <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
       <div
-        className="flex flex-col lg:flex-row justify-between items-top h-full py-[70px] bg-no-repeat bg-cover bg-right  object-fill "
+        className="flex flex-col lg:flex-row justify-between items-top h-full py-[70px] bg-no-repeat bg-cover bg-center "
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 "></div>

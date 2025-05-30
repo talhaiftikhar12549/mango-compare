@@ -5,7 +5,7 @@ export default function HeroSection({ heading, text, text2, image }) {
     <>
       <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
         <div
-          className="flex flex-col lg:flex-row justify-between items-top h-full py-[70px] bg-no-repeat bg-cover bg-right  object-fill "
+          className="flex flex-col lg:flex-row justify-between items-top h-full py-[70px] bg-no-repeat bg-cover  bg-center "
           style={{ backgroundImage: `url(${image})` }}
         >
           <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 "></div>
@@ -15,10 +15,10 @@ export default function HeroSection({ heading, text, text2, image }) {
                 {heading}
               </h1>
 
-              <p className="sm:text-[16px] mt-[20px] leading-[190%] sm:leading-[190%] font-[500] font-montserrat text-[#ffffffad]">
+              <p className="sm:text-[16px] hidden md:flex mt-[20px] leading-[190%] sm:leading-[190%] font-[500] font-montserrat text-[#ffffff] z-10">
                 {text}
               </p>
-              <p className="sm:text-[16px] mt-[20px] leading-[190%] sm:leading-[190%] font-[500] font-montserrat text-[#ffffffad]">
+              <p className="sm:text-[16px] hidden md:flex mt-[20px] leading-[190%] sm:leading-[190%] font-[500] font-montserrat text-[#ffffff] z-10">
                 {text2}
               </p>
 
