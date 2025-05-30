@@ -8,6 +8,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { PostsCard } from "../components/Forums/PostsCard";
 import ForumPageSkeleton from "../components/ForumPageSkeleton";
 import { HiMenu, HiX } from "react-icons/hi";
+import { ImLeaf } from "react-icons/im";
 
 export default function Forums() {
   const [posts, setPosts] = useState([]);
@@ -125,9 +126,9 @@ export default function Forums() {
                 });
                 setShowSidebar(false);
               }}
-              className={`text-lg text-[18px] font-[600] px-[18px] py-[12px] cursor-pointer flex items-center justify-start gap-2 ${
+              className={`text-lg text-[18px] font-[600] rounded-[6px] px-[18px] hover:bg-gray-50 py-[12px] cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
                 selectedCategory.value === "recents"
-                  ? "text-[#FCC821] font-semibold bg-[#fffaec]"
+                  ? "text-[#FCC821] font-semibold bg-gray-50"
                   : "text-gray-700 hover:text-[#FCC821]"
               }`}
             >
@@ -143,9 +144,9 @@ export default function Forums() {
                 });
                 setShowSidebar(false);
               }}
-              className={`text-lg text-[18px] font-[600] px-[18px] py-[12px] cursor-pointer flex items-center justify-start gap-2 ${
+              className={`text-lg text-[18px] font-[600] mt-2 px-[18px] py-[12px] rounded-[6px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
                 selectedCategory.value === "popular"
-                  ? "text-[#FCC821] font-semibold bg-[#fffaec]"
+                  ? "text-[#FCC821] font-semibold bg-gray-50"
                   : "text-gray-700 hover:text-[#FCC821]"
               }`}
             >
@@ -154,26 +155,27 @@ export default function Forums() {
             </h2>
           </div>
 
-          <div className="border-t border-gray-300 pt-5">
+          <div className="border-t border-gray-300 mt-3">
             <h2 className="text-lg text-[14px] text-gray-300 font-[600] px-[18px] py-[12px] ">
               Communities
             </h2>
           </div>
 
-          <div className="w-full space-y-3 px-[20px]">
+          <div className="w-full  px-[20px]">
             {communities.map((community, index) => (
-              <div className="py-[8px]" key={index}>
+              <div className="py-[2px] " key={index}>
                 <div
                   onClick={() => {
                     setSelectedCommunity(community);
                     setShowSidebar(false);
                   }}
-                  className={`flex space-x-2 cursor-pointer py-[8px] hover:bg-[#fffaec] p-[16px] rounded-[6px] transition-colors duration-300 ease-in-out ${
+                  className={`flex space-x-2 items-center cursor-pointer py-[8px] hover:bg-gray-50  p-[16px] rounded-[6px] transition-colors duration-300 ease-in-out ${
                     selectedCommunity.value === community.value
-                      ? "text-[#FCC821] font-semibold bg-[#fffaec]"
-                      : "text-gray-500 hover:text-[#FCC821]"
+                      ? "text-[#FCC821] font-semibold bg-gray-50 "
+                      : "text-gray-700 hover:text-[#FCC821]"
                   }`}
                 >
+                  <ImLeaf />
                   <p className="">{community.label}</p>
                 </div>
               </div>
