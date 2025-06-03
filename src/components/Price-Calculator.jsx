@@ -413,7 +413,7 @@ export default function PriceCalculator({
                                 </h2>
                                 <div
                                   onClick={closeDiscountModal}
-                                  className="absolute text-[30px] flex align-items-center right-0 top-0 cursor-pointer"
+                                  className="absolute text-[30px] flex align-items-center right-0 top-0 cursor-pointer hover:text-red-500"
                                 >
                                   <IoClose />
                                 </div>

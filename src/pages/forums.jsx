@@ -9,6 +9,7 @@ import { PostsCard } from "../components/Forums/PostsCard";
 import ForumPageSkeleton from "../components/ForumPageSkeleton";
 import { HiMenu, HiX } from "react-icons/hi";
 import { ImLeaf } from "react-icons/im";
+import { IoClose } from "react-icons/io5";
 
 export default function Forums() {
   const [posts, setPosts] = useState([]);
@@ -224,71 +225,99 @@ export default function Forums() {
       </div>
 
       {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white w-full max-w-lg p-6 rounded-lg shadow-lg relative">
-            <button
-              className="absolute top-2 right-3 text-gray-500 hover:text-red-500 text-xl"
-              onClick={() => setShowModal(false)}
+        <>
+          <div
+            className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300"
+            onClick={() => setShowModal(false)} // close when clicking the backdrop
+          >
+            <div
+              className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300 relative"
+              onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
             >
-              &times;
-            </button>
-            <h2 className="text-xl font-bold mb-4">Create a New Post</h2>
-            <form onSubmit={handleCreatePost} className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium">Title</label>
-                <input
-                  type="text"
-                  className="w-full border p-2 rounded"
-                  value={newPost.title}
-                  onChange={(e) =>
-                    setNewPost({ ...newPost, title: e.target.value })
-                  }
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium">Body</label>
-                <textarea
-                  className="w-full border p-2 rounded"
-                  rows="4"
-                  value={newPost.body}
-                  onChange={(e) =>
-                    setNewPost({ ...newPost, body: e.target.value })
-                  }
-                  required
-                ></textarea>
-              </div>
-              <div>
-                <label className="block text-sm font-medium">Community</label>
-                <select
-                  value={newPost.community || ""}
-                  onChange={(e) =>
-                    setNewPost({ ...newPost, community: e.target.value })
-                  }
-                  className="w-full border p-2 rounded"
-                  required
+              {/* Header */}
+              <div className="relative flex items-center justify-between mb-4">
+                <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center w-full">
+                  Create a New Post <br />
+                  <span className="text-[14px] sm:text-[16px] font-[500] leading-0">
+                    Fill in the details below to publish your content
+                  </span>
+                </h2>
+                <div
+                  onClick={() => setShowModal(false)}
+                  className="absolute text-[30px] flex items-center right-0 top-0 cursor-pointer text-gray-500 hover:text-red-500"
                 >
-                  <option value="" disabled>
-                    Select community
-                  </option>
-                  {communities
-                    .filter((c) => c.value !== "")
-                    .map((c, index) => (
-                      <option key={index} value={c.value}>
-                        {c.label}
-                      </option>
-                    ))}
-                </select>
+                  <IoClose />
+                </div>
               </div>
-              <button
-                type="submit"
-                className="w-full bg-[#FCC821] text-white py-2 rounded hover:bg-yellow-300 cursor-pointer"
-              >
-                Post
-              </button>
-            </form>
+
+              {/* Form */}
+              <form onSubmit={handleCreatePost} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-[#333]">
+                    Title
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full border border-[#ccc] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#FCC821]"
+                    value={newPost.title}
+                    onChange={(e) =>
+                      setNewPost({ ...newPost, title: e.target.value })
+                    }
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[#333]">
+                    Body
+                  </label>
+                  <textarea
+                    className="w-full border border-[#ccc] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#FCC821]"
+                    rows="4"
+                    value={newPost.body}
+                    onChange={(e) =>
+                      setNewPost({ ...newPost, body: e.target.value })
+                    }
+                    required
+                  ></textarea>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-[#333]">
+                    Community
+                  </label>
+                  <select
+                    value={newPost.community || ""}
+                    onChange={(e) =>
+                      setNewPost({ ...newPost, community: e.target.value })
+                    }
+                    className="w-full border border-[#ccc] p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#FCC821]"
+                    required
+                  >
+                    <option value="" disabled>
+                      Select community
+                    </option>
+                    {communities
+                      .filter((c) => c.value !== "")
+                      .map((c, index) => (
+                        <option key={index} value={c.value}>
+                          {c.label}
+                        </option>
+                      ))}
+                  </select>
+                </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full cursor-pointer transition duration-300 mt-2 px-4 py-2 bg-[#FCC821] text-black font-semibold rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
+                >
+                  Post
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
+        </>
+
+        //
       )}
     </div>
   );

@@ -4,9 +4,9 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 const FullPriceCalculatorSkeleton = () => {
   return (
-    <div className="max-w-[1280px] custom-width  lg:px-[40px] xl:px-0 px-[16px] mx-auto py-[100px] w-[100%]">
+    <div className="max-w-[1280px] custom-width  lg:px-[40px] xl:px-0 px-[16px] mx-auto md:py-[50px] py-[40px] w-[100%]">
       <div className="w-full min-w-[1024px]  overflow-x-auto lg:overflow-x-visible">
-        <section className="min-w-[1024px]  lg:min-w-full custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto py-[100px]">
+        <section className="min-w-[1024px]  lg:min-w-full custom-width ">
           <div className="flex gap-6 px-4">
             {/* Sidebar Filter Skeleton */}
             <div className="w-[250px] space-y-6">
