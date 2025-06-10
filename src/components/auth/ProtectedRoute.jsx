@@ -31,6 +31,7 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
     console.log("an error occured while accesing protected route", error);
   }
   if (isAllowed === null) {
+    // return null;
     return <PostSkeleton />;
   }
 

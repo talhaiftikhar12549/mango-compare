@@ -7,7 +7,7 @@ export default function Layout() {
     return (
         <div className="flex flex-col items-center content-center">
             <NavBar />
-            <Outlet />
+            <div className="flex-1 min-h-screen w-full"><Outlet /></div>
             <FooterBar/>
         </div>
     );

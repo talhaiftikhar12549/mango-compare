@@ -47,6 +47,7 @@ export const PostsCard = ({ post, fetchPosts }) => {
   }
 
   return (
+    <>    
     <div className="w-[100%] flex flex-col gap-4 border-b border-gray-300  cursor-pointer transition ">
       <div className="hover:bg-[#fdfdfb] border-[#dcdcdc] transition-colors duration-300 ease-in-out rounded-[10px] p-4 mb-[10px]">
         <div
@@ -117,6 +118,7 @@ export const PostsCard = ({ post, fetchPosts }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div> 
+    </>
   );
 };
