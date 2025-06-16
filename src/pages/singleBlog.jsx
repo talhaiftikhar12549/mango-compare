@@ -95,7 +95,7 @@ export default function SingleBlog() {
               alt="Author"
             />
             <p className="font-bold text-sm sm:text-[14px]">
-              {blog.author?.name || "Ibrahim Taqi"}
+              {blog.author?.name === "admin" ? "Ibrahim Taqi" : blog.author?.name}
             </p>
             <div className="flex flex-row justify-between pl-[10px] sm:pl-[30px]  text-[#515151] text-sm sm:text-[16px] font-semibold sm:gap-9 gap-6">
               <div className="flex items-center justify-center">
