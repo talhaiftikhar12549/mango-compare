@@ -152,7 +152,7 @@ exports.updateBlog = async (req, res, next) => {
             req.body.featuredImage = req.file.path;
         }
 
-        blog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
+        blog = await Blog.findByIdAndUpdate(blog._id, req.body, {
             new: true,
             runValidators: true,
         });
