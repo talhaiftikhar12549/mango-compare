@@ -24,29 +24,29 @@ const AuthForm = ({ isLogin }) => {
 
   const validate = () => {
     const newErrors = {};
-    
+
     if (!formData.email) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid';
     }
-    
+
     if (!formData.password) {
       newErrors.password = 'Password is required';
     } else if (formData.password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters';
     }
 
-    if (!isLogin && formData.password !== formData.confirm_password ) {
+    if (!isLogin && formData.password !== formData.confirm_password) {
       newErrors.confirm_password = 'Passwords do not match';
       formData.password = ''
       formData.confirm_password = ''
     }
-    
+
     if (!isLogin && !formData.name) {
       newErrors.name = 'Name is required';
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -54,10 +54,13 @@ const AuthForm = ({ isLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-    
+
     setIsSubmitting(true);
     try {
       if (isLogin) {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.removeItem('role');
         await login(formData);
       } else {
         await register(formData);
@@ -75,13 +78,13 @@ const AuthForm = ({ isLogin }) => {
       <h2 className="text-2xl font-bold mb-6 text-center">
         {isLogin ? 'Login' : 'Register'}
       </h2>
-      
+
       {errors.submit && (
         <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
           {errors.submit}
         </div>
       )}
-      
+
       <form onSubmit={handleSubmit}>
         {!isLogin && (
           <div className="mb-4">
@@ -101,7 +104,7 @@ const AuthForm = ({ isLogin }) => {
             )}
           </div>
         )}
-        
+
         <div className="mb-4">
           <label className="block text-gray-700 mb-2" htmlFor="email">
             Email
@@ -118,7 +121,7 @@ const AuthForm = ({ isLogin }) => {
             <p className="text-red-500 text-sm mt-1">{errors.email}</p>
           )}
         </div>
-        
+
         <div className="mb-6">
           <label className="block text-gray-700 mb-2" htmlFor="password">
             Password
@@ -136,7 +139,7 @@ const AuthForm = ({ isLogin }) => {
           )}
         </div>
 
-       {!isLogin && <div className="mb-6">
+        {!isLogin && <div className="mb-6">
           <label className="block text-gray-700 mb-2" htmlFor="confirm_password">
             Confirm Password
           </label>
@@ -151,8 +154,8 @@ const AuthForm = ({ isLogin }) => {
           {errors.confirm_password && (
             <p className="text-red-500 text-sm mt-1">{errors.confirm_password}</p>
           )}
-        </div> }
-        
+        </div>}
+
         <button
           type="submit"
           disabled={isSubmitting}
@@ -161,7 +164,7 @@ const AuthForm = ({ isLogin }) => {
           {isSubmitting ? 'Processing...' : isLogin ? 'Login' : 'Register'}
         </button>
       </form>
-      
+
       <div className="mt-4 text-center">
         {isLogin ? (
           <p>

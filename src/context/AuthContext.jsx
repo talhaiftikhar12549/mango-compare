@@ -60,6 +60,7 @@ export const AuthProvider = ({ children }) => {
     // Clear token from localStorage if you're using it
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('role');
     setUser(null);
     setIsAuthenticated(false);
     navigate('/login');
