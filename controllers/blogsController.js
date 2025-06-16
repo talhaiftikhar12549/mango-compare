@@ -134,7 +134,7 @@ exports.createBlog = async (req, res, next) => {
 exports.updateBlog = async (req, res, next) => {
     try {
         const { idOrSlug } = req.params;
-        const blog = await Blog.findOne(
+        let blog = await Blog.findOne(
             idOrSlug.match(/^[0-9a-fA-F]{24}$/) ? { _id: idOrSlug } : { slug: idOrSlug }
         ).populate('author', 'name email');
 
