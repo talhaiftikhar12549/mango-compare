@@ -24,6 +24,19 @@ const Blogs = () => {
 
     fetchListings();
   }, []);
+
+  const handleDelete = async (id) => {
+    console.log(id);
+
+    try {
+      await api.delete(`/blogs/${id}`);
+      setApiDataB((prev) => prev.filter((blog) => blog._id !== id));
+    } catch (err) {
+      console.error("Delete failed", err);
+    }
+  };
+
+
   return (
     <div className="max-w-[1280px] w-[100%] custom-width  lg:px-[40px] xl:px-0 px-[16px] flex flex-col items-center">
       {/* HERO SECTION  */}
@@ -44,11 +57,11 @@ const Blogs = () => {
           </div>
         ) : (
           <div className="grid gap-[40px] grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 w-full pb-[200px]">
-            {apiDataB.map((blg, index) => (
-              <BlogCard key={index} blog={blg} />
+            {apiDataB.map((blg) => (
+              <BlogCard blog={blg} handleDelete={handleDelete} />
             ))}
           </div>
-          
+
         )}
       </div>
     </div>
