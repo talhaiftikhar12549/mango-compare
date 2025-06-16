@@ -26,8 +26,6 @@ const Blogs = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    console.log(id);
-
     try {
       await api.delete(`/blogs/${id}`);
       setApiDataB((prev) => prev.filter((blog) => blog._id !== id));
