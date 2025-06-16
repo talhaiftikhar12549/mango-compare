@@ -133,7 +133,10 @@ exports.createBlog = async (req, res, next) => {
 // @access  Private
 exports.updateBlog = async (req, res, next) => {
     try {
-        let blog = await Blog.findById(req.params.id);
+        const { idOrSlug } = req.params;
+        const blog = await Blog.findOne(
+            idOrSlug.match(/^[0-9a-fA-F]{24}$/) ? { _id: idOrSlug } : { slug: idOrSlug }
+        ).populate('author', 'name email');
 
         if (!blog) {
             return next(new ErrorResponse(`Blog not found`, 404));
