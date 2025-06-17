@@ -1,8 +1,22 @@
 import logo from "../assets/nav/logo.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navigate = useNavigate()
+
+  const user = localStorage.getItem("user")
+
+  const logout = () => {
+    // Clear token from localStorage if you're using it
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    localStorage.removeItem('role');
+
+    navigate('/login');
+
+  };
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -74,7 +88,26 @@ export default function NavBar() {
               </NavLink>
             </div>
 
-            <div>
+            <div className="space-x-2">
+              {user ?
+                <button onClick={logout} className=" cursor-pointer  rounded-[10px] text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[12px] px-[32px]">
+                  Log Out
+                </button>
+                :
+                <NavLink
+                  to="/login"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[12px] px-[32px]"
+                      : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[12px] px-[32px]"
+                  }
+                >
+                  <button className=" cursor-pointer  rounded-[10px]">
+                    Login
+                  </button>
+                </NavLink>
+
+              }
               <NavLink
                 to="/contact-us"
                 className={({ isActive }) =>

@@ -62,9 +62,11 @@ export default function SingleBlog() {
       <div className=" w-[100%] md:w-[75%] flex justify-content-center items-center flex-col mx-auto">
         <div className="w-[100%] flex justify-start items-center">
           <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
-            {Array.isArray(blog.categories) &&
-              blog.categories.length > 0 &&
-              blog.categories[0].split(",").map((cat, index) => (
+            {console.log( JSON.parse(blog.keywords) )
+            }
+            {Array.isArray(JSON.parse(blog.categories)) &&
+              JSON.parse(blog.categories).length > 0 &&
+              JSON.parse(blog.categories)[0].split(",").map((cat, index) => (
                 <p
                   key={index}
                   className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"

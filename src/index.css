@@ -22,9 +22,35 @@ body {
     width: 100%;
   }
 
+  .prose h2 {
+    color: black;
+    font-weight: 600;
+    font-size: 16pt;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+
   .prose p {
     margin-bottom: 10px !important;
   }
+
+  table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, 
+table th, 
+table td {
+  border: 1px solid #000; /* Black borders */
+}
+
+table th,
+table td {
+  padding: 8px;
+  text-align: left;
+}
+
 
   ul {
     list-style: disc;
@@ -32,7 +58,6 @@ body {
 
   li {
     list-style: disc;
-     list-style-type: decimal;
   }
 
   ol {

@@ -196,6 +196,7 @@ const CreateBlogForm = () => {
               }}
               onEditorChange={handleEditorChange}
             />
+            
           </div>
 
           <div>
