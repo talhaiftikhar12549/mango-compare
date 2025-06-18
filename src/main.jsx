@@ -39,7 +39,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="login" element={<LoginPage />} />
                 <Route path="register" element={<AuthForm />} />
                 <Route path="/thank-you" element={<ThankYouPage />} />
-                <Route path="/single-blog/:slug" element={<SingleBlog />} />
+                <Route path="/:slug" element={<SingleBlog />} />
                 <Route
                   path="mounjaro-pannel"
                   element={

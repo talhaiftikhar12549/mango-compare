@@ -29,6 +29,9 @@ export default function SingleBlog() {
     fetchBlog();
   }, [slug]);
 
+  const blogCategory = blog?.categories.some(cat => cat.includes("[")) ? JSON.parse(blog?.categories).join(", ") : blog?.categories
+
+
   if (loading) {
     return (
       <>
@@ -50,9 +53,9 @@ export default function SingleBlog() {
        <Helmet>
         <title>{blog.meta_title} | My Blog</title>
         <meta name="description" content={blog.meta_description || blog.content.slice(0, 150)} />
-        <meta name="keywords" content={blog.keywords?.join(", ")} />
-        <meta name="tags" content={blog.tags?.join(", ")} />
-        <meta name="categories" content={blog.categories?.join(", ")} />
+        <meta name="keywords" content={typeof blog.keywords === 'string' ? JSON.parse(blog.keywords).join(", ") : blog.keywords.join(", ")} />
+        <meta name="tags" content={typeof blog.tags === "string" ?  JSON.parse(blog.tags)?.join(", ") : blog.tags.join(", ")} />
+        <meta name="categories" content={blogCategory} />
         <meta property="og:title" content={blog.meta_title} />
         <meta property="og:description" content={blog.meta_description || blog.content.slice(0, 150)} />
         <meta property="og:type" content="article" />
@@ -62,18 +65,23 @@ export default function SingleBlog() {
       <div className=" w-[100%] md:w-[75%] flex justify-content-center items-center flex-col mx-auto">
         <div className="w-[100%] flex justify-start items-center">
           <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
-            {console.log( JSON.parse(blog.keywords) )
-            }
-            {Array.isArray(JSON.parse(blog.categories)) &&
-              JSON.parse(blog.categories).length > 0 &&
-              JSON.parse(blog.categories)[0].split(",").map((cat, index) => (
+            {
+            Array.isArray(blogCategory) &&
+              blogCategory.length > 0 ?
+              blogCategory[0].split(",").map((cat, index) => (
                 <p
                   key={index}
                   className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
                 >
                   {cat.trim()}
                 </p>
-              ))}
+              ))
+              :
+                <p className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
+                >
+                  {blogCategory}
+                </p>
+              }
           </div>
         </div>
 

@@ -41,7 +41,7 @@ export const BlogCard = ({blog, handleDelete}) => {
               )}
             </p>
 
-            <NavLink to={`/single-blog/${blog.slug}`}>
+            <NavLink to={`/${blog.slug}`}>
               <h4
                 onClick={handleClick}
                 className="text-[18px] pt-[10px] font-[600] font-montserrat text-[#FCC821] inline-flex items-center cursor-pointer"
