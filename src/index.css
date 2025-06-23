@@ -6,6 +6,10 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+.ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable {
+  min-height: 300px;
+}
+
 @media (min-width: 1260px) and (max-width: 1290px) {
     .custom-width {
       width: 95%;
@@ -22,12 +26,24 @@ body {
     width: 100%;
   }
 
+  h2 {
+     color: black;
+    font-weight: 600;
+    font-size: 16pt;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+
   .prose h2 {
     color: black;
     font-weight: 600;
     font-size: 16pt;
     padding-top: 10px;
     padding-bottom: 5px;
+  }
+
+  .p {
+    margin-bottom: 10px;
   }
 
   .prose p {
@@ -37,6 +53,17 @@ body {
   table {
   width: 100%;
   border-collapse: collapse;
+}
+
+.ck-content figure.table {
+  width: 100%;
+}
+
+figure {
+  width: 100% !important;
+   margin-top: 10px;
+   margin-bottom: 20px;
+
 }
 
 table, 
@@ -62,4 +89,12 @@ table td {
 
   ol {
         padding-inline-start: 20px !important;
+  }
+
+  a > em > span {
+    color: blue !important;
+  }
+
+  a > span {
+    color: blue !important;
   }

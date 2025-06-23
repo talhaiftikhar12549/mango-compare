@@ -1,6 +1,35 @@
 import { useState, useRef, useEffect } from 'react';
 import api from '../../services/api';
 import { Editor } from '@tinymce/tinymce-react';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import {
+  ClassicEditor,
+  AutoLink,
+  Autosave,
+  BalloonToolbar,
+  BlockQuote,
+  Bold,
+  Bookmark,
+  Code,
+  CodeBlock,
+  Essentials,
+  Heading,
+  Highlight,
+  HorizontalLine,
+  Indent,
+  IndentBlock,
+  Italic,
+  Link,
+  List,
+  Paragraph,
+  Strikethrough,
+  Table,
+  TableCellProperties,
+  TableProperties,
+  TableToolbar,
+  Underline
+} from 'ckeditor5';
+import 'ckeditor5/ckeditor5.css';
 
 const CreateBlogForm = () => {
   const fileInputRef = useRef(null);
@@ -79,9 +108,12 @@ const CreateBlogForm = () => {
     }
   };
 
-  const handleEditorChange = (content) => {
-    setFormData((prev) => ({ ...prev, content }));
+  const handleEditorChange = (event, editor) => {
+    const data = editor.getData();
+
+    setFormData((prev) => ({ ...prev, content: data }));
   };
+
 
   const resetForm = () => {
     setFormData({
@@ -122,7 +154,8 @@ const CreateBlogForm = () => {
         await api.put(`/blogs/${selectedBlogId}`, payload);
         setMessage('Blog updated successfully!');
       } else {
-        await api.post('/blogs', payload);
+        // await api.post('/blogs', payload);
+        console.log("blog payload", payload)
         setMessage('Blog created successfully!');
       }
 
@@ -163,7 +196,7 @@ const CreateBlogForm = () => {
           ))}
 
           <div>
-            <Editor
+            {/* <Editor
               apiKey="huens675y3x2jk7vhyp5g3m4tbfcehhzmufrp75cw3tnb0bj" // or remove this line if using without API key
               onInit={(evt, editor) => (editorRef.current = editor)}
               value={formData.content}
@@ -195,8 +228,124 @@ const CreateBlogForm = () => {
                   'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
               }}
               onEditorChange={handleEditorChange}
+            /> */}
+
+          </div>
+
+          <div>
+            <CKEditor
+              editor={ClassicEditor}
+              config={{
+                licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NTE2NzM1OTksImp0aSI6ImIyMWQ2ZDMyLTllZTUtNDk1Mi05YjI0LWJkMjE2MDM1MDhjMCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImY3MjRjNjVmIn0.dhnM8rSUoGm33zFFC0qeFIjwhm8fCM8xpjDgOj80wKY1O1D5F4HoWOAH-iN6D9aX5bMCLxGfl1_8Sk5EqzwWgw', // Or 'GPL'.
+                plugins: [
+                  AutoLink,
+                  Autosave,
+                  BalloonToolbar,
+                  BlockQuote,
+                  Bold,
+                  Bookmark,
+                  Code,
+                  CodeBlock,
+                  Essentials,
+                  Heading,
+                  Highlight,
+                  HorizontalLine,
+                  Indent,
+                  IndentBlock,
+                  Italic,
+                  Link,
+                  List,
+                  Paragraph,
+                  Strikethrough,
+                  Table,
+                  TableCellProperties,
+                  TableProperties,
+                  TableToolbar,
+                  Underline
+                ],
+                toolbar: [
+                  'undo',
+                  'redo',
+                  '|',
+                  'heading',
+                  '|',
+                  'bold',
+                  'italic',
+                  'underline',
+                  '|',
+                  'bulletedList',
+                  'numberedList',
+                  '|',
+                  'link',
+                  'insertTable',
+                  'highlight',
+                  'blockQuote',
+                  'codeBlock',
+                  '|',
+                  'outdent',
+                  'indent'
+                ],
+                balloonToolbar: ['bold', 'italic', '|', 'link'],
+                heading: {
+                  options: [
+                    {
+                      model: 'paragraph',
+                      title: 'Paragraph',
+                      class: 'ck-heading_paragraph'
+                    },
+                    {
+                      model: 'heading1',
+                      view: 'h1',
+                      title: 'Heading 1',
+                      class: 'ck-heading_heading1'
+                    },
+                    {
+                      model: 'heading2',
+                      view: 'h2',
+                      title: 'Heading 2',
+                      class: 'ck-heading_heading2'
+                    },
+                    {
+                      model: 'heading3',
+                      view: 'h3',
+                      title: 'Heading 3',
+                      class: 'ck-heading_heading3'
+                    },
+                    {
+                      model: 'heading4',
+                      view: 'h4',
+                      title: 'Heading 4',
+                      class: 'ck-heading_heading4'
+                    },
+                    {
+                      model: 'heading5',
+                      view: 'h5',
+                      title: 'Heading 5',
+                      class: 'ck-heading_heading5'
+                    },
+                    {
+                      model: 'heading6',
+                      view: 'h6',
+                      title: 'Heading 6',
+                      class: 'ck-heading_heading6'
+                    }
+                  ]
+                },
+                menuBar: {
+                  isVisible: true
+                },
+                table: {
+                  contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
+                },
+                initialData: '<p>Hello from CKEditor 5 in React!</p>',
+              }}
+
+              data={formData.content}
+              onReady={(editor) => {
+                editorRef.current = editor;
+              }}
+              onChange={handleEditorChange}
             />
-            
           </div>
 
           <div>
