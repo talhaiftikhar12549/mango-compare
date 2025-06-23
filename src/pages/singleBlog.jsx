@@ -50,11 +50,11 @@ export default function SingleBlog() {
 
   return (
     <section className="w-full md:max-w-[1280px] custom-width px-4 sm:px-6 lg:px-[40px] xl:px-0 mx-auto pb-[80px]">
-       <Helmet>
+      <Helmet>
         <title>{blog.meta_title} | My Blog</title>
         <meta name="description" content={blog.meta_description || blog.content.slice(0, 150)} />
         <meta name="keywords" content={typeof blog.keywords === 'string' ? JSON.parse(blog.keywords).join(", ") : blog.keywords.join(", ")} />
-        <meta name="tags" content={typeof blog.tags === "string" ?  JSON.parse(blog.tags)?.join(", ") : blog.tags.join(", ")} />
+        <meta name="tags" content={typeof blog.tags === "string" ? JSON.parse(blog.tags)?.join(", ") : blog.tags.join(", ")} />
         <meta name="categories" content={blogCategory} />
         <meta property="og:title" content={blog.meta_title} />
         <meta property="og:description" content={blog.meta_description || blog.content.slice(0, 150)} />
@@ -65,23 +65,25 @@ export default function SingleBlog() {
       <div className=" w-[100%] md:w-[75%] flex justify-content-center items-center flex-col mx-auto">
         <div className="w-[100%] flex justify-start items-center">
           <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
+          
+            
             {
-            Array.isArray(blogCategory) &&
-              blogCategory.length > 0 ?
-              blogCategory[0].split(",").map((cat, index) => (
-                <p
-                  key={index}
-                  className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
-                >
-                  {cat.trim()}
-                </p>
-              ))
-              :
-                <p className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
-                >
-                  {blogCategory}
-                </p>
-              }
+              // Array.isArray(blogCategory) &&
+              //   blogCategory.length > 0 ?
+                blogCategory?.split(", ").map((cat, index) => (
+                  <p
+                    key={index}
+                    className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
+                  >
+                    {cat.trim()}
+                  </p>
+                ))
+                // :
+                // <p className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
+                // >
+                //   {blogCategory}
+                // </p>
+            }
           </div>
         </div>
 
@@ -122,7 +124,7 @@ export default function SingleBlog() {
         </div>
 
         <div className="py-6 w-full">
-          <div className="prose" dangerouslySetInnerHTML={{ __html:  DOMPurify.sanitize(blog.content) }} />
+          <div className="prose" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }} />
           {/* <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%]">
             {blog.content}
           </p> */}
