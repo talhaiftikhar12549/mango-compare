@@ -34,6 +34,14 @@ body {
     padding-bottom: 5px;
   }
 
+  h3 {
+     color: black;
+    font-weight: 500;
+    font-size: 14pt;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+
   .prose h2 {
     color: black;
     font-weight: 600;
@@ -78,23 +86,30 @@ table td {
   text-align: left;
 }
 
+ul {
+  list-style-type: disc;
+  margin-left: 1.25rem ;
+  padding-left: 1.25rem 
+}
 
-  ul {
-    list-style: disc;
-  }
+ol {
+  list-style-type: decimal ;
+  margin-left: 1.25rem ;
+  padding-left: 1.25rem ;
+}
 
-  li {
-    list-style: disc;
-  }
-
-  ol {
-        padding-inline-start: 20px !important;
-  }
+li {
+  display: list-item ;
+}
 
   a > em > span {
     color: blue !important;
   }
 
   a > span {
+    color: blue !important;
+  }
+
+  a > u {
     color: blue !important;
   }

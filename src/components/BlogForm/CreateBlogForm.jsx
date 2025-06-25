@@ -154,8 +154,7 @@ const CreateBlogForm = () => {
         await api.put(`/blogs/${selectedBlogId}`, payload);
         setMessage('Blog updated successfully!');
       } else {
-        // await api.post('/blogs', payload);
-        console.log("blog payload", payload)
+        await api.post('/blogs', payload);
         setMessage('Blog created successfully!');
       }
 
