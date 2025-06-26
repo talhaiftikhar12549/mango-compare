@@ -262,13 +262,13 @@ if (!post) return <ForumPostSkeleton />;
           <div className="mt-2 flex space-x-2">
             <button
               onClick={handleEditSubmit}
-              className="px-4 py-1 bg-blue-600 text-white rounded hover:bg-blue-700"
+              className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-[#0045acf1] disabled:opacity-50 cursor-pointer"
             >
               Save
             </button>
             <button
               onClick={() => setIsEditing(false)}
-              className="px-4 py-1 bg-gray-400 text-white rounded hover:bg-gray-500"
+              className="px-3 py-1 bg-gray-400 text-black rounded-full hover:bg-gray-500"
             >
               Cancel
             </button>
@@ -368,13 +368,13 @@ if (!post) return <ForumPostSkeleton />;
                 <div className="mt-2 flex space-x-2">
                   <button
                     onClick={handleEditCommentSubmit}
-                    className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-green-700"
+                    className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-[#0045acf1] disabled:opacity-50 cursor-pointer"
                   >
                     Save
                   </button>
                   <button
                     onClick={() => setEditingCommentId(null)}
-                    className="px-3 py-1 bg-gray-400 text-white rounded hover:bg-gray-500"
+                    className="px-3 py-1 bg-gray-400 text-black rounded-full hover:bg-gray-500"
                   >
                     Cancel
                   </button>
@@ -477,7 +477,7 @@ if (!post) return <ForumPostSkeleton />;
               {comment.replies.map((reply) => (
                 <div
                   key={reply._id}
-                  className="bg-white border-l-4 border-blue-300 p-2 rounded-md"
+                  className="bg-white border-l-[1px] border-gray-400 p-2 m-0"
                 >
                   <p className="text-sm text-black font-bold">
                     {reply.author?.name}
@@ -493,13 +493,13 @@ if (!post) return <ForumPostSkeleton />;
                       <div className="mt-2 flex space-x-2">
                         <button
                           onClick={handleEditCommentSubmit}
-                          className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-green-700"
+                          className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-[#0045acf1] disabled:opacity-50 cursor-pointer"
                         >
                           Save
                         </button>
                         <button
                           onClick={() => setEditingCommentId(null)}
-                          className="px-3 py-1 bg-gray-400 text-white rounded hover:bg-gray-500"
+                          className="px-3 py-1 bg-gray-400 text-black rounded-full hover:bg-gray-500"
                         >
                           Cancel
                         </button>

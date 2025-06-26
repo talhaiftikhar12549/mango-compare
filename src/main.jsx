@@ -2,7 +2,6 @@ import { StrictMode } from "react";
 import { Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import Layout from "./pages/layout.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/home.jsx";
 import { store } from "./redux toolkit/store.js";
@@ -22,6 +21,10 @@ import CreateBlogForm from "./components/BlogForm/CreateBlogForm.jsx";
 import SingleBlog from "./pages/singleBlog.jsx";
 import Forums from "./pages/forums.jsx";
 import SinglePost from "./pages/singlePost.jsx";
+import Posts from "./pages/Posts.jsx";
+import PostDetail from "./pages/PostDetail.jsx";
+import ForummLayout from "./components/postLayout/Layout.jsx";
+import Layout from "./pages/layout.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -65,7 +68,7 @@ createRoot(document.getElementById("root")).render(
                   }
                 />
 
-                <Route
+                {/* <Route
                   path="posts"
                   element={
                     <ProtectedRoute allowedRoles={['admin', 'user']}>
@@ -81,8 +84,31 @@ createRoot(document.getElementById("root")).render(
                       <SinglePost />
                     </ProtectedRoute>
                   }
-                />
+                /> */}
+
+             
+
+
+
               </Route>
+               <Route
+        element={
+          <ProtectedRoute>
+            <ForummLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
+      </Route>
+              {/* <Route path="layout"
+                  element={
+                    <ProtectedRoute allowedRoles={['admin', 'user']}>
+                      <Layout />
+                    </ProtectedRoute>
+                  }></Route> */}
+             
+                  
             </Routes>
           </Suspense>
         </AuthProvider>
