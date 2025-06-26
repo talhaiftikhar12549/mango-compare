@@ -1,40 +1,23 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
-import Select from "react-select";
-import { TiHome } from "react-icons/ti";
-import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 import { PostsCard } from "../components/Forums/PostsCard";
 import ForumPageSkeleton from "../components/ForumPageSkeleton";
-import { HiMenu, HiX } from "react-icons/hi";
-import { ImLeaf } from "react-icons/im";
 import { IoClose } from "react-icons/io5";
-import PostSkeleton from "../components/postSkeleton";
+import { useSelector } from "react-redux";
 
-export default function Forums() {
+export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState({
-    value: "recents",
-    label: "Recent Posts",
-  });
   const [newPost, setNewPost] = useState({ title: "", body: "" });
-  const [selectedCommunity, setSelectedCommunity] = useState({
-    value: "",
-    label: "All",
-  });
-  const [showSidebar, setShowSidebar] = useState(false);
+
+  const getSelectedCategory = useSelector((state) => state.forums.selectedCategory);
+   const getSelectedCommunity = useSelector((state) => state.forums.selectedCommunity);
 
   const { user } = useAuth();
-
-  const categories = [
-    { value: "recents", label: "Recent Posts" },
-    { value: "popular", label: "Most Popular" },
-    { value: "recommended", label: "Recommended" },
-  ];
 
   const communities = [
     { value: "", label: "All" },
@@ -47,13 +30,13 @@ export default function Forums() {
 
   useEffect(() => {
     fetchPosts();
-  }, [search, selectedCategory?.value, selectedCommunity]);
+  }, [search, getSelectedCategory?.value, getSelectedCommunity]);
 
   const fetchPosts = async () => {
     setIsLoading(true);
     let sortParam = "";
-    if (selectedCategory.value === "popular") sortParam = "upvoteCount";
-    else if (selectedCategory.value === "recents") sortParam = "-createdAt";
+    if (getSelectedCategory.value === "popular") sortParam = "upvoteCount";
+    else if (getSelectedCategory.value === "recents") sortParam = "-createdAt";
 
     try {
       const res = await api.get("/posts", {
@@ -61,8 +44,8 @@ export default function Forums() {
           search,
           sort: sortParam,
           community:
-            selectedCommunity.value !== ""
-              ? selectedCommunity.value
+            getSelectedCommunity.value !== ""
+              ? getSelectedCommunity.value
               : undefined,
         },
       });
@@ -91,103 +74,11 @@ export default function Forums() {
 
   return (
     <>
-        <div className="max-w-[1280px] w-full lg:px-[40px] xl:px-0 px-[16px]">
-          {/* Sidebar toggle button for small screens */}
-          <div className="md:hidden flex justify-start items-center py-4">
-            {/* <h2 className="text-xl font-bold">Forums</h2> */}
-            <button
-              className="text-2xl text-[#FCC821]"
-              onClick={() => setShowSidebar(!showSidebar)}
-            >
-              <HiMenu />
-            </button>
-          </div>
-
+        <div className="w-full lg:px-[40px] xl:px-0 px-[16px]">
           <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-5 py-10 relative">
-            {/* Sidebar */}
-            <div
-              className={`w-full md:w-[25%] md:static fixed z-50 top-0 left-0 h-full md:h-auto bg-white md:bg-transparent transform transition-transform duration-300 ease-in-out md:translate-x-0 ${
-                showSidebar ? "translate-x-0" : "-translate-x-full"
-              } md:relative md:block max-w-[75%]`}
-            >
-              {/* Close button on mobile sidebar */}
-              <div className="md:hidden flex justify-end p-4">
-                <button
-                  onClick={() => setShowSidebar(false)}
-                  className="text-2xl text-gray-600"
-                >
-                  <HiX />
-                </button>
-              </div>
-
-              <div className="py-[10px]">
-                <h2
-                  onClick={() => {
-                    setSelectedCategory({
-                      value: "recents",
-                      label: "Recent Posts",
-                    });
-                    setShowSidebar(false);
-                  }}
-                  className={`text-lg text-[18px] font-[600] rounded-[6px] px-[18px] hover:bg-gray-50 py-[12px] cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
-                    selectedCategory.value === "recents"
-                      ? "text-[#FCC821] font-semibold bg-gray-50"
-                      : "text-gray-700 hover:text-[#FCC821]"
-                  }`}
-                >
-                  <TiHome />
-                  Home
-                </h2>
-
-                <h2
-                  onClick={() => {
-                    setSelectedCategory({
-                      value: "popular",
-                      label: "Most Popular",
-                    });
-                    setShowSidebar(false);
-                  }}
-                  className={`text-lg text-[18px] font-[600] mt-2 px-[18px] py-[12px] rounded-[6px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
-                    selectedCategory.value === "popular"
-                      ? "text-[#FCC821] font-semibold bg-gray-50"
-                      : "text-gray-700 hover:text-[#FCC821]"
-                  }`}
-                >
-                  <BsArrowUpRightCircleFill />
-                  Popular
-                </h2>
-              </div>
-
-              <div className="border-t border-gray-300 mt-3">
-                <h2 className="text-lg text-[14px] text-gray-300 font-[600] px-[18px] py-[12px] ">
-                  Communities
-                </h2>
-              </div>
-
-              <div className="w-full  px-[20px]">
-                {communities.map((community, index) => (
-                  <div className="py-[2px] " key={index}>
-                    <div
-                      onClick={() => {
-                        setSelectedCommunity(community);
-                        setShowSidebar(false);
-                      }}
-                      className={`flex space-x-2 items-center cursor-pointer py-[8px] hover:bg-gray-50  p-[16px] rounded-[6px] transition-colors duration-300 ease-in-out ${
-                        selectedCommunity.value === community.value
-                          ? "text-[#FCC821] font-semibold bg-gray-50 "
-                          : "text-gray-700 hover:text-[#FCC821]"
-                      }`}
-                    >
-                      <ImLeaf />
-                      <p className="">{community.label}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
 
             {/* Right panel: posts section */}
-            <div className="w-full md:w-[75%] space-y-4 flex flex-col items-center">
+            <div className="w-full  space-y-4 flex flex-col items-center">
               <div className="flex justify-end w-full mb-6">
                 {user && (
                   <button

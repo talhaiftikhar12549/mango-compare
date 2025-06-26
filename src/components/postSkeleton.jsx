@@ -19,7 +19,7 @@ const ForumPageSkeleton = () => {
         {/* Sidebar skeleton */}
         <div className="w-[25%] border-r border-gray-300 space-y-4">
           <Skeleton height={40} width="80%" className="ml-4" />
-          <Skeleton height={40} width="80%" className="ml-4" />
+          <Skeleton height={40} width="80%" className="ml-4 mb-2" />
 
           <div className="border-t border-gray-300 pt-4 space-y-3 ml-4">
             <Skeleton width="60%" height={20} />
