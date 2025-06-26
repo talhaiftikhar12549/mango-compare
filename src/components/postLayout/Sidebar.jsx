@@ -1,28 +1,21 @@
-import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import api from "../../services/api";
+import { useState } from "react";
 import { TiHome } from "react-icons/ti";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { HiMenu, HiX } from "react-icons/hi";
 import { ImLeaf } from "react-icons/im";
+import { useDispatch, useSelector } from "react-redux";
+import { selectedCategory, selectedCommunity } from "../../redux toolkit/ForumsSlice";
 
 const Sidebar = () => {
-  const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState({
-    value: "recents",
-    label: "Recent Posts",
-  });
-  const [selectedCommunity, setSelectedCommunity] = useState({
-    value: "",
-    label: "All",
-  });
   const [showSidebar, setShowSidebar] = useState(false);
+   const dispatch = useDispatch();
+   const getSelectedCommunity = useSelector((state) => state.forums.selectedCommunity);
 
-  const categories = [
-    { value: "recents", label: "Recent Posts" },
-    { value: "popular", label: "Most Popular" },
-    { value: "recommended", label: "Recommended" },
-  ];
+  //   const categories = [
+  //   { value: "recents", label: "Recent Posts" },
+  //   { value: "popular", label: "Most Popular" },
+  //   { value: "recommended", label: "Recommended" },
+  // ];
 
   const communities = [
     { value: "", label: "All" },
@@ -33,33 +26,46 @@ const Sidebar = () => {
     { value: "News & Research", label: "News & Research" },
   ];
 
-  useEffect(() => {
-    fetchPosts();
-  }, [search, selectedCategory?.value, selectedCommunity]);
+  
+  // const [search, setSearch] = useState("");
+  // const [selectedCategory, setSelectedCategory] = useState({
+  //   value: "recents",
+  //   label: "Recent Posts",
+  // });
+  // const [selectedCommunity, setSelectedCommunity] = useState({
+  //   value: "",
+  //   label: "All",
+  // });
 
-  const fetchPosts = async () => {
-    setIsLoading(true);
-    let sortParam = "";
-    if (selectedCategory.value === "popular") sortParam = "upvoteCount";
-    else if (selectedCategory.value === "recents") sortParam = "-createdAt";
+ 
 
-    try {
-      const res = await api.get("/posts", {
-        params: {
-          search,
-          sort: sortParam,
-          community:
-            selectedCommunity.value !== ""
-              ? selectedCommunity.value
-              : undefined,
-        },
-      });
-      setPosts(res.data.data);
-    } catch (error) {
-      console.error("Error fetching posts", error);
-    }
-    setIsLoading(false);
-  };
+  // useEffect(() => {
+  //   fetchPosts();
+  // }, [search, selectedCategory?.value, selectedCommunity]);
+
+  // const fetchPosts = async () => {
+  //   setIsLoading(true);
+  //   let sortParam = "";
+  //   if (selectedCategory.value === "popular") sortParam = "upvoteCount";
+  //   else if (selectedCategory.value === "recents") sortParam = "-createdAt";
+
+  //   try {
+  //     const res = await api.get("/posts", {
+  //       params: {
+  //         search,
+  //         sort: sortParam,
+  //         community:
+  //           selectedCommunity.value !== ""
+  //             ? selectedCommunity.value
+  //             : undefined,
+  //       },
+  //     });
+  //     setPosts(res.data.data);
+  //   } catch (error) {
+  //     console.error("Error fetching posts", error);
+  //   }
+  //   setIsLoading(false);
+  // };
 
   return (
     <>
@@ -94,10 +100,14 @@ const Sidebar = () => {
             <div className="py-[10px]">
               <h2
                 onClick={() => {
-                  setSelectedCategory({
+                  dispatch(selectedCategory({
                     value: "recents",
                     label: "Recent Posts",
-                  });
+                  }));
+                  // setSelectedCategory({
+                  //   value: "recents",
+                  //   label: "Recent Posts",
+                  // });
                   setShowSidebar(false);
                 }}
                 className={`text-lg text-[18px] font-[600] rounded-[6px] px-[18px] hover:bg-gray-50 py-[12px] cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
@@ -112,10 +122,14 @@ const Sidebar = () => {
 
               <h2
                 onClick={() => {
-                  setSelectedCategory({
+                  dispatch(selectedCategory({
                     value: "popular",
                     label: "Most Popular",
-                  });
+                  }));
+                  // setSelectedCategory({
+                  //   value: "popular",
+                  //   label: "Most Popular",
+                  // });
                   setShowSidebar(false);
                 }}
                 className={`text-lg text-[18px] font-[600] mt-2 px-[18px] py-[12px] rounded-[6px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
@@ -140,11 +154,12 @@ const Sidebar = () => {
                 <div className="py-[2px] " key={index}>
                   <div
                     onClick={() => {
-                      setSelectedCommunity(community);
+                      dispatch(selectedCommunity(community));
+                      // setSelectedCommunity(community);
                       setShowSidebar(false);
                     }}
                     className={`flex space-x-2 items-center cursor-pointer py-[8px] hover:bg-gray-50  p-[16px] rounded-[6px] transition-colors duration-300 ease-in-out ${
-                      selectedCommunity.value === community.value
+                      getSelectedCommunity.value === community.value
                         ? "text-[#FCC821] font-semibold bg-gray-50 "
                         : "text-gray-700 hover:text-[#FCC821]"
                     }`}

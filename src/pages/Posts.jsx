@@ -1,40 +1,23 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
-import Select from "react-select";
-import { TiHome } from "react-icons/ti";
-import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { IoSearchOutline } from "react-icons/io5";
 import { PostsCard } from "../components/Forums/PostsCard";
 import ForumPageSkeleton from "../components/ForumPageSkeleton";
-import { HiMenu, HiX } from "react-icons/hi";
-import { ImLeaf } from "react-icons/im";
 import { IoClose } from "react-icons/io5";
-import PostSkeleton from "../components/postSkeleton";
+import { useSelector } from "react-redux";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState({
-    value: "recents",
-    label: "Recent Posts",
-  });
   const [newPost, setNewPost] = useState({ title: "", body: "" });
-  const [selectedCommunity, setSelectedCommunity] = useState({
-    value: "",
-    label: "All",
-  });
-  const [showSidebar, setShowSidebar] = useState(false);
+
+  const getSelectedCategory = useSelector((state) => state.forums.selectedCategory);
+   const getSelectedCommunity = useSelector((state) => state.forums.selectedCommunity);
 
   const { user } = useAuth();
-
-  const categories = [
-    { value: "recents", label: "Recent Posts" },
-    { value: "popular", label: "Most Popular" },
-    { value: "recommended", label: "Recommended" },
-  ];
 
   const communities = [
     { value: "", label: "All" },
@@ -47,13 +30,13 @@ export default function Posts() {
 
   useEffect(() => {
     fetchPosts();
-  }, [search, selectedCategory?.value, selectedCommunity]);
+  }, [search, getSelectedCategory?.value, getSelectedCommunity]);
 
   const fetchPosts = async () => {
     setIsLoading(true);
     let sortParam = "";
-    if (selectedCategory.value === "popular") sortParam = "upvoteCount";
-    else if (selectedCategory.value === "recents") sortParam = "-createdAt";
+    if (getSelectedCategory.value === "popular") sortParam = "upvoteCount";
+    else if (getSelectedCategory.value === "recents") sortParam = "-createdAt";
 
     try {
       const res = await api.get("/posts", {
@@ -61,8 +44,8 @@ export default function Posts() {
           search,
           sort: sortParam,
           community:
-            selectedCommunity.value !== ""
-              ? selectedCommunity.value
+            getSelectedCommunity.value !== ""
+              ? getSelectedCommunity.value
               : undefined,
         },
       });
