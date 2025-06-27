@@ -46,7 +46,7 @@ createRoot(document.getElementById("root")).render(
                 <Route
                   path="mounjaro-pannel"
                   element={
-                    <ProtectedRoute allowedRoles={['admin']}>
+                    <ProtectedRoute allowedRoles={["admin"]}>
                       <AdminDashboard />
                     </ProtectedRoute>
                   }
@@ -54,7 +54,7 @@ createRoot(document.getElementById("root")).render(
                 <Route
                   path="form-info"
                   element={
-                    <ProtectedRoute allowedRoles={['admin']}>
+                    <ProtectedRoute allowedRoles={["admin"]}>
                       <FormDetails />
                     </ProtectedRoute>
                   }
@@ -62,7 +62,7 @@ createRoot(document.getElementById("root")).render(
                 <Route
                   path="create-blog"
                   element={
-                    <ProtectedRoute allowedRoles={['admin']}>
+                    <ProtectedRoute allowedRoles={["admin"]}>
                       <CreateBlogForm />
                     </ProtectedRoute>
                   }
@@ -85,30 +85,23 @@ createRoot(document.getElementById("root")).render(
                     </ProtectedRoute>
                   }
                 /> */}
-
-             
-
-
-
               </Route>
-               <Route
-        element={
-          <ProtectedRoute>
-            <ForummLayout />
-          </ProtectedRoute>
-        }
-      >
-        <Route path="/posts" element={<Posts />} />
-        <Route path="/posts/:id" element={<PostDetail />} />
-      </Route>
+              <Route
+                element={
+                  <ProtectedRoute>
+                    <ForummLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route path="/posts" element={<Posts />} />
+                <Route path="/posts/:id" element={<PostDetail />} />
+              </Route>
               {/* <Route path="layout"
                   element={
                     <ProtectedRoute allowedRoles={['admin', 'user']}>
                       <Layout />
                     </ProtectedRoute>
                   }></Route> */}
-             
-                  
             </Routes>
           </Suspense>
         </AuthProvider>
