@@ -35,7 +35,7 @@ export default function HomeHero() {
           .slice(0, 3);
         setApiDataM(apiDtaM);
 
-        const filteredByMgW = dataW.filter((item) => item.dosage === "0.25 mg");
+        const filteredByMgW = dataW.filter((item) => item.dosage === "1 mg");
         console.log("Filtered Data Wegovy:", filteredByMgW);
         const apiDtaW = filteredByMgW
           .slice()
@@ -162,32 +162,29 @@ export default function HomeHero() {
                   <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
                     {apiDataW.map((item, index) => (
                       <li
-                          key={index}
-                          className={`list-none rounded-xl flex justify-between p-4 ${
-                            index === 0
-                              ? "bg-orange-50"
-                              : "bg-[rgb(249_250_251)]"
-                          }`}
-                        >
-                          <div className="flex justify-between items-center w-full">
-                            <div className="!text-[16px] font-[600]">
-                              {item.pharmacy}
-                            </div>
-                            <div>
-                              <span
-                                className={`font-bold ${
-                                  index === 0
-                                    ? "text-[#ee9c25]"
-                                    : "text-[#000000]"
-                                }`}
-                              >
-                                £{item.price}
-                              </span>
-                            </div>
+                        key={index}
+                        className={`list-none rounded-xl flex justify-between p-4 ${
+                          index === 0 ? "bg-orange-50" : "bg-[rgb(249_250_251)]"
+                        }`}
+                      >
+                        <div className="flex justify-between items-center w-full">
+                          <div className="!text-[16px] font-[600]">
+                            {item.pharmacy}
                           </div>
-                        </li>
+                          <div>
+                            <span
+                              className={`font-bold ${
+                                index === 0
+                                  ? "text-[#ee9c25]"
+                                  : "text-[#000000]"
+                              }`}
+                            >
+                              £{item.price}
+                            </span>
+                          </div>
+                        </div>
+                      </li>
                     ))}
-                     
                   </ul>
                 </div>
               </NavLink>
