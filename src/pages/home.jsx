@@ -1,37 +1,52 @@
 import Herohome from "../components/Home-Hero.jsx";
 import DosagePlan from "../components/Dosage-Plan.jsx";
-import Carousel from "../components/Home-Carousel.jsx";
+import PharmacyPartner from "../components/Pharmacy-Partner.jsx";
 import HomeOurBlog from "../components/Home-Our-Blog.jsx";
-import NavBar from "../components/Nav-Bar.jsx";
-import FooterBar from "../components/Footer-Bar.jsx";
-import HomeDummyData from "../components/homeDummyData.jsx";
+import HomeDummyData from "../components/Home-Faqs.jsx";
+import HowItWork from "../components/How-It-Work.jsx";
+import WhyChooseMango from "../components/Why-Choose-Mango.jsx";
+import SafetyAndEligibility from "../components/Safety-And-Eligibility.jsx";
+import StartYourJourney from "../components/Start-Your-Journey.jsx";
+import HomeFaqs from "../components/Home-Faqs.jsx";
 
 export const Home = () => {
   return (
     <>
       {/* Home Hero */}
-      {/* <NavBar /> */}
-      {/* Home Hero */}
-      {/* Home Hero */}
       <Herohome />
       {/* Home Hero */}
+
+      {/* why choose mango */}
+      <WhyChooseMango />
+      {/* why choose mango */}
 
       {/* Home Dosage Plan */}
       <DosagePlan />
       {/* Home Dosage Plan */}
 
+      {/* How it work */}
+      <HowItWork />
+      {/* How it work */}
+
       {/* Home Dosage Plan */}
-      <Carousel />
+      <PharmacyPartner />
       {/* Home Dosage Plan */}
 
-      {/* Home Our Blog */}
-      {/* <HomeOurBlog /> */}
-      {/* Home Our Blog */}
-      <HomeDummyData />
+      {/* Safety & Eligibility */}
+      <SafetyAndEligibility />
+      {/* Safety & Eligibility */}
 
       {/* Home Our Blog */}
-      {/* <FooterBar /> */}
+      <HomeOurBlog />
       {/* Home Our Blog */}
+
+      {/* Home Faqs */}
+      <HomeFaqs />
+      {/* Home Faqs */}
+
+      {/* start your journey */}
+      <StartYourJourney />
+      {/* start your journey */}
     </>
   );
 };

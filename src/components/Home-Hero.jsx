@@ -1,59 +1,63 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
-
+import { AiFillStop } from "react-icons/ai";
+import { BsFillLightningChargeFill } from "react-icons/bs";
+import { MdVerified } from "react-icons/md";
+import { useEffect, useState } from "react";
+import api from "../services/api.js";
 export default function HomeHero() {
+  const [apiDataM, setApiDataM] = useState([]);
+  const [apiDataW, setApiDataW] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const response = await api.get("/medicine");
+
+        const dataM = response.data.data.filter(
+          (item) => item.medicine === "Mounjaro"
+        );
+        const dataW = response.data.data.filter(
+          (item) => item.medicine === "Wegovy"
+        );
+
+        if (dataM.length !== 0) {
+          setLoading(false);
+        }
+        if (dataW.length !== 0) {
+          setLoading(false);
+        }
+        const filteredByMgM = dataM.filter((item) => item.dosage === "2.5 mg");
+        console.log("Filtered Data Manjaro:", filteredByMgM);
+        const apiDtaM = filteredByMgM
+          .slice()
+          .sort((a, b) => a.price - b.price)
+          .slice(0, 3);
+        setApiDataM(apiDtaM);
+
+        const filteredByMgW = dataW.filter((item) => item.dosage === "0.25 mg");
+        console.log("Filtered Data Wegovy:", filteredByMgW);
+        const apiDtaW = filteredByMgW
+          .slice()
+          .sort((a, b) => a.price - b.price)
+          .slice(0, 2);
+        setApiDataW(apiDtaW);
+
+        console.log("API Data Mounjaro:", apiDtaM);
+        console.log("API Data Wegovy:", apiDtaW);
+      } catch (error) {
+        console.log("Failed to fetch listings", error);
+      }
+    };
+
+    fetchListings();
+  }, []);
   return (
     <>
-      {/* <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
-      <div
-        className="flex flex-col lg:flex-row justify-between items-top h-full py-[70px] bg-no-repeat bg-cover bg-center "
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 "></div>
-        <div className="max-w-[1280px] custom-width  lg:px-[40px] xl:px-0 px-[16px] mx-auto z-1 ">
-          <div className="w-full lg:w-[60%] z-10">
-            <h1 className="text-[32px] sm:text-[40px] md:text-[42px] lg:text-[46px] font-[700] font-montserrat text-[#ffffff] leading-[1.25]">
-              Giving you the best price comparison in the UK
-            </h1>
-
-            <p className="sm:text-[16px] mt-[20px] leading-[190%] sm:leading-[190%] font-[500] font-montserrat text-[#ffffffad]">
-              Mango is the UK’s go-to price comparison platform for weight loss
-              medications, helping you find the best deals on GP-prescribed
-              Mounjaro and Wegovy. We compare prices across trusted, licensed
-              pharmacies—so you get the right medication at the right price,
-              hassle-free.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-[20px] pt-[30px] md:pt-[40px]">
-              <NavLink to="/contact-us">
-                <button className="text-[#ffffff]  font-semibold cursor-pointer w-full sm:w-auto py-[12px] px-[32px] rounded-[10px] border-[1px] border-[#FCC821] bg-[#FCC821] hover:text-[#000000] hover:bg-[#FFFFFF] hover:border-[#000000] transition duration-700">
-                  Contact Us
-                </button>
-              </NavLink>
-
-              <button
-                onClick={() => {
-                  const element = document.getElementById(
-                    "dosage-plan-section"
-                  );
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="text-[#000000] font-semibold cursor-pointer py-[12px] px-[32px] rounded-[10px] border-[1px] border-[#000000] bg-[#FFFFFF] hover:text-[#FFFFFF] hover:bg-[#FCC821] hover:border-[#FCC821] transition duration-700"
-              >
-                Learn More
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> */}
-
       {/* New Home */}
-      <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)]">
+      <section className="w-[100%] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)]">
         <div className="max-w-[1280px] custom-width  lg:px-[40px] xl:px-0 px-[16px] mx-auto z-1 ">
-          <div className=" px-6 py-12 md:py-20 flex flex-col lg:flex-row gap-8">
+          <div className=" px-6 py-12 md:py-[48px] flex flex-col lg:flex-row gap-8">
             {/* Left Column */}
             <div className="flex-1 flex flex-col justify-center">
               <span className="bg-green-100 text-[rgb(16_185_129)] text-xs font-semibold px-3 py-2 rounded-full w-max mb-4">
@@ -62,13 +66,13 @@ export default function HomeHero() {
 
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 No More Hassle – Find the{" "}
-                <span className="text-[rgb(16_185_129)]">Cheapest</span> Wegovy
-                & Mounjaro in the UK
+                <span className="text-[rgb(16_185_129)]">Cheapest</span> Weight
+                Loss Treatments in the UK
               </h1>
 
               <p className="text-gray-600 text-lg mb-6">
                 Compare GPhC-registered pharmacies in seconds. Save up to{" "}
-                <span className="text-orange-500 font-semibold">27%</span> on
+                <span className="text-[#ee9c25] font-semibold">27%</span> on
                 your treatment.
               </p>
 
@@ -83,13 +87,15 @@ export default function HomeHero() {
 
               <div className="flex gap-6 text-sm text-gray-600 font-medium">
                 <span className="flex items-center gap-1">
-                  ✅ GPhC Verified
+                  <MdVerified className="text-lg text-[rgb(16_185_129)]" /> GPhC
+                  Verified
                 </span>
                 <span className="flex items-center gap-1">
-                  🚫 No Hidden Fees
+                  <AiFillStop className="text-lg text-red-400" /> No Hidden Fees
                 </span>
                 <span className="flex items-center gap-1">
-                  ⚡ Instant Results
+                  <BsFillLightningChargeFill className="text-lg text-[#ee9c25]" />{" "}
+                  Instant Results
                 </span>
               </div>
             </div>
@@ -97,82 +103,94 @@ export default function HomeHero() {
             {/* Right Column */}
             <div className="flex-1 flex flex-col gap-6">
               {/* Mounjaro Card */}
-              <div className="bg-white rounded-xl shadow-md p-6 border-[2px] border-[#10b98133] transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
-                <div className="flex justify-between items-center ">
-                  <h2 className="text-[12px] font-bold">Mounjaro 2.5mg</h2>
-                  <span className="bg-green-100 text-[rgb(16_185_129)] text-xs px-3 py-1 rounded-full font-medium">
-                    Best Price
-                  </span>
-                </div>
-                <p className="text-sm text-gray-500 mb-4">4-week supply</p>
-                <div className="p-0 m-0">
-                  <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
-                    <li className="list-none rounded-xl flex justify-between p-4 bg-[rgb(16_185_129/_0.05))]">
-                      <div className="flex justify-between items-center">
-                        <div className="!text-[16px] font-[600]">
-                          {" "}
-                          Boots Online{" "}
-                        </div>
-                        <div>
-                          <span className="font-bold text-[rgb(16_185_129)]">
-                            £169
-                          </span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-none flex justify-between  p-4 bg-[rgb(249_250_251)] rounded-xl">
-                      <div className="flex justify-between items-center">
-                        <div className="!text-[16px] font-[600]">
-                          Superdrug Health{" "}
-                        </div>
-                        <div>
-                          <span className="font-bold">£189</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-none flex justify-between p-4 bg-[rgb(249_250_251)] rounded-xl">
-                      <div className="flex justify-between items-center">
-                        <div className="!text-[16px] font-[600]">Numan</div>
-                        <div>
-                          <span className="font-bold">£199</span>
-                        </div>
-                      </div>
-                    </li>
-                    <li className="list-none flex justify-between !text-[16px] font-[600] p-4 bg-orange-50 text-[#ee9c25] rounded-xl">
+              <NavLink to="/mounjaro-compare">
+                <div className="bg-white  rounded-xl shadow-md p-6 border-[2px] border-[#10b98133] transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+                  <div className="flex justify-between items-center ">
+                    <h2 className="text-[12px] font-bold">Mounjaro 2.5mg</h2>
+                    <span className="bg-green-100 text-[rgb(16_185_129)] text-xs px-3 py-1 rounded-full font-medium">
+                      Best Price
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500 mb-4">4-week supply</p>
+                  <div className="p-0 m-0">
+                    <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
+                      {apiDataM.map((item, index) => (
+                        <li
+                          key={index}
+                          className={`list-none rounded-xl flex justify-between p-4 ${
+                            index === 0
+                              ? "bg-[rgb(16_185_129/_0.05)]"
+                              : "bg-[rgb(249_250_251)]"
+                          }`}
+                        >
+                          <div className="flex justify-between items-center w-full">
+                            <div className="!text-[16px] font-[600]">
+                              {item.pharmacy}
+                            </div>
+                            <div>
+                              <span
+                                className={`font-bold ${
+                                  index === 0
+                                    ? "text-[rgb(16_185_129)]"
+                                    : "text-[#000000]"
+                                }`}
+                              >
+                                £{item.price}
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="list-none flex justify-between !text-[16px] font-[600] p-4 mt-[8px] bg-orange-50 text-[#ee9c25] rounded-xl">
                       💰 Save £30 vs highest price
-                    </li>
+                    </div>
+                  </div>
+                </div>
+              </NavLink>
+              {/* Wegovy Card */}
+              <NavLink to="/wegovy-compare">
+                <div className="bg-white  border-[#ee9c2533] border-[2px] rounded-xl shadow-md transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl p-6">
+                  <div className="flex justify-between items-center ">
+                    <h2 className="text-lg font-semibold mb-1">Wegovy 1mg</h2>
+                    <span className="bg-orange-50 text-[#ee9c25] text-xs px-3 py-1 rounded-full font-medium">
+                      Best Price
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-500 mb-4">4-week supply</p>
+
+                  <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
+                    {apiDataW.map((item, index) => (
+                      <li
+                          key={index}
+                          className={`list-none rounded-xl flex justify-between p-4 ${
+                            index === 0
+                              ? "bg-orange-50"
+                              : "bg-[rgb(249_250_251)]"
+                          }`}
+                        >
+                          <div className="flex justify-between items-center w-full">
+                            <div className="!text-[16px] font-[600]">
+                              {item.pharmacy}
+                            </div>
+                            <div>
+                              <span
+                                className={`font-bold ${
+                                  index === 0
+                                    ? "text-[#ee9c25]"
+                                    : "text-[#000000]"
+                                }`}
+                              >
+                                £{item.price}
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                    ))}
+                     
                   </ul>
                 </div>
-              </div>
-
-              {/* Wegovy Card */}
-              <div className="bg-white rounded-xl shadow-md transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl p-6">
-                <h2 className="text-lg font-semibold mb-1">Wegovy 1mg</h2>
-                <p className="text-sm text-gray-500 mb-4">4-week supply</p>
-                <ul className="space-y-2 text-gray-800 !list-none !pl-0 !ml-0">
-                  <li className="list-none flex justify-between p-4 bg-orange-50 rounded-xl">
-                    <div className="flex justify-between items-center">
-                      <div className="!text-[16px] font-[600]">
-                        LloydsDirect{" "}
-                      </div>
-                      <div>
-                        <span className="font-bold text-[#ee9c25]">£219</span>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="list-none flex justify-between  p-4 bg-[rgb(249_250_251)] rounded-xl">
-                    <div className="flex justify-between items-center">
-                      <div className="!text-[16px] font-[600]">
-                        Pharmacy First{" "}
-                      </div>
-                      <div>
-                        <span className="font-bold">£239</span>
-                      </div>
-                    </div>
-                  </li>
-                  
-                </ul>
-              </div>
+              </NavLink>
             </div>
           </div>
         </div>
