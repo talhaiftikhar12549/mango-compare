@@ -4,6 +4,8 @@ import Carousel from "../components/Home-Carousel.jsx";
 import HomeOurBlog from "../components/Home-Our-Blog.jsx";
 import NavBar from "../components/Nav-Bar.jsx";
 import FooterBar from "../components/Footer-Bar.jsx";
+import HomeDummyData from "../components/homeDummyData.jsx";
+
 export const Home = () => {
   return (
     <>
@@ -23,8 +25,9 @@ export const Home = () => {
       {/* Home Dosage Plan */}
 
       {/* Home Our Blog */}
-      <HomeOurBlog />
+      {/* <HomeOurBlog /> */}
       {/* Home Our Blog */}
+      <HomeDummyData />
 
       {/* Home Our Blog */}
       {/* <FooterBar /> */}

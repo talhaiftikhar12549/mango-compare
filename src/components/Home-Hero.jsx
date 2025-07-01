@@ -138,7 +138,7 @@ export default function HomeHero() {
                         </div>
                       </div>
                     </li>
-                    <li className="list-none flex justify-between !text-[16px] font-[600] p-4 bg-orange-50 text-orange-600 rounded-xl">
+                    <li className="list-none flex justify-between !text-[16px] font-[600] p-4 bg-orange-50 text-[#ee9c25] rounded-xl">
                       💰 Save £30 vs highest price
                     </li>
                   </ul>
@@ -156,7 +156,7 @@ export default function HomeHero() {
                         LloydsDirect{" "}
                       </div>
                       <div>
-                        <span className="font-bold text-orange-600">£219</span>
+                        <span className="font-bold text-[#ee9c25]">£219</span>
                       </div>
                     </div>
                   </li>
