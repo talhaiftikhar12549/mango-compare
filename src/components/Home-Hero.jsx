@@ -4,6 +4,7 @@ import { BsFillLightningChargeFill } from "react-icons/bs";
 import { MdVerified } from "react-icons/md";
 import { useEffect, useState } from "react";
 import api from "../services/api.js";
+import PriceListSkeleton from "./HomeHeroSkeleton.jsx";
 export default function HomeHero() {
   const [apiDataM, setApiDataM] = useState([]);
   const [apiDataW, setApiDataW] = useState([]);
@@ -35,7 +36,7 @@ export default function HomeHero() {
           .slice(0, 3);
         setApiDataM(apiDtaM);
 
-        const filteredByMgW = dataW.filter((item) => item.dosage === "1 mg");
+        const filteredByMgW = dataW.filter((item) => item.dosage === "0.25 mg");
         console.log("Filtered Data Wegovy:", filteredByMgW);
         const apiDtaW = filteredByMgW
           .slice()
@@ -113,35 +114,39 @@ export default function HomeHero() {
                   </div>
                   <p className="text-sm text-gray-500 mb-4">4-week supply</p>
                   <div className="p-0 m-0">
-                    <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
-                      {apiDataM.map((item, index) => (
-                        <li
-                          key={index}
-                          className={`list-none rounded-xl flex justify-between p-4 ${
-                            index === 0
-                              ? "bg-[rgb(16_185_129/_0.05)]"
-                              : "bg-[rgb(249_250_251)]"
-                          }`}
-                        >
-                          <div className="flex justify-between items-center w-full">
-                            <div className="!text-[16px] font-[600]">
-                              {item.pharmacy}
+                    {loading ? (
+                      <PriceListSkeleton />
+                    ) : (
+                      <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
+                        {apiDataM.map((item, index) => (
+                          <li
+                            key={index}
+                            className={`list-none rounded-xl flex justify-between p-4 ${
+                              index === 0
+                                ? "bg-[rgb(16_185_129/_0.05)]"
+                                : "bg-[rgb(249_250_251)]"
+                            }`}
+                          >
+                            <div className="flex justify-between items-center w-full">
+                              <div className="!text-[16px] font-[600]">
+                                {item.pharmacy}
+                              </div>
+                              <div>
+                                <span
+                                  className={`font-bold ${
+                                    index === 0
+                                      ? "text-[rgb(16_185_129)]"
+                                      : "text-[#000000]"
+                                  }`}
+                                >
+                                  £{item.price}
+                                </span>
+                              </div>
                             </div>
-                            <div>
-                              <span
-                                className={`font-bold ${
-                                  index === 0
-                                    ? "text-[rgb(16_185_129)]"
-                                    : "text-[#000000]"
-                                }`}
-                              >
-                                £{item.price}
-                              </span>
-                            </div>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                     <div className="list-none flex justify-between !text-[16px] font-[600] p-4 mt-[8px] bg-orange-50 text-[#ee9c25] rounded-xl">
                       💰 Save £30 vs highest price
                     </div>
@@ -152,7 +157,9 @@ export default function HomeHero() {
               <NavLink to="/wegovy-compare">
                 <div className="bg-white  border-[#ee9c2533] border-[2px] rounded-xl shadow-md transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl p-6">
                   <div className="flex justify-between items-center ">
-                    <h2 className="text-lg font-semibold mb-1">Wegovy 1mg</h2>
+                    <h2 className="text-lg font-semibold mb-1">
+                      Wegovy 0.25mg
+                    </h2>
                     <span className="bg-orange-50 text-[#ee9c25] text-xs px-3 py-1 rounded-full font-medium">
                       Best Price
                     </span>
