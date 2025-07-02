@@ -38,14 +38,14 @@ export default function HomeOurBlog() {
     <>
       <section
         id="blogs"
-        className=" lg:px-[40px] xl:px-0 px-[16px] w-full flex justify-center py-[40px] md:py-[48px] "
+        className=" lg:px-[40px] xl:px-0 px-[16px] w-full flex justify-center py-[40px] md:py-[48px] bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)]"
       >
         <div className="max-w-[1280px] custom-width ">
           <div className="d-flex mb-12 w-full justify-content-center align-items-center">
-            <h2 className="!text-[32px] text-center  md:text-4xl !font-[600] text-gray-900 mb-4">
+            <h2 className="!text-[24px] md:!text-[24px] text-center !font-[600] text-gray-900 mb-4">
               Our Blogs
             </h2>
-            <p className="text-gray-500  text-lg text-center ">
+            <p className="text-gray-500 !text-[16px] md:!text-[18px] text-center ">
               Stay informed with the latest insights on weight loss treatments.
             </p>
           </div>
@@ -66,7 +66,7 @@ export default function HomeOurBlog() {
                 {apiDataB.slice(0, 3).map((blog, index) => (
                   <div
                     key={index}
-                    className="group flex flex-col max-w-[413px] flex-1 cursor-pointer border-2 border-[#ffffff] hover:border-[#10b98133] rounded-xl p-4 shadow-sm transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl"
+                    className="group flex flex-col max-w-[413px] flex-1 cursor-pointer border-2 bg-[#FFFFFF] border-[#ffffff] hover:border-[#10b98133] rounded-xl p-4 shadow-sm transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl"
                   >
                     <div>
                       <img

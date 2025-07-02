@@ -37,12 +37,12 @@ export default function SafetyAndEligibility() {
           </div>
 
           {/* Heading */}
-          <h2 className="text-3xl md:!text-[38px] font-[600] text-gray-900 mb-2">
+          <h2 className="!text-[24px] md:!text-[24px] font-[600] text-gray-900 mb-2">
             Important Safety & Eligibility Information
           </h2>
 
           {/* Subtitle */}
-          <p className="text-gray-500 max-w-2xl mx-auto mb-10">
+          <p className="text-gray-500 !text-[16px] max-w-2xl mx-auto mb-10">
             Everything you need to know about accessing weight loss treatments
             safely and legally in the UK
           </p>

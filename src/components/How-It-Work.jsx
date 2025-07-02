@@ -7,10 +7,10 @@ export default function HowItWork() {
     <>
       <section id="how-it-work" className="max-w-[1280px] py-[20px] md:py-[48px] lg:px-[40px] xl:px-0  mx-auto ">
         <div className=" px-4 bg-white text-center">
-          <h2 className="!text-[32px]  md:text-4xl !font-[600] text-gray-900 mb-4">
+          <h2 className="!text-[24px] md:!text-[24px] !font-[600] text-gray-900 mb-4">
             How It Works
           </h2>
-          <p className="text-gray-500 mb-12 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-2xl mx-auto">
             Get the best prices on your weight loss medication in three simple
             steps
           </p>
@@ -22,8 +22,8 @@ export default function HowItWork() {
                 {/* <Search className="w-6 h-6" /> */}
                 <IoSearchSharp className="text-[38px]" />
               </div>
-              <div className="text-5xl font-bold text-gray-900">01</div>
-              <h3 className="!text-xl !font-bold mt-2">
+              <div className="text-[40px] md:!text-5xl font-bold text-gray-900">01</div>
+              <h3 className="md:!text-xl !font-bold mt-2">
                 Choose Your Treatment
               </h3>
               <p className="text-md text-gray-500 mt-2">
@@ -37,7 +37,7 @@ export default function HowItWork() {
                 {/* <ChevronRight className="w-6 h-6" /> */}
                 <IoColorFilterOutline className="text-[38px]" />
               </div>
-              <div className="text-5xl font-bold text-gray-900">02</div>
+              <div className="text-[40px] md:!text-5xl font-bold text-gray-900">02</div>
               <h3 className="!text-xl !font-bold mt-2">Set Your Filters</h3>
               <p className="text-md text-gray-500 mt-2">
                 Specify dose, price range, and preferred pharmacy locations
@@ -50,7 +50,7 @@ export default function HowItWork() {
                 {/* <Check className="w-6 h-6" /> */}
                 <FaRegCheckCircle className="text-[38px]" />
               </div>
-              <div className="text-5xl font-bold text-gray-900">03</div>
+              <div className="text-[40px] md:!text-5xl font-bold text-gray-900">03</div>
               <h3 className="!text-xl !font-bold mt-2">
                 Compare & Order Online
               </h3>
@@ -60,8 +60,8 @@ export default function HowItWork() {
             </div>
           </div>
 
-          <div className="mt-12">
-            <a href="#price-compare" className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg cursor-pointer shadow-md hover:bg-orange-600 transition duration-300">
+          <div className="mt-12 block">
+            <a href="#price-compare" className="bg-orange-500 inline-block text-white font-semibold px-6 py-3 rounded-lg cursor-pointer shadow-md hover:bg-orange-600 transition duration-300">
               Start Comparing Now
             </a>
           </div>

@@ -32,10 +32,10 @@ export default function HomeFaqs() {
     <section className="flex justify-center">
       <div className="max-w-[1280px] flex flex-col items-center py-[48px]">
         <div className="bg-white px-4 md:px-10 text-center">
-          <h2 className="text-3xl md:!text-[38px] !font-[600] text-gray-900 mb-2">
+          <h2 className="!text-[24px] md:!text-[24px] !font-[600] text-gray-900 mb-2">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto mb-10">
+          <p className="text-gray-500 !text-[16px] max-w-2xl mx-auto mb-10">
             Get answers to common questions about using our price comparison service
           </p>
 

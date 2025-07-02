@@ -6,10 +6,10 @@ export default function WhyChooseMango() {
     <>
       <section className="max-w-[1280px] py-[40px] md:py-[48px] lg:px-[40px] xl:px-0  mx-auto ">
         <div className=" px-4 bg-white text-center">
-          <h2 className="!text-[32px] !pt-[0px]  md:text-4xl !font-[600] text-gray-900 mb-4">
+          <h2 className="!text-[24px] md:!text-[24px]  !pt-[0px]  md:text-4xl !font-[600] text-gray-900 mb-4">
             Why Choose Mango Compare?
           </h2>
-          <p className="text-gray-500 mb-12 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-2xl mx-auto">
             We make finding affordable weight loss treatments simple, safe, and
             transparent
           </p>

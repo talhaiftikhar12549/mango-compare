@@ -16,16 +16,19 @@ export default function DosagePlan() {
   }, [activeTab]);
   return (
     <>
-      <section id="price-compare" className=" bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)]">
+      <section
+        id="price-compare"
+        className=" bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)]"
+      >
         <div className=" max-w-[1280px] mx-auto py-[48px]">
           <div className="px-4 md:px-10 text-center">
             <p className="mb-2 inline-block text-sm border border-green-200 px-4 py-1 rounded-full bg-green-100 text-[rgb(16_185_129)] font-semibold">
               Compare Treatments
             </p>
-            <h2 className="!text-[32px] md:text-4xl text-gray-900 mb-2 !font-[600]">
+            <h2 className="!text-[24px] md:!text-[24px] text-gray-900 mb-2 !font-[600]">
               Which Treatment is Right for You?
             </h2>
-            <p className="text-gray-500 max-w-xl mx-auto mb-8">
+            <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-xl mx-auto mb-8">
               Compare Mounjaro and Wegovy side by side to find the best option
               for your weight loss journey
             </p>
@@ -61,7 +64,7 @@ export default function DosagePlan() {
               {activeTab === "mounjaro" && (
                 <>
                   {/* Left Card */}
-                  <div className="bg-white rounded-xl p-10 text-left shadow-sm w-full flex-1">
+                  <div className="bg-white rounded-xl p-5 md:p-10 text-left shadow-sm w-full flex-1">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="bg-green-100 p-4 rounded-lg">
                         <FaBolt className="text-[rgb(16_185_129)] text-xl" />
@@ -77,17 +80,21 @@ export default function DosagePlan() {
                       </span>
                     </div>
                     <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <p className="text-sm font-semibold text-gray-500">
+                      <div className="bg-gray-50 p-2 md:p-4 rounded-lg">
+                        <p className="!text-[12px] md:!text-sm font-semibold text-gray-500">
                           FREQUENCY
                         </p>
-                        <p className="font-semibold">Weekly injection</p>
+                        <p className=" !text-[10px] md:!text-[16px] font-semibold">
+                          Weekly injection
+                        </p>
                       </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <p className="text-sm font-semibold text-gray-500">
+                      <div className="bg-gray-50 p-2 md:p-4 rounded-lg">
+                        <p className="!text-[12px] md:!text-sm font-semibold text-gray-500">
                           MECHANISM
                         </p>
-                        <p className="font-semibold">Dual hormone action</p>
+                        <p className="!text-[10px] md:!text-[16px] font-semibold">
+                          Dual hormone action
+                        </p>
                       </div>
                     </div>
                     <div>
@@ -149,9 +156,9 @@ export default function DosagePlan() {
                         💰 Compare prices from 15+ UK pharmacies
                       </div>
                       <NavLink to="/mounjaro-compare">
-                      <button className="bg-[rgb(16_185_129)] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
-                        Compare Mounjaro Prices
-                      </button>
+                        <button className="bg-[rgb(16_185_129)] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
+                          Compare Mounjaro Prices
+                        </button>
                       </NavLink>
                     </div>
                     <div className="mt-6 text-center">
@@ -159,8 +166,15 @@ export default function DosagePlan() {
                         All prices from GPhC-registered pharmacies
                       </p>
                       <div className="flex justify-center gap-4 mt-2 text-xs text-gray-500">
-                        <div className="flex items-center gap-1"><MdVerified className="text-lg text-[rgb(16_185_129)]"/> GPhC Verified</div>
-                        <div className="flex items-center gap-1"> <AiFillStop className="text-lg text-orange-600"/> No Hidden Fees</div>
+                        <div className="flex items-center gap-1">
+                          <MdVerified className="text-lg text-[rgb(16_185_129)]" />{" "}
+                          GPhC Verified
+                        </div>
+                        <div className="flex items-center gap-1">
+                          {" "}
+                          <AiFillStop className="text-lg text-orange-600" /> No
+                          Hidden Fees
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -170,7 +184,7 @@ export default function DosagePlan() {
               {activeTab === "wegovy" && (
                 <>
                   {/* Left Card */}
-                  <div className="bg-white rounded-xl p-10 text-left shadow-sm w-full flex-1">
+                  <div className="bg-white rounded-xl p-5 md:p-10 text-left shadow-sm w-full flex-1">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="bg-[#f8f5ee] p-4 rounded-lg">
                         <BsGraphUpArrow className="text-[#ee9c25] text-xl" />
@@ -186,17 +200,21 @@ export default function DosagePlan() {
                       </span>
                     </div>
                     <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <p className="text-sm font-semibold text-gray-500">
+                      <div className="bg-gray-50 p-2 md:p-4 rounded-lg">
+                        <p className="!text-[12px] md:!text-sm font-semibold text-gray-500">
                           FREQUENCY
                         </p>
-                        <p className="font-semibold">Weekly injection</p>
+                        <p className=" !text-[10px] md:!text-[16px] font-semibold">
+                          Weekly injection
+                        </p>
                       </div>
-                      <div className="bg-gray-50 p-4 rounded-lg">
-                        <p className="text-sm font-semibold text-gray-500">
+                      <div className="bg-gray-50 p-2 md:p-4 rounded-lg">
+                        <p className="!text-[12px] md:!text-sm font-semibold text-gray-500">
                           MECHANISM
                         </p>
-                        <p className="font-semibold">Appetite regulation</p>
+                        <p className="!text-[10px] md:!text-[16px] font-semibold">
+                          Appetite regulation
+                        </p>
                       </div>
                     </div>
                     <div>
@@ -253,9 +271,9 @@ export default function DosagePlan() {
                         💰 Compare prices from 15+ UK pharmacies
                       </div>
                       <NavLink to="/wegovy-compare">
-                      <button className="bg-[#ee9c25] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
-                        Compare Wegovy Prices
-                      </button>
+                        <button className="bg-[#ee9c25] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
+                          Compare Wegovy Prices
+                        </button>
                       </NavLink>
                     </div>
                     <div className="mt-6 text-center">
@@ -263,8 +281,15 @@ export default function DosagePlan() {
                         All prices from GPhC-registered pharmacies
                       </p>
                       <div className="flex justify-center gap-4 mt-2 text-xs text-gray-500">
-                        <div className="flex items-center gap-1"><MdVerified className="text-lg text-[rgb(16_185_129)]"/> GPhC Verified</div>
-                        <div className="flex items-center gap-1"> <AiFillStop className="text-lg text-orange-600"/> No Hidden Fees</div>
+                        <div className="flex items-center gap-1">
+                          <MdVerified className="text-lg text-[rgb(16_185_129)]" />{" "}
+                          GPhC Verified
+                        </div>
+                        <div className="flex items-center gap-1">
+                          {" "}
+                          <AiFillStop className="text-lg text-orange-600" /> No
+                          Hidden Fees
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -277,8 +302,11 @@ export default function DosagePlan() {
                 Not sure which treatment is right for you?
               </p>
 
-              <a href="#blogs" className="border border-[rgb(16_185_129)] text-[rgb(16_185_129)] font-semibold px-5 py-2 rounded-lg hover:bg-[rgb(16_185_129)] hover:text-[#ffffff] transition duration-200 cursor-pointer">
-                Learn More About Treatment Options
+              <a
+                href="#blogs"
+                className="border inline-block border-[rgb(16_185_129)] text-[rgb(16_185_129)] font-semibold px-5 py-2 rounded-lg hover:bg-[rgb(16_185_129)] hover:text-[#ffffff] transition duration-200 cursor-pointer"
+              >
+                Explore More
               </a>
             </div>
           </div>

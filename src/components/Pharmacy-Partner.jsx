@@ -21,12 +21,12 @@ function PharmacyPartner() {
             </div>
 
             {/* Heading */}
-            <h2 className="!text-[32px] md:text-4xl !font-[600] text-gray-900 mb-2">
+            <h2 className="!text-[24px] md:!text-[24px] !font-[600] text-gray-900 mb-2">
               Trusted UK Pharmacy Partners
             </h2>
 
             {/* Subtext */}
-            <p className="text-gray-500 max-w-2xl mx-auto mb-10">
+            <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-2xl mx-auto mb-10">
               We only work with fully licensed, GPhC-registered pharmacies to
               ensure your safety and peace of mind
             </p>
