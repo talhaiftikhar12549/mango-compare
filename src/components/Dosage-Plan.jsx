@@ -3,6 +3,7 @@ import { BsGraphUpArrow } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import { AiFillStop } from "react-icons/ai";
 import { MdVerified } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 export default function DosagePlan() {
   const [activeTab, setActiveTab] = useState("mounjaro");
   const [fadeClass, setFadeClass] = useState("animate-fade-in");
@@ -15,13 +16,13 @@ export default function DosagePlan() {
   }, [activeTab]);
   return (
     <>
-      <div className="bg-[#f9fafa]">
+      <section id="price-compare" className=" bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)]">
         <div className=" max-w-[1280px] mx-auto py-[48px]">
           <div className="px-4 md:px-10 text-center">
             <p className="mb-2 inline-block text-sm border border-green-200 px-4 py-1 rounded-full bg-green-100 text-[rgb(16_185_129)] font-semibold">
               Compare Treatments
             </p>
-            <h2 className="!text-[32px] md:text-4xl font-bold text-gray-900 mb-2 !font-[600]">
+            <h2 className="!text-[32px] md:text-4xl text-gray-900 mb-2 !font-[600]">
               Which Treatment is Right for You?
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto mb-8">
@@ -147,9 +148,11 @@ export default function DosagePlan() {
                       <div className="bg-green-100 text-sm text-green-800 py-2 px-4 rounded mb-3">
                         💰 Compare prices from 15+ UK pharmacies
                       </div>
-                      <button className="bg-[rgb(16_185_129)] text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
+                      <NavLink to="/mounjaro-compare">
+                      <button className="bg-[rgb(16_185_129)] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
                         Compare Mounjaro Prices
                       </button>
+                      </NavLink>
                     </div>
                     <div className="mt-6 text-center">
                       <p className="text-xs text-gray-400">
@@ -157,7 +160,7 @@ export default function DosagePlan() {
                       </p>
                       <div className="flex justify-center gap-4 mt-2 text-xs text-gray-500">
                         <div className="flex items-center gap-1"><MdVerified className="text-lg text-[rgb(16_185_129)]"/> GPhC Verified</div>
-                        <div className="flex items-center gap-1"> <AiFillStop className="text-lg text-red-400"/> No Hidden Fees</div>
+                        <div className="flex items-center gap-1"> <AiFillStop className="text-lg text-orange-600"/> No Hidden Fees</div>
                       </div>
                     </div>
                   </div>
@@ -249,9 +252,11 @@ export default function DosagePlan() {
                       <div className="bg-[#fff2df] text-sm text-[#ee9c25] py-2 px-4 rounded mb-3">
                         💰 Compare prices from 15+ UK pharmacies
                       </div>
-                      <button className="bg-[#ee9c25] text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
+                      <NavLink to="/wegovy-compare">
+                      <button className="bg-[#ee9c25] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
                         Compare Wegovy Prices
                       </button>
+                      </NavLink>
                     </div>
                     <div className="mt-6 text-center">
                       <p className="text-xs text-gray-400">
@@ -259,7 +264,7 @@ export default function DosagePlan() {
                       </p>
                       <div className="flex justify-center gap-4 mt-2 text-xs text-gray-500">
                         <div className="flex items-center gap-1"><MdVerified className="text-lg text-[rgb(16_185_129)]"/> GPhC Verified</div>
-                        <div className="flex items-center gap-1"> <AiFillStop className="text-lg text-red-400"/> No Hidden Fees</div>
+                        <div className="flex items-center gap-1"> <AiFillStop className="text-lg text-orange-600"/> No Hidden Fees</div>
                       </div>
                     </div>
                   </div>
@@ -272,13 +277,13 @@ export default function DosagePlan() {
                 Not sure which treatment is right for you?
               </p>
 
-              <button className="border border-[rgb(16_185_129)] text-[rgb(16_185_129)] font-semibold px-5 py-2 rounded-lg hover:bg-[rgb(16_185_129)] hover:text-[#ffffff] transition duration-200 cursor-pointer">
+              <a href="#blogs" className="border border-[rgb(16_185_129)] text-[rgb(16_185_129)] font-semibold px-5 py-2 rounded-lg hover:bg-[rgb(16_185_129)] hover:text-[#ffffff] transition duration-200 cursor-pointer">
                 Learn More About Treatment Options
-              </button>
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

@@ -79,12 +79,15 @@ export default function HomeHero() {
               </p>
 
               <div className="flex gap-4 mb-6">
-                <button className="bg-orange-500 cursor-pointer text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-orange-600 transition duration-200">
+                <a
+                  href="#price-compare"
+                  className="bg-orange-500 cursor-pointer text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-orange-600 transition duration-200"
+                >
                   Compare Prices Now
-                </button>
-                <button className="border cursor-pointer border-[rgb(16_185_129)] text-[rgb(16_185_129)] font-semibold px-6 py-3 rounded-lg hover:bg-[rgb(16_185_129)] hover:text-[#ffffff] transition duration-200">
+                </a>
+                <a href="#how-it-work" className="border cursor-pointer border-[rgb(16_185_129)] text-[rgb(16_185_129)] font-semibold px-6 py-3 rounded-lg hover:bg-[rgb(16_185_129)] hover:text-[#ffffff] transition duration-200">
                   Learn How It Works
-                </button>
+                </a>
               </div>
 
               <div className="flex gap-6 text-sm text-gray-600 font-medium">
@@ -93,7 +96,8 @@ export default function HomeHero() {
                   Verified
                 </span>
                 <span className="flex items-center gap-1">
-                  <AiFillStop className="text-lg text-red-400" /> No Hidden Fees
+                  <AiFillStop className="text-lg text-orange-600" /> No Hidden
+                  Fees
                 </span>
                 <span className="flex items-center gap-1">
                   <BsFillLightningChargeFill className="text-lg text-[#ee9c25]" />{" "}

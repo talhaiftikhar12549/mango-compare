@@ -5,7 +5,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 export default function HowItWork() {
   return (
     <>
-      <section className="max-w-[1280px] py-[20px] md:py-[48px] lg:px-[40px] xl:px-0  mx-auto ">
+      <section id="how-it-work" className="max-w-[1280px] py-[20px] md:py-[48px] lg:px-[40px] xl:px-0  mx-auto ">
         <div className=" px-4 bg-white text-center">
           <h2 className="!text-[32px]  md:text-4xl !font-[600] text-gray-900 mb-4">
             How It Works
@@ -61,9 +61,9 @@ export default function HowItWork() {
           </div>
 
           <div className="mt-12">
-            <button className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg cursor-pointer shadow-md hover:bg-orange-600 transition duration-300">
+            <a href="#price-compare" className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg cursor-pointer shadow-md hover:bg-orange-600 transition duration-300">
               Start Comparing Now
-            </button>
+            </a>
           </div>
         </div>
       </section>

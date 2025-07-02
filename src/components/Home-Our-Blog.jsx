@@ -36,7 +36,7 @@ export default function HomeOurBlog() {
 
   return (
     <>
-      <section className="lg:px-[40px] xl:px-0 px-[16px] w-full flex justify-center py-[40px] md:py-[48px] ">
+      <section id="blogs" className=" lg:px-[40px] xl:px-0 px-[16px] w-full flex justify-center py-[40px] md:py-[48px] ">
         <div className="max-w-[1280px] custom-width ">
           <div className="d-flex pb-[50px] w-full justify-content-center align-items-center">
             <h2 className="!text-[38px] text-center !font-[600] font-montserrat text-[#05222E]">

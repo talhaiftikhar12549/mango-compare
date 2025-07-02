@@ -30,11 +30,11 @@ export default function StartYourJourney() {
                 </div>
               </div>
 
-              <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition">
+              <a href="#price-compare" className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg text-lg transition">
                 Compare Wegovy & Mounjaro Prices →
-              </button>
+              </a>
 
-              <p className="text-sm text-gray-500 mt-4">
+              <p className="text-sm text-gray-500 mt-6">
                 Free to use • Instant results • Secure and confidential
               </p>
 
