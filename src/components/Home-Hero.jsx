@@ -4,7 +4,8 @@ import { BsFillLightningChargeFill } from "react-icons/bs";
 import { MdVerified } from "react-icons/md";
 import { useEffect, useState } from "react";
 import api from "../services/api.js";
-import PriceListSkeleton from "./HomeHeroSkeleton.jsx";
+import HomeHeroSkeletonMounjaro from "./HomeHeroSkeletonMounjaro.jsx";
+import HomeHeroSkeletonWegovy from "./HomeHeroSkeletonWegovy.jsx";
 export default function HomeHero() {
   const [apiDataM, setApiDataM] = useState([]);
   const [apiDataW, setApiDataW] = useState([]);
@@ -115,41 +116,56 @@ export default function HomeHero() {
                   <p className="text-sm text-gray-500 mb-4">4-week supply</p>
                   <div className="p-0 m-0">
                     {loading ? (
-                      <PriceListSkeleton />
+                      <HomeHeroSkeletonMounjaro />
                     ) : (
-                      <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
-                        {apiDataM.map((item, index) => (
-                          <li
-                            key={index}
-                            className={`list-none rounded-xl flex justify-between p-4 ${
-                              index === 0
-                                ? "bg-[rgb(16_185_129/_0.05)]"
-                                : "bg-[rgb(249_250_251)]"
-                            }`}
+                      <>
+                        <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
+                          {apiDataM.map((item, index) => (
+                            <li
+                              key={index}
+                              className={`list-none rounded-xl flex justify-between p-4 ${
+                                index === 0
+                                  ? "bg-[rgb(16_185_129/_0.05)]"
+                                  : "bg-[rgb(249_250_251)]"
+                              }`}
+                            >
+                              <div className="flex justify-between items-center w-full">
+                                <div className="!text-[16px] font-[600]">
+                                  {item.pharmacy}
+                                </div>
+                                <div>
+                                  <span
+                                    className={`font-bold ${
+                                      index === 0
+                                        ? "text-[rgb(16_185_129)]"
+                                        : "text-[#000000]"
+                                    }`}
+                                  >
+                                    £{item.price}
+                                  </span>
+                                </div>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                        <div>
+                          <div
+                            className={`bg-orange-50 list-none rounded-xl flex justify-between p-4 mt-[8px]`}
                           >
                             <div className="flex justify-between items-center w-full">
                               <div className="!text-[16px] font-[600]">
-                                {item.pharmacy}
-                              </div>
-                              <div>
-                                <span
-                                  className={`font-bold ${
-                                    index === 0
-                                      ? "text-[rgb(16_185_129)]"
-                                      : "text-[#000000]"
-                                  }`}
-                                >
-                                  £{item.price}
-                                </span>
+                                <p>
+                                  💰{" "}
+                                  <span className="text-[#ee9c25]">
+                                    Save £30 vs highest price
+                                  </span>
+                                </p>
                               </div>
                             </div>
-                          </li>
-                        ))}
-                      </ul>
+                          </div>
+                        </div>
+                      </>
                     )}
-                    <div className="list-none flex justify-between !text-[16px] font-[600] p-4 mt-[8px] bg-orange-50 text-[#ee9c25] rounded-xl">
-                      💰 Save £30 vs highest price
-                    </div>
                   </div>
                 </div>
               </NavLink>
@@ -165,34 +181,39 @@ export default function HomeHero() {
                     </span>
                   </div>
                   <p className="text-sm text-gray-500 mb-4">4-week supply</p>
-
-                  <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
-                    {apiDataW.map((item, index) => (
-                      <li
-                        key={index}
-                        className={`list-none rounded-xl flex justify-between p-4 ${
-                          index === 0 ? "bg-orange-50" : "bg-[rgb(249_250_251)]"
-                        }`}
-                      >
-                        <div className="flex justify-between items-center w-full">
-                          <div className="!text-[16px] font-[600]">
-                            {item.pharmacy}
+                  {loading ? (
+                    <HomeHeroSkeletonWegovy />
+                  ) : (
+                    <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
+                      {apiDataW.map((item, index) => (
+                        <li
+                          key={index}
+                          className={`list-none rounded-xl flex justify-between p-4 ${
+                            index === 0
+                              ? "bg-orange-50"
+                              : "bg-[rgb(249_250_251)]"
+                          }`}
+                        >
+                          <div className="flex justify-between items-center w-full">
+                            <div className="!text-[16px] font-[600]">
+                              {item.pharmacy}
+                            </div>
+                            <div>
+                              <span
+                                className={`font-bold ${
+                                  index === 0
+                                    ? "text-[#ee9c25]"
+                                    : "text-[#000000]"
+                                }`}
+                              >
+                                £{item.price}
+                              </span>
+                            </div>
                           </div>
-                          <div>
-                            <span
-                              className={`font-bold ${
-                                index === 0
-                                  ? "text-[#ee9c25]"
-                                  : "text-[#000000]"
-                              }`}
-                            >
-                              £{item.price}
-                            </span>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </NavLink>
             </div>

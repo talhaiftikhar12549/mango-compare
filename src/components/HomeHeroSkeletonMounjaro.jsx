@@ -1,10 +1,10 @@
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-const PriceListSkeleton = () => {
+const HomeHeroSkeletonMounjaro = () => {
   return (
-    <div className="space-y-3">
-      {[1, 2, 3].map((_, index) => (
+    <div className="space-y-2">
+      {[1, 2, 3, 4].map((_, index) => (
         <div
           key={index}
           className="flex justify-between items-center p-4 rounded-xl bg-gray-100"
@@ -21,4 +21,4 @@ const PriceListSkeleton = () => {
   );
 };
 
-export default PriceListSkeleton;
+export default HomeHeroSkeletonMounjaro;
