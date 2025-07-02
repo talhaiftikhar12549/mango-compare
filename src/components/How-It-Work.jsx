@@ -38,7 +38,7 @@ export default function HowItWork() {
                 <IoColorFilterOutline className="text-[38px]" />
               </div>
               <div className="text-5xl font-bold text-gray-900">02</div>
-              <h3 className="text-lg font-semibold mt-2">Set Your Filters</h3>
+              <h3 className="!text-xl !font-bold mt-2">Set Your Filters</h3>
               <p className="text-md text-gray-500 mt-2">
                 Specify dose, price range, and preferred pharmacy locations
               </p>
@@ -51,7 +51,7 @@ export default function HowItWork() {
                 <FaRegCheckCircle className="text-[38px]" />
               </div>
               <div className="text-5xl font-bold text-gray-900">03</div>
-              <h3 className="text-lg font-semibold mt-2">
+              <h3 className="!text-xl !font-bold mt-2">
                 Compare & Order Online
               </h3>
               <p className="text-md text-gray-500 mt-2">

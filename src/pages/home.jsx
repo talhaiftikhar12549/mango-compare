@@ -2,7 +2,6 @@ import Herohome from "../components/Home-Hero.jsx";
 import DosagePlan from "../components/Dosage-Plan.jsx";
 import PharmacyPartner from "../components/Pharmacy-Partner.jsx";
 import HomeOurBlog from "../components/Home-Our-Blog.jsx";
-import HomeDummyData from "../components/Home-Faqs.jsx";
 import HowItWork from "../components/How-It-Work.jsx";
 import WhyChooseMango from "../components/Why-Choose-Mango.jsx";
 import SafetyAndEligibility from "../components/Safety-And-Eligibility.jsx";
