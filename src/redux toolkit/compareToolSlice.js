@@ -7,6 +7,8 @@ const initialState = {
   mPrice: [],
   resetButton: false,
   isDiscount: false,
+  manjaroLowest: 0,
+  wegovyLowest: 0,
 };
 
 export const compareToolSlice = createSlice({
@@ -40,6 +42,14 @@ export const compareToolSlice = createSlice({
     discountedFilter: (state, action) => {
       state.isDiscount = action.payload;
     },
+    mLowPrice: (state, action) => {
+      state.manjaroLowest = action.payload;
+      console.log(" state.manjaroLowest" , state.manjaroLowest)
+    },
+   wLowPrice: (state, action) => {
+      state.wegovyLowest = action.payload;
+      console.log(" state.wegovyLowest" , state.wegovyLowest)
+    },
   },
 });
 
@@ -54,6 +64,8 @@ export const {
   dosageFiltedDta,
   DosagName,
   discountedFilter,
+  mLowPrice,
+  wLowPrice
 } = compareToolSlice.actions;
 
 export default compareToolSlice.reducer;

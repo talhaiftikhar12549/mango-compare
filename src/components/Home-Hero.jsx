@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 import api from "../services/api.js";
 import HomeHeroSkeletonMounjaro from "./HomeHeroSkeletonMounjaro.jsx";
 import HomeHeroSkeletonWegovy from "./HomeHeroSkeletonWegovy.jsx";
+import { useDispatch } from "react-redux";
+import { wLowPrice, mLowPrice } from "../redux toolkit/compareToolSlice.js";
 export default function HomeHero() {
   const [apiDataM, setApiDataM] = useState([]);
   const [apiDataW, setApiDataW] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const fetchListings = async () => {
       try {
@@ -46,7 +48,9 @@ export default function HomeHero() {
         setApiDataW(apiDtaW);
 
         console.log("API Data Mounjaro:", apiDtaM);
+        dispatch(mLowPrice(apiDtaM[0].price));
         console.log("API Data Wegovy:", apiDtaW);
+        dispatch(wLowPrice(apiDtaW[0].price));
       } catch (error) {
         console.log("Failed to fetch listings", error);
       }
@@ -73,7 +77,8 @@ export default function HomeHero() {
               </h1>
 
               <p className="text-gray-600 text-lg mb-6">
-                Compare Wegovy and Mounjaro from <span className="font-bold" >GPhC-registered</span> pharmacies in
+                Compare Wegovy and Mounjaro from{" "}
+                <span className="font-bold">GPhC-registered</span> pharmacies in
                 seconds. Save up to{" "}
                 <span className="text-[#ee9c25] font-semibold">27%</span> on
                 your treatment.

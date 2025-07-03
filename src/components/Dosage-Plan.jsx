@@ -5,7 +5,10 @@ import { AiFillStop } from "react-icons/ai";
 import { MdVerified } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { RiDiscountPercentFill } from "react-icons/ri";
+import { useSelector } from "react-redux";
 export default function DosagePlan() {
+  const mVal = useSelector((state) => state.compareTool.manjaroLowest);
+  const wVal = useSelector((state) => state.compareTool.wegovyLowest);
   const [activeTab, setActiveTab] = useState("mounjaro");
   const [fadeClass, setFadeClass] = useState("animate-fade-in");
   useEffect(() => {
@@ -149,7 +152,7 @@ export default function DosagePlan() {
                     <div>
                       <p className="text-sm text-gray-500">Starting from</p>
                       <p className="text-4xl py-1 font-bold text-[rgb(16_185_129)]">
-                        £169
+                        £{mVal}
                       </p>
                       <p className="text-sm text-gray-500 mb-4">
                         4-week supply
@@ -265,7 +268,7 @@ export default function DosagePlan() {
                     <div>
                       <p className="text-sm text-gray-500">Starting from</p>
                       <p className="text-4xl py-1 font-bold text-[#ee9c25]">
-                        £219
+                        £{wVal}
                       </p>
                       <p className="text-sm text-gray-500 mb-4">
                         4-week supply
