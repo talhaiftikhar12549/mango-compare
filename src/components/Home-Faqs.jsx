@@ -6,19 +6,67 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function HomeFaqs() {
   const Faqs = [
     {
-      title: "How do I know if these pharmacies are ler",
+      title: "What is Mango Compare and how does it work?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
-      text: "All pharmacies on our platform are GPhC-registered...",
+      text: "Mango Compare is a free UK-based tool to compare prices for weight loss injections. Choose your dose, and we’ll show you trusted UK pharmacies offering the lowest retail prices.",
     },
     {
-      title: "NHS Eligibility (June 2025)",
+      title: "Which products can I compare on Mango Compare?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
-      text: "From June 2025, Wegovy will be available via the NHS...",
+      text: "Currently, you can compare Wegovy and Mounjaro (2.5 mg, 5 mg, etc.) from licensed UK pharmacies. We focus on popular GLP-1 weight loss injections.",
     },
     {
-      title: "Restarting After a Break",
+      title:
+        "Does Restarting Mounjaro or Wegovy After a Break Require a New Consultation?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
-      text: "If you’ve taken a break from treatment...",
+      text: "Yes, if you’ve taken a break from Mounjaro or Wegovy, most UK providers will require a new consultation before allowing you to restart treatment. This helps ensure the medication is still safe and appropriate for you, especially if your health status or weight loss goals have changed. ",
+    },
+    {
+      title: " How to Find Licensed UK Pharmacies for Weight Loss Treatments?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "The safest way to get genuine medication is by choosing pharmacies registered with the GPhC or approved by the MHRA. Mango Compare partners only with verified providers, saving you time and helping you find trusted options.",
+    },
+    {
+      title: "How up‑to‑date are the price comparisons?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "We update pricing frequently to reflect the latest retail Mounjaro and Wegovy prices in the UK, so you're always comparing real-time pharmacy offers.",
+    },
+    {
+      title: "Are the suppliers verified and safe?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "Yes. We only list GPhC-registered UK pharmacies for safe and legal access to weight loss treatments like Wegovy and Mounjaro.",
+    },
+    {
+      title: " How often are deals updated, and can I track price changes?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "Deals are updated regularly based on UK pharmacy prices. While we don’t offer tracking, you’ll always see the latest available offers.",
+    },
+    {
+      title: "What happens if I have a dispute or a bad claim experience?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "Mango Compare doesn’t sell products. For order issues, contact the pharmacy directly. We only list verified UK suppliers.",
+    },
+    {
+      title:
+        "Where does Mango Compare operate — UK only or more countries?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "Mango Compare operates in the United Kingdom only, showing verified prices from UK-based pharmacies for Wegovy and Mounjaro.",
+    },
+    {
+      title: "How much does a Mounjaro consultation cost?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "Private consultation fees vary, but Mango Compare helps you find the cheapest Mounjaro consultation options available in the UK.",
+    },
+    {
+      title: "Can I restart Mounjaro after a break?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "Yes, but always consult your prescriber. Mango helps you compare prices if you're restarting Mounjaro in the UK after a pause.",
+    },
+    {
+      title:
+        "Does the NHS Cover Mounjaro for Weight Loss?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "Yes, as of June 2025, Mounjaro (tirzepatide) is available on the NHS in the UK. It is prescribed only to people with a BMI of 40 or above, or 35 for some ethnic groups, along with at least four weight-related conditions such as type 2 diabetes, high blood pressure, heart disease, or sleep apnoea.",
     },
   ];
 
@@ -36,7 +84,8 @@ export default function HomeFaqs() {
             Frequently Asked Questions
           </h2>
           <p className="text-gray-500 !text-[16px] max-w-2xl mx-auto mb-10">
-            Get answers to common questions about using our price comparison service
+            Get answers to common questions about using our price comparison
+            service
           </p>
 
           <div className="max-w-2xl mx-auto space-y-4 text-left">

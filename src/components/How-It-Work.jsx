@@ -5,7 +5,10 @@ import { FaRegCheckCircle } from "react-icons/fa";
 export default function HowItWork() {
   return (
     <>
-      <section id="how-it-work" className="max-w-[1280px] py-[20px] md:py-[48px] lg:px-[40px] xl:px-0  mx-auto ">
+      <section
+        id="how-it-work"
+        className="max-w-[1280px] py-[20px] md:py-[48px] lg:px-[40px] xl:px-0  mx-auto "
+      >
         <div className=" px-4 bg-white text-center">
           <h2 className="!text-[24px] md:!text-[24px] !font-[600] text-gray-900 mb-4">
             How It Works
@@ -22,12 +25,14 @@ export default function HowItWork() {
                 {/* <Search className="w-6 h-6" /> */}
                 <IoSearchSharp className="text-[38px]" />
               </div>
-              <div className="text-[40px] md:!text-5xl font-bold text-gray-900">01</div>
+              <div className="text-[40px] md:!text-5xl font-bold text-gray-900">
+                01
+              </div>
               <h3 className="md:!text-xl !font-bold mt-2">
                 Choose Your Treatment
               </h3>
               <p className="text-md text-gray-500 mt-2">
-                Select between Wegovy or Mounjaro based on your prescription
+                Start by selecting Wegovy or Mounjaro based on your prescription. Whether you’re starting new or upgrading to a new dose, we have you covered.
               </p>
             </div>
 
@@ -37,10 +42,12 @@ export default function HowItWork() {
                 {/* <ChevronRight className="w-6 h-6" /> */}
                 <IoColorFilterOutline className="text-[38px]" />
               </div>
-              <div className="text-[40px] md:!text-5xl font-bold text-gray-900">02</div>
+              <div className="text-[40px] md:!text-5xl font-bold text-gray-900">
+                02
+              </div>
               <h3 className="!text-xl !font-bold mt-2">Set Your Filters</h3>
               <p className="text-md text-gray-500 mt-2">
-                Specify dose, price range, and preferred pharmacy locations
+                Choose the dose, price range, and strength for your medication. We instantly show results that align with your needs and requirements.
               </p>
             </div>
 
@@ -50,18 +57,23 @@ export default function HowItWork() {
                 {/* <Check className="w-6 h-6" /> */}
                 <FaRegCheckCircle className="text-[38px]" />
               </div>
-              <div className="text-[40px] md:!text-5xl font-bold text-gray-900">03</div>
+              <div className="text-[40px] md:!text-5xl font-bold text-gray-900">
+                03
+              </div>
               <h3 className="!text-xl !font-bold mt-2">
                 Compare & Order Online
               </h3>
               <p className="text-md text-gray-500 mt-2">
-                View results instantly and get redirected to purchase securely
+                Browse verified UK pharmacies, compare real-time retail prices, and place your order directly with the one that suits you best
               </p>
             </div>
           </div>
 
           <div className="mt-12 block">
-            <a href="#price-compare" className="bg-orange-500 inline-block text-white font-semibold px-6 py-3 rounded-lg cursor-pointer shadow-md hover:bg-orange-600 transition duration-300">
+            <a
+              href="#price-compare"
+              className="bg-orange-500 inline-block text-white font-semibold px-6 py-3 rounded-lg cursor-pointer shadow-md hover:bg-orange-600 transition duration-300"
+            >
               Start Comparing Now
             </a>
           </div>

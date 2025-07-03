@@ -12,7 +12,7 @@ function PharmacyPartner() {
 
   return (
     <>
-      <section className=" bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)]">
+      <section className=" bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)] w-full">
         <div className="max-w-[1280px] mx-auto py-[48px]">
           <div className="  px-4 md:px-10 text-center">
             {/* Badge */}
@@ -22,7 +22,7 @@ function PharmacyPartner() {
 
             {/* Heading */}
             <h2 className="!text-[24px] md:!text-[24px] !font-[600] text-gray-900 mb-2">
-              Trusted UK Pharmacy Partners
+              Trusted UK Pharmacies We Compare
             </h2>
 
             {/* Subtext */}

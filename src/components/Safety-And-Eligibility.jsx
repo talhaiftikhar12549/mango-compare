@@ -11,19 +11,19 @@ export default function SafetyAndEligibility() {
 
   const Information = [
     {
-      title: "Consultation Requirements",
+      title: "BMI Requirements for Mounjaro and Wegovy",
       icon: <FaSearch className="text-gray-600" />,
-      text: "You’ll need to complete an online consultation to ensure treatment is suitable and safe for you.",
+      text: "To be eligible for weight loss injections in the UK, such as Mounjaro (tirzepatide) or Wegovy (semaglutide), most patients need a BMI of 30 or higher. Those with a BMI of 27 or above may also qualify if they have a weight-related condition like type 2 diabetes, PCOS, high blood pressure, or high cholesterol. Some clinics may apply lower BMI thresholds for individuals of South Asian, Black African, Middle Eastern, or Chinese backgrounds, who may face higher health risks at lower weights. In such cases, eligibility may begin at a BMI of 23 or 27, depending on medical history and clinical judgement.",
     },
     {
-      title: "NHS Eligibility (June 2025)",
+      title: "Prescription-Only Treatments",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
-      text: "From June 2025, Wegovy will be available via the NHS for certain patients who meet eligibility criteria.",
+      text: "Both Mounjaro and Wegovy are prescription-only medicines in the UK. They cannot be bought over the counter or online without a valid prescription issued by a UK-registered prescriber. Normally, patients are required to complete a medical consultation, either online or in person. This step ensures the treatment is suitable based on your health history, BMI, and any existing conditions. It also helps prevent unsafe use and protects you from unregulated weight loss medications often found online.",
     },
     {
-      title: "Restarting After a Break",
+      title: "Requirement for Ongoing Supervision",
       icon: <FaRedo className="text-orange-400" />,
-      text: "If you’ve taken a break from treatment, you may need to restart at a lower dose. Consult with your provider.",
+      text: "GLP-1 medications like Mounjaro and Wegovy require continuous medical monitoring for safe and effective use. Normally, the treatment begins at a lower dose to reduce the risk of side effects such as nausea, bloating, or fatigue. Over time, your dose may be adjusted depending on how your body reacts to the medication. Regular consultations are important for tracking results, managing any side effects, and keeping your treatment plan medically safe.",
     },
   ];
 
@@ -107,8 +107,8 @@ export default function SafetyAndEligibility() {
             <p className="text-sm text-gray-600">
               All pharmacies listed on our platform are registered with the
               General Pharmaceutical Council (GPhC). You can verify any
-              pharmacy's registration status on the official GPhC website
-              using their registration number.
+              pharmacy's registration status on the official GPhC website using
+              their registration number.
             </p>
           </div>
         </div>

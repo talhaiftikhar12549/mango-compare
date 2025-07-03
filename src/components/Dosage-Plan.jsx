@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AiFillStop } from "react-icons/ai";
 import { MdVerified } from "react-icons/md";
 import { NavLink } from "react-router-dom";
+import { RiDiscountPercentFill } from "react-icons/ri";
 export default function DosagePlan() {
   const [activeTab, setActiveTab] = useState("mounjaro");
   const [fadeClass, setFadeClass] = useState("animate-fade-in");
@@ -18,7 +19,7 @@ export default function DosagePlan() {
     <>
       <section
         id="price-compare"
-        className=" bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)]"
+        className=" bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)] w-full"
       >
         <div className=" max-w-[1280px] mx-auto py-[48px]">
           <div className="px-4 md:px-10 text-center">
@@ -106,8 +107,9 @@ export default function DosagePlan() {
                           "GLP-1 and GIP receptor agonist",
                           "Controls appetite & blood-sugar levels",
                           "Helps you feel full faster",
-                          "May improve cardiovascular health",
-                          "Gradual dose escalation protocol",
+                          "Clinical studies show 15–20% weight loss",
+                          "Once-weekly injection",
+                          "Approved by NHS for weight loss",
                         ].map((item, index) => (
                           <li
                             key={index}
@@ -153,7 +155,7 @@ export default function DosagePlan() {
                         4-week supply
                       </p>
                       <div className="bg-green-100 text-sm text-green-800 py-2 px-4 rounded mb-3">
-                        💰 Compare prices from 15+ UK pharmacies
+                        💰 Compare prices from 12,000+ UK pharmacies
                       </div>
                       <NavLink to="/mounjaro-compare">
                         <button className="bg-[rgb(16_185_129)] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
@@ -163,7 +165,7 @@ export default function DosagePlan() {
                     </div>
                     <div className="mt-6 text-center">
                       <p className="text-xs text-gray-400">
-                        All prices from GPhC-registered pharmacies
+                        We show only trusted options with transparent pricing
                       </p>
                       <div className="flex justify-center gap-4 mt-2 text-xs text-gray-500">
                         <div className="flex items-center gap-1">
@@ -172,8 +174,8 @@ export default function DosagePlan() {
                         </div>
                         <div className="flex items-center gap-1">
                           {" "}
-                          <AiFillStop className="text-lg text-orange-600" /> No
-                          Hidden Fees
+                          <RiDiscountPercentFill className="text-lg text-[rgb(16_185_129)]" />{" "}
+                          No Hidden Fees
                         </div>
                       </div>
                     </div>
@@ -224,10 +226,11 @@ export default function DosagePlan() {
                       <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
                         {[
                           "GLP-1 receptor agonist",
-                          "Proven appetite suppression",
-                          "Clinical studies show 10-15% weight loss",
-                          "Well-established safety profile",
-                          "FDA and MHRA approved",
+                          "Helps you feel full faster",
+                          "Reduces hunger and cravings",
+                          "Clinical studies show up to 15% body weight loss",
+                          "Gradual dose increase",
+                          "Approved by NHS for weight loss",
                         ].map((item, index) => (
                           <li
                             key={index}
@@ -268,7 +271,7 @@ export default function DosagePlan() {
                         4-week supply
                       </p>
                       <div className="bg-[#fff2df] text-sm text-[#ee9c25] py-2 px-4 rounded mb-3">
-                        💰 Compare prices from 15+ UK pharmacies
+                        💰 Compare prices from 12,000+ UK pharmacies
                       </div>
                       <NavLink to="/wegovy-compare">
                         <button className="bg-[#ee9c25] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
@@ -278,17 +281,17 @@ export default function DosagePlan() {
                     </div>
                     <div className="mt-6 text-center">
                       <p className="text-xs text-gray-400">
-                        All prices from GPhC-registered pharmacies
+                        We show only trusted options with transparent pricing
                       </p>
                       <div className="flex justify-center gap-4 mt-2 text-xs text-gray-500">
                         <div className="flex items-center gap-1">
-                          <MdVerified className="text-lg text-[rgb(16_185_129)]" />{" "}
-                          GPhC Verified
+                          <MdVerified className="text-lg text-[#ee9c25]" /> GPhC
+                          Verified
                         </div>
                         <div className="flex items-center gap-1">
                           {" "}
-                          <AiFillStop className="text-lg text-orange-600" /> No
-                          Hidden Fees
+                          <RiDiscountPercentFill className="text-lg text-[#ee9c25]" />{" "}
+                          No Hidden Fees
                         </div>
                       </div>
                     </div>

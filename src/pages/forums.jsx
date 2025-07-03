@@ -245,7 +245,7 @@ export default function Forums() {
               <div
                 className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300"
                 onClick={() => setShowModal(false)} // close when clicking the backdrop
-              >
+              >  
                 <div
                   className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300 relative"
                   onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
