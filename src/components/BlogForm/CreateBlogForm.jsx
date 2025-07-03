@@ -27,7 +27,13 @@ import {
   TableCellProperties,
   TableProperties,
   TableToolbar,
-  Underline
+  Underline,
+  Image,
+  ImageToolbar,
+  ImageCaption,
+  ImageStyle,
+  ImageUpload,
+  ImageInsert
 } from 'ckeditor5';
 import 'ckeditor5/ckeditor5.css';
 
@@ -81,19 +87,26 @@ const CreateBlogForm = () => {
   };
 
   const handleEdit = (blog) => {
+    const blogCategory = blog?.categories.some(cat => cat.includes("[")) ? JSON.parse(blog?.categories).join(", ") : blog?.categories
+    const blogTags = blog?.tags.some(tag => tag.includes("[")) ? JSON.parse(blog?.tags).join(", ") : blog?.tags
+    const blogKeywords = blog?.keywords.some(keyword => keyword.includes("[")) ? JSON.parse(blog?.keywords).join(", ") : blog?.keywords
+
+
     setSelectedBlogId(blog._id);
     setFormData({
       title: blog.title || '',
       meta_title: blog.meta_title || '',
       meta_description: blog.meta_description || '',
-      keywords: blog.keywords?.join(', ') || '',
-      categories: blog.categories?.join(', ') || '',
-      tags: blog.tags?.join(', ') || '',
+      keywords: blogKeywords || '',
+      categories: blogCategory || '',
+      tags: blogTags || '',
       excerpt: blog.excerpt || '',
       content: blog.content || '',
       status: blog.status || 'draft',
       featuredImage: null, // Will upload new only if selected
     });
+
+    console.log(blog.tags)
     fileInputRef.current.value = null;
     editorRef.current?.setContent(blog.content || '');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -260,7 +273,13 @@ const CreateBlogForm = () => {
                   TableCellProperties,
                   TableProperties,
                   TableToolbar,
-                  Underline
+                  Underline,
+                  Image,
+                  ImageToolbar,
+                  ImageCaption,
+                  ImageStyle,
+                  ImageUpload,
+                  ImageInsert,
                 ],
                 toolbar: [
                   'undo',
@@ -336,6 +355,13 @@ const CreateBlogForm = () => {
                 table: {
                   contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells', 'tableProperties', 'tableCellProperties']
                 },
+                  image: {
+                    toolbar: [
+                      'imageTextAlternative',
+                      'imageStyle:full',
+                      'imageStyle:side'
+                    ]
+                  },
                 initialData: '<p>Hello from CKEditor 5 in React!</p>',
               }}
 
