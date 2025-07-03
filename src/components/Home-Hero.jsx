@@ -73,7 +73,8 @@ export default function HomeHero() {
               </h1>
 
               <p className="text-gray-600 text-lg mb-6">
-                Compare GPhC-registered pharmacies in seconds. Save up to{" "}
+                Compare Wegovy and Mounjaro from <span className="font-bold" >GPhC-registered</span> pharmacies in
+                seconds. Save up to{" "}
                 <span className="text-[#ee9c25] font-semibold">27%</span> on
                 your treatment.
               </p>
@@ -95,8 +96,8 @@ export default function HomeHero() {
 
               <div className="flex !justify-between md:!justify-start                                                                                                                  gap-1 md:gap-6 text-sm text-gray-600 font-medium">
                 <span className="flex text-[9px] md:text-sm items-center gap-1">
-                  <MdVerified className=" text-lg text-[rgb(16_185_129)]" /> GPhC
-                  Verified
+                  <MdVerified className=" text-lg text-[rgb(16_185_129)]" />{" "}
+                  Easy Process
                 </span>
                 <span className="flex text-[9px] md:text-sm items-center gap-1">
                   <AiFillStop className=" text-lg text-orange-600" /> No Hidden
@@ -104,7 +105,7 @@ export default function HomeHero() {
                 </span>
                 <span className="flex text-[9px] md:text-sm items-center gap-1">
                   <BsFillLightningChargeFill className=" text-lg text-[#ee9c25]" />{" "}
-                  Instant Results
+                  Special Discounts
                 </span>
               </div>
             </div>

@@ -26,7 +26,7 @@ export default function DosagePlan() {
               Compare Treatments
             </p>
             <h2 className="!text-[24px] md:!text-[24px] text-gray-900 mb-2 !font-[600]">
-              Which Treatment is Right for You?
+              Comparing Retail Prices Made Easy — Browse Now
             </h2>
             <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-xl mx-auto mb-8">
               Compare Mounjaro and Wegovy side by side to find the best option
@@ -104,8 +104,8 @@ export default function DosagePlan() {
                       <ul className="text-sm text-gray-600 list-disc list-inside space-y-1">
                         {[
                           "GLP-1 and GIP receptor agonist",
-                          "Targets both appetite and blood sugar",
-                          "Clinical studies show 15–20% weight loss",
+                          "Controls appetite & blood-sugar levels",
+                          "Helps you feel full faster",
                           "May improve cardiovascular health",
                           "Gradual dose escalation protocol",
                         ].map((item, index) => (

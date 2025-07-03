@@ -10,8 +10,8 @@ export default function WhyChooseMango() {
             Why Choose Mango Compare?
           </h2>
           <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-2xl mx-auto">
-            We make finding affordable weight loss treatments simple, safe, and
-            transparent
+            We make finding the best deals on weight loss injections in the UK
+            easy, fast, and accessible.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6  mx-auto">
@@ -28,12 +28,13 @@ export default function WhyChooseMango() {
               </div>
 
               <h3 className="!text-lg !font-semibold mt-2 transition-colors duration-300 group-hover:!text-[rgb(16_185_129)]">
-                Verified UK Pharmacies Only
+                Verified Pharmacies Only
               </h3>
 
               <p className="text-md text-gray-500 mt-2">
-                All pharmacies are GPhC-registered and fully licensed to operate
-                in the UK
+                We only list UK pharmacies that are fully licensed and{" "}
+                <span className="font-bold">GPhC-registered</span>. We make sure
+                your experience as a customer is both safe and reliable.
               </p>
             </div>
 
@@ -50,12 +51,13 @@ export default function WhyChooseMango() {
               </div>
 
               <h3 className="!text-lg !font-semibold mt-2 transition-colors duration-300 group-hover:!text-[rgb(16_185_129)]">
-                Transparent Pricing with No Hidden Fees
+                Transparent Pricing
               </h3>
 
               <p className="text-md text-gray-500 mt-2">
-                See exactly what you'll pay upfront - no surprises or additional
-                charges
+                We show you the full cost upfront, including delivery fees. With
+                us, there are no hidden costs, and you’ll always know exactly
+                what you’re paying for.
               </p>
             </div>
 
@@ -72,12 +74,13 @@ export default function WhyChooseMango() {
               </div>
 
               <h3 className="!text-lg !font-semibold mt-2 transition-colors duration-300 group-hover:!text-[rgb(16_185_129)]">
-                Save Up to 27% Instantly
+                Up to 27% in Savings
               </h3>
 
               <p className="text-md text-gray-500 mt-2">
-                Our comparison engine finds the lowest prices across all major
-                UK pharmacies
+                Our price comparison tool and exclusive discounts help you find
+                the lowest treatment price. Choosing the right deal can save you
+                up to 27%.
               </p>
             </div>
           </div>
