@@ -81,19 +81,19 @@ export default function HomeHero() {
               <div className="flex flex-col md:flex-row gap-4 mb-6">
                 <a
                   href="#price-compare"
-                  className="bg-orange-500 inline-block cursor-pointer text-center md:text-start text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-orange-600 transition duration-200"
+                  className="bg-orange-500 inline-block cursor-pointer text-center md:text-start text-white font-semibold px-3 lg:px-6 py-3 rounded-lg shadow hover:bg-orange-600 transition duration-200"
                 >
                   Compare Prices Now
                 </a>
                 <a
                   href="#how-it-work"
-                  className="border inline-block cursor-pointer text-center md:text-start border-[rgb(16_185_129)] text-[rgb(16_185_129)] font-semibold px-6 py-3 rounded-lg hover:bg-[rgb(16_185_129)] hover:text-[#ffffff] transition duration-200"
+                  className="border inline-block cursor-pointer text-center md:text-start border-[rgb(16_185_129)] text-[rgb(16_185_129)] font-semibold px-3 lg:px-6 py-3 rounded-lg hover:bg-[rgb(16_185_129)] hover:text-[#ffffff] transition duration-200"
                 >
                   Learn How It Works
                 </a>
               </div>
 
-              <div className="flex !justify-between md:!justify-start gap-1 md:gap-6 text-sm text-gray-600 font-medium">
+              <div className="flex !justify-between md:!justify-start                                                                                                                  gap-1 md:gap-6 text-sm text-gray-600 font-medium">
                 <span className="flex text-[9px] md:text-sm items-center gap-1">
                   <MdVerified className=" text-lg text-[rgb(16_185_129)]" /> GPhC
                   Verified
