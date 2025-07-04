@@ -4,7 +4,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 const HomeHeroSkeletonWegovy = () => {
   return (
     <div className="space-y-2">
-      {[1, 2,].map((_, index) => (
+      {[1, 2,3].map((_, index) => (
         <div
           key={index}
           className="flex justify-between items-center p-4 rounded-xl bg-gray-100"

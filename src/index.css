@@ -1,64 +1,72 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
-    font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .ck-rounded-corners .ck.ck-editor__main > .ck-editor__editable {
   min-height: 300px;
 }
+/* hide-scroll.css */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 @media (min-width: 1260px) and (max-width: 1290px) {
-    .custom-width {
-      width: 95%;
-    }
+  .custom-width {
+    width: 95%;
   }
+}
 
-  @media  (max-width: 760px) {
-    table {
-      width: 400px !important;
-    }
-  }
-
-  .prose {
-    width: 100%;
-  }
-
-  h2 {
-     color: black;
-    font-weight: 600;
-    font-size: 16pt;
-    padding-top: 10px;
-    padding-bottom: 5px;
-  }
-
-  h3 {
-     color: black;
-    font-weight: 500;
-    font-size: 14pt;
-    padding-top: 10px;
-    padding-bottom: 5px;
-  }
-
-  .prose h2 {
-    color: black;
-    font-weight: 600;
-    font-size: 16pt;
-    padding-top: 10px;
-    padding-bottom: 5px;
-  }
-
-  .p {
-    margin-bottom: 10px;
-  }
-
-  .prose p {
-    margin-bottom: 10px !important;
-  }
-
+@media (max-width: 760px) {
   table {
+    width: 400px !important;
+  }
+}
+
+.prose {
+  width: 100%;
+}
+
+h2 {
+  color: black;
+  font-weight: 600;
+  font-size: 16pt;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: black;
+  font-weight: 500;
+  font-size: 14pt;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.prose h2 {
+  color: black;
+  font-weight: 600;
+  font-size: 16pt;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.p {
+  margin-bottom: 10px;
+}
+
+.prose p {
+  margin-bottom: 10px !important;
+}
+
+table {
   width: 100%;
   border-collapse: collapse;
 }
@@ -69,13 +77,12 @@ body {
 
 figure {
   width: 100% !important;
-   margin-top: 10px;
-   margin-bottom: 20px;
-
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-table, 
-table th, 
+table,
+table th,
 table td {
   border: 1px solid #000; /* Black borders */
 }
@@ -88,28 +95,28 @@ table td {
 
 ul {
   list-style-type: disc;
-  margin-left: 1.25rem ;
-  padding-left: 1.25rem 
+  margin-left: 1.25rem;
+  padding-left: 1.25rem;
 }
 
 ol {
-  list-style-type: decimal ;
-  margin-left: 1.25rem ;
-  padding-left: 1.25rem ;
+  list-style-type: decimal;
+  margin-left: 1.25rem;
+  padding-left: 1.25rem;
 }
 
 li {
-  display: list-item ;
+  display: list-item;
 }
 
-  a > em > span {
-    color: blue !important;
-  }
+a > em > span {
+  color: blue !important;
+}
 
-  a > span {
-    color: blue !important;
-  }
+a > span {
+  color: blue !important;
+}
 
-  a > u {
-    color: blue !important;
-  }
+a > u {
+  color: blue !important;
+}

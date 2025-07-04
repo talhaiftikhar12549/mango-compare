@@ -44,7 +44,7 @@ export default function HomeHero() {
         const apiDtaW = filteredByMgW
           .slice()
           .sort((a, b) => a.price - b.price)
-          .slice(0, 2);
+          .slice(0, 3);
         setApiDataW(apiDtaW);
 
         console.log("API Data Mounjaro:", apiDtaM);
@@ -71,17 +71,17 @@ export default function HomeHero() {
               </span>
 
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                No More Hassle – Find the{" "}
-                <span className="text-[rgb(16_185_129)]">Cheapest</span> Weight
-                Loss Treatments in the UK
+                No More Hassle – Get the{" "}
+                <span className="text-[rgb(16_185_129)]">Cheapest</span>{" "}
+                Mounjaro and Wegovy in the UK
               </h1>
 
               <p className="text-gray-600 text-lg mb-6">
-                Compare Wegovy and Mounjaro from{" "}
-                <span className="font-bold">GPhC-registered</span> pharmacies in
-                seconds. Save up to{" "}
+                Find the best deals from{" "}
+                <span className="font-bold">GPhC-registered</span> pharmacies
+                with our free price comparison tool. Save up to{" "}
                 <span className="text-[#ee9c25] font-semibold">27%</span> on
-                your treatment.
+                your weight loss prescription.
               </p>
 
               <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -161,22 +161,6 @@ export default function HomeHero() {
                             </li>
                           ))}
                         </ul>
-                        <div>
-                          <div
-                            className={`bg-orange-50 list-none rounded-xl flex justify-between p-4 mt-[8px]`}
-                          >
-                            <div className="flex justify-between items-center w-full">
-                              <div className="!text-[16px] font-[600]">
-                                <p>
-                                  💰{" "}
-                                  <span className="text-[#ee9c25]">
-                                    Save £30 vs highest price
-                                  </span>
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </>
                     )}
                   </div>

@@ -20,15 +20,15 @@ export default function HowItWork() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6  mx-auto">
             {/* Step 1 */}
-            <div className="bg-white border-2 border-[#ffffff] hover:border-[#10b98133]  rounded-xl p-8 shadow-sm transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
-              <div className="flex justify-center text-black mb-4">
+            <div className="bg-white group border-2 border-[#ffffff] hover:border-[#10b98133]  rounded-xl p-8 shadow-sm transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+              <div className="flex justify-center text-black mb-4 transition-transform duration-300">
                 {/* <Search className="w-6 h-6" /> */}
-                <IoSearchSharp className="text-[38px]" />
+                <IoSearchSharp className="transition-transform duration-300 group-hover:scale-110 text-[38px]" />
               </div>
               <div className="text-[40px] md:!text-5xl font-bold text-gray-900">
                 01
               </div>
-              <h3 className="md:!text-xl !font-bold mt-2">
+              <h3 className=" group-hover:!text-[rgb(16_185_129)] transition-colors duration-300 md:!text-xl !font-bold mt-2">
                 Choose Your Treatment
               </h3>
               <p className="text-md text-gray-500 mt-2">
@@ -37,30 +37,30 @@ export default function HowItWork() {
             </div>
 
             {/* Step 2 */}
-            <div className="bg-white border-2 border-[#ffffff] hover:border-[#10b98133]  rounded-xl p-8 shadow-sm transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
-              <div className="flex justify-center text-black mb-4">
+            <div className="bg-white group border-2 border-[#ffffff] hover:border-[#10b98133]  rounded-xl p-8 shadow-sm transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+              <div className="flex justify-center text-black mb-4 transition-transform duration-300">
                 {/* <ChevronRight className="w-6 h-6" /> */}
-                <IoColorFilterOutline className="text-[38px]" />
+                <IoColorFilterOutline className="transition-transform duration-300 group-hover:scale-110 text-[38px]" />
               </div>
               <div className="text-[40px] md:!text-5xl font-bold text-gray-900">
                 02
               </div>
-              <h3 className="!text-xl !font-bold mt-2">Set Your Filters</h3>
+              <h3 className=" group-hover:!text-[rgb(16_185_129)] transition-colors duration-300 !text-xl !font-bold mt-2">Set Your Filters</h3>
               <p className="text-md text-gray-500 mt-2">
                 Choose the dose, price range, and strength for your medication. We instantly show results that align with your needs and requirements.
               </p>
             </div>
 
             {/* Step 3 */}
-            <div className="bg-white border-2 border-[#ffffff] hover:border-[#10b98133]  rounded-xl p-8 shadow-sm transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
-              <div className="flex justify-center text-black mb-4">
+            <div className="bg-white group border-2 border-[#ffffff] hover:border-[#10b98133]  rounded-xl p-8 shadow-sm transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
+              <div className="flex justify-center text-black mb-4 transition-transform duration-300">
                 {/* <Check className="w-6 h-6" /> */}
-                <FaRegCheckCircle className="text-[38px]" />
+                <FaRegCheckCircle className="transition-transform duration-300 group-hover:scale-110 text-[38px]" />
               </div>
               <div className="text-[40px] md:!text-5xl font-bold text-gray-900">
                 03
               </div>
-              <h3 className="!text-xl !font-bold mt-2">
+              <h3 className=" group-hover:!text-[rgb(16_185_129)] transition-colors duration-300 !text-xl !font-bold mt-2">
                 Compare & Order Online
               </h3>
               <p className="text-md text-gray-500 mt-2">

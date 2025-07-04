@@ -44,7 +44,7 @@ export default function DosagePlan() {
                 className={`px-6 py-3 w-full rounded-lg font-medium flex items-center cursor-pointer justify-center gap-2 text-white transition-all duration-300 ${
                   activeTab === "mounjaro"
                     ? "bg-[rgb(16_185_129)] shadow-md !font-bold"
-                    : "bg-[#ffffff] !text-gray-600 !font-bold"
+                    : "bg-gray-100 !text-gray-600 !font-bold"
                 }`}
               >
                 <FaBolt /> Mounjaro
@@ -54,7 +54,7 @@ export default function DosagePlan() {
                 className={`px-6 py-3 w-full rounded-lg font-medium flex items-center cursor-pointer justify-center gap-2 text-white transition-all duration-300 ${
                   activeTab === "wegovy"
                     ? "bg-[rgb(245_158_11)] shadow-md !font-bold"
-                    : "bg-[#ffffff] !text-gray-600 !font-bold"
+                    : "bg-gray-100 !text-gray-600 !font-bold"
                 }`}
               >
                 <BsGraphUpArrow /> Wegovy
@@ -63,7 +63,9 @@ export default function DosagePlan() {
 
             {/* Accordion Content */}
             <div
-              className={`flex flex-col lg:flex-row gap-6 justify-between items-stretch ${fadeClass}`}
+              className={`flex  ${
+                activeTab === "wegovy" ? "flex-col-reverse" : "flex-col"
+              } lg:flex-row gap-6 justify-between items-stretch ${fadeClass}`}
             >
               {activeTab === "mounjaro" && (
                 <>
@@ -146,6 +148,7 @@ export default function DosagePlan() {
                       </div>
                     </div>
                   </div>
+                  {/* Left Card */}
 
                   {/* Right Card */}
                   <div className="bg-green-50 border border-green-100 rounded-xl p-10 w-full shadow-sm flex flex-col justify-between flex-1">
@@ -158,7 +161,9 @@ export default function DosagePlan() {
                         4-week supply
                       </p>
                       <div className="bg-green-100 text-sm text-green-800 py-2 px-4 rounded mb-3">
-                        💰 Compare prices from 12,000+ UK pharmacies
+                        💰 Compare prices from{" "}
+                        <span className="font-bold">GPhc-registered </span>
+                        pharmacies in UK
                       </div>
                       <NavLink to="/mounjaro-compare">
                         <button className="bg-[rgb(16_185_129)] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
@@ -183,11 +188,51 @@ export default function DosagePlan() {
                       </div>
                     </div>
                   </div>
+                  {/* Right Card */}
                 </>
               )}
 
               {activeTab === "wegovy" && (
                 <>
+                  {/* Right Card */}
+                  <div className="bg-[#f8f5ee] border border-[#ffe2b7] rounded-xl p-10 w-full shadow-sm flex flex-col justify-between flex-1">
+                    <div>
+                      <p className="text-sm text-gray-500">Starting from</p>
+                      <p className="text-4xl py-1 font-bold text-[#ee9c25]">
+                        £{wVal}
+                      </p>
+                      <p className="text-sm text-gray-500 mb-4">
+                        4-week supply
+                      </p>
+                      <div className="bg-[#fff2df] text-sm text-[#ee9c25] py-2 px-4 rounded mb-3">
+                        💰 Compare prices from{" "}
+                        <span className="font-bold">GPhc-registered </span>
+                        pharmacies in UK
+                      </div>
+                      <NavLink to="/wegovy-compare">
+                        <button className="bg-[#ee9c25] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
+                          Compare Wegovy Prices
+                        </button>
+                      </NavLink>
+                    </div>
+                    <div className="mt-6 text-center">
+                      <p className="text-xs text-gray-400">
+                        We show only trusted options with transparent pricing
+                      </p>
+                      <div className="flex justify-center gap-4 mt-2 text-xs text-gray-500">
+                        <div className="flex items-center gap-1">
+                          <MdVerified className="text-lg text-[#ee9c25]" /> GPhC
+                          Verified
+                        </div>
+                        <div className="flex items-center gap-1">
+                          {" "}
+                          <RiDiscountPercentFill className="text-lg text-[#ee9c25]" />{" "}
+                          No Hidden Fees
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* Right Card */}
                   {/* Left Card */}
                   <div className="bg-white rounded-xl p-5 md:p-10 text-left shadow-sm w-full flex-1">
                     <div className="flex items-center gap-3 mb-3">
@@ -262,48 +307,12 @@ export default function DosagePlan() {
                       </div>
                     </div>
                   </div>
-
-                  {/* Right Card */}
-                  <div className="bg-[#f8f5ee] border border-[#ffe2b7] rounded-xl p-10 w-full shadow-sm flex flex-col justify-between flex-1">
-                    <div>
-                      <p className="text-sm text-gray-500">Starting from</p>
-                      <p className="text-4xl py-1 font-bold text-[#ee9c25]">
-                        £{wVal}
-                      </p>
-                      <p className="text-sm text-gray-500 mb-4">
-                        4-week supply
-                      </p>
-                      <div className="bg-[#fff2df] text-sm text-[#ee9c25] py-2 px-4 rounded mb-3">
-                        💰 Compare prices from 12,000+ UK pharmacies
-                      </div>
-                      <NavLink to="/wegovy-compare">
-                        <button className="bg-[#ee9c25] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
-                          Compare Wegovy Prices
-                        </button>
-                      </NavLink>
-                    </div>
-                    <div className="mt-6 text-center">
-                      <p className="text-xs text-gray-400">
-                        We show only trusted options with transparent pricing
-                      </p>
-                      <div className="flex justify-center gap-4 mt-2 text-xs text-gray-500">
-                        <div className="flex items-center gap-1">
-                          <MdVerified className="text-lg text-[#ee9c25]" /> GPhC
-                          Verified
-                        </div>
-                        <div className="flex items-center gap-1">
-                          {" "}
-                          <RiDiscountPercentFill className="text-lg text-[#ee9c25]" />{" "}
-                          No Hidden Fees
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  {/* Left Card */}
                 </>
               )}
             </div>
 
-            <div className="mt-12">
+            {/* <div className="mt-12">
               <p className="text-sm text-gray-500 mb-2">
                 Not sure which treatment is right for you?
               </p>
@@ -314,7 +323,7 @@ export default function DosagePlan() {
               >
                 Explore More
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

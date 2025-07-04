@@ -30,20 +30,6 @@ export default function StartYourJourney() {
                 </div>
               </div>
 
-              {/* <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full mb-6">
-          <a
-            href="#price-compare"
-            className="bg-[#10b982] w-full md:w-auto text-center hover:shadow-md text-white font-bold py-3 px-6 rounded-lg text-md transition"
-          >
-            Compare Mounjaro Prices →
-          </a>
-          <a
-            href="#price-compare"
-            className="bg-[#ed9c29] w-full md:w-auto text-center hover:shadow-md text-white font-bold py-3 px-6 rounded-lg text-md transition"
-          >
-            Compare Wegovy Prices →
-          </a>
-        </div> */}
               <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full mb-6">
                 <a
                   href="#price-compare"
@@ -57,9 +43,9 @@ export default function StartYourJourney() {
                 Free to use • Instant results • Secure and confidential
               </p>
 
-              <hr className="my-8 border-gray-200" />
+              {/* <hr className="my-8 border-gray-200" /> */}
 
-              <div className="flex justify-center gap-4 md:gap-10 text-center">
+              {/* <div className="flex justify-center gap-4 md:gap-10 text-center">
                 <div className="flex flex-col items-center justify-center">
                   <p className="text-[rgb(16_185_129)] font-bold text-xl">
                     15,000+
@@ -80,7 +66,8 @@ export default function StartYourJourney() {
                     Partner Pharmacies
                   </p>
                 </div>
-              </div>
+              </div> */}
+
             </div>
           </div>
         </div>
