@@ -96,13 +96,13 @@ export default function HomeFaqs() {
               >
                 <button
                   onClick={() => toggleAccordion(index)}
-                  className="group w-full flex items-center justify-between px-6 py-4 cursor-pointer"
+                  className="group w-full flex items-start justify-between px-6 py-4 cursor-pointer"
                 >
                   <div className="flex items-center gap-3">
                     <div className="text-xl group-hover:scale-110 transition-transform">
                       {item.icon}
                     </div>
-                    <p className="font-medium text-sm md:text-base text-gray-800 duration-300 group-hover:text-[rgb(16_185_129)]">
+                    <p className="font-medium text-start text-sm md:text-base text-gray-800 duration-300 group-hover:text-[rgb(16_185_129)]">
                       {item.title}
                     </p>
                   </div>

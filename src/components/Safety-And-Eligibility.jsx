@@ -62,7 +62,7 @@ export default function SafetyAndEligibility() {
                     <div className="text-xl transform transition-transform group-hover:scale-110">
                       {item.icon}
                     </div>
-                    <p className="font-medium text-sm md:text-base text-gray-800 group-hover:text-[rgb(16_185_129)] duration-300">
+                    <p className="font-medium text-start text-sm md:text-base text-gray-800 group-hover:text-[rgb(16_185_129)] duration-300">
                       {item.title}
                     </p>
                   </div>
