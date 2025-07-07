@@ -25,8 +25,10 @@ import Posts from "./pages/Posts.jsx";
 import PostDetail from "./pages/PostDetail.jsx";
 import ForummLayout from "./components/postLayout/Layout.jsx";
 import Layout from "./pages/layout.jsx";
+import "./App.css";
 
 createRoot(document.getElementById("root")).render(
+  
   <StrictMode>
     <Provider store={store}>
       <Router>

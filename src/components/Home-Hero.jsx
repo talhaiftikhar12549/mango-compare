@@ -2,10 +2,33 @@ import { NavLink } from "react-router-dom";
 import { AiFillStop } from "react-icons/ai";
 import { BsFillLightningChargeFill } from "react-icons/bs";
 import { MdVerified } from "react-icons/md";
-import HomeHeroSkeletonWegovy from "./HomeHeroSkeletonWegovy.jsx";
+import { useState,useEffect } from "react";
 import MounjaroBoxHome from "./MounjaroBoxHome.jsx";
 import WegovyBoxHome from "./WegovyBoxHome.jsx";
+import api from "../services/api.js";
+
 export default function HomeHero() {
+  const [dataM, setDataM] = useState([]);
+  const [dataW, setDataW] = useState([]);
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const response = await api.get("/medicine");
+        const mdata = response.data.data.filter(
+          (item) => item.medicine === "Mounjaro"
+        );
+        setDataM(mdata)
+        const wdata = response.data.data.filter(
+          (item) => item.medicine === "Mounjaro"
+        );
+        setDataW(wdata)
+      } catch (error) {
+        console.log("Failed to fetch listings", error);
+      }
+    };
+
+    fetchListings();
+  }, []);
   return (
     <>
       {/* New Home */}
@@ -112,7 +135,7 @@ export default function HomeHero() {
                       </>
                     )}
                   </div> */}
-                  <MounjaroBoxHome />
+                  <MounjaroBoxHome dataM={dataM} />
                 </div>
               </NavLink>
               {/* Wegovy Card */}
@@ -162,7 +185,7 @@ export default function HomeHero() {
                       </ul>
                     )}
                   </div> */}
-                  <WegovyBoxHome/>
+                  <WegovyBoxHome dataW={dataW} />
                 </div>
               </NavLink>
             </div>
