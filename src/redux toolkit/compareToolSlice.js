@@ -44,11 +44,11 @@ export const compareToolSlice = createSlice({
     },
     mLowPrice: (state, action) => {
       state.manjaroLowest = action.payload;
-      console.log(" state.manjaroLowest" , state.manjaroLowest)
+      
     },
    wLowPrice: (state, action) => {
       state.wegovyLowest = action.payload;
-      console.log(" state.wegovyLowest" , state.wegovyLowest)
+      
     },
   },
 });

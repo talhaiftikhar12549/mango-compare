@@ -1,11 +1,9 @@
-import footerLogo from "../assets/footer/footerLogo.png";
+import footerLogo from "../assets/footer/footerLogo.webp";
 import { NavLink } from "react-router-dom";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaRedditAlien } from "react-icons/fa";
 import { IoLogoTiktok } from "react-icons/io5";
 import { RiTwitterXLine } from "react-icons/ri";
-import { FaQuora } from "react-icons/fa";
 export default function FooterBar() {
   return (
     <>
@@ -33,32 +31,56 @@ export default function FooterBar() {
                 <div className="flex flex-wrap just">
                   {/* Contact Column */}
                   <div className="w-full md:w-1/2 mb-8 md:mb-0">
-                    <h3 className="text-xl font-semibold mb-4 text-white">
+                    <h3 className="text-xl font-semibold mb-4 !text-white">
                       Links
                     </h3>
-                    <span className="w-3/4 space-y-[16px] pt-[24px] text-gray-300 flex flex-col space-y-5">
-                    
-                        <NavLink className="hover:text-[#FCC821]" to="/">Home</NavLink>
-                    
-                     
-                        <NavLink className="hover:text-[#FCC821]"  to="mounjaro-compare">Mounjaro</NavLink>
-                      
-                  
-                        <NavLink className="hover:text-[#FCC821]" to="wegovy-compare">Wegovy</NavLink>
-                   
-                      
-                        <NavLink className="hover:text-[#FCC821]" to="blogs">Blogs</NavLink>
-                  
-                    
-                        <NavLink className="hover:text-[#FCC821]" to="contact-us">Contact Us</NavLink>
-                    
+                    <span className="w-3/4 space-y-[16px] pt-[24px] text-gray-300 flex flex-col ">
+                      <NavLink
+                        aria-label="Home"
+                        className="hover:text-[#FCC821]"
+                        to="/"
+                      >
+                        Home
+                      </NavLink>
+
+                      <NavLink
+                        aria-label="Mounjaro"
+                        className="hover:text-[#FCC821]"
+                        to="mounjaro-compare"
+                      >
+                        Mounjaro
+                      </NavLink>
+
+                      <NavLink
+                        aria-label="Wegovy"
+                        className="hover:text-[#FCC821]"
+                        to="wegovy-compare"
+                      >
+                        Wegovy
+                      </NavLink>
+
+                      <NavLink
+                        aria-label="Blogs"
+                        className="hover:text-[#FCC821]"
+                        to="blogs"
+                      >
+                        Blogs
+                      </NavLink>
+
+                      <NavLink
+                        aria-label="Forum"
+                        className="hover:text-[#FCC821]"
+                        to="contact-us"
+                      >
+                        Contact Us
+                      </NavLink>
                     </span>
                   </div>
 
                   {/* Links & Social Column */}
                   <div className="w-full md:w-1/2 flex flex-col gap-y-[36px]">
                     <div>
-                      <h3 className="text-xl font-semibold mb-4 text-white">
+                      <h3 className="text-xl font-semibold mb-4 !text-white">
                         Contact
                       </h3>
                       <span className="w-3/4 space-y-[16px] pt-[24px] text-gray-300">
@@ -75,7 +97,7 @@ export default function FooterBar() {
                       </span>
                     </div>
                     <div>
-                      <h3 className="text-xl text-start font-semibold mb-2 text-white">
+                      <h3 className="text-xl text-start font-semibold mb-2 !text-white">
                         Social Media
                       </h3>
                       <div className="flex justify-start items-center  gap-2 py-2">
@@ -84,6 +106,8 @@ export default function FooterBar() {
                           rel="noopener noreferrer"
                           href="https://www.facebook.com/share/12KVqbtETnb/"
                           className="transition-transform duration-200 hover:scale-110"
+                          aria-label="Share on Facebook"
+                          title="Share on Facebook"
                         >
                           <FaFacebookF
                             className="text-[24px] transition-colors duration-200"
@@ -101,6 +125,8 @@ export default function FooterBar() {
                           rel="noopener noreferrer"
                           href="https://www.instagram.com/mangocompare/"
                           className="transition-transform duration-200 hover:scale-110"
+                          aria-label="Share on Instagram"
+                          title="Share on Instagram"
                         >
                           <FaInstagram
                             className="text-[24px] transition-colors duration-200"
@@ -118,6 +144,8 @@ export default function FooterBar() {
                           rel="noopener noreferrer"
                           href="https://www.tiktok.com/@mangocompare"
                           className="transition-transform duration-200 hover:scale-110"
+                          aria-label="Share on tiktok"
+                          title="Share on tiktok"
                         >
                           <IoLogoTiktok
                             className="text-[24px] transition-colors duration-200"
@@ -135,6 +163,8 @@ export default function FooterBar() {
                           rel="noopener noreferrer"
                           href="https://x.com/MangoCompare"
                           className="transition-transform duration-200 hover:scale-110"
+                          aria-label="Share on twitter"
+                          title="Share on twitter"
                         >
                           <RiTwitterXLine
                             className="text-[24px] transition-colors duration-200"
@@ -147,13 +177,6 @@ export default function FooterBar() {
                             }
                           />
                         </a>
-                        {/* <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          href="https://www.quora.com/profile/Flynn-Rider-198"
-                        >
-                          <FaQuora className="text-[24px] pointer" />
-                        </a> */}
                       </div>
                     </div>
                   </div>

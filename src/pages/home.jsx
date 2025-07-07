@@ -7,10 +7,27 @@ import WhyChooseMango from "../components/Why-Choose-Mango.jsx";
 import SafetyAndEligibility from "../components/Safety-And-Eligibility.jsx";
 import StartYourJourney from "../components/Start-Your-Journey.jsx";
 import HomeFaqs from "../components/Home-Faqs.jsx";
+import { Helmet } from "react-helmet";
 
 export const Home = () => {
   return (
     <>
+      <Helmet>
+        {/* Meta Title */}
+        <title>Weight Loss Treatment Price Comparison UK</title>
+        {/* Meta Description */}
+        <meta
+          name="description"
+          content="Find the best prices for prescription weight loss treatments in the UK. Our free platform helps you compare trusted options like Mounjaro and Wegovy, making weight loss affordable for everyone."
+        />
+        {/* Focused Keyphrase (as keyword) */}
+        <meta
+          name="keywords"
+          content="Weight Loss Treatment UK, Price Comparison for Weight Loss Treatments, Compare Weight Loss Injections UK, Best Weight Loss Treatment Prices UK, Affordable Weight Loss Medication UK"
+        />
+
+        <link rel="canonical" href="https://www.mangocompare.com/" />
+      </Helmet>
       {/* Home Hero */}
       <Herohome />
       {/* Home Hero */}

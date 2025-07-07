@@ -2,62 +2,10 @@ import { NavLink } from "react-router-dom";
 import { AiFillStop } from "react-icons/ai";
 import { BsFillLightningChargeFill } from "react-icons/bs";
 import { MdVerified } from "react-icons/md";
-import { useEffect, useState } from "react";
-import api from "../services/api.js";
-import HomeHeroSkeletonMounjaro from "./HomeHeroSkeletonMounjaro.jsx";
 import HomeHeroSkeletonWegovy from "./HomeHeroSkeletonWegovy.jsx";
-import { useDispatch } from "react-redux";
-import { wLowPrice, mLowPrice } from "../redux toolkit/compareToolSlice.js";
+import MounjaroBoxHome from "./MounjaroBoxHome.jsx";
+import WegovyBoxHome from "./WegovyBoxHome.jsx";
 export default function HomeHero() {
-  const [apiDataM, setApiDataM] = useState([]);
-  const [apiDataW, setApiDataW] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const fetchListings = async () => {
-      try {
-        const response = await api.get("/medicine");
-
-        const dataM = response.data.data.filter(
-          (item) => item.medicine === "Mounjaro"
-        );
-        const dataW = response.data.data.filter(
-          (item) => item.medicine === "Wegovy"
-        );
-
-        if (dataM.length !== 0) {
-          setLoading(false);
-        }
-        if (dataW.length !== 0) {
-          setLoading(false);
-        }
-        const filteredByMgM = dataM.filter((item) => item.dosage === "2.5 mg");
-        console.log("Filtered Data Manjaro:", filteredByMgM);
-        const apiDtaM = filteredByMgM
-          .slice()
-          .sort((a, b) => a.price - b.price)
-          .slice(0, 3);
-        setApiDataM(apiDtaM);
-
-        const filteredByMgW = dataW.filter((item) => item.dosage === "0.25 mg");
-        console.log("Filtered Data Wegovy:", filteredByMgW);
-        const apiDtaW = filteredByMgW
-          .slice()
-          .sort((a, b) => a.price - b.price)
-          .slice(0, 3);
-        setApiDataW(apiDtaW);
-
-        console.log("API Data Mounjaro:", apiDtaM);
-        dispatch(mLowPrice(apiDtaM[0].price));
-        console.log("API Data Wegovy:", apiDtaW);
-        dispatch(wLowPrice(apiDtaW[0].price));
-      } catch (error) {
-        console.log("Failed to fetch listings", error);
-      }
-    };
-
-    fetchListings();
-  }, []);
   return (
     <>
       {/* New Home */}
@@ -118,7 +66,7 @@ export default function HomeHero() {
             {/* Right Column */}
             <div className="flex-1 flex flex-col gap-6">
               {/* Mounjaro Card */}
-              <NavLink to="/mounjaro-compare">
+              <NavLink aria-label="Mounjaro-compare" to="/mounjaro-compare">
                 <div className="bg-white  rounded-xl shadow-md p-4 md:p-6 border-[2px] border-[#10b98133] transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl">
                   <div className="flex justify-between items-center ">
                     <h2 className="text-[12px] font-bold">Mounjaro 2.5mg</h2>
@@ -127,7 +75,7 @@ export default function HomeHero() {
                     </span>
                   </div>
                   <p className="text-sm text-gray-500 mb-4">4-week supply</p>
-                  <div className="p-0 m-0">
+                  {/* <div className="p-0 m-0">
                     {loading ? (
                       <HomeHeroSkeletonMounjaro />
                     ) : (
@@ -163,11 +111,12 @@ export default function HomeHero() {
                         </ul>
                       </>
                     )}
-                  </div>
+                  </div> */}
+                  <MounjaroBoxHome />
                 </div>
               </NavLink>
               {/* Wegovy Card */}
-              <NavLink to="/wegovy-compare">
+              <NavLink aria-label="wegovy-compare" to="/wegovy-compare">
                 <div className="bg-white  border-[#ee9c2533] border-[2px] rounded-xl shadow-md transform transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl p-4 md:p-6">
                   <div className="flex justify-between items-center ">
                     <h2 className="text-lg font-semibold mb-1">
@@ -178,39 +127,42 @@ export default function HomeHero() {
                     </span>
                   </div>
                   <p className="text-sm text-gray-500 mb-4">4-week supply</p>
-                  {loading ? (
-                    <HomeHeroSkeletonWegovy />
-                  ) : (
-                    <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
-                      {apiDataW.map((item, index) => (
-                        <li
-                          key={index}
-                          className={`list-none rounded-xl flex justify-between p-4 ${
-                            index === 0
-                              ? "bg-orange-50"
-                              : "bg-[rgb(249_250_251)]"
-                          }`}
-                        >
-                          <div className="flex justify-between items-center w-full">
-                            <div className="!text-[16px] font-[600]">
-                              {item.pharmacy}
+                  {/* <div className="p-0 m-0">
+                    {loading ? (
+                      <HomeHeroSkeletonWegovy />
+                    ) : (
+                      <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
+                        {apiDataW.map((item, index) => (
+                          <li
+                            key={index}
+                            className={`list-none rounded-xl flex justify-between p-4 ${
+                              index === 0
+                                ? "bg-orange-50"
+                                : "bg-[rgb(249_250_251)]"
+                            }`}
+                          >
+                            <div className="flex justify-between items-center w-full">
+                              <div className="!text-[16px] font-[600]">
+                                {item.pharmacy}
+                              </div>
+                              <div>
+                                <span
+                                  className={`font-bold ${
+                                    index === 0
+                                      ? "text-[#ee9c25]"
+                                      : "text-[#000000]"
+                                  }`}
+                                >
+                                  £{item.price}
+                                </span>
+                              </div>
                             </div>
-                            <div>
-                              <span
-                                className={`font-bold ${
-                                  index === 0
-                                    ? "text-[#ee9c25]"
-                                    : "text-[#000000]"
-                                }`}
-                              >
-                                £{item.price}
-                              </span>
-                            </div>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div> */}
+                  <WegovyBoxHome/>
                 </div>
               </NavLink>
             </div>

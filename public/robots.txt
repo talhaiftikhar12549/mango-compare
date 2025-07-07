@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mango-compare.netlify.app/sitemap.xml

@@ -89,9 +89,15 @@ export default function HomeOurBlog() {
                         )}
                       </p>
 
-                      <NavLink to={`/single-blog/${blog.slug}`}>
+                      <NavLink
+                        to={`/single-blog/${blog.slug}`}
+                        aria-label={`Read more about ${blog.title}`}
+                        title={`Read more about ${blog.title}`}
+                        className="inline-flex items-center group"
+                      >
                         <h4 className="text-[18px] pt-[10px] font-[600] font-montserrat text-[#000000] group-hover:!text-[#10b981] duration-300 inline-flex items-center cursor-pointer mt-auto">
                           Read More
+                          <span className="sr-only"> about {blog.title}</span>
                           <FaArrowRight className="ml-2" />
                         </h4>
                       </NavLink>

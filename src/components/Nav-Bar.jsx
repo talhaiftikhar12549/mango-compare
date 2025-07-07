@@ -1,4 +1,4 @@
-import logo from "../assets/nav/logo.png";
+import logo from "../assets/nav/logo.webp";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 export default function NavBar() {
@@ -26,7 +26,7 @@ export default function NavBar() {
       <header className=" w-full max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto py-[16px]">
         <div className="flex justify-between items-center max-w-[1280px]">
           <div className="w-[50%] md:w-[25%] lg:w-[35%] ">
-            <NavLink to="/" className="pointer">
+            <NavLink aria-label="Home" to="/" className="pointer">
               <img className="max-h-[57px]" src={logo} alt="" />
             </NavLink>
           </div>
@@ -34,6 +34,7 @@ export default function NavBar() {
             <div className="space-x-0 md:space-x-4 lg:space-x-7 ">
               <NavLink
                 to="/"
+                aria-label="Home"
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
@@ -45,6 +46,7 @@ export default function NavBar() {
 
               <NavLink
                 to="/mounjaro-compare"
+                aria-label="Mounjaro"
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
@@ -56,6 +58,7 @@ export default function NavBar() {
 
               <NavLink
                 to="/wegovy-compare"
+                aria-label="Wegovy"
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
@@ -67,6 +70,7 @@ export default function NavBar() {
 
               <NavLink
                 to="/blogs"
+                aria-label="Blogs"
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
@@ -78,6 +82,7 @@ export default function NavBar() {
 
               <NavLink
                 to="/posts"
+                aria-label="Forum"
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821] mr-[6px] lg:mr-[16px]"
@@ -96,6 +101,7 @@ export default function NavBar() {
                 :
                 <NavLink
                   to="/login"
+                  aria-label="Login"
                   className={({ isActive }) =>
                     isActive
                       ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[12px] px-[32px]"
@@ -110,6 +116,7 @@ export default function NavBar() {
               }
               <NavLink
                 to="/contact-us"
+                aria-label="Contact Now"
                 className={({ isActive }) =>
                   isActive
                     ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[12px] px-[32px]"
@@ -139,7 +146,7 @@ export default function NavBar() {
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
                   >
-                    <NavLink className={"block w-[100%]"} to="/">
+                    <NavLink aria-label="Home" className={"block w-[100%]"} to="/">
                       Home
                     </NavLink>
                   </p>
@@ -150,6 +157,7 @@ export default function NavBar() {
                     <NavLink
                       className={"block w-[100%]"}
                       to="/mounjaro-compare"
+                      aria-label="Mounjaro"
                     >
                       Mounjaro
                     </NavLink>
@@ -158,7 +166,7 @@ export default function NavBar() {
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
                   >
-                    <NavLink className={"block w-[100%]"} to="/wegovy-compare">
+                    <NavLink aria-label="Wegovy" className={"block w-[100%]"} to="/wegovy-compare">
                       Wegovy
                     </NavLink>
                   </p>
@@ -166,7 +174,7 @@ export default function NavBar() {
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
                   >
-                    <NavLink className={"block w-[100%]"} to="/blogs">
+                    <NavLink aria-label="Blogs" className={"block w-[100%]"} to="/blogs">
                       Blogs
                     </NavLink>
                   </p>
@@ -174,7 +182,7 @@ export default function NavBar() {
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
                   >
-                    <NavLink className={"block w-[100%]"} to="/posts">
+                    <NavLink aria-label="Forum" className={"block w-[100%]"} to="/posts">
                       Forum
                     </NavLink>
                   </p>
@@ -184,6 +192,7 @@ export default function NavBar() {
                   >
                     <NavLink
                       to="/contact-us"
+                      aria-label="Contact Us"
                       className={({ isActive }) =>
                         isActive
                           ? "block w-full text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold py-[10px] px-[15px]"

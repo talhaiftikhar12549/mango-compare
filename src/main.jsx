@@ -67,24 +67,6 @@ createRoot(document.getElementById("root")).render(
                     </ProtectedRoute>
                   }
                 />
-
-                {/* <Route
-                  path="posts"
-                  element={
-                    <ProtectedRoute allowedRoles={['admin', 'user']}>
-                      <Forums />
-                    </ProtectedRoute>
-                  }
-                />
-
-                 <Route
-                  path="posts/:id"
-                  element={
-                    <ProtectedRoute allowedRoles={['admin', 'user']}>
-                      <SinglePost />
-                    </ProtectedRoute>
-                  }
-                /> */}
               </Route>
               <Route
                 element={
@@ -96,12 +78,6 @@ createRoot(document.getElementById("root")).render(
                 <Route path="/posts" element={<Posts />} />
                 <Route path="/posts/:id" element={<PostDetail />} />
               </Route>
-              {/* <Route path="layout"
-                  element={
-                    <ProtectedRoute allowedRoles={['admin', 'user']}>
-                      <Layout />
-                    </ProtectedRoute>
-                  }></Route> */}
             </Routes>
           </Suspense>
         </AuthProvider>
