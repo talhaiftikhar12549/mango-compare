@@ -106,26 +106,26 @@ export default function BMICalculator() {
                 <div className="mb-6">
                   <span className="font-semibold">Unit System:</span>
                   <div className="flex gap-6 mt-2 flex-wrap">
-                    <label>
+                    <label className="cursor-pointer">
                       <input
                         type="radio"
                         name="unit"
                         value="metric"
                         checked={unitSystem === "metric"}
                         onChange={() => setUnitSystem("metric")}
-                        className="mr-2 accent-emerald-500"
-                      />
+                        className="appearance-none  w-3 h-3 border-2 border-emerald-500 rounded-full checked:bg-emerald-500 checked:border-emerald-500"
+                      />{" "}
                       Metric ( cm / kg)
                     </label>
-                    <label>
+                    <label className="cursor-pointer">
                       <input
                         type="radio"
                         name="unit"
                         value="imperial"
                         checked={unitSystem === "imperial"}
                         onChange={() => setUnitSystem("imperial")}
-                        className="mr-2 accent-emerald-500"
-                      />
+                        className="appearance-none cursor-pointer w-3 h-3 border-2 border-emerald-500 rounded-full checked:bg-emerald-500 checked:border-emerald-500"
+                      />{" "}
                       Imperial ( Ft / lb)
                     </label>
                   </div>
