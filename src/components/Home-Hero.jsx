@@ -2,14 +2,17 @@ import { NavLink } from "react-router-dom";
 import { AiFillStop } from "react-icons/ai";
 import { BsFillLightningChargeFill } from "react-icons/bs";
 import { MdVerified } from "react-icons/md";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import MounjaroBoxHome from "./MounjaroBoxHome.jsx";
 import WegovyBoxHome from "./WegovyBoxHome.jsx";
+import HomeHeroSkeletonMounjaro from "./HomeHeroSkeletonMounjaro.jsx";
 import api from "../services/api.js";
 
 export default function HomeHero() {
   const [dataM, setDataM] = useState([]);
   const [dataW, setDataW] = useState([]);
+  const [loadingM, setLoadingM] = useState(true);
+  const [loadingW, setLoadingW] = useState(true);
   useEffect(() => {
     const fetchListings = async () => {
       try {
@@ -17,11 +20,18 @@ export default function HomeHero() {
         const mdata = response.data.data.filter(
           (item) => item.medicine === "Mounjaro"
         );
-        setDataM(mdata)
+        setDataM(mdata);
+        if (mdata.length !== 0) {
+          setLoadingM(false);
+        }
+
         const wdata = response.data.data.filter(
-          (item) => item.medicine === "Mounjaro"
+          (item) => item.medicine === "Wegovy"
         );
-        setDataW(wdata)
+        setDataW(wdata);
+        if (wdata.length !== 0) {
+          setLoadingW(false);
+        }
       } catch (error) {
         console.log("Failed to fetch listings", error);
       }
@@ -98,44 +108,15 @@ export default function HomeHero() {
                     </span>
                   </div>
                   <p className="text-sm text-gray-500 mb-4">4-week supply</p>
-                  {/* <div className="p-0 m-0">
-                    {loading ? (
+                  <div className="p-0 m-0">
+                    {loadingM ? (
                       <HomeHeroSkeletonMounjaro />
                     ) : (
                       <>
-                        <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
-                          {apiDataM.map((item, index) => (
-                            <li
-                              key={index}
-                              className={`list-none rounded-xl flex justify-between p-4 ${
-                                index === 0
-                                  ? "bg-[rgb(16_185_129/_0.05)]"
-                                  : "bg-[rgb(249_250_251)]"
-                              }`}
-                            >
-                              <div className="flex justify-between items-center w-full">
-                                <div className="!text-[16px] font-[600]">
-                                  {item.pharmacy}
-                                </div>
-                                <div>
-                                  <span
-                                    className={`font-bold ${
-                                      index === 0
-                                        ? "text-[rgb(16_185_129)]"
-                                        : "text-[#000000]"
-                                    }`}
-                                  >
-                                    £{item.price}
-                                  </span>
-                                </div>
-                              </div>
-                            </li>
-                          ))}
-                        </ul>
+                        <MounjaroBoxHome dataM={dataM} />
                       </>
                     )}
-                  </div> */}
-                  <MounjaroBoxHome dataM={dataM} />
+                  </div>
                 </div>
               </NavLink>
               {/* Wegovy Card */}
@@ -150,42 +131,15 @@ export default function HomeHero() {
                     </span>
                   </div>
                   <p className="text-sm text-gray-500 mb-4">4-week supply</p>
-                  {/* <div className="p-0 m-0">
-                    {loading ? (
-                      <HomeHeroSkeletonWegovy />
+                  <div className="p-0 m-0">
+                    {loadingW ? (
+                      <HomeHeroSkeletonMounjaro />
                     ) : (
-                      <ul className="!list-none !pl-0 !ml-0 space-y-2 text-gray-800">
-                        {apiDataW.map((item, index) => (
-                          <li
-                            key={index}
-                            className={`list-none rounded-xl flex justify-between p-4 ${
-                              index === 0
-                                ? "bg-orange-50"
-                                : "bg-[rgb(249_250_251)]"
-                            }`}
-                          >
-                            <div className="flex justify-between items-center w-full">
-                              <div className="!text-[16px] font-[600]">
-                                {item.pharmacy}
-                              </div>
-                              <div>
-                                <span
-                                  className={`font-bold ${
-                                    index === 0
-                                      ? "text-[#ee9c25]"
-                                      : "text-[#000000]"
-                                  }`}
-                                >
-                                  £{item.price}
-                                </span>
-                              </div>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
+                      <>
+                        <WegovyBoxHome dataW={dataW} />
+                      </>
                     )}
-                  </div> */}
-                  <WegovyBoxHome dataW={dataW} />
+                  </div>
                 </div>
               </NavLink>
             </div>

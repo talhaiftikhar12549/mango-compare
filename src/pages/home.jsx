@@ -26,7 +26,7 @@ export const Home = () => {
           content="Weight Loss Treatment UK, Price Comparison for Weight Loss Treatments, Compare Weight Loss Injections UK, Best Weight Loss Treatment Prices UK, Affordable Weight Loss Medication UK"
         />
 
-        <link rel="canonical" href="https://www.mangocompare.com/" />
+        <link rel="canonical" href="https://mangocompare.co.uk/" />
       </Helmet>
       {/* Home Hero */}
       <Herohome />
