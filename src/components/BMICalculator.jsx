@@ -57,46 +57,50 @@ export default function BMICalculator() {
             <div className="w-full flex flex-col justify-between bg-[#ffffff] p-6 md:p-10 shadow-sm rounded-xl">
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="bg-green-100 p-4 rounded-lg">
-                    <GiWeightScale className="text-[rgb(16_185_129)] text-xl" />
+                  <div className="bg-[#dbfce7] p-4 rounded-lg">
+                    <GiWeightScale className="text-[#10b981] text-xl" />
                   </div>
                   <div className="flex flex-col">
                     <h3 className="font-bold text-2xl">BMI Calculator</h3>
                     <p className="text-sm text-gray-500">Body Mass Index</p>
                   </div>
-                  <span className="bg-green-100 text-[rgb(16_185_129)] text-xs px-3 py-1 rounded-full ml-auto">
+                  <span className="bg-[#dbfce7] text-[#10b981] text-xs px-3 py-1 rounded-full ml-auto">
                     Health
                   </span>
                 </div>
 
                 <div className="mb-4">
-                  <label className="block font-semibold mb-1">
-                    Height ({unitSystem === "metric" ? "cm" : "ft"})
-                  </label>
-                  <input
-                    type="number"
-                    value={height}
-                    onChange={(e) => setHeight(e.target.value)}
-                    placeholder={
-                      unitSystem === "metric" ? "e.g. 170" : "e.g. 5.8"
-                    }
-                    className="w-full p-2 border rounded-md focus:outline-none"
-                  />
+                  <div className="flex flex-col-reverse">
+                    <input
+                      type="number"
+                      value={height}
+                      onChange={(e) => setHeight(e.target.value)}
+                      placeholder={
+                        unitSystem === "metric" ? "e.g. 170" : "e.g. 5.8"
+                      }
+                      className="w-full p-2 rounded-md border-2 border-[#10b98133] focus:outline-none focus:border-[rgb(16_185_129)] hover:border-[rgb(16_185_129)] peer transition-colors duration-300"
+                    />
+                    <label className="mb-1 font-semibold text-gray-700 peer-focus:text-[rgb(16_185_129)] peer-hover:text-[rgb(16_185_129)] transition-colors duration-300">
+                      Height ({unitSystem === "metric" ? "cm" : "ft"})
+                    </label>
+                  </div>
                 </div>
 
                 <div className="mb-4">
-                  <label className="block font-semibold mb-1">
-                    Weight ({unitSystem === "metric" ? "kg" : "lb"})
-                  </label>
-                  <input
-                    type="number"
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                    placeholder={
-                      unitSystem === "metric" ? "e.g. 65" : "e.g. 160"
-                    }
-                    className="w-full p-2 border rounded-md focus:outline-none"
-                  />
+                  <div className="flex flex-col-reverse">
+                    <input
+                      type="number"
+                      value={weight}
+                      onChange={(e) => setWeight(e.target.value)}
+                      placeholder={
+                        unitSystem === "metric" ? "e.g. 65" : "e.g. 160"
+                      }
+                      className="w-full p-2 rounded-md border-2 border-[#10b98133] focus:outline-none focus:border-[rgb(16_185_129)] hover:border-[rgb(16_185_129)] peer transition-colors duration-300"
+                    />
+                    <label className="mb-1 font-semibold text-gray-700 peer-focus:text-[rgb(16_185_129)] peer-hover:text-[rgb(16_185_129)] transition-colors duration-300">
+                      Weight ({unitSystem === "metric" ? "kg" : "lb"})
+                    </label>
+                  </div>
                 </div>
 
                 <div className="mb-6">
@@ -109,9 +113,9 @@ export default function BMICalculator() {
                         value="metric"
                         checked={unitSystem === "metric"}
                         onChange={() => setUnitSystem("metric")}
-                        className="mr-1"
+                        className="mr-2 accent-emerald-500"
                       />
-                      Metric (cm/kg)
+                      Metric ( cm / kg)
                     </label>
                     <label>
                       <input
@@ -120,9 +124,9 @@ export default function BMICalculator() {
                         value="imperial"
                         checked={unitSystem === "imperial"}
                         onChange={() => setUnitSystem("imperial")}
-                        className="mr-1"
+                        className="mr-2 accent-emerald-500"
                       />
-                      Imperial (ft/lb)
+                      Imperial ( Ft / lb)
                     </label>
                   </div>
                 </div>
@@ -133,7 +137,7 @@ export default function BMICalculator() {
                   {" "}
                   <button
                     onClick={calculateBMI}
-                    className="bg-[rgb(16_185_129)] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition"
+                    className="bg-[#10b981] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition"
                   >
                     Calculate BMI
                   </button>
