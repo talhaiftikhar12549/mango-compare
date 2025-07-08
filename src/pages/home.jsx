@@ -8,6 +8,7 @@ import SafetyAndEligibility from "../components/Safety-And-Eligibility.jsx";
 import StartYourJourney from "../components/Start-Your-Journey.jsx";
 import HomeFaqs from "../components/Home-Faqs.jsx";
 import { Helmet } from "react-helmet";
+import BMICalculator from "../components/BMICalculator.jsx";
 
 export const Home = () => {
   return (
@@ -52,6 +53,9 @@ export const Home = () => {
       <SafetyAndEligibility />
       {/* Safety & Eligibility */}
 
+      {/* BMI Calculator */}
+      <BMICalculator />
+      {/* BMI Calculator */}
       {/* Home Our Blog */}
       <HomeOurBlog />
       {/* Home Our Blog */}
