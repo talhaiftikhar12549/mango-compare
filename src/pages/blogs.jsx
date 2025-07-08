@@ -37,7 +37,7 @@ const Blogs = () => {
   return (
     <>
       
-      <div className="max-w-[1280px] w-[100%] custom-width lg:px-[40px] xl:px-0 px-[16px] flex flex-col items-center justify-center">
+      <div className="max-w-[1280px] w-[100%] custom-width lg:px-[40px] xl:px-0 px-[16px] flex flex-col items-start justify-start">
         {/* HERO SECTION  */}
         <div className="w-full flex flex-col text-center py-10 space-y-2">
           <h1 className="text-[#FCC821] font-bold">OUR BLOGS</h1>
@@ -48,7 +48,7 @@ const Blogs = () => {
 
         {/* Blog Cards Grid */}
         <div className="w-full overflow-x-auto">
-          {loading ? (
+          {!loading ? (
             <div className=" flex flex-col md:flex-row items-center w-full gap-[22px]">
               {[1, 2, 3].map((_, index) => (
                 <BlogSkeleton key={index} />

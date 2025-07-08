@@ -381,6 +381,7 @@ export default function PriceCalculator({
                           className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
                         >
                           Visit Pharmacy
+                          <span className="sr-only">  {srtdata.pharmacy}</span>
                         </a>
                       ) : discountedPrice ? (
                         <div
@@ -396,6 +397,7 @@ export default function PriceCalculator({
                           className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
                         >
                           Visit Pharmacy
+                          <span className="sr-only">  {srtdata.pharmacy}</span>
                         </a> }
 
                       {/* Show the modal if the modal is open and the selected id matches */}

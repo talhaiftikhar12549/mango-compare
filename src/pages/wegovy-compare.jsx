@@ -1,4 +1,4 @@
-import image1 from "../assets/wegovy compare/wegovy.jpg";
+import image1 from "../assets/wegovy compare/wegovy.webp";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
