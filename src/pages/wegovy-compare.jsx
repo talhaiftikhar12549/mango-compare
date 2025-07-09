@@ -122,6 +122,7 @@ const WegovyCompare = () => {
             <PriceCalculator
               maindata={apiDataM}
               availableDoasge={availableDoasge}
+              totalPharmacy={totalPharmacy}
             />
           </div>
         )}

@@ -6,11 +6,15 @@ import { mainDatagetter } from "../redux toolkit/compareToolSlice";
 import { IoClose } from "react-icons/io5";
 import Img from "../assets/price tool/img.png";
 import { FaRegCopy } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import { MdShield } from "react-icons/md";
+import { FaAward } from "react-icons/fa6";
 
 export default function PriceCalculator({
   maindata,
   availableDoasge,
   isResetter,
+  totalPharmacy,
 }) {
   // Form detail
   const [discountedFilteredPrice, setDiscountedFilteredPrice] = useState([]);
@@ -69,7 +73,7 @@ export default function PriceCalculator({
     setDiscountIsModalOpen(true);
     setSelectedDiscountId(id);
   };
-  
+
   // navbar filters Price and Ratting Filter
   const fltrData = useSelector((state) => state.compareTool.mainData);
   const filteredMaxValue = useSelector(
@@ -184,7 +188,7 @@ export default function PriceCalculator({
 
   // card data
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 20;
+  const itemsPerPage = 10;
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -217,8 +221,8 @@ export default function PriceCalculator({
   useEffect(() => {
     function handleClickOutside(event) {
       if (
-        isDiscountModalOpen && 
-        modalRef.current && 
+        isDiscountModalOpen &&
+        modalRef.current &&
         !modalRef.current.contains(event.target)
       ) {
         closeDiscountModal();
@@ -231,17 +235,16 @@ export default function PriceCalculator({
     };
   }, [isDiscountModalOpen]);
 
-
   // filter toggel
   return (
     <>
-      <section className="max-w-[1280px] custom-width  lg:px-[40px] xl:px-0 px-[16px] mx-auto md:py-[50px] py-[40px] w-[100%]">
+      <section className="max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto md:py-[50px] py-[40px] w-[100%]">
         <div className="flex md:hidden pb-2">
           <div
             onClick={filterBarHandler}
             className="py-[14px] w-[101.27px] font-semibold px-[8px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
           >
-           {filterBar? "Hide Filter" : "Show Filter" }
+            {filterBar ? "Hide Filter" : "Show Filter"}
           </div>
         </div>
         <div className="flex w-[100%]">
@@ -265,8 +268,12 @@ export default function PriceCalculator({
             </div>
           )}
 
-          <div className={`w-full md:w-[75%] ${filterBar ? "md:w-[75%]" : "w-[100%]"}`}>
-            <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
+          <div
+            className={`w-full md:w-[75%] ${
+              filterBar ? "md:w-[75%]" : "w-[100%]"
+            }`}
+          >
+            {/* <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
               <div className="w-[15%] md:w-[25%] ">
                 <p
                   className="flex items-center cursor-pointer"
@@ -307,8 +314,28 @@ export default function PriceCalculator({
               <div className="w-[20%] flex items-center justify-center">
                 <p className="flex items-center ">Delivery</p>
               </div>
-              <div className="w-[18%] flex items-center justify-center">
-               
+              <div className="w-[18%] flex items-center justify-center"></div>
+            </div> */}
+            <div className="flex w-full justify-between">
+              <div>
+                <h3 className="!text-[22px] !font-[700]">Live Price Results</h3>
+                <p className="text-[#7e7f82]">
+                  <span className="">{totalPharmacy}</span> verified pharmacies
+                  • Updated every hour
+                </p>
+              </div>
+              <div className=" flex gap-3">
+                <div>
+                
+                  <span className="bg-green-100 text-[rgb(16_185_129)] flex gap-1 text-xs px-3 py-2 rounded-full ml-auto">
+                     <MdShield className="mt0.5]"/> All Gphc Verified
+                  </span>
+                </div>
+                <div>
+                  <span className="bg-[#f8f5ee] text-[#ee9c25] flex gap-1 text-xs px-3 py-2 rounded-full ml-auto">
+                    <FaAward className="mt0.5]"/> Best Prices
+                  </span>
+                </div>
               </div>
             </div>
             {/* card section */}
@@ -317,60 +344,75 @@ export default function PriceCalculator({
                 {pageData.map((srtdata) => (
                   <div
                     key={srtdata._id}
-                    className={`flex w-full py-[10px] border-b border-[#DCDCDC] border-opacity-10 rounded-[0px] px-[0px] text-[#05222E] text-[14px] font-[400] ${
+                    className={`flex w-full py-[10px] my-5 border-2  rounded-lg rounded-[0px] px-[10px] text-[#05222E] text-[14px] transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl  font-[400] ${
                       discountedPrice && srtdata.discount
-                        ? "bg-[#fffbec]"
-                        : "bg-white"
+                        ? "bg-[#fff9eb] border-[#ff700077]"
+                        : "bg-white border-[#eae6e2] border-opacity-10 hover:border-[#ff6a0055]"
                     }`}
                   >
-                    <div className="w-[15%] md:w-[25%] flex items-center justify-start">
-                      <div className="flex flex-col md:flex-row justify-center md:justify-start md:items-center gap-2 md:gap-[20px]">
+                    <div className="w-[15%] md:w-[35%] flex items-center justify-start">
+                      <div className="flex flex-col md:flex-row min-h-[102px] justify-center md:justify-start md:items-center gap-2 md:gap-[20px]">
                         {srtdata.pharmacyLogo == "" ? (
                           <img src={Img} alt="Pharmacy logo" />
                         ) : (
                           <img
-                            className="w-[60px] md:w-[80px] "
+                            className="w-[100px] md:w-[100px] "
                             src={srtdata.pharmacyLogo}
                             alt="Pharmacy logo"
                           />
                         )}
-
-                        <a
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className=" text-[#000000] text-[14px] font-[600]"
-                        >
-                          {srtdata.pharmacy}
-                        </a>
+                        <div className="flex-col items-center justify-center">
+                          <a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className=" text-[#000000] text-[18px] font-[600]"
+                          >
+                            {srtdata.pharmacy}
+                          </a>
+                          <div className="flex items-center ">
+                            <FaStar className="mb-1 mr-1 text-[#ffd415]" />{" "}
+                            <p className="font-semibold ">
+                              {" "}
+                              {srtdata.rating}{" "}
+                              <span className="font-[400] text-[#7e7f82]">
+                                (verified)
+                              </span>
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="w-[12%] flex items-center justify-center">
-                      <p>{srtdata.dosage}</p>
+                    <div className="w-[12%] flex flex-col items-center gap-2 !justify-center">
+                      <p className="text-[#7e7f82]">strength</p>
+                      <p className="text-[16px] font-[600]">{srtdata.dosage}</p>
                     </div>
-                    <div className="w-[15%] flex items-center justify-center">
+                    <div className="w-[15%] flex flex-col items-center gap-2 items-center justify-center">
+                      <p className="text-[#7e7f82]">Price per Dosge</p>
                       {discountedPrice ? (
                         srtdata.discount === null ? (
-                          <p>£ {srtdata.price}</p>
+                          <p className="!text-[22px] font-[500]">
+                            £ {srtdata.price}
+                          </p>
                         ) : (
                           <>
-                            <p className="line-through text-[#cccccc] relative after:content-[''] after:absolute after:left-0 after:right-0 after:top-1/2 after:h-[2px] after:bg-[#cccccc] after:-translate-y-1/2">
-                              £ {srtdata.price}
-                            </p>
-                            <p className="ml-2 text-[#000000]">
+                            <p className="ml-2 !text-[24px] !text-[22px] font-[700] text-[#000000]">
                               £ {srtdata.discount}
+                            </p>
+                            <p className="line-through !text-[16px] font-[600] text-[#cccccc] relative after:content-[''] after:absolute after:left-0 after:right-0 after:top-1/2 after:h-[2px] after:bg-[#cccccc] after:-translate-y-1/2">
+                              £ {srtdata.price}
                             </p>
                           </>
                         )
                       ) : (
-                        <p className="ml-2 text-[#000000]">£ {srtdata.price}</p>
+                        <p className="ml-2 !text-[22px] font-[700] text-[#000000]">
+                          £ {srtdata.price}
+                        </p>
                       )}
                     </div>
 
-                    <div className="w-[12%] flex items-center justify-center">
-                      <p>{srtdata.rating}</p>
-                    </div>
-                    <div className="w-[20%] flex items-center justify-center text-center capitalize">
-                      {srtdata.delivery_fee}
+                    <div className="w-[20%] flex flex-col items-center gap-2  items-center justify-center text-center capitalize">
+                      <p className="text-[#7e7f82]">strength</p>
+                      <p className="font-[600]">{srtdata.delivery_fee}</p>
                     </div>
                     <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
                       {srtdata.discount == null ? (
@@ -378,33 +420,38 @@ export default function PriceCalculator({
                           href={srtdata.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px]  text-[12px]  hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
                         >
                           Visit Pharmacy
-                          <span className="sr-only">  {srtdata.pharmacy}</span>
+                          <span className="sr-only"> {srtdata.pharmacy}</span>
                         </a>
                       ) : discountedPrice ? (
                         <div
                           onClick={() => openDiscountModal(srtdata._id)}
-                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] hover:bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] text-[#FCC821] hover:text-black bg-white transition duration-700 cursor-pointer"
+                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] text-[#FCCFFFFFF821] hover:text-black bg-white transition duration-700 cursor-pointer"
                         >
                           Discount Info
                         </div>
-                      ) :  <a
+                      ) : (
+                        <a
                           href={srtdata.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[12px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
                         >
                           Visit Pharmacy
-                          <span className="sr-only">  {srtdata.pharmacy}</span>
-                        </a> }
+                          <span className="sr-only"> {srtdata.pharmacy}</span>
+                        </a>
+                      )}
 
                       {/* Show the modal if the modal is open and the selected id matches */}
                       {isDiscountModalOpen &&
                         selectedDiscountId === srtdata._id && (
                           <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
-                            <div ref={modalRef} className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300">
+                            <div
+                              ref={modalRef}
+                              className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300"
+                            >
                               <div className="relative flex items-center justify-between mb-4">
                                 <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
                                   Discount Info <br />
