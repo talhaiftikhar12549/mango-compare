@@ -38,7 +38,7 @@ export default function DosagePlan() {
             </p>
 
             {/* Toggle Buttons */}
-            <div className="flex justify-center rounded-lg mb-6 w-full p-2 bg-[#ffffff]">
+            <div className="flex justify-center gap-2 rounded-lg mb-6 w-full p-2 bg-[#ffffff]">
               <div
                 onClick={() => setActiveTab("mounjaro")}
                 className={`px-6 py-3 w-full rounded-lg font-medium flex items-center cursor-pointer justify-center gap-2 text-white transition-all duration-300 ${

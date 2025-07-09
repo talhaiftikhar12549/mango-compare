@@ -56,6 +56,7 @@ export const Home = () => {
       {/* BMI Calculator */}
       <BMICalculator />
       {/* BMI Calculator */}
+      
       {/* Home Our Blog */}
       <HomeOurBlog />
       {/* Home Our Blog */}

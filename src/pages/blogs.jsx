@@ -48,7 +48,7 @@ const Blogs = () => {
 
         {/* Blog Cards Grid */}
         <div className="w-full overflow-x-auto">
-          {!loading ? (
+          {loading ? (
             <div className=" flex flex-col md:flex-row items-center w-full gap-[22px]">
               {[1, 2, 3].map((_, index) => (
                 <BlogSkeleton key={index} />
