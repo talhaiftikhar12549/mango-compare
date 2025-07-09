@@ -53,7 +53,7 @@ const WegovyCompare = () => {
         "There’s no fixed schedule, but prices can fluctuate based on pharmacy promotions and market competition. Check Mango regularly to stay updated on the best deals!",
     },
   ];
-  const availableDoasge = ["0.25 mg", "0.5 mg", "1.0 mg", "1.7 mg", "2.4 mg"];
+  const availableDoasge = ["0.25 mg", "0.5 mg", "1 mg", "1.7 mg", "2.4 mg"];
   const [apiDataM, setApiDataM] = useState([]);
   const [loading, setLoading] = useState(true);
 
