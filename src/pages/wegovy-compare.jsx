@@ -1,4 +1,3 @@
-import image1 from "../assets/wegovy compare/wegovy.webp";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
@@ -6,6 +5,8 @@ import { useEffect, useState } from "react";
 import api from "../services/api.js";
 import PriceCalculatorSkeleton from "./PriceCalculatorSkeleton";
 const WegovyCompare = () => {
+  const [lowestPrice, setLowestPrice] = useState("--");
+  const [totalPharmacy, setTotalPharmacy] = useState("--");
   const faqItems = [
     {
       question: "Is Wegovy covered by the NHS?",
@@ -69,6 +70,19 @@ const WegovyCompare = () => {
           setLoading(false);
         }
 
+        const lowPrice = Math.min(...data.map((item) => item.price));
+        setLowestPrice(lowPrice);
+
+        const pharmacyCounts = {};
+
+        data.forEach((item) => {
+          const pharmacyName = item.pharmacy;
+          pharmacyCounts[pharmacyName] =
+            (pharmacyCounts[pharmacyName] || 0) + 1;
+        });
+        const totalUniquePharmacies = Object.keys(pharmacyCounts).length + 1;
+        setTotalPharmacy(totalUniquePharmacies);
+
         // Sort alphabetically by pharmacy name
         const apiDta = data
           .slice()
@@ -90,36 +104,16 @@ const WegovyCompare = () => {
         text2="  By using Mango’s price comparison, you can save up to 28%—that’s £74
           per four-week supply by choosing the most affordable option. Over a
           year, this adds up to £888 in savings!"
-        image={image1}
+        lowest={lowestPrice}
+        totalPharmacy={totalPharmacy}
       />
 
       <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto">
-        {/* <h3 className="block text-[22px] md:text-[24px] font-[600] font-montserrat text-[#202244]">
-          Wegovy Dosage Options
-        </h3> */}
-        {/* <ul className="text-[16px] md:text-[18px] pt-[12px] md:pt-[16px] font-[400] font-montserrat text-[#6A778B] list-none">
-          <li className="pl-3 ">0.25 mg/0.5 mL</li>
-          <li className="pl-3 ">0.5 mg/0.5 mL</li>
-          <li className="pl-3 ">1.0 mg/0.5 mL</li>
-          <li className="pl-3 ">1.7 mg/0.75 mL</li>
-          <li className="pl-3 ">2.4 mg/0.75 mL</li>
-        </ul> */}
+        
       </div>
 
-      {/* <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto pt-[40px] md:pt-[50px]">
-        <span className="block text-[22px] md:text-[24px] font-[600] font-montserrat text-[#202244]">
-          Mango finds you the best price without compromising your
-          GP-recommended dosage
-        </span>
-        <p className="text-[16px] md:text-[18px] pt-[12px] md:pt-[16px] font-[400] font-montserrat text-[#6A778B]">
-          Pharmacies associated with Mango are reputable, fully licensed, and
-          highly trusted. We ensure the safe supply of weight loss injections
-          while keeping your best interests at the forefront.
-        </p>
-      </div> */}
-
+     
       {/* price calculator */}
-
       <div className="w-full overflow-x-auto">
         {loading ? (
           <PriceCalculatorSkeleton />
@@ -133,10 +127,9 @@ const WegovyCompare = () => {
         )}
       </div>
       {/* price calculator */}
+
       {/* Faqs Section */}
-
       <FaqsSection items={faqItems} />
-
       {/* Faqs Section  */}
     </>
   );

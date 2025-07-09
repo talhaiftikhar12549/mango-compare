@@ -1,9 +1,9 @@
 import { ImFileText2 } from "react-icons/im";
 
-export default function HeroSection({ heading, text, text2, image }) {
+export default function HeroSection({ heading, text, text2, lowest, totalPharmacy  }) {
   return (
     <>
-      <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
+      {/* <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
         <div
           className="flex flex-col lg:flex-row justify-between items-top h-full py-[70px] bg-no-repeat bg-cover  bg-center "
           style={{ backgroundImage: `url(${image})` }}
@@ -22,30 +22,57 @@ export default function HeroSection({ heading, text, text2, image }) {
                 {text2}
               </p>
 
-              {/* <div className="flex flex-col sm:flex-row gap-[20px] pt-[30px] md:pt-[40px]">
-                <NavLink to="/contact-us">
-                  <button className="text-[#ffffff]  font-semibold cursor-pointer w-full sm:w-auto py-[12px] px-[32px] rounded-[10px] border-[1px] border-[#FCC821] bg-[#FCC821] hover:text-[#000000] hover:bg-[#FFFFFF] hover:border-[#000000] transition duration-700">
-                    Contact Us
-                  </button>
-                </NavLink>
-
-                <button
-                  onClick={() => {
-                    const element = document.getElementById(
-                      "dosage-plan-section"
-                    );
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
-                  className="text-[#000000] font-semibold cursor-pointer py-[12px] px-[32px] rounded-[10px] border-[1px] border-[#000000] bg-[#FFFFFF] hover:text-[#FFFFFF] hover:bg-[#FCC821] hover:border-[#FCC821] transition duration-700"
-                >
-                  Learn More
-                </button>
-              </div> */}
             </div>
           </div>
         </div>
+      </section> */}
+      <section className="relative w-[100%] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 text-white py-24 overflow-hidden">
+        <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 "></div>
+            <div className="absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+            <div className="absolute bottom-20 right-20 w-48 h-48 bg-yellow-300/20 rounded-full blur-2xl"></div>
+          </div>
+
+          <div className="container mx-auto px-4 relative z-10">
+            <div className="max-w-4xl mx-auto text-center">
+              <div className="flex items-center justify-center gap-2 mb-6">
+                {/* <TrendingDown className="w-8 h-8 text-yellow-200" /> */}
+                <div className="bg-white/20 text-white border-white/30 text-lg px-4 py-2 rounded-4xl">
+                  Live Price Comparison
+                </div>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl font-bold font-bold mb-6 leading-tight">
+                 {heading} <span className="text-yellow-200"></span> 
+              </h1>
+
+              <p className="text-xl md:text-2xl mb-8 opacity-95 leading-relaxed max-w-3xl mx-auto">
+                
+                {text}
+              </p>
+              {/* <p className="text-xl md:text-2xl mb-8 opacity-95 leading-relaxed max-w-3xl mx-auto">
+                
+                {text2}
+              </p> */}
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold text-yellow-200">£ {lowest}</div>
+                  <div className="text-sm opacity-90">Best Price Found</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold text-yellow-200">{totalPharmacy}</div>
+                  <div className="text-sm opacity-90">Pharmacies Compared</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+                  <div className="text-3xl font-bold text-yellow-200">27%</div>
+                  <div className="text-sm opacity-90">Average Savings</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
     </>
   );

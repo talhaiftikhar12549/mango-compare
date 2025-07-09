@@ -1,4 +1,3 @@
-import image1 from "../assets/mounjaro compare/mounjaro.webp";
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
@@ -6,6 +5,8 @@ import { useEffect, useState } from "react";
 import api from "../services/api.js";
 import PriceCalculatorSkeleton from "./PriceCalculatorSkeleton";
 const MounjaroCompare = () => {
+  const [lowestPrice, setLowestPrice] = useState("--");
+  const [totalPharmacy, setTotalPharmacy] = useState("--");
   const faqItems = [
     {
       question: "Is Mounjaro cheaper than Wegovy in the UK?",
@@ -72,6 +73,18 @@ const MounjaroCompare = () => {
         if (data.length !== 0) {
           setLoading(false);
         }
+        const lowPrice = Math.min(...data.map((item) => item.price));
+        setLowestPrice(lowPrice);
+
+        const pharmacyCounts = {};
+
+        data.forEach((item) => {
+          const pharmacyName = item.pharmacy;
+          pharmacyCounts[pharmacyName] =
+            (pharmacyCounts[pharmacyName] || 0) + 1;
+        });
+        const totalUniquePharmacies = Object.keys(pharmacyCounts).length + 1;
+        setTotalPharmacy(totalUniquePharmacies);
 
         // Sort alphabetically by pharmacy name
         const apiDta = data
@@ -96,7 +109,8 @@ const MounjaroCompare = () => {
           up to 27%—that’s £67.01 per four-week supply just by choosing the
           cheapest option. Over a year, that adds up to a massive £804.12 in
           savings!"
-        image={image1}
+        lowest={lowestPrice}
+        totalPharmacy={totalPharmacy}
       />
 
       {/* price calculator */}
@@ -115,9 +129,7 @@ const MounjaroCompare = () => {
       </div>
 
       {/* price calculator */}
-      <div className="max-w-[1280px] custom-width mx-auto px-4 lg:px-8 xl:px-0 space-y-6">
-        
-      </div>
+      <div className="max-w-[1280px] custom-width mx-auto px-4 lg:px-8 xl:px-0 space-y-6"></div>
 
       {/* Faqs Section */}
 
