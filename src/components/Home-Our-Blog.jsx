@@ -90,7 +90,7 @@ export default function HomeOurBlog() {
                       </p>
 
                       <NavLink
-                        to={`/single-blog/${blog.slug}`}
+                        to={`/${blog.slug}`}
                         aria-label={`Read more about ${blog.title}`}
                         title={`Read more about ${blog.title}`}
                         className="inline-flex items-center group"
