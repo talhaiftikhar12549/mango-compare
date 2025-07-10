@@ -318,7 +318,7 @@ export default function PriceCalculator({
             </div> */}
             <div className="flex w-full justify-between">
               <div>
-                <h3 className="!text-[22px] !font-[700]">Live Price Results</h3>
+                <h3 className="!text-[24px] !font-[700]">Live Price Results</h3>
                 <p className="text-[#7e7f82]">
                   <span className="">{totalPharmacy}</span> verified pharmacies
                   • Updated every hour

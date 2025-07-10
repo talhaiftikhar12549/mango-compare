@@ -4,6 +4,7 @@ import { mVal, discountedFilter } from "../redux toolkit/compareToolSlice";
 import { Range } from "react-range";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
+import { BsCurrencyDollar } from "react-icons/bs";
 
 const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const dispatch = useDispatch();
@@ -56,9 +57,13 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
 
   return (
     <>
-      <div className="w-[75%] md:w-full max-w-xs px-[20px] pb-[38px] pt-[24px] shadow-md bg-white space-y-4 border-b border-[#DCDCDC] ">
+      <div className="w-[75%] md:w-full max-w-xs px-[20px] pb-[38px] pt-[24px] shadow-md bg-white space-y-4 border-2 border-[#DCDCDC] hover:border-orange-200 ">
         <div className="flex items-center justify-between">
-          <h2 className="text-lg font-semibold">Price</h2>
+          <div className="flex justify-center items-center gap-3">
+            <BsCurrencyDollar className="text-[#f97215] mt-1 text-xl !font-[700]" />
+            <h2 className="text-lg font-semibold">Price Range</h2>
+          </div>
+
           <button
             onClick={handleClick}
             className="text-[20px]  font-[500] py-[4px]   cursor-pointer "
@@ -110,8 +115,12 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
             />
 
             <div className="flex items-center justify-between">
-              <p className="xl:text-sm text-[12px] text-gray-700">Min. £ {price[0]}</p>
-              <p className="xl:text-sm text-[12px] text-gray-700">Max. £ {price[1]}</p>
+              <p className="xl:text-sm text-[12px] text-gray-700">
+                Min. £ {price[0]}
+              </p>
+              <p className="xl:text-sm text-[12px] text-gray-700">
+                Max. £ {price[1]}
+              </p>
             </div>
           </div>
         </div>

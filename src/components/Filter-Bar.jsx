@@ -2,7 +2,14 @@ import PriceFilter from "./Price-Filter";
 import DosageFilter from "./Dosage-filter";
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-export default function FilterBar({ closeFilter, availableDoasge, maxVal, minValue }) {
+import filter from "../assets/filter.webp";
+
+export default function FilterBar({
+  closeFilter,
+  availableDoasge,
+  maxVal,
+  minValue,
+}) {
   const [isReset, setIsReset] = useState(false);
 
   const handleReset = () => {
@@ -20,8 +27,8 @@ export default function FilterBar({ closeFilter, availableDoasge, maxVal, minVal
             <IoCloseSharp onClick={closeFilter} className="text-xl " />
           </div>
         </div>
-        {/* Header bar */}
-        <div className="flex items-center justify-between w-[75%] md:w-full bg-white border-b border-[#DCDCDC] py-[20px] px-[20px]">
+        {/* Filter bar */}
+        {/* <div className="flex items-center justify-between w-[75%] md:w-full bg-white border-b border-[#DCDCDC] py-[20px] px-[20px]">
           <div className="text-[20px] font-[600]">
             <h2>Filter</h2>
           </div>
@@ -33,8 +40,22 @@ export default function FilterBar({ closeFilter, availableDoasge, maxVal, minVal
               Reset
             </button>
           </div>
+        </div> */}
+        {/* Filter bar */}
+
+        {/* Header */}
+        <div className="bg-[#fffaec] border-2 border-orange-200 rounded-lg p-4">
+          <div className="flex gap-3">
+            <div className="bg-[#f77316] p-2 rounded-lg">
+              <img className="h-[25] w-[25px]" src={filter} alt="" />
+            </div>
+            <h3 className="!text-lg !font-[600]">Refine Your Search</h3>
+          </div>
+          <p className="text-xs text-gray-600 font-[500] pt-3">
+            Find exactly what you're looking for
+          </p>
         </div>
-        {/* Header bar */}
+        {/* Header */}
 
         {/* Price Bar */}
         <PriceFilter isReset={isReset} maxVal={maxVal} minValue={minValue} />
