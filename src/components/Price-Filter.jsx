@@ -5,6 +5,7 @@ import { Range } from "react-range";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { BsCurrencyDollar } from "react-icons/bs";
+import { MdPercent } from "react-icons/md";
 
 const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const [maxHeight, setMaxHeight] = useState("0px");
   const [maxHeightDiscount, setMaxHeightDiscount] = useState("0px");
   const [checked, setChecked] = useState(false);
+  const range = maxVal;
 
   const handleChange = (e) => {
     const isChecked = e.target.checked;
@@ -57,7 +59,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
 
   return (
     <>
-      <div className="w-[75%] md:w-full max-w-xs px-[20px] pb-[38px] pt-[24px] shadow-md bg-white space-y-4 border-2 border-[#DCDCDC] hover:border-orange-200 ">
+      <div className="w-[75%] my-2 rounded-lg md:w-full max-w-xs px-[20px] pb-[38px] pt-[24px] bg-white space-y-4 border-2 border-[#DCDCDC] hover:border-orange-200 ">
         <div className="flex items-center justify-between">
           <div className="flex justify-center items-center gap-3">
             <BsCurrencyDollar className="text-[#f97215] mt-1 text-xl !font-[700]" />
@@ -77,6 +79,16 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
           style={{ maxHeight: maxHeight }}
           className="transition-[max-height] duration-500 ease-in-out overflow-hidden"
         >
+          <div className="flex justify-between items-center">
+            <div>
+              <h4 className="text-xs">Maximum Budget</h4>
+            </div>
+            <div>
+              <span className="bg-[#f8f5ee] text-[#ee9c25] flex gap-1 text-xs px-3 py-2 rounded-full ml-auto">
+                £ {range}
+              </span>
+            </div>
+          </div>
           <div className="space-y-[24px] pt-4 px-3">
             <Range
               step={1}
@@ -91,7 +103,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
                     ...props.style,
                     height: "6px",
                     width: "100%",
-                    backgroundColor: "#ccc",
+                    backgroundColor: "#000000",
                   }}
                 >
                   {children}
@@ -105,9 +117,9 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
                     height: "20px",
                     width: "20px",
                     borderRadius: "50%",
-                    backgroundColor: "#FFD700",
+                    backgroundColor: "#fffff",
                     cursor: "pointer",
-                    border: "2px solid #fff",
+                    border: "1px solid #000000",
                     boxShadow: "0 0 5px rgba(0,0,0,0.2)",
                   }}
                 />
@@ -116,19 +128,25 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
 
             <div className="flex items-center justify-between">
               <p className="xl:text-sm text-[12px] text-gray-700">
-                Min. £ {price[0]}
+                £ {price[0]}
               </p>
               <p className="xl:text-sm text-[12px] text-gray-700">
-                Max. £ {price[1]}
+                £ {price[1]}
               </p>
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-[#FCC821] w-[75%] md:w-full">
-        <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] shadow-md space-y-4 border-b border-[#DCDCDC] ">
+      <div className=" w-[75%] my-2 md:w-full border-2 border-[#DCDCDC] hover:border-orange-200 rounded-lg">
+        <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] space-y-4">
           <div className="flex items-center justify-between ">
-            <h2 className="text-lg font-semibold text-[#000000]">Discount</h2>
+            <div className="flex items-center justify-between gap-2">
+              <MdPercent className="text-[rgb(16 185 129)]"/>
+              <h2 className="text-lg font-semibold text-[#000000]">
+                Special Offers
+              </h2>
+            </div>
+
             <button
               onClick={handleClickDiscount}
               className="text-[20px]  font-[500] py-[4px]   cursor-pointer "

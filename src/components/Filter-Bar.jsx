@@ -44,7 +44,7 @@ export default function FilterBar({
         {/* Filter bar */}
 
         {/* Header */}
-        <div className="bg-[#fffaec] border-2 border-orange-200 rounded-lg p-4">
+        <div className="bg-[#fffaec] border-2 border-orange-200 rounded-lg p-4 my-2">
           <div className="flex gap-3">
             <div className="bg-[#f77316] p-2 rounded-lg">
               <img className="h-[25] w-[25px]" src={filter} alt="" />
