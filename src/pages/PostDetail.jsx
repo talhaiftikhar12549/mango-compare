@@ -190,6 +190,7 @@ if (!post) return <ForumPostSkeleton />;
                 onClick={() => setIsModalOpen(!isModalOpen)}
                 className="cursor-pointer rounded-full hover:bg-gray-200 transition-colors duration-200"
               />
+              
               {isModalOpen && (
                 <div className="absolute right-0 top-4 z-50 bg-white shadow-lg rounded-md border border-gray-200 w-48">
                   <div className="py-1">
@@ -202,7 +203,7 @@ if (!post) return <ForumPostSkeleton />;
                     <button className="w-full text-left px-4 py-2 text-sm hover:bg-gray-100">
                       Share
                     </button> */}
-                    {user && post.author?._id === user.id && (
+                    {user && (post.author?._id === user.id || user.role === "admin") && (
                       <>
                         <button
                           onClick={()=>{
@@ -394,19 +395,19 @@ if (!post) return <ForumPostSkeleton />;
                       <FaMessage /> Reply
                     </button>
     
-                    {user && comment.author?._id === user.id && (
+                    {user && (comment.author?._id === user.id || user.role === "admin") && (
                       <>
                         <button
                           onClick={() =>
                             handleEditComment(comment._id, comment.content)
                           }
-                          className="text-yellow-600 text-sm hover:underline ml-4"
+                          className="text-yellow-600 text-sm hover:underline ml-4 cursor-pointer"
                         >
                           Edit
                         </button>
                         <button
                           onClick={() => handleDeleteComment(comment._id)}
-                          className="text-red-600 text-sm hover:underline ml-4"
+                          className="text-red-600 text-sm hover:underline ml-4 cursor-pointer"
                         >
                           Delete
                         </button>

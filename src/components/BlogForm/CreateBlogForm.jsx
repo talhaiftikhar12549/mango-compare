@@ -1,45 +1,48 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import api from '../../services/api';
 import { Editor } from '@tinymce/tinymce-react';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import {
-  ClassicEditor,
-  AutoLink,
-  Autosave,
-  BalloonToolbar,
-  BlockQuote,
-  Bold,
-  Bookmark,
-  Code,
-  CodeBlock,
-  Essentials,
-  Heading,
-  Highlight,
-  HorizontalLine,
-  Indent,
-  IndentBlock,
-  Italic,
-  Link,
-  List,
-  Paragraph,
-  Strikethrough,
-  Table,
-  TableCellProperties,
-  TableProperties,
-  TableToolbar,
-  Underline,
-  Image,
-  ImageToolbar,
-  ImageCaption,
-  ImageStyle,
-  ImageUpload,
-  ImageInsert
-} from 'ckeditor5';
-import 'ckeditor5/ckeditor5.css';
+import CSKEditor from './CSKEditor';
+
+// import { CKEditor } from '@ckeditor/ckeditor5-react';
+// import {
+//   ClassicEditor,
+//   AutoLink,
+//   Autosave,
+//   BalloonToolbar,
+//   BlockQuote,
+//   Bold,
+//   Bookmark,
+//   Code,
+//   CodeBlock,
+//   Essentials,
+//   Heading,
+//   Highlight,
+//   HorizontalLine,
+//   Indent,
+//   IndentBlock,
+//   Italic,
+//   Link,
+//   List,
+//   Paragraph,
+//   Strikethrough,
+//   Table,
+//   TableCellProperties,
+//   TableProperties,
+//   TableToolbar,
+//   Underline,
+//   Image,
+//   ImageToolbar,
+//   ImageCaption,
+//   ImageStyle,
+//   ImageUpload,
+//   ImageInsert
+// } from 'ckeditor5';
+// import 'ckeditor5/ckeditor5.css';
 
 const CreateBlogForm = () => {
   const fileInputRef = useRef(null);
-  const editorRef = useRef(null);
+  const editorContainerRef = useRef(null);
+	const editorRef = useRef(null);
 
   const [formData, setFormData] = useState({
     title: '',
@@ -106,7 +109,6 @@ const CreateBlogForm = () => {
       featuredImage: null, // Will upload new only if selected
     });
 
-    console.log(blog.tags)
     fileInputRef.current.value = null;
     editorRef.current?.setContent(blog.content || '');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -245,10 +247,14 @@ const CreateBlogForm = () => {
           </div>
 
           <div>
-            <CKEditor
+            <CSKEditor onChange={handleEditorChange}  data={formData.content}
+              onReady={(editor) => {
+                editorRef.current = editor;
+              }} />
+            {/* <CKEditor
               editor={ClassicEditor}
               config={{
-                licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NTE2NzM1OTksImp0aSI6ImIyMWQ2ZDMyLTllZTUtNDk1Mi05YjI0LWJkMjE2MDM1MDhjMCIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiLCJzaCJdLCJ3aGl0ZUxhYmVsIjp0cnVlLCJsaWNlbnNlVHlwZSI6InRyaWFsIiwiZmVhdHVyZXMiOlsiKiJdLCJ2YyI6ImY3MjRjNjVmIn0.dhnM8rSUoGm33zFFC0qeFIjwhm8fCM8xpjDgOj80wKY1O1D5F4HoWOAH-iN6D9aX5bMCLxGfl1_8Sk5EqzwWgw', // Or 'GPL'.
+                licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3ODE5OTk5OTksImp0aSI6Ijk0NTA4MmVhLTQ2ZTctNDNiMC1hODU4LWVjMTQzMGVlYmQ2ZiIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIiwiRTJQIiwiRTJXIl0sInZjIjoiMGI5NWYzZDcifQ.v6wCpBO_Zww1mAUbQfC6UQ3y8QuitqOTSg0CzF4nsB5KWN5x3DSK8eB-wQh_qo7yBykuXjbL9EaidAO81E_Dig', // Or 'GPL'.
                 plugins: [
                   AutoLink,
                   Autosave,
@@ -370,7 +376,7 @@ const CreateBlogForm = () => {
                 editorRef.current = editor;
               }}
               onChange={handleEditorChange}
-            />
+            /> */}
           </div>
 
           <div>
