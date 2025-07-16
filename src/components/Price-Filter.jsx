@@ -103,7 +103,8 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
                     ...props.style,
                     height: "6px",
                     width: "100%",
-                    backgroundColor: "#000000",
+                    backgroundColor: "#000",
+                   
                   }}
                 >
                   {children}
@@ -117,9 +118,9 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
                     height: "20px",
                     width: "20px",
                     borderRadius: "50%",
-                    backgroundColor: "#fffff",
+                    backgroundColor: "#ffffff",
                     cursor: "pointer",
-                    border: "1px solid #000000",
+                    border: "2px solid #ffffff",
                     boxShadow: "0 0 5px rgba(0,0,0,0.2)",
                   }}
                 />
