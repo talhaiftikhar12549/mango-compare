@@ -47,12 +47,12 @@ export const PostsCard = ({ post, fetchPosts }) => {
   }
 
   return (
-    <>    
+   
     <div className="w-[100%] flex flex-col gap-4 border-b border-gray-300  cursor-pointer transition ">
       <div className="hover:bg-[#fdfdfb] border-[#dcdcdc] transition-colors duration-300 ease-in-out rounded-[10px] p-4 mb-[10px]">
         <div
           onClick={() => navigate(`/posts/${post._id}`)}
-          className="flex-1 space-y-2"
+          className="flex-1"
         >
           <div className="w-full flex mb-4">
             <p className="py-1 px-2 bg-[#FCC821] rounded text-xs">
@@ -61,14 +61,14 @@ export const PostsCard = ({ post, fetchPosts }) => {
           </div>
           <div className="flex items-start justify-between space-x-5">
             <div className="flex gap-2">
-              <div className="w-9 h-9 border  border-gray-400 text-white font-bold bg-red-700 rounded-full flex items-center justify-center text-3xl">
+              <div className="w-7 h-7 border border-gray-400 text-white font-bold bg-red-700 rounded-full flex items-center justify-center text-sm">
                 {post.author?.name.slice(0, 1).toUpperCase()}
               </div>
 
-              <div className="flex gap-4 items-center">
-                <p className="text-sm text-black font-semibold mb-1 flex items-center gap-2">
+              <div className="flex gap-2 items-center">
+                <p className="text-xs text-gray-800 font-[500] flex items-center gap-2">
                   {post.author?.name}
-                  <GoDotFill className="text-[10px]" />
+                  <GoDotFill className="text-[5px]" />
                 </p>
                 <p className="text-xs font-[400]">
                   {getTimeAgo(post.createdAt)}
@@ -84,9 +84,9 @@ export const PostsCard = ({ post, fetchPosts }) => {
               </div>
             </div>
           </div>
-          <h2 className="text-lg font-semibold">{post.title}</h2>
+          <h3 className="text-sm font-semibold">{post.title}</h3>
 
-          <p className="text-gray-700 line-clamp-3">
+          <p className="text-gray-700 text-sm line-clamp-3">
             {post.body?.length > 250
               ? `${post.body.slice(0, 250)}...`
               : post.body}
@@ -119,6 +119,6 @@ export const PostsCard = ({ post, fetchPosts }) => {
         </div>
       </div>
     </div> 
-    </>
+
   );
 };

@@ -68,8 +68,8 @@ const Sidebar = () => {
   // };
 
   return (
-    <>
-      <div >
+      <div className="h-[100vh] w-[280px] fixed left-0 top-0 pt-10">
+
         <div className="md:hidden flex justify-start items-center py-4">
           {/* <h2 className="text-xl font-bold">Forums</h2> */}
           <button
@@ -80,7 +80,7 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <div className="py-6 space-x-0 md:space-x-5">
+        <div className="w-full py-6 space-x-0 md:space-x-5 border-r border-gray-300">
           {/* Sidebar */}
           <div
             className={`bg-white md:bg-transparent transform transition-transform duration-300 ease-in-out md:translate-x-0 ${
@@ -97,8 +97,8 @@ const Sidebar = () => {
               </button>
             </div>
 
-            <div className="py-[10px]">
-              <h2
+            <div className="py-[10px] pl-5">
+              <h4
                 onClick={() => {
                   dispatch(selectedCategory({
                     value: "recents",
@@ -110,17 +110,17 @@ const Sidebar = () => {
                   // });
                   setShowSidebar(false);
                 }}
-                className={`text-lg text-[18px] font-[600] rounded-[6px] px-[18px] hover:bg-gray-50 py-[12px] cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
+                className={`text-[14px] font-[500] rounded-[6px] px-[18px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
                   selectedCategory.value === "recents"
                     ? "text-[#FCC821] font-semibold bg-gray-50"
                     : "text-gray-700 hover:text-[#FCC821]"
                 }`}
               >
-                <TiHome />
+                <TiHome className="text-2xl" />
                 Home
-              </h2>
+              </h4>
 
-              <h2
+              <h4
                 onClick={() => {
                   dispatch(selectedCategory({
                     value: "popular",
@@ -132,15 +132,15 @@ const Sidebar = () => {
                   // });
                   setShowSidebar(false);
                 }}
-                className={`text-lg text-[18px] font-[600] mt-2 px-[18px] py-[12px] rounded-[6px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
+                className={`text-[14px] font-[500] mt-2 px-[18px] py-[12px] rounded-[6px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
                   selectedCategory.value === "popular"
                     ? "text-[#FCC821] font-semibold bg-gray-50"
                     : "text-gray-700 hover:text-[#FCC821]"
                 }`}
               >
-                <BsArrowUpRightCircleFill />
+                <BsArrowUpRightCircleFill className="text-2xl" />
                 Popular
-              </h2>
+              </h4>
             </div>
 
             <div className="border-t border-gray-300 mt-3">
@@ -173,7 +173,6 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-    </>
   );
 };
 

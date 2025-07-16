@@ -1,14 +1,16 @@
 import Sidebar from "./Sidebar";
 import NavBar from "../Nav-Bar";
 import { Outlet } from "react-router-dom";
+import ForumsNavbar from "../Forums/ForumsNavbar";
 
 const Layout = () => {
   return (
     <>
-    <NavBar />
-    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-4">
+    <ForumsNavbar />
+    {/* <NavBar /> */}
+    <div className="w-full h-full flex justify-center">
       <Sidebar />
-      <div className="overflow-y-auto p-6">
+      <div className="w-1/2 p-6">
         <Outlet />
       </div>
     </div>

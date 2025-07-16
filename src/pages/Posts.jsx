@@ -90,7 +90,7 @@ export default function Posts() {
                 )}
               </div>
 
-              <div className="w-full flex items-center justify-center">
+              {/* <div className="w-full flex items-center justify-center">
                 <div className="flex items-center w-[90%] md:w-[50%]">
                   <input
                     type="search"
@@ -101,7 +101,7 @@ export default function Posts() {
                   />
                   <IoSearchOutline className="-ml-7 text-gray-400" />
                 </div>
-              </div>
+              </div> */}
 
               {isLoading ? (
             <ForumPageSkeleton />

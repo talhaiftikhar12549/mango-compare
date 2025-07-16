@@ -8,7 +8,8 @@ const initialState = {
     selectedCommunity: {
         value: "",
         label: "All",
-    }
+    },
+    search: "",
 };
 
 export const forumsSlice = createSlice({
@@ -23,12 +24,17 @@ export const forumsSlice = createSlice({
         selectedCommunity: (state, action) => {
             state.selectedCommunity = action.payload;
         },
+
+        search: (state, action) => {
+            state.search = action.payload;
+        },
     },
 });
 
 export const {
     selectedCategory,
-    selectedCommunity
+    selectedCommunity,
+    search
 } = forumsSlice.actions;
 
 export default forumsSlice.reducer;
