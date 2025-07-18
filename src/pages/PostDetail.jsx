@@ -3,14 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import {
-  TbArrowNarrowUp,
-  TbArrowNarrowDown,
   TbArrowBigUpFilled,
   TbArrowBigDownFilled,
 } from "react-icons/tb";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import CreateBlogForm from "../components/BlogForm/CreateBlogForm";
-import { FaRegComment } from "react-icons/fa";
+import { CiCircleChevLeft } from "react-icons/ci";
 import { FaMessage } from "react-icons/fa6";
 import { IoArrowRedoSharp } from "react-icons/io5";
 import { CiCircleMinus, CiCirclePlus } from "react-icons/ci";
@@ -174,8 +170,10 @@ const PostDetail = () => {
 if (!post) return <ForumPostSkeleton />;
 
   return (
-    <div>
-          <div className="w-full flex justify-between">
+    <div className="pt-14">
+      
+          <div className="w-full flex justify-between relative">
+            <CiCircleChevLeft onClick={()=> navigate("/posts")} className="absolute -left-10 text-[25px] text-gray-700 hover:text-gray-400 cursor-pointer" />
             <div className="flex flex-col ">
               <p className="font-bold flex items-center gap-2">
                 {post.community}{" "}
