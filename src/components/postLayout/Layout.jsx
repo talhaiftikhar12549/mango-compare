@@ -10,7 +10,7 @@ const Layout = () => {
     {/* <NavBar /> */}
     <div className="w-full h-full flex justify-center">
       <Sidebar />
-      <div className="w-1/2 p-6">
+      <div className="w-full lg:w-1/2 p-6">
         <Outlet />
       </div>
     </div>

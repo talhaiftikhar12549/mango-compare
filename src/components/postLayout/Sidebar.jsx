@@ -70,9 +70,9 @@ const Sidebar = () => {
   // };
 
   return (
-      <div className="h-[100vh] w-[280px] fixed left-0 top-0 pt-10 border-r border-gray-300">
+      <div className={`h-[100vh] w-full lg:w-[280px] fixed left-0 top-0 md:top-12 lg:top-0 lg:pt-10 lg:border-r border-gray-300 z-2 ${showSidebar ? "bg-black/50" : ""}`}>
 
-        <div className="md:hidden flex justify-start items-center py-4">
+        <div className={`lg:hidden flex justify-start z-10 items-center py-4 ${showSidebar ? "" : "mt-14"} pl-5`}>
           {/* <h2 className="text-xl font-bold">Forums</h2> */}
           <button
             className="text-2xl text-[#FCC821]"
@@ -82,18 +82,18 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <div className="w-full py-6 space-x-0 md:space-x-5">
+        <div className={`w-2/3 sm:w-1/3 lg:w-full lg:border-0 border-gray-300 lg:bg-transparent lg:py-6 space-x-0 md:space-x-5 ${showSidebar ? "bg-white md:border-r" : ""}`}>
           {/* Sidebar */}
           <div
-            className={`bg-white md:bg-transparent transform transition-transform duration-300 ease-in-out md:translate-x-0 ${
+            className={`bg-white h-screen md:bg-transparent transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
               showSidebar ? "translate-x-0" : "-translate-x-full"
             } md:relative md:block `}
           >
             {/* Close button on mobile sidebar */}
-            <div className="md:hidden flex justify-end p-4">
+            <div className="lg:hidden flex justify-end p-4 ">
               <button
                 onClick={() => setShowSidebar(false)}
-                className="text-2xl text-gray-600"
+                className="text-2xl text-gray-600 cursor-pointer hover:text-gray-400"
               >
                 <HiX />
               </button>
