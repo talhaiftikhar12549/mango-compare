@@ -59,59 +59,69 @@ const DosageFilter = ({ availableDoasge, isReset }) => {
   }, [isReset, dispatch, dosages]);
 
   return (
-    <div className="w-[75%] md:w-full max-w-xs px-[20px] pb-[38px] pt-[24px] border-b border-[#DCDCDC] shadow-md bg-white space-y-4 rounded-b-[10px]">
-      <div className="flex items-center justify-between">
-        <h2 className="text-lg font-semibold">Strength</h2>
-        <button
-          onClick={() => setIsHide(!isHide)}
-          className="text-[20px]  cursor-pointer font-[500] py-[4px] "
-        >
-          {isHide ? <IoIosArrowUp /> : <IoIosArrowDown />}
-        </button>
-      </div>
+    <div className="w-[75%] md:w-full max-w-xs px-5 pb-6 pt-6 border border-gray-200 shadow-sm bg-white space-y-4 rounded-lg">
+  {/* Header */}
+  <div className="flex items-center justify-between">
+    <h2 className="text-lg font-semibold text-black">Dosage Strength</h2>
+    <button
+      onClick={() => setIsHide(!isHide)}
+      className="text-[20px] cursor-pointer font-medium py-1"
+    >
+      {isHide ? <IoIosArrowUp /> : <IoIosArrowDown />}
+    </button>
+  </div>
 
-      <div
-        ref={contentRef}
-        style={{ maxHeight }}
-        className="transition-[max-height] duration-500 ease-in-out overflow-hidden"
-      >
-        <div className="space-y-[24px]">
-          {dosages.map((dose) => (
-            <label className="flex items-center space-x-2 cursor-pointer">
+  {/* Dosage Options */}
+  <div
+    ref={contentRef}
+    style={{ maxHeight }}
+    className="transition-[max-height] duration-500 ease-in-out overflow-hidden"
+  >
+    <div className="space-y-3">
+      {dosages.map((dose) => {
+        const isSelected = selectedDosage === dose;
+        // const isPopular = ["2.5 mg", "5 mg"].includes(dose); 
+        const isPopular = [].includes(dose); // mark popular ones
+
+        return (
+          <label
+            key={dose}
+            className={`flex items-center justify-between px-4 py-2 rounded-lg border cursor-pointer hover:bg-orange-50 hover:border-orange-300 ${
+              isSelected
+                ? "bg-orange-50 border-orange-300"
+                : "bg-white border-gray-300"
+            }`}
+          >
+            <div className="flex items-center gap-3">
               <input
                 type="radio"
                 name="dosage"
                 value={dose}
-                checked={selectedDosage === dose}
+                checked={isSelected}
                 onChange={() => handleDosageSelect(dose)}
-                className="peer hidden"
+                className="w-4 h-4 accent-blue-500"
               />
-              <div
-                className={`w-5 h-5 rounded-full border-2 flex items-center justify-center 
-      ${
-        selectedDosage === dose
-          ? "bg-yellow-400 border-yellow-400"
-          : "border-yellow-400"
-      }`}
-              >
-                {selectedDosage === dose && (
-                  <div className="w-2.5 h-2.5 bg-white rounded-full"></div>
-                )}
-              </div>
               <span
                 className={`text-sm ${
-                  selectedDosage === dose
-                    ? "text-black font-medium"
-                    : "text-gray-500"
+                  isSelected ? "text-black font-medium" : "text-gray-700"
                 }`}
               >
                 {dose}
               </span>
-            </label>
-          ))}
-        </div>
-      </div>
+            </div>
+
+            {isPopular && (
+              <span className="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">
+                Popular
+              </span>
+            )}
+          </label>
+        );
+      })}
     </div>
+  </div>
+</div>
+
   );
 };
 

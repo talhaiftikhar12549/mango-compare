@@ -3,7 +3,7 @@ import DosageFilter from "./Dosage-filter";
 import { useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
 import filter from "../assets/filter.webp";
-
+import { RotateCw } from "lucide-react"; // at the top of your file
 export default function FilterBar({
   closeFilter,
   availableDoasge,
@@ -27,21 +27,6 @@ export default function FilterBar({
             <IoCloseSharp onClick={closeFilter} className="text-xl " />
           </div>
         </div>
-        {/* Filter bar */}
-        {/* <div className="flex items-center justify-between w-[75%] md:w-full bg-white border-b border-[#DCDCDC] py-[20px] px-[20px]">
-          <div className="text-[20px] font-[600]">
-            <h2>Filter</h2>
-          </div>
-          <div>
-            <button
-              onClick={handleReset}
-              className="text-[16px] min-w-[95.14px] cursor-pointer font-[500] py-[4px] px-[24px] border border-[#DCDCDC] rounded-[100px]"
-            >
-              Reset
-            </button>
-          </div>
-        </div> */}
-        {/* Filter bar */}
 
         {/* Header */}
         <div className="bg-[#fffaec] border-2 border-orange-200 rounded-lg p-4 my-2">
@@ -64,6 +49,20 @@ export default function FilterBar({
         {/* Dosage Bar */}
         <DosageFilter isReset={isReset} availableDoasge={availableDoasge} />
         {/* Dosage Bar */}
+
+        {/* Reset Button */}
+
+        <div className="flex items-center justify-between w-[75%] md:w-full bg-white  py-[10px] ">
+          <button
+            onClick={handleReset}
+            className="flex items-center justify-center gap-2 px-6 py-2 border cursor-pointer w-full border-[#DCDCDC] text-gray-600 hover:border-[#F18A20] rounded-md hover:bg-[#FFF7F0] hover:text-[#D45500] font-semibold text-[14px] transition"
+          >
+            <RotateCw size={16} strokeWidth={2} />
+            Reset All Filters
+          </button>
+        </div>
+
+        {/* Reset Button */}
       </section>
     </div>
   );

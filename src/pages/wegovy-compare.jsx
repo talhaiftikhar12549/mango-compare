@@ -106,6 +106,7 @@ const WegovyCompare = () => {
           year, this adds up to £888 in savings!"
         lowest={lowestPrice}
         totalPharmacy={totalPharmacy}
+        percentage={"28"}
       />
 
       <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto">
