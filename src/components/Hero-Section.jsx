@@ -26,7 +26,7 @@ export default function HeroSection({ heading, text, text2, lowest, totalPharmac
           </div>
         </div>
       </section> */}
-      <section className="relative w-[100%] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 text-white py-24 overflow-hidden">
+      <section className="relative w-[100%]  bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 text-white md:!px-6 py-12 md:py-[48px] overflow-hidden">
         <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
           <div className="absolute inset-0">
             <div className="absolute inset-0 "></div>

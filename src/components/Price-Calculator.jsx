@@ -242,7 +242,7 @@ export default function PriceCalculator({
         <div className="flex md:hidden pb-2">
           <div
             onClick={filterBarHandler}
-            className="py-[14px] w-[101.27px] font-semibold px-[8px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+            className="py-[14px] w-[101.27px] font-semibold px-[8px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] hover:text-[#ffffff] text-[14px] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
           >
             {filterBar ? "Hide Filter" : "Show Filter"}
           </div>
@@ -411,7 +411,7 @@ export default function PriceCalculator({
                     </div>
 
                     <div className="w-[20%] flex flex-col items-center gap-2  items-center justify-center text-center capitalize">
-                      <p className="text-[#7e7f82]">strength</p>
+                      <p className="text-[#7e7f82]">Delivery Fee</p>
                       <p className="font-[600]">{srtdata.delivery_fee}</p>
                     </div>
                     <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
@@ -428,7 +428,7 @@ export default function PriceCalculator({
                       ) : discountedPrice ? (
                         <div
                           onClick={() => openDiscountModal(srtdata._id)}
-                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] text-[#FCCFFFFFF821] hover:text-black bg-white transition duration-700 cursor-pointer"
+                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] text-[#FCCFFFFFF821] hover:text-[#ffffff]  bg-white transition duration-700 cursor-pointer"
                         >
                           Discount Info
                         </div>
@@ -559,7 +559,7 @@ export default function PriceCalculator({
                     onClick={() => setCurrentPage(i + 1)}
                     className={`px-3 py-1 rounded ${
                       currentPage === i + 1
-                        ? "bg-[#FCC821] text-white"
+                        ? "bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 text-white"
                         : "bg-gray-100"
                     }`}
                   >

@@ -31,7 +31,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
   }, [isHide]);
   useEffect(() => {
     if (contentRefDiscount.current) {
-      setMaxHeightDiscount(isHideDiscount ? `137px` : "0px");
+      setMaxHeightDiscount(isHideDiscount ? `175px` : "0px");
     }
   }, [isHideDiscount]);
   const handleClick = () => setIsHide(!isHide);
@@ -59,11 +59,11 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
 
   return (
     <>
-      <div className="w-[75%] my-2 rounded-lg md:w-full max-w-xs px-[20px] pb-[38px] pt-[24px] bg-white space-y-4 border-2 border-[#DCDCDC] hover:border-orange-200 ">
+      <div className="w-[100%] my-2 rounded-lg px-[20px] pb-[38px] pt-[24px] bg-white space-y-4 border-2 border-[#DCDCDC] hover:border-orange-200 ">
         <div className="flex items-center justify-between">
-          <div className="flex justify-center items-center gap-3">
+          <div className="flex justify-center items-center gap-1 xl:gap-3">
             <BsCurrencyDollar className="text-[#f97215] mt-1 text-xl !font-[700]" />
-            <h2 className="text-lg font-semibold">Price Range</h2>
+            <h2 className="!text-[13px] xl:!text-lg font-semibold">Price Range</h2>
           </div>
 
           <button
@@ -81,10 +81,10 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
         >
           <div className="flex justify-between items-center">
             <div>
-              <h4 className="text-xs">Maximum Budget</h4>
+              <h4 className="xl:text-xs text-[9px] ">Maximum Budget</h4>
             </div>
             <div>
-              <span className="bg-[#f8f5ee] text-[#ee9c25] flex gap-1 text-xs px-3 py-2 rounded-full ml-auto">
+              <span className="bg-[#f8f5ee] text-[#ee9c25] flex gap-1 text-[9px] xl:text-xs px-3 py-2 rounded-full ml-auto">
                 £ {range}
               </span>
             </div>
@@ -137,13 +137,13 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
           </div>
         </div>
       </div>
-      <div className="w-[75%] my-2 md:w-full border-2 border-[#DCDCDC] hover:border-orange-200 rounded-lg bg-white">
-        <div className="w-full max-w-xs px-5 pb-6 pt-6 space-y-4">
+      <div className="w-[100%] my-2 md:w-full border-2 border-[#DCDCDC] hover:border-orange-200 rounded-lg bg-white">
+        <div className="w-full px-5 pb-6 pt-6 space-y-4">
           {/* Header */}
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 xl:gap-3">
               <MdPercent className="text-green-500" />
-              <h2 className="text-lg font-semibold text-[#000000]">
+              <h2 className="!text-[13px] xl:!text-lg font-semibold text-[#000000]">
                 Special Offers
               </h2>
             </div>

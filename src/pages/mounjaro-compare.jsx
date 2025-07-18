@@ -124,8 +124,6 @@ const MounjaroCompare = () => {
             <PriceCalculator
               maindata={apiDataM}
               availableDoasge={availableDoasge}
-              
-             
             />
           </div>
         )}
