@@ -111,6 +111,7 @@ const MounjaroCompare = () => {
           savings!"
         lowest={lowestPrice}
         totalPharmacy={totalPharmacy}
+        percentage={"27"}
       />
 
       {/* price calculator */}
@@ -123,6 +124,8 @@ const MounjaroCompare = () => {
             <PriceCalculator
               maindata={apiDataM}
               availableDoasge={availableDoasge}
+              
+             
             />
           </div>
         )}

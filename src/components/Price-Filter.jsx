@@ -31,7 +31,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
   }, [isHide]);
   useEffect(() => {
     if (contentRefDiscount.current) {
-      setMaxHeightDiscount(isHideDiscount ? `113px` : "0px");
+      setMaxHeightDiscount(isHideDiscount ? `137px` : "0px");
     }
   }, [isHideDiscount]);
   const handleClick = () => setIsHide(!isHide);
@@ -104,7 +104,6 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
                     height: "6px",
                     width: "100%",
                     backgroundColor: "#000",
-                   
                   }}
                 >
                   {children}
@@ -138,50 +137,60 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
           </div>
         </div>
       </div>
-      <div className=" w-[75%] my-2 md:w-full border-2 border-[#DCDCDC] hover:border-orange-200 rounded-lg">
-        <div className="w-full max-w-xs px-[20px] pb-[38px] pt-[24px] space-y-4">
-          <div className="flex items-center justify-between ">
-            <div className="flex items-center justify-between gap-2">
-              <MdPercent className="text-[rgb(16 185 129)]"/>
+      <div className="w-[75%] my-2 md:w-full border-2 border-[#DCDCDC] hover:border-orange-200 rounded-lg bg-white">
+        <div className="w-full max-w-xs px-5 pb-6 pt-6 space-y-4">
+          {/* Header */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <MdPercent className="text-green-500" />
               <h2 className="text-lg font-semibold text-[#000000]">
                 Special Offers
               </h2>
             </div>
-
             <button
               onClick={handleClickDiscount}
-              className="text-[20px]  font-[500] py-[4px]   cursor-pointer "
+              className="text-[20px] font-medium py-1 cursor-pointer"
             >
               {isHideDiscount ? <IoIosArrowUp /> : <IoIosArrowDown />}
             </button>
           </div>
+
+          {/* Toggle Section */}
           <div
             ref={contentRefDiscount}
             style={{ maxHeight: maxHeightDiscount }}
             className="transition-[max-height] duration-500 ease-in-out overflow-hidden"
           >
-            <div className="pt-[10px]">
-              <label className="flex items-center justify-between  space-x-3 cursor-pointer">
-                <span className="text-sm text-[#000000]">Apply Discount</span>
-                <div className="relative ">
-                  <input
-                    type="checkbox"
-                    className="sr-only "
-                    checked={checked}
-                    onChange={handleChange}
-                  />
-                  <div
-                    className={`w-14 h-8 rounded-full transition-colors duration-300 ${
-                      checked
-                        ? "bg-[#ffffff] border border-gray-300"
-                        : "bg-gray-300 border border-gray-300 "
-                    }`}
-                  ></div>
-                  <div
-                    className={`absolute top-1 left-1 w-6 h-6  rounded-full shadow-md transition-transform duration-300 transform ${
-                      checked ? "translate-x-6 bg-[#FCC821]" : "bg-[#ffffff]"
-                    }`}
-                  ></div>
+            <div className="pt-2">
+              <label className="block rounded-lg p-4 border border-green-200 bg-green-50">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="block text-sm font-semibold text-green-900">
+                      Show discounted prices only
+                    </span>
+                    <span className="text-xs text-green-700">
+                      Find the best savings available
+                    </span>
+                  </div>
+
+                  <div className="relative">
+                    <input
+                      type="checkbox"
+                      className="sr-only"
+                      checked={checked}
+                      onChange={handleChange}
+                    />
+                    <div
+                      className={`w-12 h-6 rounded-full transition-colors duration-300 ${
+                        checked ? "bg-green-500" : "bg-gray-300"
+                      }`}
+                    ></div>
+                    <div
+                      className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full shadow-md transition-transform duration-300 transform ${
+                        checked ? "translate-x-6 bg-white" : "bg-white"
+                      }`}
+                    ></div>
+                  </div>
                 </div>
               </label>
             </div>
