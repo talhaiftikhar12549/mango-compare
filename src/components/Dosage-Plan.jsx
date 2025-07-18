@@ -183,7 +183,7 @@ export default function DosagePlan() {
                         <div className="flex items-center gap-1">
                           {" "}
                           <RiDiscountPercentFill className="text-lg text-[rgb(16_185_129)]" />{" "}
-                          No Hidden Fees
+                          Special Discounts
                         </div>
                       </div>
                     </div>
@@ -227,7 +227,7 @@ export default function DosagePlan() {
                         <div className="flex items-center gap-1">
                           {" "}
                           <RiDiscountPercentFill className="text-lg text-[#ee9c25]" />{" "}
-                          No Hidden Fees
+                          Special Discounts
                         </div>
                       </div>
                     </div>

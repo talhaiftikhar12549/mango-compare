@@ -74,13 +74,11 @@ export default function WhyChooseMango() {
               </div>
 
               <h3 className="!text-lg !font-semibold mt-2 transition-colors duration-300 group-hover:!text-[rgb(16_185_129)]">
-                Up to 27% in Savings
+                Find the Best Deals
               </h3>
 
               <p className="text-md text-gray-500 mt-2">
-                Our price comparison tool and exclusive discounts help you find
-                the lowest treatment price. Choosing the right deal can save you
-                up to 27%.
+                Our price comparison tool and exclusive discounts help you find the lowest treatment price. Get the treatment you need at the best available price.
               </p>
             </div>
           </div>

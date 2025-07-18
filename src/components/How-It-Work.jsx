@@ -64,7 +64,7 @@ export default function HowItWork() {
                 Compare & Order Online
               </h3>
               <p className="text-md text-gray-500 mt-2">
-                Browse verified UK pharmacies, compare real-time retail prices, and place your order directly with the one that suits you best
+                Browse verified UK pharmacies, compare real-time retail prices, and place your order directly with the one that suits you best.
               </p>
             </div>
           </div>
@@ -74,7 +74,7 @@ export default function HowItWork() {
               href="#price-compare"
               className="bg-orange-500 inline-block text-white font-semibold px-6 py-3 rounded-lg cursor-pointer shadow-md hover:bg-orange-600 transition duration-300"
             >
-              Start Comparing Now
+              Compare Prices
             </a>
           </div>
         </div>
