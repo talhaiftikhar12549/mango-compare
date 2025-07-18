@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { TiHome } from "react-icons/ti";
+import { HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
+import { GoHome } from "react-icons/go";
 import { BsArrowUpRightCircleFill } from "react-icons/bs";
 import { HiMenu, HiX } from "react-icons/hi";
 import { ImLeaf } from "react-icons/im";
@@ -68,7 +70,7 @@ const Sidebar = () => {
   // };
 
   return (
-      <div className="h-[100vh] w-[280px] fixed left-0 top-0 pt-10">
+      <div className="h-[100vh] w-[280px] fixed left-0 top-0 pt-10 border-r border-gray-300">
 
         <div className="md:hidden flex justify-start items-center py-4">
           {/* <h2 className="text-xl font-bold">Forums</h2> */}
@@ -80,7 +82,7 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <div className="w-full py-6 space-x-0 md:space-x-5 border-r border-gray-300">
+        <div className="w-full py-6 space-x-0 md:space-x-5">
           {/* Sidebar */}
           <div
             className={`bg-white md:bg-transparent transform transition-transform duration-300 ease-in-out md:translate-x-0 ${
@@ -116,7 +118,7 @@ const Sidebar = () => {
                     : "text-gray-700 hover:text-[#FCC821]"
                 }`}
               >
-                <TiHome className="text-2xl" />
+                <GoHome className="text-2xl" />
                 Home
               </h4>
 
@@ -138,15 +140,15 @@ const Sidebar = () => {
                     : "text-gray-700 hover:text-[#FCC821]"
                 }`}
               >
-                <BsArrowUpRightCircleFill className="text-2xl" />
+                <HiOutlineArrowTopRightOnSquare className="text-2xl" />
                 Popular
               </h4>
             </div>
 
             <div className="border-t border-gray-300 mt-3">
-              <h2 className="text-lg text-[14px] text-gray-300 font-[600] px-[18px] py-[12px] ">
+              <h4 className="text-lg text-[14px] text-gray-400 font-[400] px-8 pt-5 pb-[12px] ">
                 Communities
-              </h2>
+              </h4>
             </div>
 
             <div className="w-full  px-[20px]">
@@ -165,7 +167,7 @@ const Sidebar = () => {
                     }`}
                   >
                     <ImLeaf />
-                    <p className="">{community.label}</p>
+                    <p className="text-sm">{community.label}</p>
                   </div>
                 </div>
               ))}
