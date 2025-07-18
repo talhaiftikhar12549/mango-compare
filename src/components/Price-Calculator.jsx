@@ -242,7 +242,7 @@ export default function PriceCalculator({
         <div className="flex md:hidden pb-2">
           <div
             onClick={filterBarHandler}
-            className="py-[14px] w-[101.27px] font-semibold px-[8px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] hover:text-[#ffffff] text-[14px] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+            className="py-[14px] w-[101.27px] font-semibold px-[8px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] hover:text-[#ffffff] text-[14px] hover:bg-white transition duration-700 cursor-pointer"
           >
             {filterBar ? "Hide Filter" : "Show Filter"}
           </div>
@@ -318,22 +318,20 @@ export default function PriceCalculator({
             </div> */}
             <div className="flex w-full justify-between">
               <div>
-                <h3 className="!text-[24px] !font-[700]">Live Price Results</h3>
+                <h3 className="!text-[24px] !pt-[0px] !font-[700]">Compare Real-Time Prices from UK Pharmacies</h3>
                 <p className="text-[#7e7f82]">
-                  <span className="">{totalPharmacy}</span> verified pharmacies
-                  • Updated every hour
+                  Prices updated daily from GPhC-regulated pharmacies
                 </p>
               </div>
               <div className=" flex gap-3">
                 <div>
-                
                   <span className="bg-green-100 text-[rgb(16_185_129)] flex gap-1 text-xs px-3 py-2 rounded-full ml-auto">
-                     <MdShield className="mt0.5]"/> All Gphc Verified
+                    <MdShield className="mt0.5]" /> All Gphc Verified
                   </span>
                 </div>
                 <div>
                   <span className="bg-[#f8f5ee] text-[#ee9c25] flex gap-1 text-xs px-3 py-2 rounded-full ml-auto">
-                    <FaAward className="mt0.5]"/> Best Prices
+                    <FaAward className="mt0.5]" /> Best Prices
                   </span>
                 </div>
               </div>

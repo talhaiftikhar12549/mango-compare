@@ -1,6 +1,6 @@
 import { ImFileText2 } from "react-icons/im";
 
-export default function HeroSection({ heading, text, text2, lowest, totalPharmacy, percentage  }) {
+export default function HeroSection({ heading, text, lowest, totalPharmacy, percentage  }) {
   return (
     <>
       {/* <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
@@ -43,11 +43,11 @@ export default function HeroSection({ heading, text, text2, lowest, totalPharmac
                 </div>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                  {heading} <span className="text-yellow-200"></span> 
               </h1>
 
-              <p className="text-xl md:text-2xl mb-8 opacity-95 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl mb-8 opacity-95 leading-relaxed max-w-3xl mx-auto">
                 
                 {text}
               </p>
