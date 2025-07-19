@@ -40,7 +40,7 @@ const Blogs = () => {
       <div className="max-w-[1280px] w-[100%] custom-width lg:px-[40px] xl:px-0 px-[16px] flex flex-col items-start justify-start">
         {/* HERO SECTION  */}
         <div className="w-full flex flex-col text-center py-10 space-y-2">
-          <h1 className="text-[#FCC821] font-bold">OUR BLOGS</h1>
+          <h1 className="text-orange-500 font-bold">OUR BLOGS</h1>
           <p className="font-bold text-[40px]">
             We write you blogs worth reading
           </p>
