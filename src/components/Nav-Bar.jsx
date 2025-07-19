@@ -37,7 +37,7 @@ export default function NavBar() {
                 aria-label="Home"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
+                    ? "text-orange-500 font-bold border-b pb-[10px] solid-2px-[#FCC821]"
                     : "text-[#6A778B] font-bold"
                 }
               >
@@ -49,7 +49,7 @@ export default function NavBar() {
                 aria-label="Mounjaro"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
+                    ? "text-orange-500 font-bold border-b pb-[10px] solid-2px-[#FCC821]"
                     : "text-[#6A778B] font-bold"
                 }
               >
@@ -61,7 +61,7 @@ export default function NavBar() {
                 aria-label="Wegovy"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
+                    ? "text-orange-500 font-bold border-b pb-[10px] solid-2px-[#FCC821]"
                     : "text-[#6A778B] font-bold"
                 }
               >
@@ -73,7 +73,7 @@ export default function NavBar() {
                 aria-label="Blogs"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821]"
+                    ? "text-orange-500 font-bold border-b pb-[10px] solid-2px-[#FCC821]"
                     : "text-[#6A778B] font-bold"
                 }
               >
@@ -85,7 +85,7 @@ export default function NavBar() {
                 aria-label="Forum"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#FCC821] font-bold border-b pb-[10px] solid-2px-[#FCC821] mr-[6px] lg:mr-[16px]"
+                    ? "text-orange-500 font-bold border-b pb-[10px] solid-2px-[#FCC821] mr-[6px] lg:mr-[16px]"
                     : "text-[#6A778B] font-bold mr-[6px] lg:mr-[16px]"
                 }
               >
@@ -95,7 +95,7 @@ export default function NavBar() {
 
             <div className="space-x-2">
               {user ?
-                <button onClick={logout} className=" cursor-pointer  rounded-[10px] text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[12px] px-[32px]">
+                <button onClick={logout} className=" cursor-pointer  text-[#FFFFFF] rounded-[10px] bg-orange-500 border border-orange-500 transition duration-700 font-bold  py-[12px] px-[32px]">
                   Log Out
                 </button>
                 :
@@ -104,7 +104,7 @@ export default function NavBar() {
                   aria-label="Login"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[12px] px-[32px]"
+                      ? "text-[#FFFFFF] rounded-[10px] bg-orange-500 border border-orange-500 transition duration-700 font-bold  py-[12px] px-[32px]"
                       : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[12px] px-[32px]"
                   }
                 >
@@ -119,7 +119,7 @@ export default function NavBar() {
                 aria-label="Contact Now"
                 className={({ isActive }) =>
                   isActive
-                    ? "text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold  py-[12px] px-[32px]"
+                    ? "text-[#FFFFFF] rounded-[10px] bg-orange-500 border border-orange-500 transition duration-700 font-bold  py-[12px] px-[32px]"
                     : "text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[12px] px-[32px]"
                 }
               >
@@ -134,14 +134,14 @@ export default function NavBar() {
             <div>
               <div
                 onClick={toggleMenu}
-                className="bg-[#FCC821] h-[40px] w-[40px] flex flex-col justify-center items-center cursor-pointer rounded"
+                className="bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 h-[40px] w-[40px] flex flex-col justify-center items-center cursor-pointer rounded"
               >
                 <div className="px-3 my-0.5 py-[1px]  bg-[#FFFFFF]"></div>
                 <div className="px-3 my-0.5 py-[1px]  bg-[#FFFFFF]"></div>
                 <div className="px-3 my-0.5 py-[1px]  bg-[#FFFFFF]"></div>
               </div>
               {isOpen && (
-                <span className="absolute right-3 top-20  border bg-[#FFFFFF] border-[#FCC821] rounded-md shadow-xl mt-2 w-48 z-10">
+                <span className="absolute right-3 top-20  border bg-[#FFFFFF] border-orange-500 rounded-md shadow-xl mt-2 w-48 z-10">
                   <p
                     onClick={toggleMenu}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer text-[#222222] font-bold text-center"
@@ -195,7 +195,7 @@ export default function NavBar() {
                       aria-label="Contact Us"
                       className={({ isActive }) =>
                         isActive
-                          ? "block w-full text-[#FFFFFF] rounded-[10px] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold py-[10px] px-[15px]"
+                          ? "block w-full text-[#FFFFFF] rounded-[10px] bg-orange-500 border border-orange-500 transition duration-700 font-bold py-[10px] px-[15px]"
                           : "block w-full text-[#202244] rounded-[10px] bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[10px] px-[15px] lg:px-[30px]"
                       }
                     >

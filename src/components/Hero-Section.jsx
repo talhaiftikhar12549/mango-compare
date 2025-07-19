@@ -34,7 +34,7 @@ export default function HeroSection({ heading, text, lowest, totalPharmacy, perc
             <div className="absolute bottom-20 right-20 w-48 h-48 bg-yellow-300/20 rounded-full blur-2xl"></div>
           </div>
 
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container mx-auto px-4 relative ">
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex items-center justify-center gap-2 mb-6">
                 {/* <TrendingDown className="w-8 h-8 text-yellow-200" /> */}
