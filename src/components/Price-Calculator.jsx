@@ -340,7 +340,7 @@ export default function PriceCalculator({
                         </div>
                       </div>
                     </div>
-                    <div className="w-[12%] flex flex-col items-center gap-2 !justify-center">
+                    <div className="w-[12%] hidden md:flex flex-col items-center gap-2 !justify-center">
                       <p className="text-[#7e7f82]">strength</p>
                       <p className="text-[16px] font-[600]">{srtdata.dosage}</p>
                     </div>
@@ -367,12 +367,15 @@ export default function PriceCalculator({
                         </p>
                       )}
                     </div>
-
-                    <div className="w-[20%] flex flex-col items-center gap-2  justify-center text-center capitalize">
+                    <div className="w-[20%] md:w-[12%] md:hidden flex flex-col items-center gap-2 !justify-center">
+                      <p className="text-[#7e7f82]">strength</p>
+                      <p className="text-[16px] font-[600]">{srtdata.dosage}</p>
+                    </div>
+                    <div className="w-[25%] md:w-[20%] flex flex-col items-center gap-2  justify-center text-center capitalize">
                       <p className="text-[#7e7f82]">Delivery Fee</p>
                       <p className="font-[600]">{srtdata.delivery_fee}</p>
                     </div>
-                    <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
+                    <div className="w-[25%] md:w-[18%] flex items-center justify-center cursor-pointer relative group">
                       {srtdata.discount == null ? (
                         <a
                           href={srtdata.website}
