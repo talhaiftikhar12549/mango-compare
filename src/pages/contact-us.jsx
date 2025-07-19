@@ -6,7 +6,8 @@ import ContactForm from "../components/contact-form";
 
 const Contact = () => {
   return (
-    <div className="max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px] mx-auto flex flex-col items-center pb-[200px]">
+    
+    <div className="max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px] mx-auto flex flex-col items-center pb-[200px] ">
       {/* HERO SECTION  */}
       <div className="w-full flex flex-col text-center py-10 space-y-2">
         <h1 className="font-bold text-[40px]">Contact Us</h1>
@@ -14,7 +15,7 @@ const Contact = () => {
       </div>
 
       {/* CONTACT FORM CONTAINER  */}
-      <div className="w-full flex justify-center h-[580px] items-center bg-white shadow-xl ">
+      <div className="w-full flex justify-center h-[580px] items-center bg-white shadow-xl rounded-md">
         <div className="hidden md:block w-[40%] h-full bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 py-10 px-8 xl:px-10 rounded-md relative">
           <img
             className="absolute bottom-0 left-0 z-2 rotate-180"

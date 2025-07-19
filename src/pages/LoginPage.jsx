@@ -69,10 +69,10 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full flex items-center justify-center bg-orange-500 ${
+            className={`w-full flex items-center text-[#ffffff] justify-center border border-orange-500 bg-orange-500 ${
               isSubmitting
                 ? "opacity-60 cursor-not-allowed"
-                : "hover:bg-[#Ffffff] hover:text-orange-500 border hover:border cursor-pointer border-orange-500 hover:border-orange-500"
+                : "hover:bg-orange-600 hover:border cursor-pointer border-orange-600 hover:border-orange-600"
             } text-white font-semibold py-2 rounded-md transition duration-300`}
           >
             {isSubmitting ? (
