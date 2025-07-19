@@ -22,7 +22,7 @@ export default function FilterBar({
   return (
    <div className="w-screen md:w-full bg-black/60 md:bg-transparent h-screen md:h-full px-4 pt-10 md:pt-0 overflow-y-auto">
 
-      <section className="w-[100%] ">
+      <section className="w-[100%] mb-8">
         <div className="w-full flex md:hidden justify-end items-center ">
           <div className="w-10 h-10 border rounded-lg flex items-center justify-center bg-[#ff6900]">
             <IoCloseSharp onClick={closeFilter} className="text-xl " />
@@ -53,7 +53,7 @@ export default function FilterBar({
 
         {/* Reset Button */}
 
-        <div className="flex items-center justify-between w-[100%] md:w-full bg-white mt-2 mb-5 border-2  border-[#DCDCDC] rounded-md hover:border-[#F18A20]">
+        <div className="flex items-center justify-between w-[100%] md:w-full bg-white mt-2  border-2  border-[#DCDCDC] rounded-md hover:border-[#F18A20]">
           <button
             onClick={handleReset}
             className="flex items-center justify-center gap-2 px-6 py-2 cursor-pointer w-full  text-gray-600  rounded-md hover:bg-[#FFF7F0] hover:text-[#D45500] font-semibold text-[14px] transition"
