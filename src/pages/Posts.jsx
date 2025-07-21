@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
-import { IoSearchOutline } from "react-icons/io5";
 import { PostsCard } from "../components/Forums/PostsCard";
 import ForumPageSkeleton from "../components/ForumPageSkeleton";
 import { IoClose } from "react-icons/io5";
@@ -10,7 +9,6 @@ import { useSelector } from "react-redux";
 export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [search, setSearch] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [newPost, setNewPost] = useState({ title: "", body: "" });
 
@@ -28,9 +26,11 @@ export default function Posts() {
     { value: "News & Research", label: "News & Research" },
   ];
 
+   const getSearch = useSelector((state) => state.forums.search);
+   
   useEffect(() => {
     fetchPosts();
-  }, [search, getSelectedCategory?.value, getSelectedCommunity]);
+  }, [getSearch, getSelectedCategory?.value, getSelectedCommunity]);
 
   const fetchPosts = async () => {
     setIsLoading(true);
@@ -41,7 +41,7 @@ export default function Posts() {
     try {
       const res = await api.get("/posts", {
         params: {
-          search,
+          search: getSearch,
           sort: sortParam,
           community:
             getSelectedCommunity.value !== ""
@@ -66,10 +66,6 @@ export default function Posts() {
     } catch (err) {
       console.error("Post creation failed:", err);
     }
-  };
-
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
   };
 
   return (
