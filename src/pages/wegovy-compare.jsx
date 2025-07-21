@@ -27,6 +27,11 @@ import { MdReportProblem } from "react-icons/md";
 import { BiSolidInjection, BiMap, BiUser } from "react-icons/bi";
 import { FiClock, FiRepeat, FiBox } from "react-icons/fi";
 import { FaShieldAlt, FaUserMd, FaSyringe } from "react-icons/fa";
+import wegovyImage from "../assets/wegovy compare/wegovyinjection.webp";
+import { RiMedicineBottleLine } from "react-icons/ri";
+import { FaUser } from "react-icons/fa";
+import { FaCalendarCheck } from "react-icons/fa6";
+import { MdHealthAndSafety } from "react-icons/md";
 const WegovyCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
@@ -211,8 +216,6 @@ const WegovyCompare = () => {
         percentage={"28"}
       />
 
-      <div className="max-w-[1280px] custom-width  w-full px-4 md:px-8 xl:px-0 mx-auto"></div>
-
       {/* price calculator */}
       <div className="w-full overflow-x-auto">
         {loading ? (
@@ -229,130 +232,147 @@ const WegovyCompare = () => {
       </div>
       {/* price calculator */}
 
-      {/* Faqs Section */}
-      <FaqsSection items={faqItems} />
-      {/* Faqs Section  */}
-
       {/* what is wegovy */}
-      <section className="py-20 bg-gradient-to-br from-orange-400 to-orange-500 w-full">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            What is Wegovy?
-            <div className="w-24 h-1 bg-white mx-auto"></div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {" "}
-            <div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
-                  {" "}
-                  <i className="ri-medicine-bottle-line text-2xl text-white"></i>
-                </div>
-                Prescription Weight Loss Treatment Wegovy is a prescription
-                weight loss injection available in the UK used to help adults
-                with obesity or weight-related health conditions achieve
-                long-term results.
-                <div className="bg-white/10 rounded-xl p-6 border border-white/20">
-                  Active Ingredient: Semaglutide The active ingredient in Wegovy
-                  is semaglutide, which works by mimicking GLP-1, a hormone that
-                  controls appetite and helps you feel full sooner.
-                </div>{" "}
-              </div>
+      <div className="bg-gradient-to-br from-orange-400 to-orange-500 w-full">
+        <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto ">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
+              What is Wegovy?
+              {/* <div className="w-24 h-1 bg-white mx-auto"></div> */}
             </div>
-            <div className="relative">
-              Wegovy Injection Pen
-              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-center">
-                  {" "}
-                  <div className="text-2xl font-bold text-orange-500">
-                    GLP-1
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Left Content Block */}
+              <div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
+                    <RiMedicineBottleLine className="text-white text-2xl " />
                   </div>
-                  <div className="text-sm text-gray-600">Hormone Mimicry</div>
-                </div>{" "}
+                  <p className="text-white mb-4">
+                    <strong>Prescription Weight Loss Treatment:</strong> Wegovy
+                    is a prescription weight loss injection available in the UK,
+                    used to help adults with obesity or weight-related health
+                    conditions achieve long-term results.
+                  </p>
+                  <div className="bg-white/10 rounded-xl p-6 border border-white/20">
+                    <p className="text-white">
+                      <strong>Active Ingredient: Semaglutide</strong> – This
+                      works by mimicking GLP-1, a hormone that controls appetite
+                      and helps you feel full sooner.
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-user-heart-line text-xl text-white"></i>{" "}
+
+              {/* Right Image Block */}
+              <div className="relative flex justify-center items-center">
+                <img
+                  className="w-[75%] rounded-[10px]"
+                  src={wegovyImage}
+                  alt="Wegovy Product"
+                />
+                <div className="absolute left-0 -bottom-6 md:-left-6 bg-white rounded-xl p-6 shadow-lg">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-orange-500">
+                      GLP-1
+                    </div>
+                    <div className="text-sm text-gray-600">Hormone Mimicry</div>
+                  </div>
+                </div>
               </div>
-              For Adults Designed for adult patients with obesity
-            </div>
-            <div className="text-center">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <i className="ri-calendar-check-line text-xl text-white"></i>{" "}
-              </div>
-              Long-term Results Helps achieve sustainable weight loss
             </div>
 
-            <div className="text-center">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                {" "}
-                <i className="ri-shield-check-line text-xl text-white"></i>
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaUser className="text-white text-md " />
+                </div>
+                <p className="text-white">
+                  {" "}
+                  For Adults Designed for adult patients with obesity
+                </p>
               </div>
-              UK Available Prescription available in the UK
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <FaCalendarCheck className="text-white text-md " />
+                </div>
+                <p className="text-white">
+                  Long-term Results Helps achieve sustainable weight loss
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  {" "}
+                  <MdHealthAndSafety className="text-white text-lg " />
+                </div>
+                <p className="text-white">
+                  UK Available Prescription available in the UK
+                </p>
+              </div>
             </div>
-          </div>
-        </div>{" "}
-      </section>
+          </div>{" "}
+        </section>
+      </div>
       {/* what is wegovy */}
 
       {/* How Does Wegovy Work? */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              How Does Wegovy Work?
-            </h2>
-            <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Left Box */}
-            <div>
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
-                  <LuBrain className="text-2xl text-orange-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Natural Hormone Mimicry
-                </h3>
-                <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                  Semaglutide acts in the body like a natural hormone called
-                  GLP-1. This hormone targets areas of the brain responsible for
-                  regulating appetite. By helping you feel fuller more quickly
-                  and reducing hunger, Wegovy promotes weight loss when used
-                  alongside a balanced diet and increased physical activity.
-                </p>
-                <div className="bg-orange-50 rounded-xl p-6">
-                  <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                    Gradual Dose Increase
-                  </h4>
-                  <p className="text-gray-700 leading-relaxed">
-                    The dose is increased gradually over several weeks to help
-                    your body adjust and reduce side effects, starting from 0.25
-                    mg and rising up to the full maintenance dose of 2.4 mg once
-                    a week.
-                  </p>
-                </div>
-              </div>
+      <section className="w-full bg-gray-50">
+        <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
+                How Does Wegovy Work?
+              </h2>
+              <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
             </div>
 
-            {/* Right Image */}
-            <div className="relative">
-              <img
-                src="https://readdy.ai/api/search-image?query=Medical illustration showing GLP-1 hormone mechanism in human body brain appetite control, scientific diagram style with clean background, medical education infographic, professional healthcare visualization&width=600&height=600&seq=mechanism1&orientation=squarish"
-                alt="How Wegovy Works"
-                className="w-full rounded-2xl shadow-lg object-cover h-96"
-              />
-              <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-6 shadow-lg">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600">
-                    2.4mg
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              {/* Left Box */}
+              <div>
+                <div className="bg-white rounded-2xl p-8 shadow-lg">
+                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
+                    <LuBrain className="text-2xl text-orange-600" />
                   </div>
-                  <div className="text-sm text-gray-600">
-                    Weekly Maintenance Dose
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    Natural Hormone Mimicry
+                  </h3>
+                  <p className="text-lg text-gray-700 leading-relaxed mb-6">
+                    Semaglutide acts in the body like a natural hormone called
+                    GLP-1. This hormone targets areas of the brain responsible
+                    for regulating appetite. By helping you feel fuller more
+                    quickly and reducing hunger, Wegovy promotes weight loss
+                    when used alongside a balanced diet and increased physical
+                    activity.
+                  </p>
+                  <div className="bg-orange-50 rounded-xl p-6">
+                    <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                      Gradual Dose Increase
+                    </h4>
+                    <p className="text-gray-700 leading-relaxed">
+                      The dose is increased gradually over several weeks to help
+                      your body adjust and reduce side effects, starting from
+                      0.25 mg and rising up to the full maintenance dose of 2.4
+                      mg once a week.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Image */}
+              <div className="relative">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Medical illustration showing GLP-1 hormone mechanism in human body brain appetite control, scientific diagram style with clean background, medical education infographic, professional healthcare visualization&width=600&height=600&seq=mechanism1&orientation=squarish"
+                  alt="How Wegovy Works"
+                  className="w-full rounded-2xl shadow-lg object-cover h-96"
+                />
+                <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-6 shadow-lg">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-orange-600">
+                      2.4mg
+                    </div>
+                    <div className="text-sm text-gray-600">
+                      Weekly Maintenance Dose
+                    </div>
                   </div>
                 </div>
               </div>
@@ -365,10 +385,10 @@ const WegovyCompare = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
               How to Know if I am Eligible for Wegovy?
             </h2>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
               If you're considering Wegovy for weight loss, it's important to
               understand who can use it and how to get started. In the UK,
               healthcare providers prescribe Wegovy based on your BMI and any
@@ -406,16 +426,16 @@ const WegovyCompare = () => {
                       BMI of 27 or more along with weight-related health
                       conditions, such as:
                     </h4>
-                    <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-center space-x-2">
+                    <ul className="space-y-2 text-gray-700 !list-none !mr-0 !pr-0">
+                      <li className="!flex !items-center !space-x-2">
                         <BsArrowRight className="text-orange-600" />
                         <span>Type 2 diabetes</span>
                       </li>
-                      <li className="flex items-center space-x-2">
+                      <li className="!flex !items-center !space-x-2">
                         <BsArrowRight className="text-orange-600" />
                         <span>High cholesterol</span>
                       </li>
-                      <li className="flex items-center space-x-2">
+                      <li className="!flex !items-center !space-x-2">
                         <BsArrowRight className="text-orange-600" />
                         <span>High blood pressure</span>
                       </li>
@@ -821,6 +841,9 @@ const WegovyCompare = () => {
         </div>
       </div>
       {/* healthier life */}
+      {/* Faqs Section */}
+      <FaqsSection items={faqItems} />
+      {/* Faqs Section  */}
     </>
   );
 };
