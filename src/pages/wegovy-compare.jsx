@@ -89,6 +89,27 @@ const WegovyCompare = () => {
       description:
         "Place the pen firmly against your skin at a 90-degree angle.",
     },
+    {
+      step: 7,
+      icon: <BiInjection className="text-white text-lg" />,
+      title: "Administer the Injection",
+      description:
+        "Press and hold the injection button until you hear the first click. Keep holding the pen in place until you hear a second click, confirming the injection is complete (this usually takes about 10 seconds).",
+    },
+    {
+      step: 8,
+      icon: <BiInjection className="text-white text-lg" />,
+      title: "Dispose of the Pen Safely",
+      description:
+        "Remove the pen straight off the skin. Place it in a sharps disposal container as instructed.",
+    },
+    {
+      step: 9,
+      icon: <BiInjection className="text-white text-lg" />,
+      title: "Check the Injection Site",
+      description:
+        "If necessary, gently press a cotton ball or gauze over the area. Avoid rubbing the site.",
+    },
   ];
   const benefitsData = [
     {
@@ -673,9 +694,9 @@ const WegovyCompare = () => {
       </section>
       {/* steps */}
       {/* How to use */}
-      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+      {/* <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
         <div className="max-w-7xl mx-auto">
-          {/* TITLE */}
+          
           <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 text-center">
             How to Use Wegovy Safely?
           </h2>
@@ -685,16 +706,16 @@ const WegovyCompare = () => {
             technique and injection site for you.
           </p>
 
-          {/* TWO COLUMNS */}
+ 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Left Column: Injection Sites */}
+            
             <div className=" p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-4">
                 Recommended Injection Sites
               </h3>
 
               <div className="space-y-3">
-                {/* Stomach */}
+             
                 <div className="bg-orange-50 flex items-center p-4 rounded-lg">
                   <div className="bg-orange-100 text-orange-500 rounded-full w-10 h-10 flex items-center justify-center mr-4">
                     <BiSolidInjection size={20} />
@@ -707,7 +728,7 @@ const WegovyCompare = () => {
                   </div>
                 </div>
 
-                {/* Thigh */}
+              
                 <div className="bg-orange-50 flex items-center p-4 rounded-lg">
                   <div className="bg-orange-100 text-orange-500 rounded-full w-10 h-10 flex items-center justify-center mr-4">
                     <BiMap size={20} />
@@ -720,7 +741,7 @@ const WegovyCompare = () => {
                   </div>
                 </div>
 
-                {/* Upper Arm */}
+                
                 <div className="bg-orange-50 flex items-center p-4 rounded-lg">
                   <div className="bg-orange-100 text-orange-500 rounded-full w-10 h-10 flex items-center justify-center mr-4">
                     <BiUser size={20} />
@@ -733,14 +754,14 @@ const WegovyCompare = () => {
               </div>
             </div>
 
-            {/* Right Column: Important Reminders */}
+
             <div className=" p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-4">
                 Important Reminders
               </h3>
 
               <div className="space-y-3">
-                {/* Weekly Schedule */}
+  
                 <div className="flex items-start">
                   <div className="bg-orange-100 text-orange-500 rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
                     <FiClock size={16} />
@@ -755,7 +776,7 @@ const WegovyCompare = () => {
                   </div>
                 </div>
 
-                {/* Rotate Sites */}
+
                 <div className="flex items-start">
                   <div className="bg-orange-100 text-orange-500 rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
                     <FiRepeat size={16} />
@@ -768,7 +789,6 @@ const WegovyCompare = () => {
                   </div>
                 </div>
 
-                {/* Storage */}
                 <div className="flex items-start">
                   <div className="bg-orange-100 text-orange-500 rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
                     <FiBox size={16} />
@@ -784,7 +804,7 @@ const WegovyCompare = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* how to use */}
       {/* healthier life */}
       <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
