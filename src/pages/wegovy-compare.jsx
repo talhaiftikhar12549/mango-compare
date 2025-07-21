@@ -1,7 +1,7 @@
 import HeroSection from "../components/Hero-Section.jsx";
 import PriceCalculator from "../components/Price-Calculator.jsx";
 import FaqsSection from "../components/Faqs-Section.jsx";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import api from "../services/api.js";
 import PriceCalculatorSkeleton from "./PriceCalculatorSkeleton";
 import { FaCheck, FaStethoscope } from "react-icons/fa";
@@ -16,6 +16,7 @@ import { LuBrain } from "react-icons/lu";
 import { FiMusic } from "react-icons/fi";
 import { FaHandsWash } from "react-icons/fa";
 import { BiSearchAlt, BiMapPin, BiDroplet, BiInjection } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 import {
   FaInfoCircle,
   FaSkullCrossbones,
@@ -32,9 +33,20 @@ import { RiMedicineBottleLine } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { MdHealthAndSafety } from "react-icons/md";
+import fatwomanimage from "../assets/wegovy compare/fatwomenimage.webp";
 const WegovyCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
+  const navigate = useNavigate();
+
+  const goToContactSection = () => {
+    navigate("/#bmicalculator");
+  };
+  const contactRef = useRef(null);
+
+  const scrollToContact = () => {
+    contactRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
   const steps = [
     {
       step: 1,
@@ -217,7 +229,11 @@ const WegovyCompare = () => {
       />
 
       {/* price calculator */}
-      <div className="w-full overflow-x-auto">
+      <div
+        ref={contactRef}
+        id="pricecalculatorwegovy"
+        className="w-full overflow-x-auto"
+      >
         {loading ? (
           <PriceCalculatorSkeleton />
         ) : (
@@ -235,7 +251,7 @@ const WegovyCompare = () => {
       {/* what is wegovy */}
       <div className="bg-gradient-to-br from-orange-400 to-orange-500 w-full">
         <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto ">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto md:px-6 px-0">
             <div className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
               What is Wegovy?
               {/* <div className="w-24 h-1 bg-white mx-auto"></div> */}
@@ -318,7 +334,7 @@ const WegovyCompare = () => {
       {/* How Does Wegovy Work? */}
       <section className="w-full bg-gray-50">
         <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-7xl mx-auto md:px-6 px-0">
             <div className="text-center mb-16">
               <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
                 How Does Wegovy Work?
@@ -365,7 +381,7 @@ const WegovyCompare = () => {
                   alt="How Wegovy Works"
                   className="w-full rounded-2xl shadow-lg object-cover h-96"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-6 shadow-lg">
+                <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-orange-600">
                       2.4mg
@@ -382,8 +398,8 @@ const WegovyCompare = () => {
       </section>
       {/* How Does Wegovy Work? */}
       {/* Eligible */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+        <div className="max-w-7xl mx-auto md:px-6 px-0 ">
           <div className="text-center mb-16">
             <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
               How to Know if I am Eligible for Wegovy?
@@ -426,7 +442,7 @@ const WegovyCompare = () => {
                       BMI of 27 or more along with weight-related health
                       conditions, such as:
                     </h4>
-                    <ul className="space-y-2 text-gray-700 !list-none !mr-0 !pr-0">
+                    <ul className="space-y-2 text-gray-700 !list-none !ml-0 !pl-0">
                       <li className="!flex !items-center !space-x-2">
                         <BsArrowRight className="text-orange-600" />
                         <span>Type 2 diabetes</span>
@@ -449,7 +465,10 @@ const WegovyCompare = () => {
                   If you are unsure about your BMI, the Mango Compare BMI
                   calculator can help you see if you meet the basic criteria.
                 </p>
-                <button className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors whitespace-nowrap cursor-pointer">
+                <button
+                  onClick={goToContactSection}
+                  className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors whitespace-nowrap cursor-pointer"
+                >
                   Calculate BMI
                 </button>
               </div>
@@ -501,13 +520,13 @@ const WegovyCompare = () => {
       </section>
       {/* Eligible */}
       {/* benifit */}
-      <section className="w-full bg-gray-50 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full bg-gray-50 ">
+        <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
               What are the Benefits of Wegovy?
             </h2>
-            <p className="text-lg text-gray-700">
+            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
               Wegovy has been shown to help many people lose a significant
               amount of weight. In clinical trials, patients using Wegovy
               injections lost up to 15% of their body weight on average.
@@ -533,11 +552,11 @@ const WegovyCompare = () => {
       </section>
       {/* benifit */}
       {/* side effect */}
-      <div className="px-4 md:px-10 py-10 bg-white">
-        <h1 className="text-3xl md:text-4xl font-extrabold text-center text-gray-900 mb-4">
+      <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+        <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 text-center">
           Are there any Side Effects of Wegovy?
-        </h1>
-        <p className="text-center text-gray-600 max-w-3xl mx-auto mb-10">
+        </h2>
+        <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
           There are some side effects of Wegovy that improve as your body gets
           used to the medication. Always speak to your healthcare professional
           if you notice anything unusual or severe while using Wegovy.
@@ -550,9 +569,7 @@ const WegovyCompare = () => {
               <div className="bg-orange-100 text-orange-600 p-3 rounded-full">
                 <FaInfoCircle size={20} />
               </div>
-              <h2 className="text-xl font-bold text-gray-900">
-                Common Side Effects
-              </h2>
+              <h3 className="!text-xl">Common Side Effects</h3>
             </div>
 
             <div className="space-y-3">
@@ -577,9 +594,7 @@ const WegovyCompare = () => {
               <div className="bg-red-100 text-red-600 p-3 rounded-full">
                 <AiOutlineWarning size={20} />
               </div>
-              <h2 className="text-xl font-bold text-gray-900">
-                Severe or Rare Side Effects
-              </h2>
+              <h3 className="!text-xl">Severe or Rare Side Effects</h3>
             </div>
 
             <div className="space-y-3">
@@ -601,65 +616,70 @@ const WegovyCompare = () => {
       </div>
       {/* side effect */}
       {/* steps */}
-      <section className="bg-white w-full py-16 px-4 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-            How to Use Wegovy Safely?
-          </h2>
-          <p className="text-center text-gray-700 mb-12 max-w-2xl mx-auto">
-            Wegovy is injected once a week into the stomach, thigh, or upper
-            arm. Be sure to consult your GP or prescriber to confirm the right
-            technique and injection site for you.
-          </p>
+      <section className="w-full ">
+        <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 text-center">
+              How to Use Wegovy Safely?
+            </h2>
+            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
+              Wegovy is injected once a week into the stomach, thigh, or upper
+              arm. Be sure to consult your GP or prescriber to confirm the right
+              technique and injection site for you.
+            </p>
 
-          <div className="bg-gray-50 rounded-xl p-6 md:p-10 shadow-md">
-            <div className="flex items-center mb-6">
-              <div className="bg-orange-100 rounded-full w-10 h-10 flex items-center justify-center text-orange-500 mr-3">
-                <FiMusic />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg">
-                  Step-by-Step Injection Guide
-                </h3>
-                <p className="text-sm text-gray-600">
-                  Follow these steps for safe and effective administration
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {steps.map(({ step, icon, title, description }) => (
-                <div
-                  key={step}
-                  className="bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition-shadow duration-300"
-                >
-                  <div className="flex items-center mb-3">
-                    <div className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-2">
-                      {step}
-                    </div>
-                    <div className="bg-orange-100 text-orange-500 rounded-full w-8 h-8 flex items-center justify-center">
-                      {icon}
-                    </div>
-                  </div>
-                  <h4 className="font-semibold text-gray-900 text-md mb-1">
-                    {title}
-                  </h4>
-                  <p className="text-sm text-gray-600">{description}</p>
+            <div
+              className=" rounded-xl p-6 md:p-10 shadow-md bg-white
+            "
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-orange-100 rounded-full w-10 h-10 flex items-center justify-center text-orange-500 mr-3">
+                  <FiMusic />
                 </div>
-              ))}
+                <div>
+                  <h3 className="font-bold text-lg">
+                    Step-by-Step Injection Guide
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Follow these steps for safe and effective administration
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {steps.map(({ step, icon, title, description }) => (
+                  <div
+                    key={step}
+                    className="bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition-shadow duration-300"
+                  >
+                    <div className="flex items-center mb-3">
+                      <div className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-2">
+                        {step}
+                      </div>
+                      <div className="bg-orange-100 text-orange-500 rounded-full w-8 h-8 flex items-center justify-center">
+                        {icon}
+                      </div>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 text-md mb-1">
+                      {title}
+                    </h4>
+                    <p className="text-sm text-gray-600">{description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
       {/* steps */}
       {/* How to use */}
-      <section className="bg-white w-full py-16 px-4 md:px-12">
+      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
         <div className="max-w-7xl mx-auto">
           {/* TITLE */}
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+          <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 text-center">
             How to Use Wegovy Safely?
           </h2>
-          <p className="text-center text-gray-700 mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
             Wegovy is injected once a week into the stomach, thigh, or upper
             arm. Be sure to consult your GP or prescriber to confirm the right
             technique and injection site for you.
@@ -668,7 +688,7 @@ const WegovyCompare = () => {
           {/* TWO COLUMNS */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Left Column: Injection Sites */}
-            <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
+            <div className=" p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-4">
                 Recommended Injection Sites
               </h3>
@@ -714,7 +734,7 @@ const WegovyCompare = () => {
             </div>
 
             {/* Right Column: Important Reminders */}
-            <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
+            <div className=" p-6 rounded-xl shadow-sm">
               <h3 className="text-xl font-semibold mb-4">
                 Important Reminders
               </h3>
@@ -767,79 +787,82 @@ const WegovyCompare = () => {
       </section>
       {/* how to use */}
       {/* healthier life */}
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-between px-8 py-12 bg-white">
-        {/* Left Content */}
-        <div className="lg:w-1/2 space-y-6">
-          <h1 className="text-4xl font-bold leading-snug text-gray-900">
-            Take the First Step <br /> Towards a Healthier You
-          </h1>
-          <p className="text-gray-600">
-            Don't let weight hold you back from living your best life. Wegovy
-            has helped thousands achieve sustainable weight loss results with
-            the support of healthcare professionals.
-          </p>
+      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between md:px-8 px-0 md:py-12 py-0  bg-white">
+          {/* Left Content */}
+          <div className="lg:w-1/2 space-y-6">
+            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 ">
+              Take the First Step <br /> Towards a Healthier You
+            </h2>
+            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
+              Don't let weight hold you back from living your best life. Wegovy
+              has helped thousands achieve sustainable weight loss results with
+              the support of healthcare professionals.
+            </p>
 
-          <div className="space-y-4">
-            <div className="flex items-start space-x-3">
-              <FaShieldAlt className="text-orange-500 mt-1" />
-              <div>
-                <p className="font-semibold">Clinically Proven</p>
-                <p className="text-sm text-gray-500">
-                  FDA-approved for chronic weight management
-                </p>
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <FaShieldAlt className="text-orange-500 mt-1" />
+                <div>
+                  <p className="font-semibold">Clinically Proven</p>
+                  <p className="text-sm text-gray-500">
+                    FDA-approved for chronic weight management
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <FaUserMd className="text-orange-500 mt-1" />
+                <div>
+                  <p className="font-semibold">Professional Support</p>
+                  <p className="text-sm text-gray-500">
+                    Guidance from qualified healthcare providers
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <FaSyringe className="text-orange-500 mt-1" />
+                <div>
+                  <p className="font-semibold">Convenient Treatment</p>
+                  <p className="text-sm text-gray-500">
+                    Once-weekly injection for easy compliance
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="flex items-start space-x-3">
-              <FaUserMd className="text-orange-500 mt-1" />
-              <div>
-                <p className="font-semibold">Professional Support</p>
-                <p className="text-sm text-gray-500">
-                  Guidance from qualified healthcare providers
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start space-x-3">
-              <FaSyringe className="text-orange-500 mt-1" />
-              <div>
-                <p className="font-semibold">Convenient Treatment</p>
-                <p className="text-sm text-gray-500">
-                  Once-weekly injection for easy compliance
-                </p>
-              </div>
+            <div className="flex  gap-2 space-x-4 pt-4">
+              <button
+                onClick={scrollToContact}
+                className="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white font-semibold px-6 py-3 rounded-[10px]"
+              >
+                Start Your Journey
+              </button>
             </div>
           </div>
 
-          <div className="flex space-x-4 pt-4">
-            <button className="bg-orange-500 text-white font-semibold px-6 py-3 rounded-full">
-              Start Your Journey
-            </button>
-            <button className="border border-gray-300 px-6 py-3 rounded-full text-gray-700 font-semibold">
-              Speak to Expert
-            </button>
+          {/* Right Image */}
+          <div className="relative lg:w-1/2 mb-10 lg:mb-0">
+            <img
+              src={fatwomanimage} // Replace with actual path
+              alt="Healthy Woman"
+              className="rounded-2xl shadow-lg w-full  object-cover"
+            />
+
+            <div className="absolute top-4 left-4 bg-white shadow-md px-4 py-2 rounded-lg">
+              <p className="text-orange-500 font-bold text-lg">15%</p>
+              <p className="text-xs text-gray-600">Average Weight Loss</p>
+            </div>
+
+            <div className="absolute bottom-4 right-4 bg-white shadow-md px-4 py-2 rounded-lg text-center">
+              <p className="text-orange-500 font-bold">1x</p>
+              <p className="text-xs text-gray-600">Weekly Dose</p>
+            </div>
           </div>
         </div>
+      </section>
 
-        {/* Right Image */}
-        <div className="relative lg:w-1/2 mb-10 lg:mb-0">
-          <img
-            src="/31717984-3df3-4a0a-8d95-61054f9c5345.png" // Replace with actual path
-            alt="Healthy Woman"
-            className="rounded-2xl shadow-lg"
-          />
-
-          <div className="absolute top-4 left-4 bg-white shadow-md px-4 py-2 rounded-lg">
-            <p className="text-orange-500 font-bold text-lg">15%</p>
-            <p className="text-xs text-gray-600">Average Weight Loss</p>
-          </div>
-
-          <div className="absolute bottom-4 right-4 bg-white shadow-md px-4 py-2 rounded-lg text-center">
-            <p className="text-orange-500 font-bold">1x</p>
-            <p className="text-xs text-gray-600">Weekly Dose</p>
-          </div>
-        </div>
-      </div>
       {/* healthier life */}
       {/* Faqs Section */}
       <FaqsSection items={faqItems} />

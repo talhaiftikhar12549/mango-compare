@@ -40,7 +40,7 @@ export default function BMICalculator() {
 
   return (
     <>
-      <section className=" bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)] w-full">
+      <section id="bmicalculator" className=" bg-gradient-to-r from-[rgb(16_185_129_/_0.05)] to-[rgb(245_158_11_/_0.05)] w-full">
         <div className="max-w-[1280px] mx-auto py-[48px]">
           <div className=" px-4 text-center">
             <h2 className="!text-[24px] md:!text-[24px] !font-[600] text-gray-900 mb-4">

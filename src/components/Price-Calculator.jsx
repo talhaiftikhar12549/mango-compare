@@ -239,7 +239,7 @@ export default function PriceCalculator({
   // filter toggel
   return (
     <>
-      <section className="max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto md:py-[50px] py-[40px] w-[100%]">
+      <section id="pricecalculator" className="max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto md:py-[50px] py-[40px] w-[100%]">
         <div className="flex md:hidden pb-2">
           <div
             onClick={filterBarHandler}
