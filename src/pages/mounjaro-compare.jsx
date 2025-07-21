@@ -45,6 +45,70 @@ const MounjaroCompare = () => {
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+   const steps = [
+      {
+        step: 1,
+        icon: <FaHandsWash className="text-white text-lg" />,
+        title: "Wash Your Hands",
+        description:
+          "Clean your hands thoroughly with soap and water before handling the pen.",
+      },
+      {
+        step: 2,
+        icon: <BiSearchAlt className="text-white text-lg" />,
+        title: "Check the Pen",
+        description:
+          "Make sure you have the correct dose and that the pen has not expired or been damaged.",
+      },
+      {
+        step: 3,
+        icon: <BiMapPin className="text-white text-lg" />,
+        title: "Choose the Injection Site",
+        description:
+          "Pick an area on your stomach (at least 2 inches away from your belly button), your thigh, or the back of your upper arm. Rotate sites with each injection to avoid irritation.",
+      },
+      {
+        step: 4,
+        icon: <BiDroplet className="text-white text-lg" />,
+        title: "Prepare the Skin",
+        description:
+          "Clean the area with an alcohol swab and let it dry completely.",
+      },
+      {
+        step: 5,
+        icon: <BiDroplet className="text-white text-lg" />,
+        title: "Remove the Cap",
+        description: "Take off the pen cap and follow the instructions provided with your pen to unlock it if needed.",
+      },
+      {
+        step: 6,
+        icon: <BiInjection className="text-white text-lg" />,
+        title: "Position the Pen",
+        description:
+          "Place the pen firmly against your skin at a 90-degree angle",
+      },
+      {
+        step: 7,
+        icon: <BiInjection className="text-white text-lg" />,
+        title: "Inject the Dose",
+        description:
+          "Press and hold the injection button until you hear a click, then continue holding it in place for about 10 seconds to ensure the full dose is delivered.",
+      },
+      {
+        step: 8,
+        icon: <BiInjection className="text-white text-lg" />,
+        title: "Remove and Dispose of the Pen",
+        description:
+          "Lift the pen straight off the skin. Safely dispose of it in a sharps container as recommended.",
+      },
+      {
+        step: 9,
+        icon: <BiInjection className="text-white text-lg" />,
+        title: "Check the Area",
+        description:
+          "If necessary, gently press a cotton ball or gauze over the area. Avoid rubbing the site.",
+      },
+    ];
   const faqItems = [
     {
       question: "Is Mounjaro cheaper than Wegovy in the UK?",
@@ -95,6 +159,38 @@ const MounjaroCompare = () => {
     "10 mg",
     "12.5 mg",
     "15 mg",
+  ];
+  const benefitsData = [
+    {
+      icon: <AiOutlineHeart className="text-2xl" />,
+      title: "Rapid weight loss",
+      description: "",
+    },
+    {
+      icon: <GiKnifeFork className="text-2xl" />,
+      title: "Increased satisfaction with smaller meals",
+      description: "",
+    },
+    {
+      icon: <TbActivityHeartbeat className="text-2xl" />,
+      title: "Improves blood sugar control in people with type 2 diabetes",
+      description: "",
+    },
+    {
+      icon: <BiHealth className="text-2xl" />,
+      title: "Helps control cravings",
+      description: "",
+    },
+    {
+      icon: <TbChartLine className="text-2xl" />,
+      title: "Convenient for busy people",
+      description: "",
+    },
+    {
+      icon: <BsCalendarWeek className="text-2xl" />,
+      title: "Once-weekly injection",
+      description: "",
+    },
   ];
   const [apiDataM, setApiDataM] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -459,9 +555,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                     <div className="text-2xl font-bold text-orange-500">
                       GLP-1
                     </div>
-                    <div className="text-sm text-gray-600">
-                      Reduce Weight
-                    </div>
+                    <div className="text-sm text-gray-600">Reduce Weight</div>
                   </div>
                 </div>
               </div>
@@ -500,7 +594,167 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
         </section>
       </div>
       {/* How Mounjaro works?*/}
+      {/* benifit */}
+      <section className="w-full bg-gray-50 ">
+        <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
+              What are the Benefits of Mounjaro?
+            </h2>
+            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
+              Mounjaro provides a more comprehensive approach than treatments
+              that target only one hormone. In clinical studies, many patients
+              achieved up to 20% reduction in total body weight, which is higher
+              than what is normally seen with other treatments.Some of the
+              benefits of using Mounjaro are:
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {benefitsData.map((benefit, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+              >
+                <div className="bg-[#F26D3D] w-12 h-12 rounded-full flex items-center justify-center text-white mb-4">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* benifit */}
 
+      {/* side effect */}
+      <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+        <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 text-center">
+          Are there any side effects of Mounjaro?
+        </h2>
+        <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
+          Mounjaro can cause some side effects, but most of these are mild and
+          tend to improve over time as your body adjusts.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Common Side Effects */}
+          <div className="bg-orange-50 p-6 rounded-[20px]">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-orange-100 text-orange-600 p-3 rounded-full">
+                <FaInfoCircle size={20} />
+              </div>
+              <h3 className="!text-xl">Common Side Effects</h3>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow">
+                <FaSkullCrossbones className="text-orange-600" />
+                <span className="text-gray-900">Nausea</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow">
+                <FaRunning className="text-orange-600" />
+                <span className="text-gray-900">Diarrhoea</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow">
+                <FaSadTear className="text-orange-600" />
+                <span className="text-gray-900">Vomiting</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow">
+                <FaSadTear className="text-orange-600" />
+                <span className="text-gray-900">Constipation</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Severe Side Effects */}
+          <div className="bg-red-50 p-6 rounded-[20px]">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-red-100 text-red-600 p-3 rounded-full">
+                <AiOutlineWarning size={20} />
+              </div>
+              <h3 className="!text-xl">Severe or Rare Side Effects</h3>
+            </div>
+
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
+                <AiOutlineWarning className="text-red-600" />
+                <span className="text-gray-900">Pancreatitis (inflammation of the pancreas)</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
+                <AiFillHeart className="text-red-600" />
+                <span className="text-gray-900">Gallbladder problems</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
+                <MdReportProblem className="text-red-600" />
+                <span className="text-gray-900">Severe allergic reactions</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
+                <MdReportProblem className="text-red-600" />
+                <span className="text-gray-900">Hypoglycemia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* side effect */}
+      {/* steps */}
+      <section className="w-full ">
+        <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 text-center">
+              How to use Mounjaro for the first time?
+            </h2>
+            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
+              Mounjaro is usually injected once a week in the stomach, thighs, or the upper thigh area. It is always best to consult your GP or prescriber to choose your injection site. Here’s a general breakdown of how to use Mounjaro for the first time:
+            </p>
+
+            <div
+              className=" rounded-xl p-6 md:p-10 shadow-md bg-white
+            "
+            >
+              <div className="flex items-center mb-6">
+                <div className="bg-orange-100 rounded-full w-10 h-10 flex items-center justify-center text-orange-500 mr-3">
+                  <FiMusic />
+                </div>
+                <div>
+                  <h3 className="font-bold text-lg">
+                    Step-by-Step Injection Guide
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Follow these steps for safe and effective administration
+                  </p>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {steps.map(({ step, icon, title, description }) => (
+                  <div
+                    key={step}
+                    className="bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition-shadow duration-300"
+                  >
+                    <div className="flex items-center mb-3">
+                      <div className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-2">
+                        {step}
+                      </div>
+                      <div className="bg-orange-100 text-orange-500 rounded-full w-8 h-8 flex items-center justify-center">
+                        {icon}
+                      </div>
+                    </div>
+                    <h4 className="font-semibold text-gray-900 text-md mb-1">
+                      {title}
+                    </h4>
+                    <p className="text-sm text-gray-600">{description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* steps */}
       {/* Faqs Section */}
       <FaqsSection items={faqItems} />
       {/* Faqs Section  */}
