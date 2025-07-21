@@ -25,9 +25,6 @@ export default function ForumsNavbar() {
 
   const getSearch = useSelector((state) => state.forums.search);
 
-  console.log(getSearch);
-  
-
   const handleSearch = (e) => {
     dispatch(search(e.target.value));
   };
@@ -44,8 +41,8 @@ export default function ForumsNavbar() {
             </NavLink>
           </div>
 
-            <div className="w-1/2 flex items-center justify-center">
-                <div className="flex items-center w-1/2">
+            <div className="w-full md:w-1/2 flex items-center justify-center">
+                <div className="flex items-center w-2/3 md:w-1/2">
                 <IoSearchOutline className="-mr-7 z-2 text-gray-700 text-lg" />
                   <input
                     type="search"
