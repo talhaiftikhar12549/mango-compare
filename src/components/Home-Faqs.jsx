@@ -68,6 +68,12 @@ export default function HomeFaqs() {
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
       text: "Yes, as of June 2025, Mounjaro (tirzepatide) is available on the NHS in the UK. It is prescribed only to people with a BMI of 40 or above, or 35 for some ethnic groups, along with at least four weight-related conditions such as type 2 diabetes, high blood pressure, heart disease, or sleep apnoea.",
     },
+     {
+      title:
+        "How do customer reviews help build trust in a pharmacy?",
+      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
+      text: "Reviews show how a pharmacy performs in delivery speed and service quality. The Care Pharmacy has a  5.0 rating, Simple Online Pharmacy 4.7, and MedExpress Pharmacy 4.4 on Trustpilot. High ratings help customers choose with confidence.",
+    },
   ];
 
   const [activeIndex, setActiveIndex] = useState(null);

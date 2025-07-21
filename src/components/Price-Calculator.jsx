@@ -9,6 +9,7 @@ import { FaRegCopy } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { MdShield } from "react-icons/md";
 import { FaAward } from "react-icons/fa6";
+import { createPortal } from "react-dom";
 
 export default function PriceCalculator({
   maindata,
@@ -242,7 +243,7 @@ export default function PriceCalculator({
         <div className="flex md:hidden pb-2">
           <div
             onClick={filterBarHandler}
-            className="py-[14px] w-[101.27px] font-semibold px-[8px] xl:px-[24px] bg-[#FCC821] rounded-[10px] border-2 text-[14px] border-[#FCC821] hover:text-[#FCC821] hover:bg-white transition duration-700 cursor-pointer"
+            className="py-[14px] w-[101.27px] font-semibold px-[8px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] hover:text-[#ffffff] text-[14px] hover:bg-white transition duration-700 cursor-pointer"
           >
             {filterBar ? "Hide Filter" : "Show Filter"}
           </div>
@@ -273,67 +274,24 @@ export default function PriceCalculator({
               filterBar ? "md:w-[75%]" : "w-[100%]"
             }`}
           >
-            {/* <div className="flex w-[100%] bg-[#FCC821] py-[14px] rounded-[10px] px-[20px] text-[#05222E] text-[16px] font-[600]">
-              <div className="w-[15%] md:w-[25%] ">
-                <p
-                  className="flex items-center cursor-pointer"
-                  onClick={togglePharmacy}
-                >
-                  Pharmacy{" "}
-                  <span className="pl-[5px] flex items-center">
-                    <LuArrowUpDown />
-                  </span>
-                </p>
-              </div>
-              <div className="w-[12%] flex items-center justify-center">
-                <p className="flex items-center">Strength</p>
-              </div>
-              <div className="w-[15%] flex items-center justify-center">
-                <p
-                  className="flex items-center cursor-pointer"
-                  onClick={toggleSortPrice}
-                >
-                  Price{" "}
-                  <span className="pl-[5px] flex items-center">
-                    <LuArrowUpDown />
-                  </span>
-                </p>
-              </div>
-
-              <div className="w-[12%] flex items-center justify-center">
-                <p
-                  className="flex items-center cursor-pointer pl-[30px]"
-                  onClick={toggleSortRating}
-                >
-                  Rating{" "}
-                  <span className="pl-[5px] flex items-center">
-                    <LuArrowUpDown />
-                  </span>
-                </p>
-              </div>
-              <div className="w-[20%] flex items-center justify-center">
-                <p className="flex items-center ">Delivery</p>
-              </div>
-              <div className="w-[18%] flex items-center justify-center"></div>
-            </div> */}
             <div className="flex w-full justify-between">
               <div>
-                <h3 className="!text-[24px] !font-[700]">Live Price Results</h3>
+                <h3 className="!text-[24px] !pt-[0px] !font-[700]">
+                  Compare Real-Time Prices from UK Pharmacies
+                </h3>
                 <p className="text-[#7e7f82]">
-                  <span className="">{totalPharmacy}</span> verified pharmacies
-                  • Updated every hour
+                  Prices updated daily from GPhC-regulated pharmacies
                 </p>
               </div>
               <div className=" flex gap-3">
                 <div>
-                
                   <span className="bg-green-100 text-[rgb(16_185_129)] flex gap-1 text-xs px-3 py-2 rounded-full ml-auto">
-                     <MdShield className="mt0.5]"/> All Gphc Verified
+                    <MdShield className="mt0.5]" /> All Gphc Verified
                   </span>
                 </div>
                 <div>
                   <span className="bg-[#f8f5ee] text-[#ee9c25] flex gap-1 text-xs px-3 py-2 rounded-full ml-auto">
-                    <FaAward className="mt0.5]"/> Best Prices
+                    <FaAward className="mt0.5]" /> Best Prices
                   </span>
                 </div>
               </div>
@@ -344,7 +302,7 @@ export default function PriceCalculator({
                 {pageData.map((srtdata) => (
                   <div
                     key={srtdata._id}
-                    className={`flex w-full py-[10px] my-5 border-2  rounded-lg rounded-[0px] px-[10px] text-[#05222E] text-[14px] transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl  font-[400] ${
+                    className={`flex w-full py-[10px] my-5 border-2  rounded-lg px-[10px] text-[#05222E] text-[14px] transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl  font-[400] ${
                       discountedPrice && srtdata.discount
                         ? "bg-[#fff9eb] border-[#ff700077]"
                         : "bg-white border-[#eae6e2] border-opacity-10 hover:border-[#ff6a0055]"
@@ -382,11 +340,11 @@ export default function PriceCalculator({
                         </div>
                       </div>
                     </div>
-                    <div className="w-[12%] flex flex-col items-center gap-2 !justify-center">
+                    <div className="w-[12%] hidden md:flex flex-col items-center gap-2 !justify-center">
                       <p className="text-[#7e7f82]">strength</p>
                       <p className="text-[16px] font-[600]">{srtdata.dosage}</p>
                     </div>
-                    <div className="w-[15%] flex flex-col items-center gap-2 items-center justify-center">
+                    <div className="w-[15%] flex flex-col items-center gap-2 justify-center">
                       <p className="text-[#7e7f82]">Price per Dosge</p>
                       {discountedPrice ? (
                         srtdata.discount === null ? (
@@ -395,7 +353,7 @@ export default function PriceCalculator({
                           </p>
                         ) : (
                           <>
-                            <p className="ml-2 !text-[24px] !text-[22px] font-[700] text-[#000000]">
+                            <p className="ml-2 !text-[24px] font-[700] text-[#000000]">
                               £ {srtdata.discount}
                             </p>
                             <p className="line-through !text-[16px] font-[600] text-[#cccccc] relative after:content-[''] after:absolute after:left-0 after:right-0 after:top-1/2 after:h-[2px] after:bg-[#cccccc] after:-translate-y-1/2">
@@ -409,12 +367,15 @@ export default function PriceCalculator({
                         </p>
                       )}
                     </div>
-
-                    <div className="w-[20%] flex flex-col items-center gap-2  items-center justify-center text-center capitalize">
+                    <div className="w-[20%] md:w-[12%] md:hidden flex flex-col items-center gap-2 !justify-center">
                       <p className="text-[#7e7f82]">strength</p>
+                      <p className="text-[16px] font-[600]">{srtdata.dosage}</p>
+                    </div>
+                    <div className="w-[25%] md:w-[20%] flex flex-col items-center gap-2  justify-center text-center capitalize">
+                      <p className="text-[#7e7f82]">Delivery Fee</p>
                       <p className="font-[600]">{srtdata.delivery_fee}</p>
                     </div>
-                    <div className="w-[18%] flex items-center justify-center cursor-pointer relative group">
+                    <div className="w-[25%] md:w-[18%] flex items-center justify-center cursor-pointer relative group">
                       {srtdata.discount == null ? (
                         <a
                           href={srtdata.website}
@@ -423,12 +384,12 @@ export default function PriceCalculator({
                           className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px]  text-[12px]  hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
                         >
                           Visit Pharmacy
-                          <span className="sr-only"> {srtdata.pharmacy}</span>
+                          <span className="sr-only">{srtdata.pharmacy}</span>
                         </a>
                       ) : discountedPrice ? (
                         <div
                           onClick={() => openDiscountModal(srtdata._id)}
-                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] text-[#FCCFFFFFF821] hover:text-black bg-white transition duration-700 cursor-pointer"
+                          className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] text-[#FCCFFFFFF821] hover:text-[#ffffff] transition duration-700 cursor-pointer"
                         >
                           Discount Info
                         </div>
@@ -440,20 +401,21 @@ export default function PriceCalculator({
                           className="py-[14px] font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
                         >
                           Visit Pharmacy
-                          <span className="sr-only"> {srtdata.pharmacy}</span>
+                          <span className="sr-only">{srtdata.pharmacy}</span>
                         </a>
                       )}
 
-                      {/* Show the modal if the modal is open and the selected id matches */}
+                      {/* Full-screen Modal rendered via Portal */}
                       {isDiscountModalOpen &&
-                        selectedDiscountId === srtdata._id && (
-                          <div className="fixed p-2 inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
+                        selectedDiscountId === srtdata._id &&
+                        createPortal(
+                          <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/40 backdrop-blur-sm transition duration-300">
                             <div
                               ref={modalRef}
-                              className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300"
+                              className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300 relative"
                             >
-                              <div className="relative flex items-center justify-between mb-4">
-                                <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center">
+                              <div className="flex items-center justify-between mb-4">
+                                <h2 className="text-[22px] border-b border-[#E4E4E4] pb-[10px] font-[700] text-[#070707] mb-4 text-center w-full">
                                   Discount Info <br />
                                   <span className="text-[14px] sm:text-[16px] font-[500] leading-0">
                                     Use the following code(s) at checkout to get
@@ -462,60 +424,54 @@ export default function PriceCalculator({
                                 </h2>
                                 <div
                                   onClick={closeDiscountModal}
-                                  className="absolute text-[30px] flex align-items-center right-0 top-0 cursor-pointer hover:text-red-500"
+                                  className="absolute text-[30px] flex items-center right-4 top-4 cursor-pointer hover:text-red-500"
                                 >
                                   <IoClose />
                                 </div>
                               </div>
-                              {srtdata.discount_info && (
-                                <>
-                                  {srtdata.discount_info.map((item, idx) => (
-                                    <div
-                                      key={item._id || idx}
-                                      className="relative group w-full  transition duration-300 px-4 py-2 my-5 text-[#FCC821] bg-white border-[2px] border-[#FCC821] flex items-center justify-between rounded"
-                                    >
-                                      {item.applied && (
-                                        <p className="text-[12px] text-[#ffffff] absolute top-[-18px] bg-[#FCC821] left-[-2px] px-[6px] rounded-tl-[2px] rounded-tr-[2px]">
-                                          Applied
-                                        </p>
-                                      )}
 
-                                      <div className="flex flex-col">
-                                        <span className="font-semibold">
-                                          {item.discount_type}
-                                        </span>
-                                        {/* <p className="text-[13px] text-[#000] font-[600]">
-                                          
-                                        </p> */}
-                                        <span className="text-xs text-black">
-                                          {item.discount_statement}
-                                        </span>
-                                      </div>
-                                      {item.discount_code && (
-                                        <div
-                                          onClick={() =>
-                                            handleCopy(item.discount_code)
-                                          }
-                                          className="flex flex-col items-center text-[8px] font-[500] cursor-pointer"
-                                        >
-                                          <FaRegCopy className="text-[20px]" />
-                                          Copy Code
-                                        </div>
-                                      )}
+                              {srtdata.discount_info &&
+                              srtdata.discount_info.length > 0 ? (
+                                srtdata.discount_info.map((item, idx) => (
+                                  <div
+                                    key={item._id || idx}
+                                    className="relative group w-full transition duration-300 px-4 py-2 my-5 text-orange-500 bg-white border-[2px] border-orange-500 flex items-center justify-between rounded"
+                                  >
+                                    {item.applied && (
+                                      <p className="text-[12px] text-[#ffffff] absolute top-[-18px] bg-orange-500 left-[-2px] px-[6px] rounded-tl-[2px] rounded-tr-[2px]">
+                                        Applied
+                                      </p>
+                                    )}
 
-                                      {/* Tooltip */}
-                                      {copiedCode === item.discount_code && (
-                                        <div className="absolute -top-7 right-2 bg-[#FCC821] text-black text-xs px-2 py-1 rounded shadow transition-opacity duration-300">
-                                          Copied!
-                                        </div>
-                                      )}
+                                    <div className="flex flex-col">
+                                      <span className="font-semibold">
+                                        {item.discount_type}
+                                      </span>
+                                      <span className="text-xs text-black">
+                                        {item.discount_statement}
+                                      </span>
                                     </div>
-                                  ))}
-                                </>
-                              )}
 
-                              {(!srtdata.discount_info ||
-                                srtdata.discount_info.length === 0) && (
+                                    {item.discount_code && (
+                                      <div
+                                        onClick={() =>
+                                          handleCopy(item.discount_code)
+                                        }
+                                        className="flex flex-col items-center text-[8px] font-[500] cursor-pointer"
+                                      >
+                                        <FaRegCopy className="text-[20px]" />
+                                        Copy Code
+                                      </div>
+                                    )}
+
+                                    {copiedCode === item.discount_code && (
+                                      <div className="absolute -top-7 right-2 bg-orange-500 text-black text-xs px-2 py-1 rounded shadow transition-opacity duration-300">
+                                        Copied!
+                                      </div>
+                                    )}
+                                  </div>
+                                ))
+                              ) : (
                                 <p className="text-[18px] font-[600] mb-4 text-center bg-[#fcc82145] border border-dotted border-[#977504] rounded-[10px] py-[10px] px-4">
                                   <span className="font-bold text-[#484848]">
                                     Sorry, no discount available
@@ -530,13 +486,14 @@ export default function PriceCalculator({
                               >
                                 <button
                                   onClick={closeDiscountModal}
-                                  className="w-full cursor-pointer transition duration-700 mt-2 px-4 py-2 bg-[#FCC821] text-black font-semibold rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
+                                  className="w-full cursor-pointer transition duration-700 mt-2 px-4 py-2 bg-orange-500 text-[#ffffff] font-semibold rounded hover:bg-orange-600 border-[2px] border-orange-500"
                                 >
                                   Visit Pharmacy
                                 </button>
                               </a>
                             </div>
-                          </div>
+                          </div>,
+                          document.body
                         )}
                     </div>
                   </div>
@@ -559,7 +516,7 @@ export default function PriceCalculator({
                     onClick={() => setCurrentPage(i + 1)}
                     className={`px-3 py-1 rounded ${
                       currentPage === i + 1
-                        ? "bg-[#FCC821] text-white"
+                        ? "bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 text-white"
                         : "bg-gray-100"
                     }`}
                   >

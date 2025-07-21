@@ -2,8 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { mVal, discountedFilter } from "../redux toolkit/compareToolSlice";
 import { Range } from "react-range";
-import { IoIosArrowUp } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { MdPercent } from "react-icons/md";
 
@@ -24,16 +23,19 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
     setChecked(isChecked);
     dispatch(discountedFilter(isChecked));
   };
+
   useEffect(() => {
     if (contentRef.current) {
       setMaxHeight(isHide ? `113px` : "0px");
     }
   }, [isHide]);
+
   useEffect(() => {
     if (contentRefDiscount.current) {
-      setMaxHeightDiscount(isHideDiscount ? `137px` : "0px");
+      setMaxHeightDiscount(isHideDiscount ? `175px` : "0px");
     }
   }, [isHideDiscount]);
+
   const handleClick = () => setIsHide(!isHide);
   const handleClickDiscount = () => {
     setIsHideDiscount(!isHideDiscount);
@@ -47,9 +49,9 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
     if (isReset) {
       setPrice([minValue, maxVal]);
       setChecked(false);
-      dispatch(discountedFilter(checked));
+      dispatch(discountedFilter(false));
     }
-  }, [isReset, minValue, maxVal, checked]);
+  }, [isReset, minValue, maxVal]);
 
   useEffect(() => {
     if (minValue !== undefined && maxVal !== undefined) {
@@ -59,11 +61,11 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
 
   return (
     <>
-      <div className="w-[75%] my-2 rounded-lg md:w-full max-w-xs px-[20px] pb-[38px] pt-[24px] bg-white space-y-4 border-2 border-[#DCDCDC] hover:border-orange-200 ">
+      <div className="w-[100%] my-2 rounded-lg px-[20px] pb-[38px] pt-[24px] bg-white space-y-4 border-2 border-[#DCDCDC] hover:border-orange-200 ">
         <div className="flex items-center justify-between">
-          <div className="flex justify-center items-center gap-3">
+          <div className="flex justify-center items-center gap-1 xl:gap-3">
             <BsCurrencyDollar className="text-[#f97215] mt-1 text-xl !font-[700]" />
-            <h2 className="text-lg font-semibold">Price Range</h2>
+            <h2 className="!text-[13px] xl:!text-lg font-semibold">Price Range</h2>
           </div>
 
           <button
@@ -81,10 +83,10 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
         >
           <div className="flex justify-between items-center">
             <div>
-              <h4 className="text-xs">Maximum Budget</h4>
+              <h4 className="xl:text-xs text-[9px] ">Maximum Budget</h4>
             </div>
             <div>
-              <span className="bg-[#f8f5ee] text-[#ee9c25] flex gap-1 text-xs px-3 py-2 rounded-full ml-auto">
+              <span className="bg-[#f8f5ee] text-[#ee9c25] flex gap-1 text-[9px] xl:text-xs px-3 py-2 rounded-full ml-auto">
                 £ {range}
               </span>
             </div>
@@ -96,19 +98,34 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
               max={maxVal}
               values={price}
               onChange={(values) => setPrice(values)}
-              renderTrack={({ props, children }) => (
-                <div
-                  {...props}
-                  style={{
-                    ...props.style,
-                    height: "6px",
-                    width: "100%",
-                    backgroundColor: "#000",
-                  }}
-                >
-                  {children}
-                </div>
-              )}
+              renderTrack={({ props, children }) => {
+                const [val1, val2] = price;
+                const left = ((val1 - minValue) / (maxVal - minValue)) * 100;
+                const right = ((val2 - minValue) / (maxVal - minValue)) * 100;
+
+                return (
+                  <div
+                    {...props}
+                    style={{
+                      ...props.style,
+                      height: "6px",
+                      width: "100%",
+                      background: `linear-gradient(
+                        to right,
+                        #d3d3d3 0%,
+                        #d3d3d3 ${left}%,
+                        #000000 ${left}%,
+                        #000000 ${right}%,
+                        #d3d3d3 ${right}%,
+                        #d3d3d3 100%
+                      )`,
+                      borderRadius: "3px",
+                    }}
+                  >
+                    {children}
+                  </div>
+                );
+              }}
               renderThumb={({ props }) => (
                 <div
                   {...props}
@@ -127,23 +144,19 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
             />
 
             <div className="flex items-center justify-between">
-              <p className="xl:text-sm text-[12px] text-gray-700">
-                £ {price[0]}
-              </p>
-              <p className="xl:text-sm text-[12px] text-gray-700">
-                £ {price[1]}
-              </p>
+              <p className="xl:text-sm text-[12px] text-gray-700">£ {price[0]}</p>
+              <p className="xl:text-sm text-[12px] text-gray-700">£ {price[1]}</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="w-[75%] my-2 md:w-full border-2 border-[#DCDCDC] hover:border-orange-200 rounded-lg bg-white">
-        <div className="w-full max-w-xs px-5 pb-6 pt-6 space-y-4">
-          {/* Header */}
+
+      <div className="w-[100%] my-2 md:w-full border-2 border-[#DCDCDC] hover:border-orange-200 rounded-lg bg-white">
+        <div className="w-full px-5 pb-6 pt-6 space-y-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 xl:gap-3">
               <MdPercent className="text-green-500" />
-              <h2 className="text-lg font-semibold text-[#000000]">
+              <h2 className="!text-[13px] xl:!text-lg font-semibold text-[#000000]">
                 Special Offers
               </h2>
             </div>
@@ -155,7 +168,6 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
             </button>
           </div>
 
-          {/* Toggle Section */}
           <div
             ref={contentRefDiscount}
             style={{ maxHeight: maxHeightDiscount }}

@@ -1,6 +1,6 @@
 import { ImFileText2 } from "react-icons/im";
 
-export default function HeroSection({ heading, text, text2, lowest, totalPharmacy, percentage  }) {
+export default function HeroSection({ heading, text, lowest, totalPharmacy, percentage  }) {
   return (
     <>
       {/* <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
@@ -26,7 +26,7 @@ export default function HeroSection({ heading, text, text2, lowest, totalPharmac
           </div>
         </div>
       </section> */}
-      <section className="relative w-[100%] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 text-white py-24 overflow-hidden">
+      <section className="relative w-[100%]  bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 text-white md:!px-6 py-12 md:py-[48px] overflow-hidden">
         <section className="w-[100%]  custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto relative">
           <div className="absolute inset-0">
             <div className="absolute inset-0 "></div>
@@ -34,7 +34,7 @@ export default function HeroSection({ heading, text, text2, lowest, totalPharmac
             <div className="absolute bottom-20 right-20 w-48 h-48 bg-yellow-300/20 rounded-full blur-2xl"></div>
           </div>
 
-          <div className="container mx-auto px-4 relative z-10">
+          <div className="container mx-auto px-4 relative ">
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex items-center justify-center gap-2 mb-6">
                 {/* <TrendingDown className="w-8 h-8 text-yellow-200" /> */}
@@ -43,11 +43,11 @@ export default function HeroSection({ heading, text, text2, lowest, totalPharmac
                 </div>
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
                  {heading} <span className="text-yellow-200"></span> 
               </h1>
 
-              <p className="text-xl md:text-2xl mb-8 opacity-95 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl mb-8 opacity-95 leading-relaxed max-w-3xl mx-auto">
                 
                 {text}
               </p>

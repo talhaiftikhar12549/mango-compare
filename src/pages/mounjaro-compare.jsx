@@ -103,12 +103,10 @@ const MounjaroCompare = () => {
   return (
     <>
       <HeroSection
-        heading="Save up to 27% on Mounjaro with Mango!"
-        text="A weekly self-injectable weight loss pen, Mounjaro retails at £125 to £219 in the UK."
-        text2="By comparing Mounjaro prices across the UK, the average user can save
-          up to 27%—that’s £67.01 per four-week supply just by choosing the
-          cheapest option. Over a year, that adds up to a massive £804.12 in
-          savings!"
+        heading="Mounjaro Price Comparison UK – Find Trusted Providers Instantly"
+        text="Compare real-time prices from GPhC-registered pharmacies and find exclusive discounts.
+Set your filters, view offers, and get your Mounjaro KwikPens delivered.
+"
         lowest={lowestPrice}
         totalPharmacy={totalPharmacy}
         percentage={"27"}
@@ -124,8 +122,6 @@ const MounjaroCompare = () => {
             <PriceCalculator
               maindata={apiDataM}
               availableDoasge={availableDoasge}
-              
-             
             />
           </div>
         )}

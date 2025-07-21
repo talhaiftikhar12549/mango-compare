@@ -27,7 +27,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-[#ffe48d] to-[#ffd5a9] flex items-center justify-center px-4">
+    <div className="min-h-screen w-full bg-gradient-to-br from-orange-300 to-[#ffe48d] flex items-center justify-center px-4">
       <div className="bg-white shadow-xl rounded-lg p-8 max-w-md w-full animate-fade-in">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           Welcome Back
@@ -69,10 +69,10 @@ const LoginPage = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full flex items-center justify-center bg-[#FCC821] ${
+            className={`w-full flex items-center text-[#ffffff] justify-center border border-orange-500 bg-orange-500 ${
               isSubmitting
                 ? "opacity-60 cursor-not-allowed"
-                : "hover:bg-[#Ffffff] hover:text-[#FCC821] border hover:border border-[#FCC821] hover:border-[#FCC821]"
+                : "hover:bg-orange-600 hover:border cursor-pointer border-orange-600 hover:border-orange-600"
             } text-white font-semibold py-2 rounded-md transition duration-300`}
           >
             {isSubmitting ? (

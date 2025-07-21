@@ -40,7 +40,7 @@ const ContactForm = () => {
       }}
     >
       {({ handleSubmit }) => (
-        <Form onSubmit={handleSubmit} className="form-container w-full">
+        <Form onSubmit={handleSubmit} className="form-container w-full ">
           {/* First & Last Name */}
           <div className="flex flex-col lg:flex-row space-x-0 lg:space-x-5 space-y-5 lg:space-y-0">
             <div className="flex w-full flex-col">
@@ -106,7 +106,7 @@ const ContactForm = () => {
           <div className="flex justify-end my-5">
             <button
               type="submit"
-              className="bg-[#FCC821] py-[15px] px-[30px] rounded-md text-white font-semibold hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821] transition duration-700 cursor-pointer flex items-center justify-center gap-2"
+              className="bg-orange-500 py-[15px] px-[30px] rounded-md text-white font-semibold hover:bg-orange-600 border-[2px] border-orange-500 hover:border-orange-600 transition duration-700 cursor-pointer flex items-center justify-center gap-2"
               disabled={loading}
             >
               {loading && (

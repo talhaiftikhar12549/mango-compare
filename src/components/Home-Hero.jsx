@@ -59,10 +59,9 @@ export default function HomeHero() {
 
               <p className="text-gray-600 text-lg mb-6">
                 Find the best deals from{" "}
-                <span className="font-bold">GPhC-registered</span> pharmacies
-                with our free price comparison tool. Save up to{" "}
-                <span className="text-[#ee9c25] font-semibold">27%</span> on
-                your weight loss prescription.
+                <span className="font-bold">GPhC-registered pharmacies</span>{" "}
+                with our free price comparison tool for weight loss
+                prescriptions. Start comparing in seconds
               </p>
 
               <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -80,14 +79,14 @@ export default function HomeHero() {
                 </a>
               </div>
 
-              <div className="flex !justify-between md:!justify-start                                                                                                                  gap-1 md:gap-6 text-sm text-gray-600 font-medium">
-                <span className="flex text-[9px] md:text-sm items-center gap-1">
-                  <MdVerified className=" text-lg text-[rgb(16_185_129)]" />{" "}
-                  Easy Process
-                </span>
+              <div className="flex !justify-between md:!justify-start gap-1 md:gap-6 text-sm text-gray-600 font-medium">
                 <span className="flex text-[9px] md:text-sm items-center gap-1">
                   <AiFillStop className=" text-lg text-orange-600" /> No Hidden
                   Fees
+                </span>
+                <span className="flex text-[9px] md:text-sm items-center gap-1">
+                  <MdVerified className=" text-lg text-[rgb(16_185_129)]" />{" "}
+                  Easy Process
                 </span>
                 <span className="flex text-[9px] md:text-sm items-center gap-1">
                   <BsFillLightningChargeFill className=" text-lg text-[#ee9c25]" />{" "}
