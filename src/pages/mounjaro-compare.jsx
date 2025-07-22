@@ -117,46 +117,56 @@ const MounjaroCompare = () => {
   ];
   const faqItems = [
     {
-      question: "Is Mounjaro cheaper than Wegovy in the UK?",
+      question: "What’s the cheapest place to buy Mounjaro in the UK?",
       answer:
-        "Generally, Mounjaro and Wegovy are priced similarly, but the starting dose of Wegovy (£169) is slightly less than Mounjaro (£184) at some pharmacies. However, at higher doses, Wegovy can be more expensive, with a maximum dose costing up to £269, while Mounjaro's highest dose costs around £204",
+        "The cheapest Mounjaro prices in the UK can vary by pharmacy and dose. Use Mango Compare to find real-time offers from trusted GPhC-registered pharmacies and see which provider has the lowest cost today.",
     },
     {
-      question: "What is the cheapest price for Mounjaro in the UK?",
+      question: "How do I use Mango Compare to compare Mounjaro prices?",
       answer:
-        "The cheapest price for Mounjaro in the UK starts from around £139 for the 2.5 mg and 5 mg doses.",
+        "Simply enter your preferred dose and set price filters on Mango Compare to view and filter Mounjaro price lists. You can sort offers, check delivery times, and see verified discounts in one place.",
     },
     {
-      question: "Does the NHS cover Mounjaro for weight loss?",
+      question: "Are online prescriptions for Mounjaro legal and safe?",
       answer:
-        "Currently, there is no specific information indicating that Mounjaro is covered by the NHS for weight loss. However, some weight-loss medications like Wegovy are available on the NHS under certain conditions.",
+        "Yes, online prescriptions are legal in the UK when issued by a licensed prescriber. Always buy Mounjaro from GPhC-regulated pharmacies to ensure safety and genuine medication.",
     },
     {
-      question: "Where can I buy Wegovy at the lowest price in the UK?",
+      question: "How much can I save using discount codes on Mango Compare?",
       answer:
-        "Click Pharmacy offers one of the most affordable options for purchasing Wegovy online in the UK at £159.99 per month. You can navigate the lowest prices with Mango. ",
+        "Discount codes on Mango Compare can help you save big on Mounjaro KwikPen prices. Check regularly for exclusive voucher codes and seasonal offers.",
     },
     {
-      question: "How to get Mounjaro privately in the UK?",
+      question: "Do all pharmacies sell the same Mounjaro brand (Eli Lilly)?",
       answer:
-        "To get Mounjaro privately in the UK, you'll need a private prescription. Once you have it, Mango helps you find the best prices from trusted pharmacies across the UK.",
-    },
-
-    {
-      question: "Is it safe to buy Mounjaro Online in the UK?",
-      answer:
-        "It is safe to buy Mounjaro online from legitimate, licensed UK pharmacies. Mango ensures you get access to the best and most trusted options. ",
+        "Yes, Mounjaro is manufactured by Eli Lilly and is sold in the UK as the same approved product. Only the pharmacy service, price, and delivery options differ.",
     },
     {
-      question: "Do I need a prescription to purchase Mounjaro?",
+      question: "How does Mounjaro dosing work (2.5 mg to 15 mg)?",
       answer:
-        "Yes, you need a prescription to purchase Mounjaro. This can be obtained through a private consultation with a healthcare provider..",
+        "Treatment starts with a 2.5 mg weekly dose to help your body adjust. Your prescriber may gradually increase the dose up to 15 mg to support your weight loss goals.",
     },
     {
-      question: "Which UK pharmacy offers the best prices for Mounjaro?",
+      question: "What side effects should I expect with Mounjaro?",
       answer:
-        "Mounjaro prices vary across UK pharmacies, but Medicine Marketplace offers Mounjaro at £99. Mango makes it easy to find the best deal. Compare prices from trusted pharmacies and save up to 27% on your prescription—Find the best price now!",
+        "Common side effects include nausea, diarrhoea, constipation, and decreased appetite. These often improve over time, but always speak to your prescriber if symptoms persist.",
     },
+    {
+      question: "Can I get maintenance support from pharmacies on Mango Compare?",
+      answer:
+        "Many GPhC-registered pharmacies listed on Mango Compare offer repeat prescriptions and maintenance plans to help you stay on track with treatment.",
+    },
+    {
+      question: "Is local pharmacy purchase better than online?",
+      answer:
+        "Both options are safe if you choose GPhC-registered providers. Online pharmacies often offer cheaper Mounjaro pricing and discreet delivery, while local chemists provide in-person advice.",
+    },
+    {
+      question: "How do I spot fake Mounjaro pens?",
+      answer:
+        "Always buy from licensed UK pharmacies and check the packaging for Eli Lilly branding, batch numbers, and tamper seals. Avoid unverified sellers or unusually low prices.",
+    },
+    
   ];
   const availableDoasge = [
     "2.5 mg",

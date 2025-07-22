@@ -151,50 +151,71 @@ const WegovyCompare = () => {
 
   const faqItems = [
     {
-      question: "Is Wegovy covered by the NHS?",
+      question: "How much does Wegovy cost in the UK?",
       answer:
-        "Yes, but only for eligible patients. The NHS provides Wegovy for adults with a BMI of 35 or higher (or 32.5 for certain ethnic groups) and weight-related health conditions. A referral to a specialist weight management service is required.",
+        "The price of Wegovy in the UK varies depending on the pharmacy and dosage. However, The Care Pharmacy offers one of the most competitive prices, starting at £99.99. On Pharmacia, it starts at £199.99. You can compare Wegovy injection costs and find the best deals using Mango Compare.",
     },
     {
-      question: "Is Wegovy cheaper than Mounjaro?",
+      question: "Is Wegovy available on the NHS in the UK?",
       answer:
-        "Wegovy and Mounjaro are similarly priced, but Wegovy may be slightly cheaper at lower doses. For example, Wegovy’s starting dose can be around £169, while Mounjaro starts at about £184. Prices vary by pharmacy and dosage—compare now with Mango to get the best deal!",
+        "Yes, Wegovy UK is approved for NHS prescriptions for certain patients with obesity or weight-related conditions. Availability may differ by region, and you’ll need an NHS assessment to qualify.",
     },
     {
-      question: "What is the cheapest price for Wegovy in the UK?",
+      question: "How much is Wegovy per month privately?",
       answer:
-        "Private pharmacies offer Wegovy from around £159.99 per month. On the NHS, it costs £9.90 per prescription if you qualify. Prices fluctuate, so use Mango to find the best price in real-time!",
+        "Private Wegovy injection costs UK typically range between £150 and £300 monthly, depending on the dose and the pharmacy. Prices can be lower when you use Wegovy discount codes or special offers.",
+    },
+     {
+      question: "Can I buy Wegovy legally online in the UK?",
+      answer:
+        "Yes, you can buy Wegovy online UK from GPhC-registered pharmacies. Always ensure you have a valid Wegovy prescription UK, as it is a prescription-only medication.",
     },
     {
-      question: "How to get Wegovy privately in the UK??",
+      question: "Where can I buy Wegovy online in the UK?",
       answer:
-        "To get Wegovy privately, you’ll need a prescription. This involves an online or in-person consultation with a healthcare provider, ensuring you meet the eligibility criteria (BMI of 30+ or 27+ with weight-related conditions). Once you have your prescription, Mango helps you find it at the best price!",
+        "You can order Wegovy through trusted online pharmacy UK platforms that are regulated by the GPhC. Mango Compare helps you find reputable providers and compare Wegovy prices easily.",
     },
     {
-      question: "Where can I buy Wegovy at the lowest price in the UK?",
+      question: "Does the NHS cover Wegovy for weight loss?",
       answer:
-        "The lowest price for Wegovy depends on the pharmacy and ongoing offers. Mango compares prices across the UK to help you find the most affordable option.",
+        "The NHS Wegovy price UK may be subsidised if you meet certain clinical criteria. Speak to your GP or specialist about eligibility and whether you qualify for an NHS prescription for weight loss.",
     },
     {
-      question: "Do I need a prescription to purchase Wegovy?",
+      question: "Is Wegovy available without a prescription in the UK?",
       answer:
-        "Yes, Wegovy requires a prescription—whether you get it through the NHS or privately. Once you have your prescription, Mango helps you find the best deal available.",
+        "No, you cannot buy Wegovy without prescription UK. It is illegal to purchase Wegovy without approval from a licensed prescriber in the UK.",
     },
     {
-      question: "Is it safe to buy Wegovy online in the UK?",
+      question: "Are there any discounts or deals for Wegovy in the UK?",
       answer:
-        "Yes, as long as you buy from a registered and licensed pharmacy. Mango only lists GPhC-verified pharmacies to ensure safety and authenticity.",
+        "Yes, many online pharmacies UK offer Wegovy deals UK, including voucher codes and seasonal discounts. Comparing prices regularly helps you find the best value.",
     },
     {
-      question: "Which UK pharmacy offers the best prices for Wegovy?",
+      question: "What is the cheapest dose of Wegovy available?",
       answer:
-        "Swift Doctor offers Wegovy at £99. However, prices vary, and the cheapest option can change frequently. Mango does the work for you-compare prices now and save!",
+        "The cheapest Wegovy dose is usually the 0.25 mg starter pen. This lower dose costs less per month, but your prescriber will recommend when to increase to higher strengths.",
     },
     {
-      question: "How often do Wegovy prices change?",
+      question: "Is Wegovy worth the price for weight loss?",
       answer:
-        "There’s no fixed schedule, but prices can fluctuate based on pharmacy promotions and market competition. Check Mango regularly to stay updated on the best deals!",
+        "Many patients find that Wegovy weight loss injection UK is worth the investment, as studies show up to 15% body weight reduction. Always consider your health goals and speak to a professional.",
     },
+    {
+      question: "How does Wegovy pricing vary by UK pharmacy?",
+      answer:
+        "Wegovy cost comparison shows significant differences between pharmacies. Prices can vary based on supply, dispensing fees, and whether you buy Wegovy privately or through the NHS.",
+    },
+    {
+      question: "Can I get Wegovy through private healthcare in the UK?",
+      answer:
+        "Yes, many patients choose to get a Wegovy prescription UK through private clinics or online consultations. This allows faster access and flexibility in choosing your pharmacy.",
+    },
+    {
+      question: "How long will a Wegovy pen last?",
+      answer:
+        "Each Wegovy pen provides one weekly dose, so it typically lasts for 7 days. You’ll need a new pen for each week of treatment as you progress through your dosing schedule.",
+    },
+    
   ];
   const availableDoasge = ["0.25 mg", "0.5 mg", "1 mg", "1.7 mg", "2.4 mg"];
   const [apiDataM, setApiDataM] = useState([]);
