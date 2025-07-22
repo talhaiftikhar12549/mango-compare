@@ -42,9 +42,15 @@ import mounjarowork from "../assets/mounjaro compare/mounjarowork.webp";
 import mounjaroInjection from "../assets/mounjaro compare/mounjaroInjection.jpg";
 import mounjarocompareprice from "../assets/mounjaro compare/mounjarocompareprice.jpg";
 import healthyman from "../assets/mounjaro compare/healthyman.jpg";
+import runningwoman from "../assets/mounjaro compare/ladyrunning.webp";
 const MounjaroCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
+  const navigate = useNavigate();
+
+  const goToContactSection = () => {
+    navigate("/#bmicalculator");
+  };
   const contactRef = useRef(null);
 
   const scrollToContact = () => {
@@ -656,7 +662,119 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
         </div>
       </section>
       {/* benifit */}
+      {/* Eligible */}
+      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+        <div className="max-w-7xl mx-auto md:px-6 px-0 ">
+          <div className="text-center mb-16">
+            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
+              How to know if I am eligible for Mounjaro?
+            </h2>
+            {/* <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
+              If you're considering Wegovy for weight loss, it's important to
+              understand who can use it and how to get started. In the UK,
+              healthcare providers prescribe Wegovy based on your BMI and any
+              related health conditions.
+            </p> */}
+          </div>
 
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Eligibility Criteria Card */}
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
+              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                <RiUserHeartLine className="text-2xl text-white" />
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                In the UK, you are eligible for Mounjaro you have:
+              </h3>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <FaCheck className="text-white text-sm" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-lg">
+                    A BMI of 30 or above, or
+                  </h4>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <FaCheck className="text-white text-sm" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 text-lg mb-2">
+                      A BMI over 27 with at least one weight-related medical
+                      condition.
+                    </h4>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <p className="text-gray-600 text-sm mb-4">
+                  To help you get started, the Mango Compare BMI calculator can
+                  quickly show your BMI and help you understand whether you meet
+                  the basic criteria for treatment. Simply enter your height and
+                  weight to calculate your BMI.
+                </p>
+                <button
+                  onClick={goToContactSection}
+                  className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors whitespace-nowrap cursor-pointer"
+                >
+                  Calculate BMI
+                </button>
+              </div>
+            </div>
+
+            {/* Consultation Card */}
+            {/* <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
+              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                <FaStethoscope className="text-2xl text-white" />
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Consultation with Healthcare Provider
+              </h3>
+
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                Consultation with a qualified healthcare provider is important,
+                as they:
+              </p>
+
+              <div className="space-y-4 mb-8">
+                {[
+                  "Review your medical history",
+                  "Discuss whether Wegovy is suitable for you",
+                  "Inform you about potential side effects",
+                  "Provide you a prescription if appropriate",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white text-sm font-bold">
+                        {index + 1}
+                      </span>
+                    </div>
+                    <p className="text-gray-700 text-lg">{item}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="relative">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Professional healthcare consultation scene with doctor and patient discussing treatment options in modern medical office, friendly healthcare provider explaining medication, medical consultation photography&width=500&height=300&seq=consultation1&orientation=landscape"
+                  alt="Healthcare Consultation"
+                  className="w-full rounded-xl object-cover h-48"
+                />
+              </div>
+            </div> */}
+            <div className=" rounded-2xl px-8">
+              <img className="w-[100%] rounded-[10px]" src={runningwoman} alt="woman running" />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Eligible */}
       {/* side effect */}
       <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
         <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 text-center">
