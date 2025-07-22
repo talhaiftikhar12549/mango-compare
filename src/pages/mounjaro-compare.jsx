@@ -152,7 +152,8 @@ const MounjaroCompare = () => {
         "Common side effects include nausea, diarrhoea, constipation, and decreased appetite. These often improve over time, but always speak to your prescriber if symptoms persist.",
     },
     {
-      question: "Can I get maintenance support from pharmacies on Mango Compare?",
+      question:
+        "Can I get maintenance support from pharmacies on Mango Compare?",
       answer:
         "Many GPhC-registered pharmacies listed on Mango Compare offer repeat prescriptions and maintenance plans to help you stay on track with treatment.",
     },
@@ -166,7 +167,6 @@ const MounjaroCompare = () => {
       answer:
         "Always buy from licensed UK pharmacies and check the packaging for Eli Lilly branding, batch numbers, and tamper seals. Avoid unverified sellers or unusually low prices.",
     },
-    
   ];
   const availableDoasge = [
     "2.5 mg",
@@ -180,32 +180,38 @@ const MounjaroCompare = () => {
     {
       icon: <AiOutlineHeart className="text-2xl" />,
       title: "Rapid weight loss",
-      description: "",
+      description:
+        "Clinically proven to help lose over 22.5% of initial weight over a short period.",
     },
     {
       icon: <GiKnifeFork className="text-2xl" />,
-      title: "Increased satisfaction with smaller meals",
-      description: "",
+      title: "Satisfaction with smaller meals",
+      description:
+        "As you continue using the medication, your body adjusts to smaller meals.",
     },
     {
       icon: <TbActivityHeartbeat className="text-2xl" />,
-      title: "Improves blood sugar control in people with type 2 diabetes",
-      description: "",
+      title: "Regulates blood-sugar levels",
+      description:
+        "Helps improve glucose control, especially for people with type 2 diabetes.",
     },
     {
       icon: <BiHealth className="text-2xl" />,
-      title: "Helps control cravings",
-      description: "",
+      title: "Promotes lifestyle changes",
+      description:
+        "Mounjaro is most effective when lifestyle changes are incorporated as the treatment continues.",
     },
     {
       icon: <TbChartLine className="text-2xl" />,
       title: "Convenient for busy people",
-      description: "",
+      description:
+        "It is administered once a week, making it an ideal option for people with a busy schedule",
     },
     {
       icon: <BsCalendarWeek className="text-2xl" />,
-      title: "Once-weekly injection",
-      description: "",
+      title: "Reduces Risk of Weight-Related Conditions",
+      description:
+        "Lowers the chances of heart disease, high blood pressure, and other complications.",
     },
   ];
   const [apiDataM, setApiDataM] = useState([]);
@@ -303,6 +309,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                     <RiMedicineBottleLine className="text-white text-2xl " />
                   </div>
                   <p className="text-white mb-4">
+                    <strong>Trusted Weight Loss Comparison: </strong>
                     Mango Compare is a trusted platform created with one vision
                     in mind: to make finding the best deals on weight loss
                     injections easier than ever.
@@ -390,9 +397,9 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                   <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
                     <LuBrain className="text-2xl text-orange-600" />
                   </div>
-                  {/* <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    Natural Hormone Mimicry
-                  </h3> */}
+                  <p className="text-2xl font-bold text-gray-900 mb-4">
+                    The Challenge to Find Legitimate Providers
+                  </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
                     As demand for Mounjaro grows rapidly, finding the best deals
                     among so many pharmacies can be challenging. It’s also
@@ -401,9 +408,9 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                     and in local shops.
                   </p>
                   <div className="bg-orange-50 rounded-xl p-6">
-                    {/* <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                      Gradual Dose Increase
-                    </h4> */}
+                    <p className="text-xl font-semibold text-gray-900 mb-3">
+                      Mango Compares Bridges the Gap for You
+                    </p>
                     <p className="text-gray-700 leading-relaxed">
                       Manually verifying each pharmacy while comparing prices
                       can be time-consuming and overwhelming. To save you the
@@ -456,9 +463,12 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
               When the GPhC regulates a pharmacy, it meets the standards
               required to sell medications legally in the UK. If a pharmacy is
               not registered with the GPhC, it’s a red flag, and you should
-              avoid purchasing from it. To make verification easier, the GPhC
-              provides a publicly accessible registry where you can check
-              whether a pharmacy is properly registered.
+              avoid purchasing from it.
+            </p>
+            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
+              To make verification easier, the GPhC provides a publicly
+              accessible registry where you can check whether a pharmacy is
+              properly registered.
             </p>
             {/* <div className="space-y-4">
               <div className="flex items-start space-x-3">
@@ -543,6 +553,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                     <RiMedicineBottleLine className="text-white text-2xl " />
                   </div>
                   <p className="text-white mb-4">
+                    <strong>GIP and GLP-1 Treatment: </strong>
                     Mounjaro is the first dual-action treatment of its kind,
                     offering a unique approach to weight management. It targets
                     both GIP and GLP-1 receptors in the body to reduce weight by
@@ -550,6 +561,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                   </p>
                   <div className="bg-white/10 rounded-xl p-6 border border-white/20">
                     <p className="text-white">
+                      <strong>Dosage: </strong>
                       It is taken once a week using a pre-filled KwikPen
                       injection. Most treatment plans start with a low dose to
                       help your body adjust and minimise side effects like
@@ -702,12 +714,12 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                 </span>
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
-                <AiFillHeart className="text-red-600" />
-                <span className="text-gray-900">Gallbladder problems</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
                 <MdReportProblem className="text-red-600" />
                 <span className="text-gray-900">Severe allergic reactions</span>
+              </div>
+              <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
+                <AiFillHeart className="text-red-600" />
+                <span className="text-gray-900">Gallbladder problems</span>
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
                 <MdReportProblem className="text-red-600" />
@@ -716,8 +728,23 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
             </div>
           </div>
         </div>
+        <p className="text-gray-500 mt-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
+          If you notice any unusual or severe symptoms, contact your healthcare
+          professional right away.
+        </p>
       </div>
       {/* side effect */}
+      {/* image section */}
+      <section className="max-w-[1280px] custom-width w-full px-4 md:px-8 xl:px-0 mx-auto">
+        <div className="mt-8 flex justify-center">
+          <img
+            className="rounded-[10px] w-[50%]"
+            src={mounjarouseguide}
+            alt="Mounjaro guide sheet"
+          />
+        </div>
+      </section>
+      {/* image section */}
       {/* steps */}
       <section className="w-full ">
         <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
@@ -771,13 +798,6 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                   </div>
                 ))}
               </div>
-            </div>
-            <div className="mt-8 flex justify-center">
-              <img
-                className="rounded-[10px] w-[50%]"
-                src={mounjarouseguide}
-                alt="Mounjaro guide sheet"
-              />
             </div>
           </div>
         </div>

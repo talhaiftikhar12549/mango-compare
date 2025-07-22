@@ -393,9 +393,9 @@ const WegovyCompare = () => {
                   <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-6">
                     <LuBrain className="text-2xl text-orange-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <p className="text-2xl font-bold text-gray-900 mb-4">
                     Natural Hormone Mimicry
-                  </h3>
+                  </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
                     Semaglutide acts in the body like a natural hormone called
                     GLP-1. This hormone targets areas of the brain responsible
@@ -405,9 +405,9 @@ const WegovyCompare = () => {
                     activity.
                   </p>
                   <div className="bg-orange-50 rounded-xl p-6">
-                    <h4 className="text-xl font-semibold text-gray-900 mb-3">
+                    <p className="text-xl font-semibold text-gray-900 mb-3">
                       Gradual Dose Increase
-                    </h4>
+                    </p>
                     <p className="text-gray-700 leading-relaxed">
                       The dose is increased gradually over several weeks to help
                       your body adjust and reduce side effects, starting from
