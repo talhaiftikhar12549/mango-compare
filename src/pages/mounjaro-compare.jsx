@@ -106,7 +106,7 @@ const MounjaroCompare = () => {
         icon: <BiInjection className="text-white text-lg" />,
         title: "Check the Area",
         description:
-          "If necessary, gently press a cotton ball or gauze over the area. Avoid rubbing the site.",
+          "If needed, gently press a cotton ball or gauze over the site. Do not rub the area.",
       },
     ];
   const faqItems = [
