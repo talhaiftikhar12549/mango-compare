@@ -73,12 +73,12 @@ export default function Posts() {
         <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-5 py-10 relative">
 
           {/* Right panel: posts section */}
-          <div className="w-full  space-y-4 flex flex-col items-center">
+          <div className="w-full space-y-4 flex flex-col items-center">
             <div className="flex justify-end w-full mb-6">
               {user && (
                 <button
                   onClick={() => setShowModal(true)}
-                  className="bg-[#FCC821] text-white px-4 py-2 rounded hover:bg-yellow-300 cursor-pointer"
+                  className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-400 cursor-pointer"
                 >
                   Create Post
                 </button>

@@ -115,7 +115,7 @@ const Sidebar = () => {
                 className={`text-[14px] font-[500] rounded-[6px] px-[18px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
                   selectedCategory.value === "recents"
                     ? "text-[#FCC821] font-semibold bg-gray-50"
-                    : "text-gray-700 hover:text-[#FCC821]"
+                    : "text-gray-700 hover:text-orange-500"
                 }`}
               >
                 <GoHome className="text-2xl" />
@@ -137,7 +137,7 @@ const Sidebar = () => {
                 className={`text-[14px] font-[500] mt-2 px-[18px] py-[12px] rounded-[6px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
                   selectedCategory.value === "popular"
                     ? "text-[#FCC821] font-semibold bg-gray-50"
-                    : "text-gray-700 hover:text-[#FCC821]"
+                    : "text-gray-700 hover:text-orange-500"
                 }`}
               >
                 <HiOutlineArrowTopRightOnSquare className="text-2xl" />
@@ -162,8 +162,8 @@ const Sidebar = () => {
                     }}
                     className={`flex space-x-2 items-center cursor-pointer py-[8px] hover:bg-gray-50  p-[16px] rounded-[6px] transition-colors duration-300 ease-in-out ${
                       getSelectedCommunity.value === community.value
-                        ? "text-[#FCC821] font-semibold bg-gray-50 "
-                        : "text-gray-700 hover:text-[#FCC821]"
+                        ? "text-orange-500 font-semibold bg-gray-50 "
+                        : "text-gray-700 hover:text-orange-500"
                     }`}
                   >
                     <ImLeaf />

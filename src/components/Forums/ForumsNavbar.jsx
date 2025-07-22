@@ -58,7 +58,7 @@ export default function ForumsNavbar() {
           <div className="hidden md:flex justify-between items-center">         
             <div className="space-x-2">
               {user ?
-                <button onClick={logout} className="cursor-pointer text-sm rounded-full text-[#FFFFFF] bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold py-[10px] px-[20px]">
+                <button onClick={logout} className="cursor-pointer text-sm rounded-full text-[#FFFFFF] bg-orange-500 border border-[#FCC821] transition duration-700 font-bold py-[10px] px-[20px]">
                   Log Out
                 </button>
                 :
@@ -67,7 +67,7 @@ export default function ForumsNavbar() {
                   aria-label="Login"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-[#FFFFFF] text-sm rounded-full bg-[#FCC821] border border-[#FCC821] transition duration-700 font-bold py-[10px] px-[20px]"
+                      ? "text-[#FFFFFF] text-sm rounded-full bg-orange-500 border border-[#FCC821] transition duration-700 font-bold py-[10px] px-[20px]"
                       : "text-[#202244] text-sm rounded-full bg-[#FFFFFF] border border-[#202244] transition duration-700 font-bold py-[10px] px-[20px]"
                   }
                 >

@@ -55,7 +55,7 @@ export const PostsCard = ({ post, fetchPosts }) => {
           className="flex-1"
         >
           <div className="w-full flex mb-4">
-            <p className="py-1 px-2 bg-[#FCC821] rounded text-xs">
+            <p className="py-1 px-2 bg-orange-500 text-white rounded text-xs">
               {post.community}
             </p>
           </div>
@@ -99,19 +99,19 @@ export const PostsCard = ({ post, fetchPosts }) => {
           <div
             disabled={loadingVotes[`post-upvote`]}
             onClick={() => handleVote(post._id, "upvote")}
-            className="flex items-center space-x-3 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px]  hover:text-[#FCC821] transition-colors duration-300 ease-in-out "
+            className="flex items-center space-x-3 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px]  hover:text-orange-500 transition-colors duration-300 ease-in-out "
           >
             <TbArrowBigUpFilled /> <p>{post.upvotes?.length || 0}</p>
           </div>
           <div
             onClick={() => navigate(`/posts/${post._id}`)}
-            className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
+            className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-orange-500 transition-colors duration-300 ease-in-out"
           >
             <FaMessage /> <p>{post.commentsCount || 0}</p>
           </div>
           <div
             onClick={() => handleCopy(post._id)}
-            className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
+            className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-orange-500 transition-colors duration-300 ease-in-out"
           >
             <IoArrowRedoSharp />
             <p>Share</p>
