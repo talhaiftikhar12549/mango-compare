@@ -37,7 +37,7 @@ export default function FooterBar() {
                     <span className="w-3/4 space-y-[16px] pt-[24px] text-gray-300 flex flex-col ">
                       <NavLink
                         aria-label="Home"
-                        className="hover:text-[#FCC821]"
+                        className="hover:text-orange-500"
                         to="/"
                       >
                         Home
@@ -45,7 +45,7 @@ export default function FooterBar() {
 
                       <NavLink
                         aria-label="Mounjaro"
-                        className="hover:text-[#FCC821]"
+                        className="hover:text-orange-500"
                         to="mounjaro-compare"
                       >
                         Mounjaro
@@ -53,7 +53,7 @@ export default function FooterBar() {
 
                       <NavLink
                         aria-label="Wegovy"
-                        className="hover:text-[#FCC821]"
+                        className="hover:text-orange-500"
                         to="wegovy-compare"
                       >
                         Wegovy
@@ -61,7 +61,7 @@ export default function FooterBar() {
 
                       <NavLink
                         aria-label="Blogs"
-                        className="hover:text-[#FCC821]"
+                        className="hover:text-orange-500"
                         to="blogs"
                       >
                         Blogs
@@ -69,7 +69,7 @@ export default function FooterBar() {
 
                       <NavLink
                         aria-label="Forum"
-                        className="hover:text-[#FCC821]"
+                        className="hover:text-orange-500"
                         to="contact-us"
                       >
                         Contact Us
@@ -113,7 +113,7 @@ export default function FooterBar() {
                             className="text-[24px] transition-colors duration-200"
                             style={{ color: "#FFFFFF" }} // initial color
                             onMouseEnter={(e) =>
-                              (e.currentTarget.style.color = "#FCC821")
+                              (e.currentTarget.style.color = "#ff6900")
                             }
                             onMouseLeave={(e) =>
                               (e.currentTarget.style.color = "#FFFFFF")
@@ -132,7 +132,7 @@ export default function FooterBar() {
                             className="text-[24px] transition-colors duration-200"
                             style={{ color: "#FFFFFF" }} // initial color
                             onMouseEnter={(e) =>
-                              (e.currentTarget.style.color = "#FCC821")
+                              (e.currentTarget.style.color = "#ff6900")
                             }
                             onMouseLeave={(e) =>
                               (e.currentTarget.style.color = "#FFFFFF")
@@ -151,7 +151,7 @@ export default function FooterBar() {
                             className="text-[24px] transition-colors duration-200"
                             style={{ color: "#FFFFFF" }} // initial color
                             onMouseEnter={(e) =>
-                              (e.currentTarget.style.color = "#FCC821")
+                              (e.currentTarget.style.color = "#ff6900")
                             }
                             onMouseLeave={(e) =>
                               (e.currentTarget.style.color = "#FFFFFF")
@@ -170,7 +170,7 @@ export default function FooterBar() {
                             className="text-[24px] transition-colors duration-200"
                             style={{ color: "#FFFFFF" }} // initial color
                             onMouseEnter={(e) =>
-                              (e.currentTarget.style.color = "#FCC821")
+                              (e.currentTarget.style.color = "#ff6900")
                             }
                             onMouseLeave={(e) =>
                               (e.currentTarget.style.color = "#FFFFFF")

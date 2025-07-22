@@ -2,8 +2,8 @@ import { FaCheckCircle } from "react-icons/fa";
 
 function PharmacyPartner() {
   const partners = [
+    { name: "The Care Pharmacy", icon: "💊" },
     { name: "Boots", icon: "🏥" },
-    { name: "Superdrug", icon: "💊" },
     { name: "LloydsDirect", icon: "🏪" },
     { name: "Numan", icon: "🔬" },
     { name: "Pharmacy First", icon: "🧪" },
