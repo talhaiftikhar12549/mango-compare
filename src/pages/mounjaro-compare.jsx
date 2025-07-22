@@ -37,6 +37,11 @@ import { FaUser } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { MdHealthAndSafety } from "react-icons/md";
 import fatwomanimage from "../assets/wegovy compare/fatwomenimage.webp";
+import mounjarouseguide from "../assets/mounjaro compare/mounjarouseguide.webp";
+import mounjarowork from "../assets/mounjaro compare/mounjarowork.webp";
+import mounjaroInjection from "../assets/mounjaro compare/mounjaroInjection.jpg";
+import mounjarocompareprice from "../assets/mounjaro compare/mounjarocompareprice.jpg";
+import healthyman from "../assets/mounjaro compare/healthyman.jpg";
 const MounjaroCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
@@ -45,70 +50,71 @@ const MounjaroCompare = () => {
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-   const steps = [
-      {
-        step: 1,
-        icon: <FaHandsWash className="text-white text-lg" />,
-        title: "Wash Your Hands",
-        description:
-          "Clean your hands thoroughly with soap and water before handling the pen.",
-      },
-      {
-        step: 2,
-        icon: <BiSearchAlt className="text-white text-lg" />,
-        title: "Check the Pen",
-        description:
-          "Make sure you have the correct dose and that the pen has not expired or been damaged.",
-      },
-      {
-        step: 3,
-        icon: <BiMapPin className="text-white text-lg" />,
-        title: "Choose the Injection Site",
-        description:
-          "Pick an area on your stomach (at least 2 inches away from your belly button), your thigh, or the back of your upper arm. Rotate sites with each injection to avoid irritation.",
-      },
-      {
-        step: 4,
-        icon: <BiDroplet className="text-white text-lg" />,
-        title: "Prepare the Skin",
-        description:
-          "Clean the area with an alcohol swab and let it dry completely.",
-      },
-      {
-        step: 5,
-        icon: <BiDroplet className="text-white text-lg" />,
-        title: "Remove the Cap",
-        description: "Take off the pen cap and follow the instructions provided with your pen to unlock it if needed.",
-      },
-      {
-        step: 6,
-        icon: <BiInjection className="text-white text-lg" />,
-        title: "Position the Pen",
-        description:
-          "Place the pen firmly against your skin at a 90-degree angle",
-      },
-      {
-        step: 7,
-        icon: <BiInjection className="text-white text-lg" />,
-        title: "Inject the Dose",
-        description:
-          "Press and hold the injection button until you hear a click, then continue holding it in place for about 10 seconds to ensure the full dose is delivered.",
-      },
-      {
-        step: 8,
-        icon: <BiInjection className="text-white text-lg" />,
-        title: "Remove and Dispose of the Pen",
-        description:
-          "Lift the pen straight off the skin. Safely dispose of it in a sharps container as recommended.",
-      },
-      {
-        step: 9,
-        icon: <BiInjection className="text-white text-lg" />,
-        title: "Check the Area",
-        description:
-          "If needed, gently press a cotton ball or gauze over the site. Do not rub the area.",
-      },
-    ];
+  const steps = [
+    {
+      step: 1,
+      icon: <FaHandsWash className="text-white text-lg" />,
+      title: "Wash Your Hands",
+      description:
+        "Clean your hands thoroughly with soap and water before handling the pen.",
+    },
+    {
+      step: 2,
+      icon: <BiSearchAlt className="text-white text-lg" />,
+      title: "Check the Pen",
+      description:
+        "Make sure you have the correct dose and that the pen has not expired or been damaged.",
+    },
+    {
+      step: 3,
+      icon: <BiMapPin className="text-white text-lg" />,
+      title: "Choose the Injection Site",
+      description:
+        "Pick an area on your stomach (at least 2 inches away from your belly button), your thigh, or the back of your upper arm. Rotate sites with each injection to avoid irritation.",
+    },
+    {
+      step: 4,
+      icon: <BiDroplet className="text-white text-lg" />,
+      title: "Prepare the Skin",
+      description:
+        "Clean the area with an alcohol swab and let it dry completely.",
+    },
+    {
+      step: 5,
+      icon: <BiDroplet className="text-white text-lg" />,
+      title: "Remove the Cap",
+      description:
+        "Take off the pen cap and follow the instructions provided with your pen to unlock it if needed.",
+    },
+    {
+      step: 6,
+      icon: <BiInjection className="text-white text-lg" />,
+      title: "Position the Pen",
+      description:
+        "Place the pen firmly against your skin at a 90-degree angle",
+    },
+    {
+      step: 7,
+      icon: <BiInjection className="text-white text-lg" />,
+      title: "Inject the Dose",
+      description:
+        "Press and hold the injection button until you hear a click, then continue holding it in place for about 10 seconds to ensure the full dose is delivered.",
+    },
+    {
+      step: 8,
+      icon: <BiInjection className="text-white text-lg" />,
+      title: "Remove and Dispose of the Pen",
+      description:
+        "Lift the pen straight off the skin. Safely dispose of it in a sharps container as recommended.",
+    },
+    {
+      step: 9,
+      icon: <BiInjection className="text-white text-lg" />,
+      title: "Check the Area",
+      description:
+        "If needed, gently press a cotton ball or gauze over the site. Do not rub the area.",
+    },
+  ];
   const faqItems = [
     {
       question: "Is Mounjaro cheaper than Wegovy in the UK?",
@@ -307,8 +313,8 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
               <div className="relative flex justify-center items-center">
                 <img
                   className="w-[75%] rounded-[10px]"
-                  src={wegovyImage}
-                  alt="Wegovy Product"
+                  src={mounjaroInjection}
+                  alt="Mounjaro Product"
                 />
                 <div className="absolute left-0 -bottom-6 md:-left-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="text-center">
@@ -402,8 +408,8 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
               {/* Right Image */}
               <div className="relative">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Medical illustration showing GLP-1 hormone mechanism in human body brain appetite control, scientific diagram style with clean background, medical education infographic, professional healthcare visualization&width=600&height=600&seq=mechanism1&orientation=squarish"
-                  alt="How Wegovy Works"
+                  src={mounjarocompareprice}
+                  alt="How Mounjaro Works"
                   className="w-full rounded-2xl shadow-lg object-cover h-96"
                 />
                 <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
@@ -489,7 +495,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
           {/* Right Image */}
           <div className="relative lg:w-1/2 mb-10 lg:mb-0">
             <img
-              src={fatwomanimage} // Replace with actual path
+              src={healthyman} // Replace with actual path
               alt="Healthy Woman"
               className="rounded-2xl shadow-lg w-full  object-cover"
             />
@@ -547,7 +553,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
               <div className="relative flex justify-center items-center">
                 <img
                   className="w-[75%] rounded-[10px]"
-                  src={wegovyImage}
+                  src={mounjarowork}
                   alt="Wegovy Product"
                 />
                 <div className="absolute left-0 -bottom-6 md:-left-6 bg-white rounded-xl p-6 shadow-lg">
@@ -681,7 +687,9 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
             <div className="space-y-3">
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
                 <AiOutlineWarning className="text-red-600" />
-                <span className="text-gray-900">Pancreatitis (inflammation of the pancreas)</span>
+                <span className="text-gray-900">
+                  Pancreatitis (inflammation of the pancreas)
+                </span>
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
                 <AiFillHeart className="text-red-600" />
@@ -708,7 +716,10 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
               How to use Mounjaro for the first time?
             </h2>
             <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
-              Mounjaro is usually injected once a week in the stomach, thighs, or the upper thigh area. It is always best to consult your GP or prescriber to choose your injection site. Here’s a general breakdown of how to use Mounjaro for the first time:
+              Mounjaro is usually injected once a week in the stomach, thighs,
+              or the upper thigh area. It is always best to consult your GP or
+              prescriber to choose your injection site. Here’s a general
+              breakdown of how to use Mounjaro for the first time:
             </p>
 
             <div
@@ -750,6 +761,13 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                   </div>
                 ))}
               </div>
+            </div>
+            <div className="mt-8 flex justify-center">
+              <img
+                className="rounded-[10px] w-[50%]"
+                src={mounjarouseguide}
+                alt="Mounjaro guide sheet"
+              />
             </div>
           </div>
         </div>

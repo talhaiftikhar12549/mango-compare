@@ -34,6 +34,8 @@ import { FaUser } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { MdHealthAndSafety } from "react-icons/md";
 import fatwomanimage from "../assets/wegovy compare/fatwomenimage.webp";
+import howwegovywork from "../assets/wegovy compare/howdoeswegovywork.webp";
+import wegovyuseguide from "../assets/wegovy compare/wegovyuseguide.webp";
 const WegovyCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
@@ -398,7 +400,7 @@ const WegovyCompare = () => {
               {/* Right Image */}
               <div className="relative">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Medical illustration showing GLP-1 hormone mechanism in human body brain appetite control, scientific diagram style with clean background, medical education infographic, professional healthcare visualization&width=600&height=600&seq=mechanism1&orientation=squarish"
+                  src={howwegovywork}
                   alt="How Wegovy Works"
                   className="w-full rounded-2xl shadow-lg object-cover h-96"
                 />
@@ -687,6 +689,13 @@ const WegovyCompare = () => {
                     <p className="text-sm text-gray-600">{description}</p>
                   </div>
                 ))}
+              </div>
+              <div className="mt-8 flex justify-center">
+                <img
+                  className="rounded-[10px] w-[50%]"
+                  src={wegovyuseguide}
+                  alt="wegovy guide sheet"
+                />
               </div>
             </div>
           </div>

@@ -1,40 +1,59 @@
-// generate-sitemap.js
+import dotenv from "dotenv";
+dotenv.config();
 import fs from "fs";
 import { SitemapStream, streamToPromise } from "sitemap";
-import { createGzip } from "zlib";
+// import api from "./src/services/api.js"; // Adjust the import path as necessary
+import axios from "axios";
 
-const SITE_URL = "https://mango-compare.netlify.app"; 
+// ✅ You do NOT need to import fetch in Node.js 18+
+const SITE_URL = process.env.SITE_URL;
+const VITE_API_URL = process.env.VITE_API_URL;
 
-const pages = [
+const staticPages = [
   "/",
   "/mounjaro-compare",
   "/wegovy-compare",
   "/contact-us",
   "/blogs",
-  "/wegovy-compare",
   "/login",
+  "/posts",
   "/register",
 ];
 
-const generateSitemap = async () => {
-  const sitemap = new SitemapStream({ hostname: SITE_URL });
-  const pipeline = sitemap.pipe(createGzip());
+async function fetchBlogSlugs() {
+  try {
+    const response = await axios.get(`${VITE_API_URL}/api/blogs`);
+    const blogs = response.data.data;
 
-  for (const page of pages) {
-    sitemap.write({ url: page, changefreq: "weekly", priority: 0.8 });
+    if (!Array.isArray(blogs)) {
+      throw new Error("Invalid API response format");
+    }
+
+    return blogs.map((blog) => `/${blog.slug}`);
+  } catch (error) {
+    console.error("❌ Failed to fetch blogs from API:", error);
+    return [];
+  }
+}
+
+async function generateSitemap() {
+  const blogPages = await fetchBlogSlugs();
+  const allPages = [...staticPages, ...blogPages];
+
+  const sitemap = new SitemapStream({ hostname: SITE_URL });
+
+  for (const url of allPages) {
+    sitemap.write({ url, changefreq: "weekly", priority: 0.8 });
   }
 
   sitemap.end();
 
-  const data = await streamToPromise(pipeline);
+  const xml = await streamToPromise(sitemap);
+  fs.writeFileSync("./public/sitemap.xml", xml.toString());
 
-  // Save both compressed and uncompressed versions
-  fs.writeFileSync("./public/sitemap.xml.gz", data);
-  fs.writeFileSync("./public/sitemap.xml", data.toString());
-
-  console.log("✅ Sitemap generated successfully.");
-};
+  console.log("✅ Sitemap generated with", allPages.length, "pages.");
+}
 
 generateSitemap().catch((err) => {
-  console.error("❌ Error generating sitemap:", err);
+  console.error("❌ Sitemap generation failed:", err);
 });
