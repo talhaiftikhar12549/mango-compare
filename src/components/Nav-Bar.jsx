@@ -25,13 +25,13 @@ export default function NavBar() {
     <>
       <header className=" w-full max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto py-[16px]">
         <div className="flex justify-between items-center max-w-[1280px]">
-          <div className="w-[50%] md:w-[25%] lg:w-[35%] ">
+          <div className="w-[50%] md:w-[25%]">
             <NavLink aria-label="Home" to="/" className="pointer">
               <img className="max-h-[57px]" src={logo} alt="" />
             </NavLink>
           </div>
-          <div className="hidden md:flex justify-between items-center w-[65%] md:w-[70%] lg:w-[65%]">
-            <div className="space-x-0 md:space-x-4 lg:space-x-7 ">
+          <div className="hidden lg:flex justify-between items-center w-[65%] md:w-[70%]">
+            <div className="space-x-0 md:space-x-4 lg:space-x-7 text-xs xl:text-lg ">
               <NavLink
                 to="/"
                 aria-label="Home"
@@ -130,7 +130,7 @@ export default function NavBar() {
             </div>
           </div>
 
-          <div className="md:hidden flex">
+          <div className="lg:hidden flex">
             <div>
               <div
                 onClick={toggleMenu}
