@@ -165,7 +165,7 @@ const WegovyCompare = () => {
       answer:
         "Private Wegovy injection costs UK typically range between £150 and £300 monthly, depending on the dose and the pharmacy. Prices can be lower when you use Wegovy discount codes or special offers.",
     },
-     {
+    {
       question: "Can I buy Wegovy legally online in the UK?",
       answer:
         "Yes, you can buy Wegovy online UK from GPhC-registered pharmacies. Always ensure you have a valid Wegovy prescription UK, as it is a prescription-only medication.",
@@ -215,7 +215,6 @@ const WegovyCompare = () => {
       answer:
         "Each Wegovy pen provides one weekly dose, so it typically lasts for 7 days. You’ll need a new pen for each week of treatment as you progress through your dosing schedule.",
     },
-    
   ];
   const availableDoasge = ["0.25 mg", "0.5 mg", "1 mg", "1.7 mg", "2.4 mg"];
   const [apiDataM, setApiDataM] = useState([]);
@@ -346,18 +345,13 @@ const WegovyCompare = () => {
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaUser className="text-white text-md " />
                 </div>
-                <p className="text-white">
-                  {" "}
-                  For Adults Designed for adult patients with obesity
-                </p>
+                <p className="text-white"> Prescription-Only</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaCalendarCheck className="text-white text-md " />
                 </div>
-                <p className="text-white">
-                  Long-term Results Helps achieve sustainable weight loss
-                </p>
+                <p className="text-white">Weekly Injection</p>
               </div>
 
               <div className="text-center">
@@ -365,9 +359,7 @@ const WegovyCompare = () => {
                   {" "}
                   <MdHealthAndSafety className="text-white text-lg " />
                 </div>
-                <p className="text-white">
-                  UK Available Prescription available in the UK
-                </p>
+                <p className="text-white">Clinically Proven Weight Loss</p>
               </div>
             </div>
           </div>{" "}
@@ -394,25 +386,25 @@ const WegovyCompare = () => {
                     <LuBrain className="text-2xl text-orange-600" />
                   </div>
                   <p className="text-2xl font-bold text-gray-900 mb-4">
-                    Natural Hormone Mimicry
+                    Targets the GLP-1 Receptors:
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    Semaglutide acts in the body like a natural hormone called
-                    GLP-1. This hormone targets areas of the brain responsible
-                    for regulating appetite. By helping you feel fuller more
-                    quickly and reducing hunger, Wegovy promotes weight loss
-                    when used alongside a balanced diet and increased physical
-                    activity.
+                    When you inject Wegovy, Semaglutide activates GLP-1
+                    receptors in the brain. It directly targets the areas of the
+                    brain responsible for hunger control, such as the
+                    hypothalamus and brainstem.
                   </p>
                   <div className="bg-orange-50 rounded-xl p-6">
                     <p className="text-xl font-semibold text-gray-900 mb-3">
                       Gradual Dose Increase
                     </p>
                     <p className="text-gray-700 leading-relaxed">
-                      The dose is increased gradually over several weeks to help
-                      your body adjust and reduce side effects, starting from
-                      0.25 mg and rising up to the full maintenance dose of 2.4
-                      mg once a week.
+                      The dose is increased every 4 weeks after consultation
+                      with a healthcare provider to help your body adjust and
+                      reduce side effects. It starts at 0.25 mg and gradually
+                      increases to 0.5 mg, 1 mg, 1.7 mg, and finally 2.4 mg. It
+                      is the maintenance dose that should be sustained until the
+                      end of the treatment.
                     </p>
                   </div>
                 </div>
@@ -449,23 +441,29 @@ const WegovyCompare = () => {
               How to Know if I am Eligible for Wegovy?
             </h2>
             <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
-              If you're considering Wegovy for weight loss, it's important to
+              If you’re considering Wegovy for weight loss, it’s important to
               understand who can use it and how to get started. In the UK,
               healthcare providers prescribe Wegovy based on your BMI and any
-              related health conditions.
+              related health conditions. Here’s what you need to know before
+              beginning treatment.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Eligibility Criteria Card */}
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
-              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
-                <RiUserHeartLine className="text-2xl text-white" />
+              <div className="w-full flex gap-3 items-center">
+                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                  <RiUserHeartLine className="text-2xl text-white" />
+                </div>
+                <h3 className=" mb-6 !text-2xl !font-[600]">
+                  Wegovy Eligibility Criteria
+                </h3>
               </div>
 
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+              <p className="!text-xl !font-[500] text-gray-900 mb-6">
                 You are eligible for Wegovy if you have:
-              </h3>
+              </p>
 
               <div className="space-y-4 mb-8">
                 <div className="flex items-start space-x-4">
@@ -503,6 +501,48 @@ const WegovyCompare = () => {
                   </div>
                 </div>
               </div>
+              <div className="">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Professional healthcare consultation scene with doctor and patient discussing treatment options in modern medical office, friendly healthcare provider explaining medication, medical consultation photography&width=500&height=300&seq=consultation1&orientation=landscape"
+                  alt="Healthcare Consultation"
+                  className="w-full rounded-xl object-cover h-48"
+                />
+              </div>
+            </div>
+
+            {/* Consultation Card */}
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
+              <div className="w-full flex gap-3 items-center">
+                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                  <FaStethoscope className="text-2xl text-white" />
+                </div>
+                <h3 className=" mb-6 !text-2xl !font-[600]">
+                  How Medical Consultation Can Help?
+                </h3>
+              </div>
+
+              <p className="!text-xl !font-[500] text-gray-900 mb-6">
+                Consultation with a qualified healthcare provider is important,
+                as they:
+              </p>
+
+              <div className="space-y-4 mb-8">
+                {[
+                  "Review your medical history",
+                  "Discuss whether Wegovy is suitable for you",
+                  "Inform you about potential side effects",
+                  "Determine eligibility and provide prescription",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white text-sm font-bold">
+                        {index + 1}
+                      </span>
+                    </div>
+                    <p className="text-gray-700 text-lg">{item}</p>
+                  </div>
+                ))}
+              </div>
 
               <div className="bg-white rounded-xl p-6 shadow-sm">
                 <p className="text-gray-600 text-sm mb-4">
@@ -517,48 +557,6 @@ const WegovyCompare = () => {
                 </button>
               </div>
             </div>
-
-            {/* Consultation Card */}
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
-              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
-                <FaStethoscope className="text-2xl text-white" />
-              </div>
-
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Consultation with Healthcare Provider
-              </h3>
-
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                Consultation with a qualified healthcare provider is important,
-                as they:
-              </p>
-
-              <div className="space-y-4 mb-8">
-                {[
-                  "Review your medical history",
-                  "Discuss whether Wegovy is suitable for you",
-                  "Inform you about potential side effects",
-                  "Provide you a prescription if appropriate",
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white text-sm font-bold">
-                        {index + 1}
-                      </span>
-                    </div>
-                    <p className="text-gray-700 text-lg">{item}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="relative">
-                <img
-                  src="https://readdy.ai/api/search-image?query=Professional healthcare consultation scene with doctor and patient discussing treatment options in modern medical office, friendly healthcare provider explaining medication, medical consultation photography&width=500&height=300&seq=consultation1&orientation=landscape"
-                  alt="Healthcare Consultation"
-                  className="w-full rounded-xl object-cover h-48"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -568,12 +566,13 @@ const WegovyCompare = () => {
         <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
           <div className="text-center mb-12">
             <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
-              What are the Benefits of Wegovy?
+              What are the benefits of Wegovy?
             </h2>
             <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
               Wegovy has been shown to help many people lose a significant
               amount of weight. In clinical trials, patients using Wegovy
-              injections lost up to 15% of their body weight on average.
+              injections lost an average of 15% of their body weight. Some of
+              the well-known benefits of Wegovy are:
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -601,9 +600,10 @@ const WegovyCompare = () => {
           Are there any Side Effects of Wegovy?
         </h2>
         <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
-          There are some side effects of Wegovy that improve as your body gets
-          used to the medication. Always speak to your healthcare professional
-          if you notice anything unusual or severe while using Wegovy.
+          There are some side effects of Wegovy, but they improve as your body
+          adjusts to the medication. Always speak to your healthcare
+          professional if you notice anything unusual or severe while using
+          Wegovy.
         </p>
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -627,7 +627,7 @@ const WegovyCompare = () => {
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow">
                 <FaSadTear className="text-orange-600" />
-                <span className="text-gray-900">Vomiting</span>
+                <span className="text-gray-900">Hair loss and dehydration</span>
               </div>
             </div>
           </div>
@@ -659,6 +659,17 @@ const WegovyCompare = () => {
         </div>
       </div>
       {/* side effect */}
+      {/* image */}
+      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+        <div className="mt-8 flex justify-center">
+          <img
+            className="rounded-[10px] w-[50%]"
+            src={wegovyuseguide}
+            alt="wegovy guide sheet"
+          />
+        </div>
+      </section>
+      {/* image */}
       {/* steps */}
       <section className="w-full ">
         <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
@@ -685,7 +696,8 @@ const WegovyCompare = () => {
                     Step-by-Step Injection Guide
                   </h3>
                   <p className="text-sm text-gray-600">
-                    Follow these steps for safe and effective administration
+                    Here’s a general step-by-step guide to using Wegovy for the
+                    first time:
                   </p>
                 </div>
               </div>
@@ -711,14 +723,12 @@ const WegovyCompare = () => {
                   </div>
                 ))}
               </div>
-              <div className="mt-8 flex justify-center">
-                <img
-                  className="rounded-[10px] w-[50%]"
-                  src={wegovyuseguide}
-                  alt="wegovy guide sheet"
-                />
-              </div>
             </div>
+            <p className="text-gray-500 mt-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
+              Wegovy is injected once a week into the stomach, thigh, or upper
+              arm. Be sure to consult your GP or prescriber to confirm the right
+              technique and injection site for you.
+            </p>
           </div>
         </div>
       </section>
@@ -838,46 +848,44 @@ const WegovyCompare = () => {
       {/* how to use */}
       {/* healthier life */}
       <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between md:px-8 px-0 md:py-12 py-0  bg-white">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-4 justify-between md:px-8 px-0 md:py-12 py-0  bg-white">
           {/* Left Content */}
           <div className="lg:w-1/2 space-y-6">
             <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 ">
               Take the First Step <br /> Towards a Healthier You
             </h2>
             <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
-              Don't let weight hold you back from living your best life. Wegovy
-              has helped thousands achieve sustainable weight loss results with
-              the support of healthcare professionals.
+              Don't let weight hold you back from living your best life. Wegovy is proven to help people lose weight up to 15% if taken properly with lifestyle changes.
             </p>
 
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <FaShieldAlt className="text-orange-500 mt-1" />
                 <div>
-                  <p className="font-semibold">Clinically Proven</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-semibold">Compare Prices from Trusted UK Pharmacies</p>
+                  {/* <p className="text-sm text-gray-500">
                     FDA-approved for chronic weight management
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
                 <FaUserMd className="text-orange-500 mt-1" />
                 <div>
-                  <p className="font-semibold">Professional Support</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-semibold">Stay on Track with Ongoing Support</p>
+                  {/* <p className="text-sm text-gray-500">
                     Guidance from qualified healthcare providers
-                  </p>
+                  </p> */}
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
                 <FaSyringe className="text-orange-500 mt-1" />
                 <div>
-                  <p className="font-semibold">Convenient Treatment</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="font-semibold">Embrace a More Confident You</p>
+                  {/* <p className="text-sm text-gray-500">
                     Once-weekly injection for easy compliance
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
