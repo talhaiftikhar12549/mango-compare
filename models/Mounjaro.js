@@ -56,6 +56,10 @@ const MounjaroSchema = new mongoose.Schema({
     max: [5, 'Rating cannot be more than 5'],
     default: 0
   },
+  tp_link: {
+    type: String,
+    default: "",
+  },
   website: {
     type: String,
     match: [
