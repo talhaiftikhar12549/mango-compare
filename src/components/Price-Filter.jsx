@@ -1,10 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { mVal, discountedFilter } from "../redux toolkit/compareToolSlice";
+import {
+  mVal,
+  discountedFilter,
+  togglePriceSort,
+} from "../redux toolkit/compareToolSlice";
 import { Range } from "react-range";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { MdPercent } from "react-icons/md";
+import { PiArrowsDownUpBold } from "react-icons/pi";
 
 const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const dispatch = useDispatch();
@@ -16,6 +21,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
   const [maxHeight, setMaxHeight] = useState("0px");
   const [maxHeightDiscount, setMaxHeightDiscount] = useState("0px");
   const [checked, setChecked] = useState(false);
+  const [priceSort, setPriceSort] = useState("lp");
   const range = maxVal;
 
   const handleChange = (e) => {
@@ -24,9 +30,14 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
     dispatch(discountedFilter(isChecked));
   };
 
+  const handlePriceSort = () => {
+    setPriceSort((prev) => (prev === "lp" ? "hp" : "lp"));
+    dispatch(togglePriceSort(priceSort === "lp" ? "hp" : "lp"));
+  };
+
   useEffect(() => {
     if (contentRef.current) {
-      setMaxHeight(isHide ? `113px` : "0px");
+      setMaxHeight(isHide ? `220px` : "0px");
     }
   }, [isHide]);
 
@@ -65,7 +76,9 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
         <div className="flex items-center justify-between">
           <div className="flex justify-center items-center gap-1 xl:gap-3">
             <BsCurrencyDollar className="text-[#f97215] mt-1 text-xl !font-[700]" />
-            <h2 className="!text-[13px] xl:!text-lg font-semibold">Price Range</h2>
+            <h2 className="!text-[13px] xl:!text-lg font-semibold">
+              Price Range
+            </h2>
           </div>
 
           <button
@@ -144,8 +157,23 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
             />
 
             <div className="flex items-center justify-between">
-              <p className="xl:text-sm text-[12px] text-gray-700">£ {price[0]}</p>
-              <p className="xl:text-sm text-[12px] text-gray-700">£ {price[1]}</p>
+              <p className="xl:text-sm text-[12px] text-gray-700">
+                £ {price[0]}
+              </p>
+              <p className="xl:text-sm text-[12px] text-gray-700">
+                £ {price[1]}
+              </p>
+            </div>
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-[#000000]">Sort Price</p>
+              </div>
+              <div>
+                <PiArrowsDownUpBold
+                  onClick={handlePriceSort}
+                  className="text-lg cursor-pointer"
+                />
+              </div>
             </div>
           </div>
         </div>

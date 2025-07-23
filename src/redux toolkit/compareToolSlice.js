@@ -9,6 +9,7 @@ const initialState = {
   isDiscount: false,
   manjaroLowest: 0,
   wegovyLowest: 0,
+  isPriceSort: "lp",
 };
 
 export const compareToolSlice = createSlice({
@@ -44,11 +45,12 @@ export const compareToolSlice = createSlice({
     },
     mLowPrice: (state, action) => {
       state.manjaroLowest = action.payload;
-      
     },
-   wLowPrice: (state, action) => {
+    wLowPrice: (state, action) => {
       state.wegovyLowest = action.payload;
-      
+    },
+    togglePriceSort: (state, action) => {
+      console.log("Toggling price sort",state.isPriceSort ,"and", action.payload);
     },
   },
 });
@@ -65,7 +67,8 @@ export const {
   DosagName,
   discountedFilter,
   mLowPrice,
-  wLowPrice
+  wLowPrice,
+  togglePriceSort,
 } = compareToolSlice.actions;
 
 export default compareToolSlice.reducer;

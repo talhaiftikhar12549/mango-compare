@@ -77,19 +77,24 @@ export default function PriceCalculator({
 
   // navbar filters Price and Ratting Filter
   const fltrData = useSelector((state) => state.compareTool.mainData);
-  const filteredMaxValue = useSelector(
-    (state) => state.compareTool.filteredMaxValue
-  );
+  const priceSorter = useSelector((state) => state.compareTool.isPriceSort);
   const maxMinPrice = useSelector((state) => state.compareTool.mPrice);
   const filteredName = useSelector((state) => state.compareTool.filteredName);
   const [sortPrice, setSortPrice] = useState("lp");
   const [sortPharmacy, setSortPharmacy] = useState("des");
   const [sortRating, setSortRating] = useState("lr");
   const [filteredData, setFilteredData] = useState(fltrData);
+  console.log("Filtered Data:", filteredData);
+  console.log("priceSorter:", priceSorter);
   const toggleSortPrice = () => {
     setSortPrice((prev) => (prev === "lp" ? "hp" : "lp"));
     setFilteredData(() => sortedPrice);
   };
+  useEffect(() => {
+    toggleSortPrice();
+    console.log("Price Sorter:", priceSorter);
+  }, [priceSorter]);
+
   const togglePharmacy = () => {
     setSortPharmacy((prev) => (prev === "asc" ? "des" : "asc"));
     setFilteredData(() => sortedPharmacy);
@@ -279,7 +284,7 @@ export default function PriceCalculator({
                 <h3 className="!text-[24px] !pt-[0px] !font-[700]">
                   Compare Real-Time Prices from UK Pharmacies
                 </h3>
-                <p className="text-[#7e7f82]">
+                <p onClick={toggleSortPrice} className="text-[#7e7f82]">
                   Prices updated daily from GPhC-regulated pharmacies
                 </p>
               </div>

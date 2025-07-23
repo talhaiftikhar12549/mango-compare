@@ -769,7 +769,11 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
               </div>
             </div> */}
             <div className=" rounded-2xl px-8">
-              <img className="w-[100%] rounded-[10px]" src={runningwoman} alt="woman running" />
+              <img
+                className="w-[100%] rounded-[10px]"
+                src={runningwoman}
+                alt="woman running"
+              />
             </div>
           </div>
         </div>
