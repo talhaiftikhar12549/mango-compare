@@ -314,9 +314,7 @@ const WegovyCompare = () => {
                   </p>
                   <div className="bg-white/10 rounded-xl p-6 border border-white/20">
                     <p className="text-white">
-                      <strong>Active Ingredient: Semaglutide</strong> – This
-                      works by mimicking GLP-1, a hormone that controls appetite
-                      and helps you feel full sooner.
+                      <strong>Active Ingredient:</strong> The active ingredient in Wegovy is Semaglutide. It works by mimicking GLP-1, a hormone responsible for controlling appetite, making you feel full sooner. 
                     </p>
                   </div>
                 </div>
