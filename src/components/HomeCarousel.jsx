@@ -5,16 +5,6 @@ import { FaTruck, FaClock, FaCheckCircle, FaStar } from "react-icons/fa";
 const TopRatedPharmacies = () => {
   const pharmacies = [
     {
-      name: "Pharmacy Planet",
-      rating: 4.5,
-      wegovy: "119.00",
-      mounjaro: "128.00",
-      deliveryFee: "£4.99",
-      deliveryTime: "Within a week",
-      maintenance: true,
-      trustPilot: "4.5/5",
-    },
-    {
       name: "The Care Pharmacy",
       rating: 5,
       wegovy: "99.99",
@@ -23,6 +13,18 @@ const TopRatedPharmacies = () => {
       deliveryTime: "Same day delivery",
       maintenance: true,
       trustPilot: "5/5",
+      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010308",
+    },
+    {
+      name: "Pharmacy Planet",
+      rating: 4.5,
+      wegovy: "119.00",
+      mounjaro: "128.00",
+      deliveryFee: "£4.99",
+      deliveryTime: "Within a week",
+      maintenance: true,
+      trustPilot: "4.5/5",
+      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/name/simple%20online%20pharmacy*",
     },
     {
       name: "Simple Online Pharmacy",
@@ -33,6 +35,40 @@ const TopRatedPharmacies = () => {
       deliveryTime: "1 working day",
       maintenance: true,
       trustPilot: "4.7/5",
+      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/name/simple%20online%20pharmacy*",
+    },
+    {
+      name: "Peak Pharmacy",
+      rating: 4.5,
+      wegovy: "128.00",
+      mounjaro: "128.50",
+      deliveryFee: "£7.99",
+      deliveryTime: "Next working day (Cheaper delivery options available)",
+      maintenance: true,
+      trustPilot: "4.5/5",
+      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9012214",
+    },
+    {
+      name: "Numan",
+      rating: 4.5,
+      wegovy: "169.00",
+      mounjaro: "209.00",
+      deliveryFee: "Free Delivery",
+      deliveryTime: "2 working days",
+      maintenance: true,
+      trustPilot: "4.5/5",
+      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9011408",
+    },
+    {
+      name: "Superdrug Online Doctor",
+      rating: 4.3,
+      wegovy: "195",
+      mounjaro: "215",
+      deliveryFee: "£3.99",
+      deliveryTime: "Next Day (Free delivery options with extended times)",
+      maintenance: true,
+      trustPilot: "4.3/5",
+      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010736",
     },
   ];
 
@@ -67,9 +103,9 @@ const TopRatedPharmacies = () => {
           <Slider {...settings}>
             {pharmacies.map((pharmacy, index) => (
               <div key={index} className="px-2">
-                <div className="bg-white border border-gray-200 rounded-2xl !justify-center !items-center shadow-md  flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                <div className="bg-white border border-gray-200 p-4 md:p-0 rounded-2xl !justify-center !items-center shadow-md  flex flex-col md:flex-row md:items-start md:justify-between ">
                   {/* Logo + Name */}
-                  <div className="flex flex-col items-center md:items-start !h-[100%] w-full md:w-[30%] text-center md:text-left">
+                  <div className="flex flex-col items-center justify-center h-full w-full text-center !h-[100%] w-full md:w-[25%] ">
                     <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] rounded-full bg-gray-200 flex items-center justify-center text-sm text-gray-500">
                       Logo
                     </div>
@@ -79,7 +115,7 @@ const TopRatedPharmacies = () => {
                   </div>
 
                   {/* Price + Delivery Info */}
-                  <div className="flex-1 w-full flex flex-col gap-6 border-l border-l-gray-200 border-r border-r-gray-200">
+                  <div className="flex-1 w-full pt-4 md:pt-0 flex flex-col gap-6 md:w-[50%] md:border-l md:border-r border-gray-200">
                     <div className="w-[100%] rounded-xl text-sm font-medium text-gray-800 flex text-center sm:text-left">
                       <div className="flex flex-col justify-center items-center gap-2 bg-[#f49e0b] px-6 py-9 w-[50%]">
                         <p className="text-white text-lg">Wegovy</p>
@@ -95,44 +131,50 @@ const TopRatedPharmacies = () => {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-sm text-gray-600">
+                    <div className="flex justify-center gap-6 text-sm text-gray-600 pb-4">
                       <div className="flex flex-col items-start gap-2 items-center">
                         <div className="flex items-center justify-center w-full">
-                          <FaTruck className="text-[#10b982] text-2xl mt-0.5" />
+                          <FaTruck className="text-[#10b982] text-lg md:text-2xl mt-0.5" />
                         </div>
                         <div className="text-center w-full">
-                          <p>Delivery: {pharmacy.deliveryFee}</p>
+                          <p className="!text-xs !md:text-xl">
+                            Delivery: {pharmacy.deliveryFee}
+                          </p>
                         </div>
                       </div>
                       <div className="flex flex-col items-start gap-2 items-center">
                         <div className="flex items-center justify-center w-full">
-                          <FaClock className="text-[#10b982] text-2xl mt-0.5" />
+                          <FaClock className="text-[#10b982] text-lg md:text-2xl mt-0.5" />
                         </div>
                         <div className="text-center w-full">
-                          <p>{pharmacy.deliveryTime}</p>
+                          <p className="!text-xs !md:text-xl">
+                            {pharmacy.deliveryTime}
+                          </p>
                         </div>
                       </div>
                       <div className="flex flex-col items-start gap-2 items-center">
                         <div className="flex items-center justify-center w-full">
-                          <FaCheckCircle className="text-[#10b982] text-2xl mt-0.5" />
+                          <FaCheckCircle className="text-[#10b982] text-lg md:text-2xl mt-0.5" />
                         </div>
                         <div className="text-center w-full">
-                          <p>Maintenance Plan</p>
+                          <p className="!text-xs !md:text-xl">
+                            Maintenance Plan
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
 
                   {/* Rating + Button */}
-                  <div className="w-full md:w-[30%] flex flex-col items-center md:items-end gap-4 text-center md:text-right">
+                  <div className="w-full md:w-[25%] flex flex-col items-center md:items-end gap-4 text-center md:text-right">
                     <div className="flex items-center gap-1 text-2xl font-semibold justify-center text-gray-800 w-[100%]">
                       <FaStar className="text-yellow-400 text-3xl" />
                       {pharmacy.trustPilot}
                     </div>
                     <div className="w-full flex justify-center items-center">
-                      <button className="bg-[#10b982] cursor-pointer hover:shadow-md text-white text-xs font-semibold px-10 py-2 rounded-md hover:bg-[#0fa776] transition-colors w-full sm:w-auto">
+                      <a target="_blank" href={pharmacy.gphc} className="bg-[#10b982] cursor-pointer hover:shadow-md text-white text-xs font-semibold px-10 py-2 rounded-md hover:bg-[#0fa776] transition-colors w-full sm:w-auto">
                         View Details
-                      </button>
+                      </a>
                     </div>
                     <div className="w-[100%] flex justify-center items-center">
                       <p className="text-xs text-gray-400 mt-1 ">
