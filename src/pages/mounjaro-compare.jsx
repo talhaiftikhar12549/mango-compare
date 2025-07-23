@@ -62,7 +62,7 @@ const MounjaroCompare = () => {
       icon: <FaHandsWash className="text-white text-lg" />,
       title: "Wash Your Hands",
       description:
-        "Clean your hands thoroughly with soap and water before handling the pen.",
+        "Before handling the pen, wash your hands thoroughly with soap and water.",
     },
     {
       step: 2,
@@ -408,21 +408,20 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
                     As demand for Mounjaro grows rapidly, finding the best deals
-                    among so many pharmacies can be challenging. It’s also
-                    increasingly difficult to identify legitimate providers,
-                    with reports of counterfeit Mounjaro being sold both online
-                    and in local shops.
+                    among so many pharmacies can be overwhelming. And on top of
+                    it, when counterfeit injections are being sold in the
+                    market, your health is at serious risk.
                   </p>
                   <div className="bg-orange-50 rounded-xl p-6">
                     <p className="text-xl font-semibold text-gray-900 mb-3">
                       Mango Compares Bridges the Gap for You
                     </p>
                     <p className="text-gray-700 leading-relaxed">
-                      Manually verifying each pharmacy while comparing prices
-                      can be time-consuming and overwhelming. To save you the
-                      hassle, Mango Compare does the work for you, tracking
-                      real-time prices across verified UK pharmacies, so you can
-                      buy with confidence.
+                      Manually verifying each pharmacy and comparing prices can
+                      be time-consuming and inefficient. To save you the hassle,
+                      Mango Compare does the work for you. We track real-time
+                      prices across verified UK pharmacies so you can buy with
+                      confidence.
                     </p>
                   </div>
                 </div>
@@ -454,24 +453,24 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
 
       {/* healthier life */}
       <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between md:px-8 px-0 md:py-12 py-0  bg-white">
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between md:px-8 px-0 md:py-12 py-0 gap-4  bg-white">
           {/* Left Content */}
           <div className="lg:w-1/2 space-y-6">
             <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 ">
               What makes a GPhC-Registered pharmacy different?
             </h2>
-            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
+            <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
               The GPhC stands for the General Pharmaceutical Council. It is the
               official regulatory body for pharmacies and pharmacists in Great
               Britain.
             </p>
-            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
+            <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
               When the GPhC regulates a pharmacy, it meets the standards
               required to sell medications legally in the UK. If a pharmacy is
               not registered with the GPhC, it’s a red flag, and you should
               avoid purchasing from it.
             </p>
-            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
+            <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
               To make verification easier, the GPhC provides a publicly
               accessible registry where you can check whether a pharmacy is
               properly registered.
@@ -921,6 +920,10 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered.
                 ))}
               </div>
             </div>
+            <p className="text-gray-500 mt-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
+              Always read and follow the full instructions provided with your
+              Mounjaro pen, and contact your healthcare provider.
+            </p>
           </div>
         </div>
       </section>
