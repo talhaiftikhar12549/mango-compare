@@ -25,7 +25,11 @@ import Posts from "./pages/Posts.jsx";
 import PostDetail from "./pages/PostDetail.jsx";
 import ForummLayout from "./components/postLayout/Layout.jsx";
 import Layout from "./pages/layout.jsx";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import "./App.css";
+
 
 createRoot(document.getElementById("root")).render(
   

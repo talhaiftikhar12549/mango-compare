@@ -314,7 +314,10 @@ const WegovyCompare = () => {
                   </p>
                   <div className="bg-white/10 rounded-xl p-6 border border-white/20">
                     <p className="text-white">
-                      <strong>Active Ingredient:</strong> The active ingredient in Wegovy is Semaglutide. It works by mimicking GLP-1, a hormone responsible for controlling appetite, making you feel full sooner. 
+                      <strong>Active Ingredient:</strong> The active ingredient
+                      in Wegovy is Semaglutide. It works by mimicking GLP-1, a
+                      hormone responsible for controlling appetite, making you
+                      feel full sooner.
                     </p>
                   </div>
                 </div>
@@ -853,14 +856,18 @@ const WegovyCompare = () => {
               Take the First Step <br /> Towards a Healthier You
             </h2>
             <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
-              Don't let weight hold you back from living your best life. Wegovy is proven to help people lose weight up to 15% if taken properly with lifestyle changes.
+              Don't let weight hold you back from living your best life. Wegovy
+              is proven to help people lose weight up to 15% if taken properly
+              with lifestyle changes.
             </p>
 
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <FaShieldAlt className="text-orange-500 mt-1" />
                 <div>
-                  <p className="font-semibold">Compare Prices from Trusted UK Pharmacies</p>
+                  <p className="font-semibold">
+                    Compare Prices from Trusted UK Pharmacies
+                  </p>
                   {/* <p className="text-sm text-gray-500">
                     FDA-approved for chronic weight management
                   </p> */}
@@ -870,7 +877,9 @@ const WegovyCompare = () => {
               <div className="flex items-start space-x-3">
                 <FaUserMd className="text-orange-500 mt-1" />
                 <div>
-                  <p className="font-semibold">Stay on Track with Ongoing Support</p>
+                  <p className="font-semibold">
+                    Stay on Track with Ongoing Support
+                  </p>
                   {/* <p className="text-sm text-gray-500">
                     Guidance from qualified healthcare providers
                   </p> */}

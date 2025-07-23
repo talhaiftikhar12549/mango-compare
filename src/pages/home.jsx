@@ -9,6 +9,7 @@ import StartYourJourney from "../components/Start-Your-Journey.jsx";
 import HomeFaqs from "../components/Home-Faqs.jsx";
 import { Helmet } from "react-helmet";
 import BMICalculator from "../components/BMICalculator.jsx";
+import TopRatedPharmacies from "../components/HomeCarousel.jsx";
 
 export const Home = () => {
   return (
@@ -36,6 +37,10 @@ export const Home = () => {
       {/* why choose mango */}
       <WhyChooseMango />
       {/* why choose mango */}
+
+      {/* Top reated pharmacy */}
+      <TopRatedPharmacies/>
+      {/* Top reated pharmacy */}
 
       {/* Home Dosage Plan */}
       <DosagePlan />
