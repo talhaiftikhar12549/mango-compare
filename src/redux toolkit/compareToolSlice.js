@@ -50,7 +50,13 @@ export const compareToolSlice = createSlice({
       state.wegovyLowest = action.payload;
     },
     togglePriceSort: (state, action) => {
-      console.log("Toggling price sort",state.isPriceSort ,"and", action.payload);
+      state.isPriceSort = action.payload;
+      console.log(
+        "Toggling price sort",
+        state.isPriceSort,
+        "and",
+        action.payload
+      );
     },
   },
 });

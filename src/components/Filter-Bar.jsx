@@ -20,8 +20,7 @@ export default function FilterBar({
   };
 
   return (
-   <div className="w-screen md:w-full bg-black/60 md:bg-transparent h-screen md:h-full px-4 pt-10 md:pt-0 overflow-y-auto">
-
+    <div className="w-screen md:w-full bg-black/60 md:bg-transparent h-screen md:h-full px-4 pt-10 md:pt-0 overflow-y-auto">
       <section className="w-[100%] mb-8">
         <div className="w-full flex md:hidden justify-end items-center ">
           <div className="w-10 h-10 border rounded-lg flex items-center justify-center bg-[#ff6900]">
@@ -33,9 +32,15 @@ export default function FilterBar({
         <div className="bg-[#fffaec] border-2 border-orange-200 rounded-lg p-4 my-2">
           <div className="flex items-center gap-3">
             <div className="bg-[#f77316] p-2 rounded-lg">
-              <img className="h-[18px] w-[18px] xl:h-[25px] xl:w-[25px]" src={filter} alt="" />
+              <img
+                className="h-[18px] w-[18px] xl:h-[25px] xl:w-[25px]"
+                src={filter}
+                alt=""
+              />
             </div>
-            <h3 className="!text-[13px] xl:!text-lg !font-[600]">Refine Your Search</h3>
+            <h3 className="!text-[13px] xl:!text-lg !font-[600]">
+              Refine Your Search
+            </h3>
           </div>
           <p className="text-xs text-gray-600 font-[500] pt-3">
             Find exactly what you're looking for
