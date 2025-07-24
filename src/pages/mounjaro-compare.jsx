@@ -301,8 +301,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
           <div className="max-w-7xl mx-auto md:px-6 px-0">
             <div className="!text-[24px] md:!text-[24px] !pt-[0px] mb-4 flex items-center justify-center">
               <h2 className=" max-w-2xl !text-center  md:text-4xl !font-[600] !text-[#ffffff]">
-                How Mango Compare helps you find cheap Mounjaro from
-                GPhC-registered pharmacies?
+                What is Mounjaro?
               </h2>
               {/* <div className="w-24 h-1 bg-white mx-auto"></div> */}
             </div>
@@ -314,18 +313,18 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                     <RiMedicineBottleLine className="text-white text-2xl " />
                   </div>
                   <p className="text-white mb-4">
-                    <strong>Trusted Weight Loss Comparison: </strong>
-                    Mango Compare is a trusted platform created with one vision
-                    in mind: to make finding the best deals on weight loss
-                    injections easier than ever.
+                    <strong>Prescription Weight Loss Treatment </strong>
+                    Mounjaro is a weekly, prescription-only weight loss
+                    injection that’s gaining popularity in the UK and globally
+                    for rapid weight loss results. It helps achieve long-term
+                    weight loss when combined with healthy lifestyle changes.
                   </p>
                   <div className="bg-white/10 rounded-xl p-6 border border-white/20">
                     <p className="text-white">
-                      We partner exclusively with GPhC-verified pharmacies and
-                      regularly update retail prices to ensure you get the
-                      latest information on Mounjaro. Our platform also
-                      highlights exclusive discounts, helping you save money and
-                      find the best offers available.
+                      <strong>Active Ingredient </strong>
+                      The active ingredient is Tirzepatide, which works by
+                      regulating appetite and blood sugar levels, helping you
+                      feel full sooner and eat less.
                     </p>
                   </div>
                 </div>
@@ -341,33 +340,26 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                 <div className="absolute left-0 -bottom-6 md:-left-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-orange-500">
-                      GPHC
+                      Mounjaro
                     </div>
-                    <div className="text-sm text-gray-600">
-                      Register Pharmacies
-                    </div>
+                    <div className="text-sm text-gray-600">KwikPen</div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* <div className="mt-16 grid md:grid-cols-3 gap-8">
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaUser className="text-white text-md " />
                 </div>
-                <p className="text-white">
-                  {" "}
-                  For Adults Designed for adult patients with obesity
-                </p>
+                <p className="text-white"> Prescription-Only Treatment</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaCalendarCheck className="text-white text-md " />
                 </div>
-                <p className="text-white">
-                  Long-term Results Helps achieve sustainable weight loss
-                </p>
+                <p className="text-white">Once-Weekly Injection</p>
               </div>
 
               <div className="text-center">
@@ -375,22 +367,21 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                   {" "}
                   <MdHealthAndSafety className="text-white text-lg " />
                 </div>
-                <p className="text-white">
-                  UK Available Prescription available in the UK
-                </p>
+                <p className="text-white">Dual-Receptor Action</p>
               </div>
-            </div> */}
+            </div>
           </div>{" "}
         </section>
       </div>
       {/* How mango cmpare help */}
+
       {/* How Does Wegovy Work? */}
       <section className="w-full bg-gray-50">
         <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
           <div className="max-w-7xl mx-auto md:px-6 px-0">
             <div className="text-center mb-16">
               <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
-                Why Compare Mounjaro prices in the UK?
+                How Mounjaro works?
               </h2>
               <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
             </div>
@@ -403,24 +394,23 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                     <LuBrain className="text-2xl text-orange-600" />
                   </div>
                   <p className="text-2xl font-bold text-gray-900 mb-4">
-                    The Challenge to Find Legitimate Providers
+                    GIP and GLP-1 Treatment:
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                    As demand for Mounjaro grows rapidly, finding the best deals
-                    among so many pharmacies can be overwhelming. And on top of
-                    it, when counterfeit injections are being sold in the
-                    market, your health is at serious risk.
+                    Mounjaro is the first dual-action treatment of its kind,
+                    offering a unique approach to weight management. It targets
+                    both GIP and GLP-1 receptors in the body to reduce weight by
+                    managing appetite and digestion.
                   </p>
                   <div className="bg-orange-50 rounded-xl p-6">
                     <p className="text-xl font-semibold text-gray-900 mb-3">
-                      Mango Compares Bridges the Gap for You
+                      Dosage:
                     </p>
                     <p className="text-gray-700 leading-relaxed">
-                      Manually verifying each pharmacy and comparing prices can
-                      be time-consuming and inefficient. To save you the hassle,
-                      Mango Compare does the work for you. We track real-time
-                      prices across verified UK pharmacies so you can buy with
-                      confidence.
+                      It is taken once a week using a pre-filled KwikPen
+                      injection. Most treatment plans start with a low dose to
+                      help your body adjust and minimise side effects like
+                      nausea, diarrhoea, or mild stomach discomfort.
                     </p>
                   </div>
                 </div>
@@ -436,11 +426,9 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                 <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-orange-600">
-                      real-time prices
+                      Mounjaro
                     </div>
-                    <div className="text-sm text-gray-600">
-                      Verified UK pharmacies
-                    </div>
+                    <div className="text-sm text-gray-600">Dose Schedule</div>
                   </div>
                 </div>
               </div>
@@ -449,6 +437,133 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
         </div>
       </section>
       {/* How Does Wegovy Work? */}
+
+      {/* Eligible */}
+      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+        <div className="max-w-7xl mx-auto md:px-6 px-0 ">
+          <div className="text-center mb-16">
+            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
+              How to know if I am eligible for Mounjaro?
+            </h2>
+            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
+              Whether you're new to weight loss injections or considering
+              switching to Mounjaro, it’s important to check your eligibility
+              first to avoid complications later on.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Eligibility Criteria Card */}
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 flex flex-col">
+              <div className="w-full flex gap-3 items-center">
+                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                  <RiUserHeartLine className="text-2xl text-white" />
+                </div>
+                <h3 className=" mb-6 !text-2xl !font-[600]">
+                  Mounjaro Eligibility Criteria:
+                </h3>
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                In the UK, you are eligible for Mounjaro if you have:
+              </h3>
+
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <FaCheck className="text-white text-sm" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 text-lg">
+                    A BMI of 30 or above, or
+                  </h4>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <FaCheck className="text-white text-sm" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 text-lg mb-2">
+                      A BMI over 27 with at least one weight-related medical
+                      condition.
+                    </h4>
+                  </div>
+                </div>
+              </div>
+              <div className="h-[100%] flex items-end">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Professional healthcare consultation scene with doctor and patient discussing treatment options in modern medical office, friendly healthcare provider explaining medication, medical consultation photography&width=500&height=300&seq=consultation1&orientation=landscape"
+                  alt="Healthcare Consultation"
+                  className="w-full rounded-xl object-cover h-48"
+                />
+              </div>
+            </div>
+
+            {/* Consultation Card */}
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
+              <div className="w-full flex gap-3 items-center">
+                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                  <FaStethoscope className="text-2xl text-white" />
+                </div>
+                <h3 className=" mb-6 !text-2xl !font-[600]">
+                  Why Consult with a healthcare provider?
+                </h3>
+              </div>
+              {/* <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                Before starting Mounjaro, a proper health review helps ensure safe and effective treatment. During your consultation, a prescriber will:
+              </h3> */}
+
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                Before starting Mounjaro, a proper health review helps ensure
+                safe and effective treatment. During your consultation, a
+                prescriber will:
+              </p>
+
+              <div className="space-y-4 mb-8">
+                {[
+                  "Check BMI and health conditions",
+                  "Compare with other treatment options",
+                  "Screen for medication conflicts",
+                  "Set up your dose plan",
+                  "Monitor side effects and progress",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                      <span className="text-white text-sm font-bold">
+                        {index + 1}
+                      </span>
+                    </div>
+                    <p className="text-gray-700 text-lg">{item}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bg-white rounded-xl p-6 shadow-sm">
+                <p className="text-gray-600 text-sm mb-4">
+                  To help you get started, the Mango Compare BMI calculator can
+                  quickly show your BMI and help you understand whether you meet
+                  the basic criteria for treatment. Simply enter your height and
+                  weight to calculate your BMI.
+                </p>
+                <button
+                  onClick={goToContactSection}
+                  className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors whitespace-nowrap cursor-pointer"
+                >
+                  Calculate BMI
+                </button>
+              </div>
+            </div>
+            {/* <div className=" rounded-2xl px-8">
+              <img
+                className="w-[100%] rounded-[10px]"
+                src={runningwoman}
+                alt="woman running"
+              />
+            </div> */}
+          </div>
+        </div>
+      </section>
+      {/* Eligible */}
 
       {/* healthier life */}
       <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
@@ -660,123 +775,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
         </div>
       </section>
       {/* benifit */}
-      {/* Eligible */}
-      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
-        <div className="max-w-7xl mx-auto md:px-6 px-0 ">
-          <div className="text-center mb-16">
-            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
-              How to know if I am eligible for Mounjaro?
-            </h2>
-            {/* <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
-              If you're considering Wegovy for weight loss, it's important to
-              understand who can use it and how to get started. In the UK,
-              healthcare providers prescribe Wegovy based on your BMI and any
-              related health conditions.
-            </p> */}
-          </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Eligibility Criteria Card */}
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
-              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
-                <RiUserHeartLine className="text-2xl text-white" />
-              </div>
-
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                In the UK, you are eligible for Mounjaro you have:
-              </h3>
-
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <FaCheck className="text-white text-sm" />
-                  </div>
-                  <h4 className="font-semibold text-gray-900 text-lg">
-                    A BMI of 30 or above, or
-                  </h4>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <FaCheck className="text-white text-sm" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-900 text-lg mb-2">
-                      A BMI over 27 with at least one weight-related medical
-                      condition.
-                    </h4>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <p className="text-gray-600 text-sm mb-4">
-                  To help you get started, the Mango Compare BMI calculator can
-                  quickly show your BMI and help you understand whether you meet
-                  the basic criteria for treatment. Simply enter your height and
-                  weight to calculate your BMI.
-                </p>
-                <button
-                  onClick={goToContactSection}
-                  className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors whitespace-nowrap cursor-pointer"
-                >
-                  Calculate BMI
-                </button>
-              </div>
-            </div>
-
-            {/* Consultation Card */}
-            {/* <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
-              <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
-                <FaStethoscope className="text-2xl text-white" />
-              </div>
-
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Consultation with Healthcare Provider
-              </h3>
-
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                Consultation with a qualified healthcare provider is important,
-                as they:
-              </p>
-
-              <div className="space-y-4 mb-8">
-                {[
-                  "Review your medical history",
-                  "Discuss whether Wegovy is suitable for you",
-                  "Inform you about potential side effects",
-                  "Provide you a prescription if appropriate",
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                      <span className="text-white text-sm font-bold">
-                        {index + 1}
-                      </span>
-                    </div>
-                    <p className="text-gray-700 text-lg">{item}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="relative">
-                <img
-                  src="https://readdy.ai/api/search-image?query=Professional healthcare consultation scene with doctor and patient discussing treatment options in modern medical office, friendly healthcare provider explaining medication, medical consultation photography&width=500&height=300&seq=consultation1&orientation=landscape"
-                  alt="Healthcare Consultation"
-                  className="w-full rounded-xl object-cover h-48"
-                />
-              </div>
-            </div> */}
-            <div className=" rounded-2xl px-8">
-              <img
-                className="w-[100%] rounded-[10px]"
-                src={runningwoman}
-                alt="woman running"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* Eligible */}
       {/* side effect */}
       <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
         <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 text-center">
