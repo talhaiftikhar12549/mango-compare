@@ -67,7 +67,7 @@ export default function HeroSection({ heading, text, lowest, totalPharmacy, perc
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
                   <div className="text-3xl font-bold text-yellow-200">{percentage}%</div>
-                  <div className="text-sm opacity-90">Average Savings</div>
+                  <div className="text-sm opacity-90">Average Weight Loss</div>
                 </div>
               </div>
             </div>
