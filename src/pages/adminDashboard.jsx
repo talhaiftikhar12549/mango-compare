@@ -40,7 +40,12 @@ const AdminDashboard = () => {
         ...prev,
         discount_info: [
           ...prev.discount_info,
-          { discount_statement: "", discount_type: "", discount_code: "", applied: false },
+          {
+            discount_statement: "",
+            discount_type: "",
+            discount_code: "",
+            applied: false,
+          },
         ],
       }));
     }
@@ -111,7 +116,7 @@ const AdminDashboard = () => {
       website: listing.website ?? "",
     });
 
-     window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleCancelEdit = () => {
@@ -132,12 +137,10 @@ const AdminDashboard = () => {
     fileInputRef.current.value = null;
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setSubmitting(true)
+    setSubmitting(true);
 
     const data = new FormData();
     data.append("pharmacyLogo", formData.pharmacyLogo);
@@ -146,7 +149,7 @@ const AdminDashboard = () => {
     data.append("dosage", formData.dosage);
     data.append("price", formData.price);
     data.append("discount", formData.discount);
-    data.append("delivery_fee", formData.delivery_fee)
+    data.append("delivery_fee", formData.delivery_fee);
     data.append("discount_info", JSON.stringify(formData.discount_info));
     data.append("rating", formData.rating);
     data.append("website", formData.website);
@@ -161,9 +164,9 @@ const AdminDashboard = () => {
       }
       fetchListings();
       handleCancelEdit();
-      setSubmitting(false)
+      setSubmitting(false);
     } catch (error) {
-      setSubmitting(false)
+      setSubmitting(false);
       console.log(error.response?.data?.error || "Operation failed");
     }
   };
@@ -183,15 +186,7 @@ const AdminDashboard = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Mounjaro Listings Admin</h1>
-        <div className="flex justify-center items-center space-x-5">
-          <button
-            onClick={logout}
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-          >
-            Logout
-          </button>
-        </div>
+        <h1 className="text-2xl font-bold">Medicine Listings</h1>
       </div>
 
       {/* Add/Edit Form */}
@@ -285,9 +280,7 @@ const AdminDashboard = () => {
             </div>
 
             <div>
-              <label className="block text-gray-700 mb-2">
-                Delivery Fee
-              </label>
+              <label className="block text-gray-700 mb-2">Delivery Fee</label>
               <input
                 type="text"
                 name="delivery_fee"
@@ -531,7 +524,6 @@ const AdminDashboard = () => {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Website
                   </th>
-
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -584,11 +576,20 @@ const AdminDashboard = () => {
                       {listing.discount_info.map((data, index) => {
                         return (
                           <ul key={index} className="mb-5">
-                            <li><p className="font-bold">Disc Statement:</p> {data?.discount_statement}</li>
+                            <li>
+                              <p className="font-bold">Disc Statement:</p>{" "}
+                              {data?.discount_statement}
+                            </li>
 
-                            <li><p className="font-bold">Disc Type:</p> {data?.discount_type}</li>
+                            <li>
+                              <p className="font-bold">Disc Type:</p>{" "}
+                              {data?.discount_type}
+                            </li>
 
-                            <li><p className="font-bold">Disc Code:</p> {data?.discount_code}</li>
+                            <li>
+                              <p className="font-bold">Disc Code:</p>{" "}
+                              {data?.discount_code}
+                            </li>
 
                             <li>
                               Applied:{" "}

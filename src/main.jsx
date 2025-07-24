@@ -29,10 +29,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import "./App.css";
-
+import AdminDashLayout from "./pages/AdminDashLayout/AdminDashLayout.jsx";
 
 createRoot(document.getElementById("root")).render(
-  
   <StrictMode>
     <Provider store={store}>
       <Router>
@@ -49,31 +48,21 @@ createRoot(document.getElementById("root")).render(
                 <Route path="register" element={<AuthForm />} />
                 <Route path="/thank-you" element={<ThankYouPage />} />
                 <Route path="/:slug" element={<SingleBlog />} />
-                <Route
-                  path="mounjaro-pannel"
-                  element={
-                    <ProtectedRoute allowedRoles={["admin"]}>
-                      <AdminDashboard />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="form-info"
-                  element={
-                    <ProtectedRoute allowedRoles={["admin"]}>
-                      <FormDetails />
-                    </ProtectedRoute>
-                  }
-                />
-                <Route
-                  path="create-blog"
-                  element={
-                    <ProtectedRoute allowedRoles={["admin"]}>
-                      <CreateBlogForm />
-                    </ProtectedRoute>
-                  }
-                />
               </Route>
+
+              <Route
+              path="/admin"
+                element={
+                  <ProtectedRoute allowedRoles={["admin"]}>
+                    <AdminDashLayout />
+                  </ProtectedRoute>
+                }
+              >
+                <Route index element={<AdminDashboard />} />
+                <Route path="form-info" element={<FormDetails />} />
+                <Route path="create-blog" element={<CreateBlogForm />} />
+              </Route>
+
               <Route
                 element={
                   <ProtectedRoute>
