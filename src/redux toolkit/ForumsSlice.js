@@ -18,7 +18,6 @@ export const forumsSlice = createSlice({
     reducers: {
         selectedCategory: (state, action) => {
             state.selectedCategory = action.payload;
-            console.log("payload by selecting a category", action.payload);
         },
 
         selectedCommunity: (state, action) => {

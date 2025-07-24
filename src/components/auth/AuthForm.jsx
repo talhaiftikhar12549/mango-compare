@@ -65,7 +65,10 @@ const AuthForm = ({ isLogin }) => {
       } else {
         await register(formData);
       }
-      navigate('/');
+       localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        localStorage.removeItem('role');
+      navigate('/login');
     } catch (error) {
       setErrors({ submit: error.response?.data?.error || 'An error occurred' });
     } finally {
@@ -74,113 +77,139 @@ const AuthForm = ({ isLogin }) => {
   };
 
   return (
-    <div className="max-w-md mx-auto my-10 p-6 bg-white rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-6 text-center">
-        {isLogin ? 'Login' : 'Register'}
-      </h2>
+    <div className="min-h-screen w-full bg-gradient-to-br from-orange-300 to-[#ffe48d] flex items-center justify-center px-4">
+      <div className="bg-white shadow-xl rounded-lg p-8 max-w-md w-full animate-fade-in">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
+          {isLogin ? 'Welcome Back' : 'Create an Account'}
+        </h2>
 
-      {errors.submit && (
-        <div className="mb-4 p-2 bg-red-100 text-red-700 rounded">
-          {errors.submit}
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit}>
-        {!isLogin && (
-          <div className="mb-4">
-            <label className="block text-gray-700 mb-2" htmlFor="name">
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className={`w-full p-2 border rounded ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
-            />
-            {errors.name && (
-              <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-            )}
+        {errors.submit && (
+          <div className="mb-4 p-2 bg-red-100 text-red-700 rounded text-sm">
+            {errors.submit}
           </div>
         )}
 
-        <div className="mb-4">
-          <label className="block text-gray-700 mb-2" htmlFor="email">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={`w-full p-2 border rounded ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+        <form className="space-y-5" onSubmit={handleSubmit}>
+          {!isLogin && (
+            <div>
+              <label className="block text-gray-600 mb-1">Name</label>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:outline-none ${errors.name ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-orange-200'}`}
+              />
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+              )}
+            </div>
           )}
-        </div>
 
-        <div className="mb-6">
-          <label className="block text-gray-700 mb-2" htmlFor="password">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className={`w-full p-2 border rounded ${errors.password ? 'border-red-500' : 'border-gray-300'}`}
-          />
-          {errors.password && (
-            <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+          <div>
+            <label className="block text-gray-600 mb-1">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="you@example.com"
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:outline-none ${errors.email ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-orange-200'}`}
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+            )}
+          </div>
+
+          <div>
+            <label className="block text-gray-600 mb-1">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="••••••••"
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:outline-none ${errors.password ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-orange-200'}`}
+            />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
+          </div>
+
+          {!isLogin && (
+            <div>
+              <label className="block text-gray-600 mb-1">Confirm Password</label>
+              <input
+                type="password"
+                name="confirm_password"
+                value={formData.confirm_password}
+                onChange={handleChange}
+                placeholder="••••••••"
+                className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:outline-none ${errors.confirm_password ? 'border-red-500 focus:ring-red-200' : 'border-gray-300 focus:ring-orange-200'}`}
+              />
+              {errors.confirm_password && (
+                <p className="text-red-500 text-sm mt-1">{errors.confirm_password}</p>
+              )}
+            </div>
           )}
-        </div>
 
-        {!isLogin && <div className="mb-6">
-          <label className="block text-gray-700 mb-2" htmlFor="confirm_password">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            id="confirm_password"
-            name="confirm_password"
-            value={formData.confirm_password}
-            onChange={handleChange}
-            className={`w-full p-2 border rounded ${errors.confirm_password ? 'border-red-500' : 'border-gray-300'}`}
-          />
-          {errors.confirm_password && (
-            <p className="text-red-500 text-sm mt-1">{errors.confirm_password}</p>
-          )}
-        </div>}
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className={`w-full flex items-center justify-center border border-orange-500 bg-orange-500 ${
+              isSubmitting
+                ? "opacity-60 cursor-not-allowed"
+                : "hover:bg-orange-600 hover:border-orange-600 cursor-pointer"
+            } text-white font-semibold py-2 rounded-md transition duration-300`}
+          >
+            {isSubmitting ? (
+              <>
+                <svg
+                  className="animate-spin h-5 w-5 mr-2 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v8z"
+                  ></path>
+                </svg>
+                Processing...
+              </>
+            ) : (
+              isLogin ? 'Login' : 'Register'
+            )}
+          </button>
 
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-blue-300"
-        >
-          {isSubmitting ? 'Processing...' : isLogin ? 'Login' : 'Register'}
-        </button>
-      </form>
-
-      <div className="mt-4 text-center">
-        {isLogin ? (
-          <p>
-            Don't have an account?{' '}
-            <a href="/register" className="text-blue-500 hover:underline">
-              Register
-            </a>
+          <p className="text-center text-sm text-gray-500">
+            {isLogin ? (
+              <>
+                Don’t have an account?{' '}
+                <a href="/register" className="text-orange-500 hover:underline">
+                  Register
+                </a>
+              </>
+            ) : (
+              <>
+                Already have an account?{' '}
+                <a href="/login" className="text-orange-500 hover:underline">
+                  Login
+                </a>
+              </>
+            )}
           </p>
-        ) : (
-          <p>
-            Already have an account?{' '}
-            <a href="/login" className="text-blue-500 hover:underline">
-              Login
-            </a>
-          </p>
-        )}
+        </form>
       </div>
     </div>
   );

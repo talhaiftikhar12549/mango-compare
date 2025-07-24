@@ -2,22 +2,20 @@ import { useState } from "react";
 import { TiHome } from "react-icons/ti";
 import { HiOutlineArrowTopRightOnSquare } from "react-icons/hi2";
 import { GoHome } from "react-icons/go";
-import { BsArrowUpRightCircleFill } from "react-icons/bs";
+import { MdMoreTime } from "react-icons/md";
 import { HiMenu, HiX } from "react-icons/hi";
 import { ImLeaf } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
 import { selectedCategory, selectedCommunity } from "../../redux toolkit/ForumsSlice";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
    const dispatch = useDispatch();
    const getSelectedCommunity = useSelector((state) => state.forums.selectedCommunity);
+   const getSelectedCategory = useSelector((state) => state.forums.selectedCategory);
 
-  //   const categories = [
-  //   { value: "recents", label: "Recent Posts" },
-  //   { value: "popular", label: "Most Popular" },
-  //   { value: "recommended", label: "Recommended" },
-  // ];
+   const navigate = useNavigate()
 
   const communities = [
     { value: "", label: "All" },
@@ -28,46 +26,6 @@ const Sidebar = () => {
     { value: "News & Research", label: "News & Research" },
   ];
 
-  
-  // const [search, setSearch] = useState("");
-  // const [selectedCategory, setSelectedCategory] = useState({
-  //   value: "recents",
-  //   label: "Recent Posts",
-  // });
-  // const [selectedCommunity, setSelectedCommunity] = useState({
-  //   value: "",
-  //   label: "All",
-  // });
-
- 
-
-  // useEffect(() => {
-  //   fetchPosts();
-  // }, [search, selectedCategory?.value, selectedCommunity]);
-
-  // const fetchPosts = async () => {
-  //   setIsLoading(true);
-  //   let sortParam = "";
-  //   if (selectedCategory.value === "popular") sortParam = "upvoteCount";
-  //   else if (selectedCategory.value === "recents") sortParam = "-createdAt";
-
-  //   try {
-  //     const res = await api.get("/posts", {
-  //       params: {
-  //         search,
-  //         sort: sortParam,
-  //         community:
-  //           selectedCommunity.value !== ""
-  //             ? selectedCommunity.value
-  //             : undefined,
-  //       },
-  //     });
-  //     setPosts(res.data.data);
-  //   } catch (error) {
-  //     console.error("Error fetching posts", error);
-  //   }
-  //   setIsLoading(false);
-  // };
 
   return (
       <div className={`h-[100vh] w-full lg:w-[280px] fixed left-0 top-0 md:top-12 lg:top-0 lg:pt-10 lg:border-r border-gray-300 z-2 ${showSidebar ? "bg-black/50" : ""}`}>
@@ -100,26 +58,42 @@ const Sidebar = () => {
             </div>
 
             <div className="py-[10px] pl-5">
-              <h4
+             
+
+               <h4
+                onClick={() => {
+                  navigate("/")
+                }}
+                className={`text-[14px] font-[500] mt-2 px-[18px] py-[12px] rounded-[6px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
+                  getSelectedCategory.value === "recents"
+                    ? ""
+                    : "text-gray-700 hover:text-orange-500"
+                }`}
+              >
+                 <GoHome className="text-2xl" />
+                Home
+              </h4>
+
+               <h4
                 onClick={() => {
                   dispatch(selectedCategory({
                     value: "recents",
                     label: "Recent Posts",
                   }));
                   // setSelectedCategory({
-                  //   value: "recents",
-                  //   label: "Recent Posts",
+                  //   value: "popular",
+                  //   label: "Most Popular",
                   // });
                   setShowSidebar(false);
                 }}
-                className={`text-[14px] font-[500] rounded-[6px] px-[18px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
-                  selectedCategory.value === "recents"
-                    ? "text-[#FCC821] font-semibold bg-gray-50"
+                className={`text-[14px] font-[500] mt-2 px-[18px] py-[12px] rounded-[6px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
+                  getSelectedCategory.value === "recents"
+                    ? "text-orange-500 font-semibold bg-gray-50"
                     : "text-gray-700 hover:text-orange-500"
                 }`}
               >
-                <GoHome className="text-2xl" />
-                Home
+                <MdMoreTime className="text-2xl" />
+                Recents
               </h4>
 
               <h4
@@ -135,8 +109,8 @@ const Sidebar = () => {
                   setShowSidebar(false);
                 }}
                 className={`text-[14px] font-[500] mt-2 px-[18px] py-[12px] rounded-[6px] hover:bg-gray-50 cursor-pointer flex items-center justify-start gap-2 duration-300 ease-in-out ${
-                  selectedCategory.value === "popular"
-                    ? "text-[#FCC821] font-semibold bg-gray-50"
+                  getSelectedCategory.value === "popular"
+                    ? "text-orange-500 font-semibold bg-gray-50"
                     : "text-gray-700 hover:text-orange-500"
                 }`}
               >
