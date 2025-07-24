@@ -267,11 +267,10 @@ const MounjaroCompare = () => {
       <HeroSection
         heading="Mounjaro Price Comparison UK – Find Trusted Providers Instantly"
         text="Compare real-time prices from GPhC-registered pharmacies and find exclusive discounts.
-Set your filters, view offers, and get your Mounjaro KwikPens delivered.
-"
+Set your filters, view offers, and get your Mounjaro KwikPens delivered."
         lowest={lowestPrice}
         totalPharmacy={totalPharmacy}
-        percentage={"27"}
+        percentage={"22.5"}
       />
 
       {/* price calculator */}

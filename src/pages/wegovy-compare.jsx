@@ -117,8 +117,19 @@ const WegovyCompare = () => {
     {
       icon: <AiOutlineHeart className="text-2xl" />,
       title: "Proven Weight Loss Results",
-      description:
-        "Clinical trials show patients lost up to 15% of their body weight on average",
+      description: (
+        <>
+          <a
+            className="text-orange-500"
+            href="https://www.nejm.org/doi/full/10.1056/NEJMoa2032183"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Clinical trials
+          </a>{" "}
+          show patients lost up to 15% of their body weight on average
+        </>
+      ),
     },
     {
       icon: <GiKnifeFork className="text-2xl" />,
@@ -139,51 +150,76 @@ const WegovyCompare = () => {
     },
     {
       icon: <TbChartLine className="text-2xl" />,
-      title: "Better Health Markers",
-      description: "Leads to better cholesterol and blood pressure levels",
+      title: "Pre-filled Injection",
+      description:
+        "Wegovy comes in pre-filled pens that are easy to use and ready to go. No mixing and measuring required",
     },
     {
       icon: <BsCalendarWeek className="text-2xl" />,
       title: "Convenient Dosing",
-      description: "Taken once a week, making it convenient for most people",
+      description:
+        "Taken once a week, making it convenient for people with busy schedules",
     },
   ];
 
   const faqItems = [
     {
       question: "How much does Wegovy cost in the UK?",
-      answer:
-        "The price of Wegovy in the UK varies depending on the pharmacy and dosage. However, The Care Pharmacy offers one of the most competitive prices, starting at £99.99. On Pharmacia, it starts at £199.99. You can compare Wegovy injection costs and find the best deals using Mango Compare.",
-    },
-    {
-      question: "Is Wegovy available on the NHS in the UK?",
-      answer:
-        "Yes, Wegovy UK is approved for NHS prescriptions for certain patients with obesity or weight-related conditions. Availability may differ by region, and you’ll need an NHS assessment to qualify.",
+      answer: (
+        <>
+          The price of Wegovy in the UK varies depending on the pharmacy and
+          dosage. For example, the starting dose is priced at{"  "}
+          <a
+            className="text-orange-500"
+            href="https://www.pharmacy2u.co.uk/online-doctor/conditions/weight-loss/treatments/wegovy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            £89
+          </a>{" "}
+          at Pharmacy2U,{" "}
+          <a
+            className="text-orange-500"
+            href="https://www.thefamilychemist.co.uk/weight-loss/wegovy-pen/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            £95
+          </a>{" "}
+          at The Family Chemist, and{" "}
+          <a
+            className="text-orange-500"
+            href="https://thecarepharmacy.com/product/wegovy-weight-loss-injections/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            £99
+          </a>{" "}
+          at The Care Pharmacy. You can compare Wegovy injection prices across
+          verified UK pharmacies using Mango Compare to find the option that
+          suits you best.
+        </>
+      ),
     },
     {
       question: "How much is Wegovy per month privately?",
       answer:
-        "Private Wegovy injection costs UK typically range between £150 and £300 monthly, depending on the dose and the pharmacy. Prices can be lower when you use Wegovy discount codes or special offers.",
+        "Wegovy injections are available privately in pre-filled pens, with monthly costs ranging from £80 to £300, depending on your dose and the pharmacy you choose. Prices typically increase as the dosage goes up.",
     },
     {
       question: "Can I buy Wegovy legally online in the UK?",
       answer:
-        "Yes, you can buy Wegovy online UK from GPhC-registered pharmacies. Always ensure you have a valid Wegovy prescription UK, as it is a prescription-only medication.",
+        "Yes, Wegovy can be purchased online legally in the UK from GPhC-registered pharmacies. However, if you're buying from an online pharmacy, you must complete a medical assessment so a doctor can review your history and prescribe Wegovy safely.",
     },
     {
       question: "Where can I buy Wegovy online in the UK?",
       answer:
-        "You can order Wegovy through trusted online pharmacy UK platforms that are regulated by the GPhC. Mango Compare helps you find reputable providers and compare Wegovy prices easily.",
-    },
-    {
-      question: "Does the NHS cover Wegovy for weight loss?",
-      answer:
-        "The NHS Wegovy price UK may be subsidised if you meet certain clinical criteria. Speak to your GP or specialist about eligibility and whether you qualify for an NHS prescription for weight loss.",
+        "You can order Wegovy through trusted online pharmacies in the UK that are regulated by the GPhC. Mango Compare helps you find reputable providers and compare Wegovy prices easily.",
     },
     {
       question: "Is Wegovy available without a prescription in the UK?",
       answer:
-        "No, you cannot buy Wegovy without prescription UK. It is illegal to purchase Wegovy without approval from a licensed prescriber in the UK.",
+        "No, you cannot buy Wegovy without a prescription UK. It is a prescription-only treatment, and it is illegal to purchase Wegovy without approval from a licensed prescriber in the UK.",
     },
     {
       question: "Are there any discounts or deals for Wegovy in the UK?",
@@ -192,8 +228,40 @@ const WegovyCompare = () => {
     },
     {
       question: "What is the cheapest dose of Wegovy available?",
-      answer:
-        "The cheapest Wegovy dose is usually the 0.25 mg starter pen. This lower dose costs less per month, but your prescriber will recommend when to increase to higher strengths.",
+      answer: (
+        <>
+          Pharmacy2U, The Family Chemist, and The Care Pharmacy are among the
+          most affordable options, offering the 0.25 mg Wegovy dose for{"  "}
+          <a
+            className="text-orange-500"
+            href="https://www.pharmacy2u.co.uk/online-doctor/conditions/weight-loss/treatments/wegovy"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            £89
+          </a>{" "}
+          ,{" "}
+          <a
+            className="text-orange-500"
+            href="https://thecarepharmacy.com/product/wegovy-weight-loss-injections/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            £95
+          </a>{" "}
+          and{" "}
+          <a
+            className="text-orange-500"
+            href="https://thecarepharmacy.com/product/wegovy-weight-loss-injections/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            £99
+          </a>{" "}
+          respectively. This lower dose is cheaper per month, but your
+          prescriber will advise when to increase to higher strengths.
+        </>
+      ),
     },
     {
       question: "Is Wegovy worth the price for weight loss?",
@@ -208,12 +276,12 @@ const WegovyCompare = () => {
     {
       question: "Can I get Wegovy through private healthcare in the UK?",
       answer:
-        "Yes, many patients choose to get a Wegovy prescription UK through private clinics or online consultations. This allows faster access and flexibility in choosing your pharmacy.",
+        "Yes, many patients choose to get a Wegovy prescription UK through private clinics or online pharmacies. This allows faster access and flexibility in choosing your pharmacy.",
     },
     {
       question: "How long will a Wegovy pen last?",
       answer:
-        "Each Wegovy pen provides one weekly dose, so it typically lasts for 7 days. You’ll need a new pen for each week of treatment as you progress through your dosing schedule.",
+        "Each Wegovy pen contains 4 pre-filled pens, providing one month's dose. It is used once a week, so you’ll need a new pen once you complete four weeks on Wegovy. ",
     },
   ];
   const availableDoasge = ["0.25 mg", "0.5 mg", "1 mg", "1.7 mg", "2.4 mg"];
@@ -268,7 +336,7 @@ const WegovyCompare = () => {
           year, this adds up to £888 in savings!"
         lowest={lowestPrice}
         totalPharmacy={totalPharmacy}
-        percentage={"28"}
+        percentage={"15"}
       />
 
       {/* price calculator */}
@@ -333,9 +401,9 @@ const WegovyCompare = () => {
                 <div className="absolute left-0 -bottom-6 md:-left-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-orange-500">
-                      GLP-1
+                      Wegovy
                     </div>
-                    <div className="text-sm text-gray-600">Hormone Mimicry</div>
+                    <div className="text-sm text-gray-600">pre-filled pen</div>
                   </div>
                 </div>
               </div>
@@ -346,7 +414,7 @@ const WegovyCompare = () => {
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaUser className="text-white text-md " />
                 </div>
-                <p className="text-white"> Prescription-Only</p>
+                <p className="text-white">Prescription-Only Treatment</p>
               </div>
               <div className="text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -374,7 +442,7 @@ const WegovyCompare = () => {
           <div className="max-w-7xl mx-auto md:px-6 px-0">
             <div className="text-center mb-16">
               <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
-                How Does Wegovy Work?
+                How does Wegovy work?
               </h2>
               <div className="w-24 h-1 bg-orange-500 mx-auto"></div>
             </div>
@@ -421,11 +489,9 @@ const WegovyCompare = () => {
                 <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-orange-600">
-                      2.4mg
+                      Wegovy
                     </div>
-                    <div className="text-sm text-gray-600">
-                      Weekly Maintenance Dose
-                    </div>
+                    <div className="text-sm text-gray-600">Dose Schedule</div>
                   </div>
                 </div>
               </div>
@@ -439,7 +505,7 @@ const WegovyCompare = () => {
         <div className="max-w-7xl mx-auto md:px-6 px-0 ">
           <div className="text-center mb-16">
             <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
-              How to Know if I am Eligible for Wegovy?
+              How to know if I am eligible for Wegovy?
             </h2>
             <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
               If you’re considering Wegovy for weight loss, it’s important to
@@ -472,7 +538,7 @@ const WegovyCompare = () => {
                     <FaCheck className="text-white text-sm" />
                   </div>
                   <h4 className="font-semibold text-gray-900 text-lg">
-                    BMI of 30 or more
+                    A BMI of 30 or more
                   </h4>
                 </div>
 
@@ -482,7 +548,7 @@ const WegovyCompare = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 text-lg mb-2">
-                      BMI of 27 or more along with weight-related health
+                      A BMI of 27 or more along with weight-related health
                       conditions, such as:
                     </h4>
                     <ul className="space-y-2 text-gray-700 !list-none !ml-0 !pl-0">
@@ -570,10 +636,18 @@ const WegovyCompare = () => {
               What are the benefits of Wegovy?
             </h2>
             <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
-              Wegovy has been shown to help many people lose a significant
-              amount of weight. In clinical trials, patients using Wegovy
-              injections lost an average of 15% of their body weight. Some of
-              the well-known benefits of Wegovy are:
+              Wegovy has helped people lose a significant amount of weight.
+              <a
+                className="text-orange-500"
+                href="https://www.nature.com/articles/s41591-022-02026-4"
+                target="_blank"
+              >
+                {" "}
+                Clinical trials
+              </a>{" "}
+              have shown that patients who use Wegovy alongside lifestyle
+              changes, such as a healthy diet and regular physical activity,
+              achieve better results.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -598,7 +672,7 @@ const WegovyCompare = () => {
       {/* side effect */}
       <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
         <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 text-center">
-          Are there any Side Effects of Wegovy?
+          Are there any side effects of Wegovy?
         </h2>
         <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
           There are some side effects of Wegovy, but they improve as your body
@@ -614,7 +688,7 @@ const WegovyCompare = () => {
               <div className="bg-orange-100 text-orange-600 p-3 rounded-full">
                 <FaInfoCircle size={20} />
               </div>
-              <h3 className="!text-xl">Common Side Effects</h3>
+              <h3 className="!text-xl">Common side effects:</h3>
             </div>
 
             <div className="space-y-3">
@@ -639,7 +713,7 @@ const WegovyCompare = () => {
               <div className="bg-red-100 text-red-600 p-3 rounded-full">
                 <AiOutlineWarning size={20} />
               </div>
-              <h3 className="!text-xl">Severe or Rare Side Effects</h3>
+              <h3 className="!text-xl">Severe or rare side effects:</h3>
             </div>
 
             <div className="space-y-3">
@@ -661,7 +735,7 @@ const WegovyCompare = () => {
       </div>
       {/* side effect */}
       {/* image */}
-      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
+      {/* <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
         <div className="mt-8 flex justify-center">
           <img
             className="rounded-[10px] w-[50%]"
@@ -669,7 +743,7 @@ const WegovyCompare = () => {
             alt="wegovy guide sheet"
           />
         </div>
-      </section>
+      </section> */}
       {/* image */}
       {/* steps */}
       <section className="w-full ">
@@ -684,7 +758,7 @@ const WegovyCompare = () => {
               technique and injection site for you.
             </p>
 
-            <div
+            {/* <div
               className=" rounded-xl p-6 md:p-10 shadow-md bg-white
             "
             >
@@ -724,11 +798,18 @@ const WegovyCompare = () => {
                   </div>
                 ))}
               </div>
+            </div> */}
+            <div className="mt-8 flex justify-center">
+              <img
+                className="rounded-[10px] w-[50%]"
+                src={wegovyuseguide}
+                alt="wegovy guide sheet"
+              />
             </div>
             <p className="text-gray-500 mt-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
-              Wegovy is injected once a week into the stomach, thigh, or upper
-              arm. Be sure to consult your GP or prescriber to confirm the right
-              technique and injection site for you.
+              Always read the detailed instructions included with your Wegovy
+              pen and contact your healthcare professional if you are unsure
+              about any step.
             </p>
           </div>
         </div>
@@ -853,7 +934,7 @@ const WegovyCompare = () => {
           {/* Left Content */}
           <div className="lg:w-1/2 space-y-6">
             <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 ">
-              Take the First Step <br /> Towards a Healthier You
+              Ready to start your weight loss journey with Mango Compare?
             </h2>
             <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
               Don't let weight hold you back from living your best life. Wegovy
@@ -865,34 +946,32 @@ const WegovyCompare = () => {
               <div className="flex items-start space-x-3">
                 <FaShieldAlt className="text-orange-500 mt-1" />
                 <div>
-                  <p className="font-semibold">
-                    Compare Prices from Trusted UK Pharmacies
+                  <p className="font-semibold">Compare Prices</p>
+                  <p className="text-sm text-gray-500">
+                    Mango Compare helps you find the best deals on Wegovy in the
+                    UK
                   </p>
-                  {/* <p className="text-sm text-gray-500">
-                    FDA-approved for chronic weight management
-                  </p> */}
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
                 <FaUserMd className="text-orange-500 mt-1" />
                 <div>
-                  <p className="font-semibold">
-                    Stay on Track with Ongoing Support
+                  <p className="font-semibold">Stay Consistent</p>
+                  <p className="text-sm text-gray-500">
+                    Find credible pharmacies that provide ongoing support
                   </p>
-                  {/* <p className="text-sm text-gray-500">
-                    Guidance from qualified healthcare providers
-                  </p> */}
                 </div>
               </div>
 
               <div className="flex items-start space-x-3">
                 <FaSyringe className="text-orange-500 mt-1" />
                 <div>
-                  <p className="font-semibold">Embrace a More Confident You</p>
-                  {/* <p className="text-sm text-gray-500">
-                    Once-weekly injection for easy compliance
-                  </p> */}
+                  <p className="font-semibold">Achieve Health Goals</p>
+                  <p className="text-sm text-gray-500">
+                    Embracing a more confident version of yourself has never
+                    been easier
+                  </p>
                 </div>
               </div>
             </div>
@@ -902,7 +981,7 @@ const WegovyCompare = () => {
                 onClick={scrollToContact}
                 className="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white font-semibold px-6 py-3 rounded-[10px]"
               >
-                Start Your Journey
+                Start Comparing Today.
               </button>
             </div>
           </div>
@@ -927,8 +1006,8 @@ const WegovyCompare = () => {
           </div>
         </div>
       </section>
-
       {/* healthier life */}
+
       {/* Faqs Section */}
       <FaqsSection items={faqItems} />
       {/* Faqs Section  */}
