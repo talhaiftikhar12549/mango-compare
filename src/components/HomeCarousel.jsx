@@ -117,13 +117,13 @@ const TopRatedPharmacies = () => {
                   {/* Price + Delivery Info */}
                   <div className="flex-1 w-full pt-4 md:pt-0 flex flex-col gap-6 md:w-[50%] md:border-l md:border-r border-gray-200">
                     <div className="w-[100%] rounded-xl text-sm font-medium text-gray-800 flex text-center sm:text-left">
-                      <div className="flex flex-col justify-center items-center gap-2 bg-[#f49e0b] px-6 py-9 w-[50%]">
+                      <div className="flex flex-col justify-center items-center gap-2 bg-[#f49e0b] px-6 py-6 w-[50%]">
                         <p className="text-white text-lg">Wegovy</p>
                         <p className="font-semibold text-white text-lg">
                           £{pharmacy.wegovy}
                         </p>
                       </div>
-                      <div className="flex gap-2 flex-col justify-center items-center bg-[#10b982] px-6 py-9 w-[50%]">
+                      <div className="flex gap-2 flex-col justify-center items-center bg-[#10b982] px-6 py-6 w-[50%]">
                         <p className="text-white text-lg">Mounjaro</p>
                         <p className="font-semibold text-white text-lg">
                           £{pharmacy.mounjaro}
