@@ -263,7 +263,7 @@ export default function DosagePlan() {
                           MECHANISM
                         </p>
                         <p className="!text-[10px] md:!text-[16px] font-semibold">
-                          Appetite regulation
+                          GLP-1-based medication
                         </p>
                       </div>
                     </div>

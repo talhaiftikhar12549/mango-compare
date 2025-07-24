@@ -61,7 +61,7 @@ export default function HomeHero() {
                 Find the best deals from{" "}
                 <span className="font-bold">GPhC-registered pharmacies</span>{" "}
                 with our free price comparison tool for weight loss
-                prescriptions. Start comparing in seconds
+                prescriptions. Get started in seconds.
               </p>
 
               <div className="flex flex-col md:flex-row gap-4 mb-6">
@@ -90,7 +90,7 @@ export default function HomeHero() {
                 </span>
                 <span className="flex text-[9px] md:text-sm items-center gap-1">
                   <BsFillLightningChargeFill className=" text-lg text-[#ee9c25]" />{" "}
-                  Special Discounts
+                  Real-Time Discounts
                 </span>
               </div>
             </div>

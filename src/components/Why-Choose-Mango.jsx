@@ -78,7 +78,7 @@ export default function WhyChooseMango() {
               </h3>
 
               <p className="text-md text-gray-500 mt-2">
-                Our price comparison tool and exclusive discounts help you find the lowest treatment price. Get the treatment you need at the best available price.
+                Our price comparison tool helps you find the lowest treatment price and exclusive discounts. Get the treatment you need at the best available price.
               </p>
             </div>
           </div>

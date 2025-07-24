@@ -82,7 +82,7 @@ figure {
 table,
 table th,
 table td {
-  border: 1px solid #000; /* Black borders */
+  border: 1px solid #000; 
 }
 
 table th,

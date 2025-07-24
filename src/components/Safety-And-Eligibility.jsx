@@ -13,7 +13,7 @@ export default function SafetyAndEligibility() {
     {
       title: "BMI Requirements for Mounjaro and Wegovy",
       icon: <FaSearch className="text-gray-600" />,
-      text: "To be eligible for weight loss injections in the UK, such as Mounjaro (tirzepatide) or Wegovy (semaglutide), most patients need a BMI of 30 or higher. Those with a BMI of 27 or above may also qualify if they have a weight-related condition like type 2 diabetes, PCOS, high blood pressure, or high cholesterol. Some clinics may apply lower BMI thresholds for individuals of South Asian, Black African, Middle Eastern, or Chinese backgrounds, who may face higher health risks at lower weights. In such cases, eligibility may begin at a BMI of 23 or 27, depending on medical history and clinical judgement.",
+      text: "To be eligible for weight loss injections in the UK, such as Mounjaro (tirzepatide) or Wegovy (semaglutide), most patients need a BMI of 30 or higher. Those with a BMI of 27 or above may also qualify if they have a weight-related condition like type 2 diabetes, PCOS, high blood pressure, or high cholesterol.",
     },
     {
       title: "Prescription-Only Treatments",

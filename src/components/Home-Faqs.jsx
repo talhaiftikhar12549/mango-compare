@@ -13,7 +13,7 @@ export default function HomeFaqs() {
     {
       title: "Which products can I compare on Mango Compare?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
-      text: "Currently, you can compare Wegovy and Mounjaro (2.5 mg, 5 mg, etc.) from licensed UK pharmacies. We focus on popular GLP-1 weight loss injections.",
+      text: "You can compare Wegovy and Mounjaro from licensed UK pharmacies. Set filters like dose, price range, and discounts, and compare prices with just a few clicks.",
     },
     {
       title:

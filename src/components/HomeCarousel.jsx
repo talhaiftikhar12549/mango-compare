@@ -102,9 +102,12 @@ const TopRatedPharmacies = () => {
         <div className="max-w-[1080px] mx-auto h-full">
           <Slider {...settings}>
             {pharmacies.map((pharmacy, index) => (
-              <div key={index} className="h-[100%] ">
-                <div className="h-full flex grow">
-                  <div className="bg-white border border-gray-200 p-4 md:p-0 rounded-2xl shadow-md flex flex-col md:flex-row md:items-stretch md:justify-between w-full">
+              <div
+                key={index}
+                className="h-[100%] flex border border-gray-200 rounded-2xl shadow-md "
+              >
+                <div className="h-[100%] flex grow">
+                  <div className="bg-white min-h-[234px] 0 p-4 md:p-0 rounded-2xl  flex flex-col md:flex-row md:items-stretch md:justify-between w-full">
                     {/* Logo + Name */}
                     <div className="flex flex-col items-center justify-center text-center w-full md:w-[25%] h-full">
                       <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] rounded-full bg-gray-200 flex items-center justify-center text-sm text-gray-500">

@@ -28,7 +28,7 @@ function PharmacyPartner() {
             {/* Subtext */}
             <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-2xl mx-auto mb-10">
               We only work with fully licensed, GPhC-registered pharmacies to
-              ensure your safety and peace of mind
+              ensure your safety and trust.
             </p>
 
             {/* Partner Cards */}
