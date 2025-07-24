@@ -36,13 +36,14 @@ import { RiMedicineBottleLine } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { MdHealthAndSafety } from "react-icons/md";
-import fatwomanimage from "../assets/wegovy compare/fatwomenimage.webp";
-import mounjarouseguide from "../assets/mounjaro compare/mounjarouseguide.webp";
+import fatwomanimage from "../assets/mounjaro compare/woman.webp";
+import mounjarouseUsage from "../assets/mounjaro compare/Mounjaro Usage.webp";
 import mounjarowork from "../assets/mounjaro compare/mounjarowork.webp";
 import mounjaroInjection from "../assets/mounjaro compare/mounjaroInjection.jpg";
-import mounjarocompareprice from "../assets/mounjaro compare/mounjarocompareprice.jpg";
+import mounjarocompareprice from "../assets/mounjaro compare/Mounjaroschedule.webp";
 import healthyman from "../assets/mounjaro compare/healthyman.jpg";
 import runningwoman from "../assets/mounjaro compare/ladyrunning.webp";
+import consultingDoctor from "../assets/mounjaro compare/consulting doctor.webp";
 const MounjaroCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
@@ -126,7 +127,9 @@ const MounjaroCompare = () => {
       question: "What’s the cheapest place to buy Mounjaro in the UK?",
       answer: (
         <>
-          Starting doses are usually the most affordable, but prices vary between pharmacies. For example, Pharmaesthetics Central starts at{"  "}
+          Starting doses are usually the most affordable, but prices vary
+          between pharmacies. For example, Pharmaesthetics Central starts at
+          {"  "}
           <a
             className="text-orange-500"
             href="https://pharmaestheticscentral.com/product/mounjaro-injectable/"
@@ -144,7 +147,7 @@ const MounjaroCompare = () => {
           >
             £109
           </a>{" "}
-         , Medino at{" "}
+          , Medino at{" "}
           <a
             className="text-orange-500"
             href="https://www.medino.com/product/weight-loss-treatment-mounjaro-2-5mg-step-1"
@@ -153,7 +156,9 @@ const MounjaroCompare = () => {
           >
             £114.99
           </a>{" "}
-          , and The Care Pharmacy at £119.99. Use Mango Compare to view real-time offers from trusted GPhC-registered pharmacies and find the lowest price available today.
+          , and The Care Pharmacy at £119.99. Use Mango Compare to view
+          real-time offers from trusted GPhC-registered pharmacies and find the
+          lowest price available today.
         </>
       ),
     },
@@ -315,7 +320,6 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
       />
 
       {/* price calculator */}
-
       <div
         ref={contactRef}
         id="pricecalculatorwegovy"
@@ -332,7 +336,6 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
           </div>
         )}
       </div>
-
       {/* price calculator */}
       <div className="max-w-[1280px] custom-width mx-auto px-4 lg:px-8 xl:px-0 space-y-6"></div>
 
@@ -462,7 +465,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                 <img
                   src={mounjarocompareprice}
                   alt="How Mounjaro Works"
-                  className="w-full rounded-2xl shadow-lg object-cover h-96"
+                  className="w-full rounded-2xl shadow-lg object-cover h-[100%]"
                 />
                 <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="text-center">
@@ -589,7 +592,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
               </div>
               <div>
                 <img
-                  src="https://readdy.ai/api/search-image?query=Professional healthcare consultation scene with doctor and patient discussing treatment options in modern medical office, friendly healthcare provider explaining medication, medical consultation photography&width=500&height=300&seq=consultation1&orientation=landscape"
+                  src={consultingDoctor}
                   alt="Healthcare Consultation"
                   className="w-full rounded-xl object-cover h-48"
                 />
@@ -776,6 +779,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
         </section>
       </div> */}
       {/* How Mounjaro works?*/}
+
       {/* benifit */}
       <section className="w-full bg-gray-50 ">
         <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
@@ -885,6 +889,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
         </p>
       </div>
       {/* side effect */}
+
       {/* steps */}
       <section className="w-full ">
         <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
@@ -900,8 +905,8 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
             </p>
             <div className="mt-8 flex justify-center">
               <img
-                className="rounded-[10px] w-[50%]"
-                src={mounjarouseguide}
+                className="rounded-[10px] w-[100%]"
+                src={mounjarouseUsage}
                 alt="Mounjaro guide sheet"
               />
             </div>
@@ -947,14 +952,11 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                 ))}
               </div>
             </div> */}
-            <p className="text-gray-500 mt-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
-              Always read and follow the full instructions provided with your
-              Mounjaro pen, and contact your healthcare provider.
-            </p>
           </div>
         </div>
       </section>
       {/* steps */}
+
       {/* healthier life */}
       <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-4 justify-between md:px-8 px-0 md:py-12 py-0  bg-white">
@@ -1042,6 +1044,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
         </div>
       </section>
       {/* healthier life */}
+
       {/* Faqs Section */}
       <FaqsSection items={faqItems} />
       {/* Faqs Section  */}

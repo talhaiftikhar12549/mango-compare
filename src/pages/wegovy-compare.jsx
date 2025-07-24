@@ -28,14 +28,15 @@ import { MdReportProblem } from "react-icons/md";
 import { BiSolidInjection, BiMap, BiUser } from "react-icons/bi";
 import { FiClock, FiRepeat, FiBox } from "react-icons/fi";
 import { FaShieldAlt, FaUserMd, FaSyringe } from "react-icons/fa";
-import wegovyImage from "../assets/wegovy compare/wegovyinjection.webp";
+import wegovyImage from "../assets/wegovy compare/wegovypen.webp";
 import { RiMedicineBottleLine } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { MdHealthAndSafety } from "react-icons/md";
-import fatwomanimage from "../assets/wegovy compare/fatwomenimage.webp";
-import howwegovywork from "../assets/wegovy compare/howdoeswegovywork.webp";
-import wegovyuseguide from "../assets/wegovy compare/wegovyuseguide.webp";
+import fatwomanimage from "../assets/wegovy compare/healthlady.webp";
+import howwegovywork from "../assets/wegovy compare/wegovyschedule.webp";
+import wegovyuseguide from "../assets/wegovy compare/Wegovy Usage.webp";
+import consultingDoctor from "../assets/mounjaro compare/consulting doctor.webp";
 const WegovyCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
@@ -570,7 +571,7 @@ const WegovyCompare = () => {
               </div>
               <div className="">
                 <img
-                  src="https://readdy.ai/api/search-image?query=Professional healthcare consultation scene with doctor and patient discussing treatment options in modern medical office, friendly healthcare provider explaining medication, medical consultation photography&width=500&height=300&seq=consultation1&orientation=landscape"
+                  src={consultingDoctor}
                   alt="Healthcare Consultation"
                   className="w-full rounded-xl object-cover h-48"
                 />
@@ -801,16 +802,12 @@ const WegovyCompare = () => {
             </div> */}
             <div className="mt-8 flex justify-center">
               <img
-                className="rounded-[10px] w-[50%]"
+                className="rounded-[10px] w-[100%]"
                 src={wegovyuseguide}
                 alt="wegovy guide sheet"
               />
             </div>
-            <p className="text-gray-500 mt-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
-              Always read the detailed instructions included with your Wegovy
-              pen and contact your healthcare professional if you are unsure
-              about any step.
-            </p>
+            
           </div>
         </div>
       </section>
