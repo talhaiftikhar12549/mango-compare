@@ -124,8 +124,38 @@ const MounjaroCompare = () => {
   const faqItems = [
     {
       question: "What’s the cheapest place to buy Mounjaro in the UK?",
-      answer:
-        "The cheapest Mounjaro prices in the UK can vary by pharmacy and dose. Use Mango Compare to find real-time offers from trusted GPhC-registered pharmacies and see which provider has the lowest cost today.",
+      answer: (
+        <>
+          Starting doses are usually the most affordable, but prices vary between pharmacies. For example, Pharmaesthetics Central starts at{"  "}
+          <a
+            className="text-orange-500"
+            href="https://pharmaestheticscentral.com/product/mounjaro-injectable/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            £104.99
+          </a>{" "}
+          Phlo Clinic from{" "}
+          <a
+            className="text-orange-500"
+            href="https://phloclinic.co.uk/weight-loss-service/mounjaro"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            £109
+          </a>{" "}
+         , Medino at{" "}
+          <a
+            className="text-orange-500"
+            href="https://www.medino.com/product/weight-loss-treatment-mounjaro-2-5mg-step-1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            £114.99
+          </a>{" "}
+          , and The Care Pharmacy at £119.99. Use Mango Compare to view real-time offers from trusted GPhC-registered pharmacies and find the lowest price available today.
+        </>
+      ),
     },
     {
       question: "How do I use Mango Compare to compare Mounjaro prices?",
@@ -135,7 +165,7 @@ const MounjaroCompare = () => {
     {
       question: "Are online prescriptions for Mounjaro legal and safe?",
       answer:
-        "Yes, online prescriptions are legal in the UK when issued by a licensed prescriber. Always buy Mounjaro from GPhC-regulated pharmacies to ensure safety and genuine medication.",
+        "Yes, online prescriptions are legal in the UK when issued by a licensed prescriber. Always buy Mounjaro from GPhC-regulated pharmacies to ensure safety and genuine medication. Make sure you undergo a full assessment by your clinician before receiving a Mounjaro prescription.",
     },
     {
       question: "How much can I save using discount codes on Mango Compare?",
@@ -150,7 +180,7 @@ const MounjaroCompare = () => {
     {
       question: "How does Mounjaro dosing work (2.5 mg to 15 mg)?",
       answer:
-        "Treatment starts with a 2.5 mg weekly dose to help your body adjust. Your prescriber may gradually increase the dose up to 15 mg to support your weight loss goals.",
+        "Treatment begins with a weekly dose of 2.5 mg to help your body adjust. The dose is typically increased every 4 weeks, based on how you respond and how well you tolerate the medication. Your prescriber will determine the right maintenance dose, which can go up to 15 mg, following regular medical assessments.",
     },
     {
       question: "What side effects should I expect with Mounjaro?",
@@ -161,7 +191,7 @@ const MounjaroCompare = () => {
       question:
         "Can I get maintenance support from pharmacies on Mango Compare?",
       answer:
-        "Many GPhC-registered pharmacies listed on Mango Compare offer repeat prescriptions and maintenance plans to help you stay on track with treatment.",
+        "Many pharmacies listed on Mango Compare offer maintenance plans to help you stay on track with your treatment. However, consultation costs can vary between providers and may be charged separately from the medication. Make sure to check consultation fees before placing your order to avoid unexpected costs.",
     },
     {
       question: "Is local pharmacy purchase better than online?",
@@ -186,8 +216,19 @@ const MounjaroCompare = () => {
     {
       icon: <AiOutlineHeart className="text-2xl" />,
       title: "Rapid weight loss",
-      description:
-        "Clinically proven to help lose over 22.5% of initial weight over a short period.",
+      description: (
+        <>
+          <a
+            className="text-orange-500"
+            href="https://www.nejm.org/doi/full/10.1056/NEJMoa2206038"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Clinical proven
+          </a>{" "}
+          to help lose over 22.5% of initial weight over 72 weeks.
+        </>
+      ),
     },
     {
       icon: <GiKnifeFork className="text-2xl" />,
@@ -491,11 +532,20 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                 </div>
               </div>
               <div className="h-[100%] flex items-end">
-                <img
-                  src="https://readdy.ai/api/search-image?query=Professional healthcare consultation scene with doctor and patient discussing treatment options in modern medical office, friendly healthcare provider explaining medication, medical consultation photography&width=500&height=300&seq=consultation1&orientation=landscape"
-                  alt="Healthcare Consultation"
-                  className="w-full rounded-xl object-cover h-48"
-                />
+                <div className="bg-white rounded-xl p-6 shadow-sm">
+                  <p className="text-gray-600 text-sm mb-4">
+                    To help you get started, the Mango Compare BMI calculator
+                    can quickly show your BMI and help you understand whether
+                    you meet the basic criteria for treatment. Simply enter your
+                    height and weight to calculate your BMI.
+                  </p>
+                  <button
+                    onClick={goToContactSection}
+                    className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors whitespace-nowrap cursor-pointer"
+                  >
+                    Calculate BMI
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -537,38 +587,23 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                   </div>
                 ))}
               </div>
-
-              <div className="bg-white rounded-xl p-6 shadow-sm">
-                <p className="text-gray-600 text-sm mb-4">
-                  To help you get started, the Mango Compare BMI calculator can
-                  quickly show your BMI and help you understand whether you meet
-                  the basic criteria for treatment. Simply enter your height and
-                  weight to calculate your BMI.
-                </p>
-                <button
-                  onClick={goToContactSection}
-                  className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors whitespace-nowrap cursor-pointer"
-                >
-                  Calculate BMI
-                </button>
+              <div>
+                <img
+                  src="https://readdy.ai/api/search-image?query=Professional healthcare consultation scene with doctor and patient discussing treatment options in modern medical office, friendly healthcare provider explaining medication, medical consultation photography&width=500&height=300&seq=consultation1&orientation=landscape"
+                  alt="Healthcare Consultation"
+                  className="w-full rounded-xl object-cover h-48"
+                />
               </div>
             </div>
-            {/* <div className=" rounded-2xl px-8">
-              <img
-                className="w-[100%] rounded-[10px]"
-                src={runningwoman}
-                alt="woman running"
-              />
-            </div> */}
           </div>
         </div>
       </section>
       {/* Eligible */}
 
       {/* healthier life */}
-      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
+      {/* <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
         <div className="flex flex-col-reverse lg:flex-row items-center justify-between md:px-8 px-0 md:py-12 py-0 gap-4  bg-white">
-          {/* Left Content */}
+          
           <div className="lg:w-1/2 space-y-6">
             <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 ">
               What makes a GPhC-Registered pharmacy different?
@@ -589,7 +624,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
               accessible registry where you can check whether a pharmacy is
               properly registered.
             </p>
-            {/* <div className="space-y-4">
+            <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <FaShieldAlt className="text-orange-500 mt-1" />
                 <div>
@@ -619,7 +654,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                   </p>
                 </div>
               </div>
-            </div> */}
+            </div>
 
             <div className="flex  gap-2 space-x-4 pt-4">
               <button
@@ -631,10 +666,10 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
             </div>
           </div>
 
-          {/* Right Image */}
+        
           <div className="relative lg:w-1/2 mb-10 lg:mb-0">
             <img
-              src={healthyman} // Replace with actual path
+              src={healthyman} 
               alt="Healthy Woman"
               className="rounded-2xl shadow-lg w-full  object-cover"
             />
@@ -650,22 +685,22 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* healthier life */}
 
       {/* How Mounjaro works? */}
-      <div className="bg-gradient-to-br from-orange-400 to-orange-500 w-full">
+      {/* <div className="bg-gradient-to-br from-orange-400 to-orange-500 w-full">
         <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto ">
           <div className="max-w-7xl mx-auto md:px-6 px-0">
             <div className="!text-[24px] md:!text-[24px] !pt-[0px] mb-4 flex items-center justify-center">
               <h2 className=" max-w-2xl !text-center  md:text-4xl !font-[600] !text-[#ffffff]">
                 How Mounjaro works?
               </h2>
-              {/* <div className="w-24 h-1 bg-white mx-auto"></div> */}
+              <div className="w-24 h-1 bg-white mx-auto"></div>
             </div>
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Left Content Block */}
+              
               <div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                   <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
@@ -690,7 +725,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                 </div>
               </div>
 
-              {/* Right Image Block */}
+             
               <div className="relative flex justify-center items-center">
                 <img
                   className="w-[75%] rounded-[10px]"
@@ -706,9 +741,9 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            {/* <div className="mt-16 grid md:grid-cols-3 gap-8">
+      {/* <div className="mt-16 grid md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <FaUser className="text-white text-md " />
@@ -737,23 +772,22 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                 </p>
               </div>
             </div> */}
-          </div>{" "}
+      {/* </div>{" "}
         </section>
-      </div>
+      </div> */}
       {/* How Mounjaro works?*/}
       {/* benifit */}
       <section className="w-full bg-gray-50 ">
         <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
           <div className="text-center mb-12">
             <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600] text-[#ffffff] mb-4 text-center">
-              What are the Benefits of Mounjaro?
+              What are the benefits of Mounjaro?
             </h2>
             <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
               Mounjaro provides a more comprehensive approach than treatments
-              that target only one hormone. In clinical studies, many patients
-              achieved up to 20% reduction in total body weight, which is higher
-              than what is normally seen with other treatments.Some of the
-              benefits of using Mounjaro are:
+              that target only GLP-1 receptors in the body. It is a dual-action
+              medication that helps achieve greater weight loss when combined
+              with lifestyle changes.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -807,7 +841,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow">
                 <FaSadTear className="text-orange-600" />
-                <span className="text-gray-900">Vomiting</span>
+                <span className="text-gray-900">Hearburn</span>
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl shadow">
                 <FaSadTear className="text-orange-600" />
@@ -822,15 +856,13 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
               <div className="bg-red-100 text-red-600 p-3 rounded-full">
                 <AiOutlineWarning size={20} />
               </div>
-              <h3 className="!text-xl">Severe or Rare Side Effects</h3>
+              <h3 className="!text-xl">Rare Side Effects</h3>
             </div>
 
             <div className="space-y-3">
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
                 <AiOutlineWarning className="text-red-600" />
-                <span className="text-gray-900">
-                  Pancreatitis (inflammation of the pancreas)
-                </span>
+                <span className="text-gray-900">Pancreatitis</span>
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
                 <MdReportProblem className="text-red-600" />
@@ -838,7 +870,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
                 <AiFillHeart className="text-red-600" />
-                <span className="text-gray-900">Gallbladder problems</span>
+                <span className="text-gray-900">Gallbladder issues</span>
               </div>
               <div className="flex items-center gap-3 bg-white p-4 rounded-xl border-l-4 border-red-500 shadow">
                 <MdReportProblem className="text-red-600" />
@@ -853,17 +885,6 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
         </p>
       </div>
       {/* side effect */}
-      {/* image section */}
-      <section className="max-w-[1280px] custom-width w-full px-4 md:px-8 xl:px-0 mx-auto">
-        <div className="mt-8 flex justify-center">
-          <img
-            className="rounded-[10px] w-[50%]"
-            src={mounjarouseguide}
-            alt="Mounjaro guide sheet"
-          />
-        </div>
-      </section>
-      {/* image section */}
       {/* steps */}
       <section className="w-full ">
         <div className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto">
@@ -877,8 +898,15 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
               prescriber to choose your injection site. Here’s a general
               breakdown of how to use Mounjaro for the first time:
             </p>
+            <div className="mt-8 flex justify-center">
+              <img
+                className="rounded-[10px] w-[50%]"
+                src={mounjarouseguide}
+                alt="Mounjaro guide sheet"
+              />
+            </div>
 
-            <div
+            {/* <div
               className=" rounded-xl p-6 md:p-10 shadow-md bg-white
             "
             >
@@ -895,6 +923,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                   </p>
                 </div>
               </div>
+              
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {steps.map(({ step, icon, title, description }) => (
@@ -917,7 +946,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
             <p className="text-gray-500 mt-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto text-center">
               Always read and follow the full instructions provided with your
               Mounjaro pen, and contact your healthcare provider.
@@ -926,6 +955,93 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
         </div>
       </section>
       {/* steps */}
+      {/* healthier life */}
+      <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-4 justify-between md:px-8 px-0 md:py-12 py-0  bg-white">
+          {/* Left Content */}
+          <div className="lg:w-1/2 space-y-6">
+            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 ">
+              Ready to start your weight loss journey with Mango Compare?
+            </h2>
+            <p className="text-gray-500 mb-12 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
+              Take control of your health and feel the difference. In{" "}
+              <a
+                className="text-orange-500"
+                href="https://www.nejm.org/doi/full/10.1056/NEJMoa2206038"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                clinical studies
+              </a>{" "}
+              , Mounjaro has shown up to 22.5% weight loss when paired with
+              lifestyle improvements.
+            </p>
+
+            <div className="space-y-4">
+              <div className="flex items-start space-x-3">
+                <FaShieldAlt className="text-orange-500 mt-1" />
+                <div>
+                  <p className="font-semibold">Compare Prices</p>
+                  <p className="text-sm text-gray-500">
+                    Mango Compare helps you find the best deals on Mounjaro in
+                    the UK
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <FaUserMd className="text-orange-500 mt-1" />
+                <div>
+                  <p className="font-semibold">Stay Consistent</p>
+                  <p className="text-sm text-gray-500">
+                    Find credible pharmacies that provide ongoing support
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <FaSyringe className="text-orange-500 mt-1" />
+                <div>
+                  <p className="font-semibold">Achieve Health Goals</p>
+                  <p className="text-sm text-gray-500">
+                    Embracing a more confident version of yourself has never
+                    been easier
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex  gap-2 space-x-4 pt-4">
+              <button
+                onClick={scrollToContact}
+                className="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white font-semibold px-6 py-3 rounded-[10px]"
+              >
+                Start Comparing Today.
+              </button>
+            </div>
+          </div>
+
+          {/* Right Image */}
+          <div className="relative lg:w-1/2 mb-10 lg:mb-0">
+            <img
+              src={fatwomanimage} // Replace with actual path
+              alt="Healthy Woman"
+              className="rounded-2xl shadow-lg w-full  object-cover"
+            />
+
+            <div className="absolute top-4 left-4 bg-white shadow-md px-4 py-2 rounded-lg">
+              <p className="text-orange-500 font-bold text-lg">15%</p>
+              <p className="text-xs text-gray-600">Average Weight Loss</p>
+            </div>
+
+            <div className="absolute bottom-4 right-4 bg-white shadow-md px-4 py-2 rounded-lg text-center">
+              <p className="text-orange-500 font-bold">1x</p>
+              <p className="text-xs text-gray-600">Weekly Dose</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* healthier life */}
       {/* Faqs Section */}
       <FaqsSection items={faqItems} />
       {/* Faqs Section  */}
