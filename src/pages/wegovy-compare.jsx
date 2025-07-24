@@ -929,8 +929,8 @@ const WegovyCompare = () => {
           </div>
         </div>
       </section>
-
       {/* healthier life */}
+
       {/* Faqs Section */}
       <FaqsSection items={faqItems} />
       {/* Faqs Section  */}
