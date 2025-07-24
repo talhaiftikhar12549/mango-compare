@@ -1,5 +1,4 @@
 import FilterBar from "./Filter-Bar";
-import { LuArrowUpDown } from "react-icons/lu";
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { mainDatagetter } from "../redux toolkit/compareToolSlice";
@@ -84,7 +83,7 @@ export default function PriceCalculator({
   const [sortPharmacy, setSortPharmacy] = useState("des");
   const [sortRating, setSortRating] = useState("lr");
   const [filteredData, setFilteredData] = useState(fltrData);
-  console.log("priceSorter:", priceSorter);
+
   const toggleSortPrice = () => {
     setSortPrice((prev) => (prev === "lp" ? "hp" : "lp"));
     setFilteredData(() => sortedPrice);
@@ -331,8 +330,8 @@ export default function PriceCalculator({
                           >
                             {srtdata.pharmacy}
                           </a>
-                          <div className="flex items-center ">
-                            <FaStar className="mb-1 mr-1 text-[#ffd415]" />{" "}
+                          <div onClick={() => window.open(srtdata.tp_link, '_blank')} className="flex items-center cursor-pointer">
+                            <FaStar className="mb-1 mr-1 text-[#04DA8D]" />{" "}
                             <p className="font-semibold ">
                               {" "}
                               {srtdata.rating}{" "}
