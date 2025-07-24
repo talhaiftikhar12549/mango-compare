@@ -47,8 +47,7 @@ export default function HomeFaqs() {
       text: "Mango Compare doesn’t sell products. For order issues, contact the pharmacy directly. We only list verified UK suppliers.",
     },
     {
-      title:
-        "Where does Mango Compare operate — UK only or more countries?",
+      title: "Where does Mango Compare operate — UK only or more countries?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
       text: "Mango Compare operates in the United Kingdom only, showing verified prices from UK-based pharmacies for Wegovy and Mounjaro.",
     },
@@ -63,16 +62,46 @@ export default function HomeFaqs() {
       text: "Yes, but always consult your prescriber. Mango helps you compare prices if you're restarting Mounjaro in the UK after a pause.",
     },
     {
-      title:
-        "Does the NHS Cover Mounjaro for Weight Loss?",
+      title: "Does the NHS Cover Mounjaro for Weight Loss?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
       text: "Yes, as of June 2025, Mounjaro (tirzepatide) is available on the NHS in the UK. It is prescribed only to people with a BMI of 40 or above, or 35 for some ethnic groups, along with at least four weight-related conditions such as type 2 diabetes, high blood pressure, heart disease, or sleep apnoea.",
     },
-     {
-      title:
-        "How do customer reviews help build trust in a pharmacy?",
+    {
+      title: "How do customer reviews help build trust in a pharmacy?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
-      text: "Reviews show how a pharmacy performs in delivery speed and service quality. The Care Pharmacy has a  5.0 rating, Simple Online Pharmacy 4.7, and MedExpress Pharmacy 4.4 on Trustpilot. High ratings help customers choose with confidence.",
+      text: (
+        <>
+          Reviews show how a pharmacy performs in delivery speed and service
+          quality. The Care Pharmacy has a{"  "}
+          <a
+            className="text-orange-500"
+            href="https://www.trustpilot.com/review/thecarepharmacy.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            5.0 rating
+          </a>{" "}
+          , Simple Online Pharmacy{" "}
+          <a
+            className="text-orange-500"
+            href="https://www.trustpilot.com/review/simpleonlinepharmacy.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            4.7
+          </a>{" "}
+          , and MedExpress Pharmacy{" "}
+          <a
+            className="text-orange-500"
+            href="https://www.trustpilot.com/review/www.medexpress.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            4.4
+          </a>{" "}
+          on Trustpilot. High ratings help customers choose with confidence.
+        </>
+      ),
     },
   ];
 
