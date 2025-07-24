@@ -157,10 +157,8 @@ const AdminDashboard = () => {
     try {
       if (editingId) {
         await api.put("/medicine/" + editingId, data);
-        console.log("Listing updated successfully", data);
       } else {
         await api.post("/medicine", data);
-        console.log("Listing added successfully", data, formData);
       }
       fetchListings();
       handleCancelEdit();
@@ -175,7 +173,6 @@ const AdminDashboard = () => {
     if (window.confirm("Are you sure you want to delete this listing?")) {
       try {
         await api.delete("/medicine/" + id);
-        console.log("Listing deleted successfully");
         fetchListings();
       } catch (error) {
         console.log("Failed to delete listing", error);
