@@ -64,9 +64,11 @@ export default function HomeOurBlog() {
             <>
               <div className="flex flex-col md:flex-row items-stretch w-full gap-[22px]">
                 {apiDataB.slice(0, 3).map((blog, index) => (
-                  <div
-                    key={index}
-                    className="group flex flex-col max-w-[413px] flex-1 cursor-pointer border-2 bg-[#FFFFFF] border-[#ffffff] hover:border-[#10b98133] rounded-xl p-4 shadow-sm transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl"
+                  <NavLink
+                    to={`/${blog.slug}`}
+                    aria-label={`Read more about ${blog.title}`}
+                    title={`Read more about ${blog.title}`}
+                    className="group flex flex-col max-w-[413px] flex-1 cursor-pointer border-2 bg-[#FFFFFF] border-[#ffffff] hover:border-[#10b98133] rounded-xl p-4 shadow-sm transition duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl no-underline"
                   >
                     <div>
                       <img
@@ -77,7 +79,7 @@ export default function HomeOurBlog() {
                     </div>
 
                     <div className="flex flex-col flex-1">
-                      <h3 className="text-[22px] pt-[20px] pb-[10px] !font-[600] font-montserrat text-[#000000] group-hover:!text-[#10b981] transition-colors duration-300">
+                      <h3 className="text-[22px] pt-[20px] pb-[10px] !font-[600] font-montserrat text-[#000000]  transition-colors duration-300">
                         {blog.title || "Untitled Blog"}
                       </h3>
 
@@ -89,20 +91,13 @@ export default function HomeOurBlog() {
                         )}
                       </p>
 
-                      <NavLink
-                        to={`/${blog.slug}`}
-                        aria-label={`Read more about ${blog.title}`}
-                        title={`Read more about ${blog.title}`}
-                        className="inline-flex items-center group"
-                      >
-                        <h4 className="text-[18px] pt-[10px] font-[600] font-montserrat text-[#000000] group-hover:!text-[#10b981] duration-300 inline-flex items-center cursor-pointer mt-auto">
-                          Read More
-                          <span className="sr-only"> about {blog.title}</span>
-                          <FaArrowRight className="ml-2" />
-                        </h4>
-                      </NavLink>
+                      <h4 className="text-[18px] pt-[10px] font-[600] font-montserrat text-[#000000] group-hover:!text-[#10b981] duration-300 inline-flex items-center cursor-pointer mt-auto">
+                        Read More
+                        <span className="sr-only"> about {blog.title}</span>
+                        <FaArrowRight className="ml-2" />
+                      </h4>
                     </div>
-                  </div>
+                  </NavLink>
                 ))}
               </div>
               <div className="mt-12 flex justify-center items-center w-full">
