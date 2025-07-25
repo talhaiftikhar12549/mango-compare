@@ -302,6 +302,34 @@ const MounjaroCompare = () => {
 
   return (
     <>
+      {/* meta tag */}
+      <Helmet>
+        {/* Meta Title */}
+        <title>Compare Mounjaro Prices UK – Find Trusted Pharmacy Deals</title>
+
+        {/* Meta Description */}
+        <meta
+          name="description"
+          content="Compare Mounjaro prices in the UK from trusted GPhC-registered pharmacies. Discover daily deals, save money, and start your weight loss journey today."
+        />
+
+        {/* Meta Keywords (Focused Keyphrases) */}
+        <meta name="keywords" content="Mounjaro price comparison UK" />
+
+        {/* Custom Meta Tags */}
+        <meta
+          name="category"
+          content="weight loss treatments, prescription medication"
+        />
+
+        {/* Canonical URL */}
+        <link
+          rel="canonical"
+          href="https://mangocompare.co.uk/mounjaro-compare"
+        />
+      </Helmet>
+
+      {/* meta tags */}
       <HeroSection
         heading="Mounjaro Price Comparison UK – Find Trusted Providers Instantly"
         text="Compare real-time prices from GPhC-registered pharmacies and find exclusive discounts.

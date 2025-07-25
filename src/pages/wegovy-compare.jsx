@@ -326,6 +326,33 @@ const WegovyCompare = () => {
   }, []);
   return (
     <>
+      {/* meta tags */}
+      <Helmet>
+        {/* Meta Title */}
+        <title>Wegovy Price Comparison UK – Save on Weight Loss Treatment</title>
+
+        {/* Meta Description */}
+        <meta
+          name="description"
+          content="Compare Wegovy prices from top UK pharmacies. Save on your weekly weight loss injection with trusted deals and verified offers. Start comparing now."
+        />
+
+        {/* Meta Keywords (Focused Keyphrases) */}
+        <meta name="keywords" content="Wegovy Price Comparison UK" />
+
+        {/* Custom Meta Tags */}
+        <meta
+          name="category"
+          content="Weight loss medications"
+        />
+
+        {/* Canonical URL */}
+        <link
+          rel="canonical"
+          href="https://mangocompare.co.uk/wegovy-compare"
+        />
+      </Helmet>
+      {/* meta tags */}
       <HeroSection
         heading="Wegovy Price Comparison UK - Find the Best Deals in One Place"
         text="Compare Wegovy injection cost in the UK with the most trusted platform available online. Start your weight loss journey and save hundreds on the treatment."
