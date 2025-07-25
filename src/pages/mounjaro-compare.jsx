@@ -340,15 +340,17 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
       />
 
       {/* price calculator */}
-      <div
+      {/* <div
         ref={contactRef}
         id="pricecalculatorwegovy"
         className="w-full overflow-x-auto"
-      >
+      > */}
+      <div ref={contactRef} id="pricecalculatorwegovy" className="w-full">
         {loading ? (
           <PriceCalculatorSkeleton />
         ) : (
-          <div className="min-w-[1024px]">
+          <div className="">
+            {/* <div className="min-w-[1024px]"> */}
             <PriceCalculator
               maindata={apiDataM}
               availableDoasge={availableDoasge}
