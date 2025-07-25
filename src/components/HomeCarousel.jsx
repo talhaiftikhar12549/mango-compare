@@ -8,10 +8,14 @@ import simpleonline from "../assets/home/Simple Online Pharmacy (2).webp";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaTruck, FaClock, FaCheckCircle, FaStar } from "react-icons/fa";
+import review1 from "../assets/home/review1.webp";
+import review2 from "../assets/home/review2.webp";
+import review3 from "../assets/home/review3.webp";
+import review4 from "../assets/home/review4.webp";
+import { MdVerifiedUser } from "react-icons/md";
 
 const TopRatedPharmacies = () => {
   const pharmacies = [
-   
     {
       name: "Peak Pharmacy",
       rating: 4.5,
@@ -23,6 +27,7 @@ const TopRatedPharmacies = () => {
       trustPilot: "4.5/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9012214",
       img: peak,
+      ratting: review1,
     },
     {
       name: "Numan",
@@ -35,6 +40,7 @@ const TopRatedPharmacies = () => {
       trustPilot: "4.5/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9011408",
       img: numan,
+      ratting: review1,
     },
     {
       name: "The Care Pharmacy",
@@ -47,6 +53,7 @@ const TopRatedPharmacies = () => {
       trustPilot: "5/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010308",
       img: care,
+      ratting: review2,
     },
     {
       name: "Superdrug Online Doctor",
@@ -59,6 +66,7 @@ const TopRatedPharmacies = () => {
       trustPilot: "4.3/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010736",
       img: superdrug,
+      ratting: review4,
     },
     {
       name: "Pharmacy Planet",
@@ -71,8 +79,9 @@ const TopRatedPharmacies = () => {
       trustPilot: "4.5/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010288",
       img: pharmacyPlanet,
+      ratting: review1,
     },
-     {
+    {
       name: "Simple Online Pharmacy",
       rating: 4.7,
       wegovy: "118.98",
@@ -83,6 +92,7 @@ const TopRatedPharmacies = () => {
       trustPilot: "4.7/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/name/simple%20online%20pharmacy*",
       img: simpleonline,
+      ratting: review3,
     },
   ];
 
@@ -120,7 +130,7 @@ const TopRatedPharmacies = () => {
             {pharmacies.map((pharmacy, index) => (
               <div key={index}>
                 <div className="h-full flex border border-gray-200 rounded-2xl">
-                  <div className="bg-white min-h-[234px] p-4 md:p-0 rounded-2xl flex flex-col md:flex-row md:items-stretch md:justify-between w-full">
+                  <div className="bg-white min-h-[650px] md:min-h-[234px] p-4 md:p-0 rounded-2xl flex flex-col md:flex-row md:items-stretch md:justify-between w-full">
                     {/* Logo + Name */}
                     <div className="flex flex-col items-center justify-center text-center w-full md:w-[25%] h-full">
                       <div className="sm:w-[100px] sm:h-[100px] rounded-full flex items-center justify-center text-sm text-gray-500">
@@ -132,6 +142,12 @@ const TopRatedPharmacies = () => {
                       </div>
                       <div className="text-sm sm:text-base font-semibold mt-2 text-gray-800">
                         {pharmacy.name}
+                      </div>
+                      <div className="w-full gap-1 flex justify-center items-center">
+                        <MdVerifiedUser className="mt-2 text-[#02d68c]" />
+                        <p className="text-xs text-gray-400 mt-3">
+                          GPhC Registered Pharmacy
+                        </p>
                       </div>
                     </div>
 
@@ -176,12 +192,19 @@ const TopRatedPharmacies = () => {
 
                     {/* Rating + Button */}
                     <div className="w-full md:w-[25%] flex flex-col items-center justify-center md:items-end gap-4 text-center md:text-right h-full">
-                      <div className="flex flex-col items-center gap-1 text-2xl font-semibold justify-center text-gray-800 w-full">
+                      {/* <div className="flex flex-col items-center gap-1 text-2xl font-semibold justify-center text-gray-800 w-full">
                         <div className="flex items-center gap-1">
                           <FaStar className="text-[#02d68c] text-3xl" />
                           {pharmacy.trustPilot}
                         </div>
                         <p className="text-xs text-gray-400">Trust Pilot</p>
+                      </div> */}
+                      <div className="flex flex-col items-center gap-1 text-2xl font-semibold justify-center text-gray-800 w-full">
+                        <img
+                          className="w-[200px]"
+                          src={pharmacy.ratting}
+                          alt=""
+                        />
                       </div>
                       <div className="w-full flex justify-center items-center">
                         <a
@@ -191,11 +214,6 @@ const TopRatedPharmacies = () => {
                         >
                           View Details
                         </a>
-                      </div>
-                      <div className="w-full flex justify-center items-center">
-                        <p className="text-xs text-gray-400 mt-1">
-                          GPhC Registered Pharmacy
-                        </p>
                       </div>
                     </div>
                   </div>

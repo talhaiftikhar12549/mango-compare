@@ -25,7 +25,12 @@ export const Home = () => {
         {/* Focused Keyphrase (as keyword) */}
         <meta
           name="keywords"
-          content="Weight Loss Treatment UK, Price Comparison for Weight Loss Treatments, Compare Weight Loss Injections UK, Best Weight Loss Treatment Prices UK, Affordable Weight Loss Medication UK"
+          content="Weight Loss Treatment Price Comparison UK"
+        />
+        {/* Custom Meta Tags */}
+        <meta
+          name="category"
+          content="Weight Loss Injections Pricing"
         />
 
         <link rel="canonical" href="https://mangocompare.co.uk/" />
