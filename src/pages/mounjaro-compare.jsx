@@ -36,6 +36,7 @@ import fatwomanimage from "../assets/mounjaro compare/woman.webp";
 import mounjarouseUsage from "../assets/mounjaro compare/Mounjaro Usage.webp";
 import mounjaroInjection from "../assets/mounjaro compare/mounjaroInjection.webp";
 import consultingDoctor from "../assets/mounjaro compare/consulting doctor.webp";
+import { Helmet } from "react-helmet";
 const MounjaroCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");

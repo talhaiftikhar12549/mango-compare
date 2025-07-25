@@ -34,6 +34,7 @@ import fatwomanimage from "../assets/wegovy compare/healthlady.webp";
 import howwegovywork from "../assets/wegovy compare/Wegovy dosage.webp";
 import wegovyuseguide from "../assets/wegovy compare/Wegovy Usage.webp";
 import consultingDoctor from "../assets/mounjaro compare/consulting doctor.webp";
+import { Helmet } from "react-helmet";
 const WegovyCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
