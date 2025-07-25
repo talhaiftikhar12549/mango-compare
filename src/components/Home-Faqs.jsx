@@ -34,13 +34,9 @@ export default function HomeFaqs() {
     {
       title: "Are the suppliers verified and safe?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
-      text: "Yes. We only list GPhC-registered UK pharmacies for safe and legal access to weight loss treatments like Wegovy and Mounjaro.",
+      text: "Yes, Mango Compare only lists verified suppliers. All the pharmacies on our platform are registered with GPhC. We make sure your experience at Mango Compare is safe and reliable.",
     },
-    {
-      title: " How often are deals updated, and can I track price changes?",
-      icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
-      text: "Deals are updated regularly based on UK pharmacy prices. While we don’t offer tracking, you’ll always see the latest available offers.",
-    },
+    
     {
       title: "What happens if I have a dispute or a bad claim experience?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
@@ -54,7 +50,38 @@ export default function HomeFaqs() {
     {
       title: "How much does a Mounjaro consultation cost?",
       icon: <FaInfoCircle className="text-[rgb(16_185_129)]" />,
-      text: "Private consultation fees vary, but Mango Compare helps you find the cheapest Mounjaro consultation options available in the UK.",
+      text: (
+        <>
+          If you purchase Mounjaro from the same provider that handles both prescribing and dispensing, the consultation fee is usually included in the total cost. For example, Pharmacy2U charges {"  "}
+          <a
+            className="text-orange-500"
+            href="https://www.pharmacy2u.co.uk/online-doctor/conditions/weight-loss/treatments/mounjaro"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+             £109
+          </a>{" "}
+          ,CheqUp{" "}
+          <a
+            className="text-orange-500"
+            href="https://go.chequp.com/mon-alt/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+             £119
+          </a>{" "}
+          , and The Family Chemist{" "}
+          <a
+            className="text-orange-500"
+            href="https://www.thefamilychemist.co.uk/weight-loss/mounjaro/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+             £130
+          </a>{" "}
+          If you use a third-party prescribing service, the consultation fee may be charged separately.
+        </>
+      ),
     },
     {
       title: "Can I restart Mounjaro after a break?",

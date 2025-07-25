@@ -1,31 +1,17 @@
-import React from "react";
 import Slider from "react-slick";
+import care from "../assets/home/TCP.webp";
+import peak from "../assets/home/Peak Pharmacy (1).webp";
+import pharmacyPlanet from "../assets/home/Pharmacy Planet (2).webp";
+import superdrug from "../assets/home/Superdrug.webp";
+import numan from "../assets/home/Numans (1).webp";
+import simpleonline from "../assets/home/Simple Online Pharmacy (2).webp";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { FaTruck, FaClock, FaCheckCircle, FaStar } from "react-icons/fa";
 
 const TopRatedPharmacies = () => {
   const pharmacies = [
-    {
-      name: "The Care Pharmacy",
-      rating: 5,
-      wegovy: "99.99",
-      mounjaro: "119.99",
-      deliveryFee: "Free",
-      deliveryTime: "Same day delivery",
-      maintenance: true,
-      trustPilot: "5/5",
-      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010308",
-    },
-    {
-      name: "Simple Online Pharmacy",
-      rating: 4.7,
-      wegovy: "118.98",
-      mounjaro: "128.98",
-      deliveryFee: "£6.49",
-      deliveryTime: "1 working day",
-      maintenance: true,
-      trustPilot: "4.7/5",
-      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/name/simple%20online%20pharmacy*",
-    },
+   
     {
       name: "Peak Pharmacy",
       rating: 4.5,
@@ -36,6 +22,7 @@ const TopRatedPharmacies = () => {
       maintenance: true,
       trustPilot: "4.5/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9012214",
+      img: peak,
     },
     {
       name: "Numan",
@@ -47,6 +34,19 @@ const TopRatedPharmacies = () => {
       maintenance: true,
       trustPilot: "4.5/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9011408",
+      img: numan,
+    },
+    {
+      name: "The Care Pharmacy",
+      rating: 5,
+      wegovy: "99.99",
+      mounjaro: "119.99",
+      deliveryFee: "Free",
+      deliveryTime: "Same day delivery",
+      maintenance: true,
+      trustPilot: "5/5",
+      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010308",
+      img: care,
     },
     {
       name: "Superdrug Online Doctor",
@@ -58,6 +58,7 @@ const TopRatedPharmacies = () => {
       maintenance: true,
       trustPilot: "4.3/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010736",
+      img: superdrug,
     },
     {
       name: "Pharmacy Planet",
@@ -69,6 +70,19 @@ const TopRatedPharmacies = () => {
       maintenance: true,
       trustPilot: "4.5/5",
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010288",
+      img: pharmacyPlanet,
+    },
+     {
+      name: "Simple Online Pharmacy",
+      rating: 4.7,
+      wegovy: "118.98",
+      mounjaro: "128.98",
+      deliveryFee: "£6.49",
+      deliveryTime: "1 working day",
+      maintenance: true,
+      trustPilot: "4.7/5",
+      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/name/simple%20online%20pharmacy*",
+      img: simpleonline,
     },
   ];
 
@@ -78,6 +92,8 @@ const TopRatedPharmacies = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 768,
@@ -92,7 +108,7 @@ const TopRatedPharmacies = () => {
     <>
       <section className="w-full max-w-[1280px] py-10 px-4 md:py-12 md:px-6 lg:px-10 mx-auto">
         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4">
-          Top-Rated Pharmacies
+          Our Top Recommendations
         </h2>
         <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto text-sm sm:text-base">
           Compare UK’s top pharmacies offering Wegovy and Mounjaro. Transparent
@@ -102,16 +118,17 @@ const TopRatedPharmacies = () => {
         <div className="max-w-[1080px] mx-auto h-full">
           <Slider {...settings}>
             {pharmacies.map((pharmacy, index) => (
-              <div
-                key={index}
-                className="h-[100%] flex border border-gray-200 rounded-2xl shadow-md "
-              >
-                <div className="h-[100%] flex grow">
-                  <div className="bg-white min-h-[234px] 0 p-4 md:p-0 rounded-2xl  flex flex-col md:flex-row md:items-stretch md:justify-between w-full">
+              <div key={index}>
+                <div className="h-full flex border border-gray-200 rounded-2xl">
+                  <div className="bg-white min-h-[234px] p-4 md:p-0 rounded-2xl flex flex-col md:flex-row md:items-stretch md:justify-between w-full">
                     {/* Logo + Name */}
                     <div className="flex flex-col items-center justify-center text-center w-full md:w-[25%] h-full">
-                      <div className="w-[60px] h-[60px] sm:w-[70px] sm:h-[70px] rounded-full bg-gray-200 flex items-center justify-center text-sm text-gray-500">
-                        Logo
+                      <div className="sm:w-[100px] sm:h-[100px] rounded-full flex items-center justify-center text-sm text-gray-500">
+                        <img
+                          className="w-[80px] h-[80px]"
+                          src={pharmacy.img}
+                          alt=""
+                        />
                       </div>
                       <div className="text-sm sm:text-base font-semibold mt-2 text-gray-800">
                         {pharmacy.name}
@@ -161,7 +178,7 @@ const TopRatedPharmacies = () => {
                     <div className="w-full md:w-[25%] flex flex-col items-center justify-center md:items-end gap-4 text-center md:text-right h-full">
                       <div className="flex flex-col items-center gap-1 text-2xl font-semibold justify-center text-gray-800 w-full">
                         <div className="flex items-center gap-1">
-                          <FaStar className="text-yellow-400 text-3xl" />
+                          <FaStar className="text-[#02d68c] text-3xl" />
                           {pharmacy.trustPilot}
                         </div>
                         <p className="text-xs text-gray-400">Trust Pilot</p>

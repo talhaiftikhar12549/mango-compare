@@ -13,7 +13,6 @@ import { BsCalendarWeek } from "react-icons/bs";
 import { BiHealth } from "react-icons/bi";
 import { TbActivityHeartbeat, TbChartLine } from "react-icons/tb";
 import { LuBrain } from "react-icons/lu";
-import { FiMusic } from "react-icons/fi";
 import { FaHandsWash } from "react-icons/fa";
 import { BiSearchAlt, BiMapPin, BiDroplet, BiInjection } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
@@ -25,8 +24,6 @@ import {
 } from "react-icons/fa";
 import { AiFillHeart, AiOutlineWarning } from "react-icons/ai";
 import { MdReportProblem } from "react-icons/md";
-import { BiSolidInjection, BiMap, BiUser } from "react-icons/bi";
-import { FiClock, FiRepeat, FiBox } from "react-icons/fi";
 import { FaShieldAlt, FaUserMd, FaSyringe } from "react-icons/fa";
 import wegovyImage from "../assets/wegovy compare/wegovypen.webp";
 import { RiMedicineBottleLine } from "react-icons/ri";
@@ -34,7 +31,7 @@ import { FaUser } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { MdHealthAndSafety } from "react-icons/md";
 import fatwomanimage from "../assets/wegovy compare/healthlady.webp";
-import howwegovywork from "../assets/wegovy compare/wegovyschedule.webp";
+import howwegovywork from "../assets/wegovy compare/Wegovy dosage.webp";
 import wegovyuseguide from "../assets/wegovy compare/Wegovy Usage.webp";
 import consultingDoctor from "../assets/mounjaro compare/consulting doctor.webp";
 const WegovyCompare = () => {
@@ -485,16 +482,16 @@ const WegovyCompare = () => {
                 <img
                   src={howwegovywork}
                   alt="How Wegovy Works"
-                  className="w-full rounded-2xl shadow-lg object-cover h-96"
+                  className="w-full rounded-2xl shadow-lg object-cover h-[100%]"
                 />
-                <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
+                {/* <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-orange-600">
                       Wegovy
                     </div>
                     <div className="text-sm text-gray-600">Dose Schedule</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -807,7 +804,6 @@ const WegovyCompare = () => {
                 alt="wegovy guide sheet"
               />
             </div>
-            
           </div>
         </div>
       </section>

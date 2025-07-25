@@ -39,7 +39,7 @@ export const Home = () => {
       {/* why choose mango */}
 
       {/* Top reated pharmacy */}
-      <TopRatedPharmacies/>
+      <TopRatedPharmacies />
       {/* Top reated pharmacy */}
 
       {/* Home Dosage Plan */}
@@ -51,7 +51,7 @@ export const Home = () => {
       {/* How it work */}
 
       {/* Home Dosage Plan */}
-      <PharmacyPartner />
+      {/* <PharmacyPartner /> */}
       {/* Home Dosage Plan */}
 
       {/* Safety & Eligibility */}
@@ -61,7 +61,7 @@ export const Home = () => {
       {/* BMI Calculator */}
       <BMICalculator />
       {/* BMI Calculator */}
-      
+
       {/* Home Our Blog */}
       <HomeOurBlog />
       {/* Home Our Blog */}

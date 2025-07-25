@@ -9,14 +9,13 @@ import PriceCalculatorSkeleton from "./PriceCalculatorSkeleton";
 
 import { FaCheck, FaStethoscope } from "react-icons/fa";
 import { RiUserHeartLine } from "react-icons/ri";
-import { BsArrowRight } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { GiKnifeFork } from "react-icons/gi";
 import { BsCalendarWeek } from "react-icons/bs";
 import { BiHealth } from "react-icons/bi";
 import { TbActivityHeartbeat, TbChartLine } from "react-icons/tb";
 import { LuBrain } from "react-icons/lu";
-import { FiMusic } from "react-icons/fi";
+import mounjarocompareprice from "../assets/mounjaro compare/mounaro Dosage.webp";
 import { FaHandsWash } from "react-icons/fa";
 import { BiSearchAlt, BiMapPin, BiDroplet, BiInjection } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
@@ -28,21 +27,14 @@ import {
 } from "react-icons/fa";
 import { AiFillHeart, AiOutlineWarning } from "react-icons/ai";
 import { MdReportProblem } from "react-icons/md";
-import { BiSolidInjection, BiMap, BiUser } from "react-icons/bi";
-import { FiClock, FiRepeat, FiBox } from "react-icons/fi";
 import { FaShieldAlt, FaUserMd, FaSyringe } from "react-icons/fa";
-import wegovyImage from "../assets/wegovy compare/wegovyinjection.webp";
 import { RiMedicineBottleLine } from "react-icons/ri";
 import { FaUser } from "react-icons/fa";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { MdHealthAndSafety } from "react-icons/md";
 import fatwomanimage from "../assets/mounjaro compare/woman.webp";
 import mounjarouseUsage from "../assets/mounjaro compare/Mounjaro Usage.webp";
-import mounjarowork from "../assets/mounjaro compare/mounjarowork.webp";
-import mounjaroInjection from "../assets/mounjaro compare/mounjaroInjection.jpg";
-import mounjarocompareprice from "../assets/mounjaro compare/Mounjaroschedule.webp";
-import healthyman from "../assets/mounjaro compare/healthyman.jpg";
-import runningwoman from "../assets/mounjaro compare/ladyrunning.webp";
+import mounjaroInjection from "../assets/mounjaro compare/mounjaroInjection.webp";
 import consultingDoctor from "../assets/mounjaro compare/consulting doctor.webp";
 const MounjaroCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
@@ -261,7 +253,7 @@ const MounjaroCompare = () => {
     },
     {
       icon: <BsCalendarWeek className="text-2xl" />,
-      title: "Reduces Risk of Weight-Related Conditions",
+      title: "Reduces the risk of weight-related conditions",
       description:
         "Lowers the chances of heart disease, high blood pressure, and other complications.",
     },
@@ -467,14 +459,14 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                   alt="How Mounjaro Works"
                   className="w-full rounded-2xl shadow-lg object-cover h-[100%]"
                 />
-                <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
+                {/* <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
                   <div className="text-center">
                     <div className="text-3xl font-bold text-orange-600">
                       Mounjaro
                     </div>
                     <div className="text-sm text-gray-600">Dose Schedule</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -559,7 +551,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                   <FaStethoscope className="text-2xl text-white" />
                 </div>
                 <h3 className=" mb-6 !text-2xl !font-[600]">
-                  Why Consult with a healthcare provider?
+                  Why consult with a healthcare provider?
                 </h3>
               </div>
               {/* <h3 className="text-2xl font-bold text-gray-900 mb-6">
@@ -1032,7 +1024,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
             />
 
             <div className="absolute top-4 left-4 bg-white shadow-md px-4 py-2 rounded-lg">
-              <p className="text-orange-500 font-bold text-lg">15%</p>
+              <p className="text-orange-500 font-bold text-lg">22.5%</p>
               <p className="text-xs text-gray-600">Average Weight Loss</p>
             </div>
 

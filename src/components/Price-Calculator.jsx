@@ -344,11 +344,11 @@ export default function PriceCalculator({
                       </div>
                     </div>
                     <div className="w-[12%] hidden md:flex flex-col items-center gap-2 !justify-center">
-                      <p className="text-[#7e7f82]">strength</p>
+                      <p className="text-[#7e7f82]">Strength</p>
                       <p className="text-[16px] font-[600]">{srtdata.dosage}</p>
                     </div>
                     <div className="w-[15%] flex flex-col items-center gap-2 justify-center">
-                      <p className="text-[#7e7f82]">Price per Dosge</p>
+                      <p className="text-[#7e7f82]">Price / Dosage</p>
                       {discountedPrice ? (
                         srtdata.discount === null ? (
                           <p className="!text-[22px] font-[500]">
@@ -371,7 +371,7 @@ export default function PriceCalculator({
                       )}
                     </div>
                     <div className="w-[20%] md:w-[12%] md:hidden flex flex-col items-center gap-2 !justify-center">
-                      <p className="text-[#7e7f82]">strength</p>
+                      <p className="text-[#7e7f82]">Strength</p>
                       <p className="text-[16px] font-[600]">{srtdata.dosage}</p>
                     </div>
                     <div className="w-[25%] md:w-[20%] flex flex-col items-center gap-2  justify-center text-center capitalize">
