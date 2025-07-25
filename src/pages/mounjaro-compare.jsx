@@ -287,12 +287,11 @@ const MounjaroCompare = () => {
         const totalUniquePharmacies = Object.keys(pharmacyCounts).length + 1;
         setTotalPharmacy(totalUniquePharmacies);
 
-        // Sort alphabetically by pharmacy name
-        const apiDta = data
-          .slice()
-          .sort((a, b) => a.pharmacy.localeCompare(b.pharmacy));
+        // Sort alphabetically by ratting
+        const apiDta = data.slice().sort((a, b) => b.rating - a.rating);
 
         setApiDataM(apiDta);
+        console.log(apiDta);
       } catch (error) {
         console.log("Failed to fetch listings", error);
       }

@@ -16,6 +16,7 @@ export default function PriceCalculator({
   isResetter,
   totalPharmacy,
 }) {
+
   // Form detail
   const [discountedFilteredPrice, setDiscountedFilteredPrice] = useState([]);
   const [fullName, setFullName] = useState("");
@@ -90,7 +91,6 @@ export default function PriceCalculator({
   };
   useEffect(() => {
     toggleSortPrice();
-    console.log("Price Sorter:", priceSorter);
   }, [priceSorter]);
 
   const togglePharmacy = () => {
@@ -330,7 +330,12 @@ export default function PriceCalculator({
                           >
                             {srtdata.pharmacy}
                           </a>
-                          <div onClick={() => window.open(srtdata.tp_link, '_blank')} className="flex items-center cursor-pointer">
+                          <div
+                            onClick={() =>
+                              window.open(srtdata.tp_link, "_blank")
+                            }
+                            className="flex items-center cursor-pointer"
+                          >
                             <FaStar className="mb-1 mr-1 text-[#04DA8D]" />{" "}
                             <p className="font-semibold ">
                               {" "}

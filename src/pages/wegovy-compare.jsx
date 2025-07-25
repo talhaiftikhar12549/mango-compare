@@ -312,10 +312,8 @@ const WegovyCompare = () => {
         const totalUniquePharmacies = Object.keys(pharmacyCounts).length + 1;
         setTotalPharmacy(totalUniquePharmacies);
 
-        // Sort alphabetically by pharmacy name
-        const apiDta = data
-          .slice()
-          .sort((a, b) => a.pharmacy.localeCompare(b.pharmacy));
+        // Sort alphabetically by ratting name
+        const apiDta = data.slice().sort((a, b) => b.rating - a.rating);
 
         setApiDataM(apiDta);
       } catch (error) {
@@ -330,7 +328,9 @@ const WegovyCompare = () => {
       {/* meta tags */}
       <Helmet>
         {/* Meta Title */}
-        <title>Wegovy Price Comparison UK – Save on Weight Loss Treatment</title>
+        <title>
+          Wegovy Price Comparison UK – Save on Weight Loss Treatment
+        </title>
 
         {/* Meta Description */}
         <meta
@@ -342,10 +342,7 @@ const WegovyCompare = () => {
         <meta name="keywords" content="Wegovy Price Comparison UK" />
 
         {/* Custom Meta Tags */}
-        <meta
-          name="category"
-          content="Weight loss medications"
-        />
+        <meta name="category" content="Weight loss medications" />
 
         {/* Canonical URL */}
         <link

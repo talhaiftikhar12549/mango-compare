@@ -42,7 +42,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9011408",
       img: numan,
       ratting: review1,
-      link:"https://www.numan.com/weight-loss/mounjaro",
+      link: "https://www.numan.com/weight-loss/mounjaro",
     },
     {
       name: "The Care Pharmacy",
@@ -56,7 +56,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010308",
       img: care,
       ratting: review2,
-      link:"https://thecarepharmacy.com/condition/weight-loss/",
+      link: "https://thecarepharmacy.com/condition/weight-loss/",
     },
     {
       name: "Superdrug Online Doctor",
@@ -70,7 +70,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010736",
       img: superdrug,
       ratting: review4,
-      link:"https://onlinedoctor.superdrug.com/weight-loss-treatments.html",
+      link: "https://onlinedoctor.superdrug.com/weight-loss-treatments.html",
     },
     {
       name: "Pharmacy Planet",
@@ -84,7 +84,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010288",
       img: pharmacyPlanet,
       ratting: review1,
-      link:"https://www.pharmacyplanet.com/mounjaro.html",
+      link: "https://www.pharmacyplanet.com/mounjaro.html",
     },
     {
       name: "Simple Online Pharmacy",
@@ -98,7 +98,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/name/simple%20online%20pharmacy*",
       img: simpleonline,
       ratting: review3,
-      link:"https://www.simpleonlinepharmacy.co.uk/online-doctor/weight-loss/mounjaro/",
+      link: "https://www.simpleonlinepharmacy.co.uk/online-doctor/weight-loss/mounjaro/",
     },
   ];
 
@@ -151,7 +151,7 @@ const TopRatedPharmacies = () => {
                       </div>
                       <div className="w-full gap-1 flex justify-center items-center">
                         <MdVerifiedUser className="mt-2 text-[#02d68c]" />
-      
+
                         <a
                           target="_blank"
                           href={pharmacy.gphc}
@@ -203,13 +203,6 @@ const TopRatedPharmacies = () => {
 
                     {/* Rating + Button */}
                     <div className="w-full md:w-[25%] flex flex-col items-center justify-center md:items-end gap-4 text-center md:text-right h-full">
-                      {/* <div className="flex flex-col items-center gap-1 text-2xl font-semibold justify-center text-gray-800 w-full">
-                        <div className="flex items-center gap-1">
-                          <FaStar className="text-[#02d68c] text-3xl" />
-                          {pharmacy.trustPilot}
-                        </div>
-                        <p className="text-xs text-gray-400">Trust Pilot</p>
-                      </div> */}
                       <div className="flex flex-col items-center gap-1 text-2xl font-semibold justify-center text-gray-800 w-full">
                         <img
                           className="w-[200px]"
