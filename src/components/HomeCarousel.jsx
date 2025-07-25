@@ -28,6 +28,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9012214",
       img: peak,
       ratting: review1,
+      link: "https://www.peakpharmacy.co.uk/medications/Mounjaro",
     },
     {
       name: "Numan",
@@ -41,6 +42,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9011408",
       img: numan,
       ratting: review1,
+      link:"https://www.numan.com/weight-loss/mounjaro",
     },
     {
       name: "The Care Pharmacy",
@@ -54,6 +56,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010308",
       img: care,
       ratting: review2,
+      link:"https://thecarepharmacy.com/condition/weight-loss/",
     },
     {
       name: "Superdrug Online Doctor",
@@ -67,6 +70,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010736",
       img: superdrug,
       ratting: review4,
+      link:"https://onlinedoctor.superdrug.com/weight-loss-treatments.html",
     },
     {
       name: "Pharmacy Planet",
@@ -80,6 +84,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010288",
       img: pharmacyPlanet,
       ratting: review1,
+      link:"https://www.pharmacyplanet.com/mounjaro.html",
     },
     {
       name: "Simple Online Pharmacy",
@@ -93,6 +98,7 @@ const TopRatedPharmacies = () => {
       gphc: "https://www.pharmacyregulation.org/registers/pharmacy/name/simple%20online%20pharmacy*",
       img: simpleonline,
       ratting: review3,
+      link:"https://www.simpleonlinepharmacy.co.uk/online-doctor/weight-loss/mounjaro/",
     },
   ];
 
@@ -145,9 +151,14 @@ const TopRatedPharmacies = () => {
                       </div>
                       <div className="w-full gap-1 flex justify-center items-center">
                         <MdVerifiedUser className="mt-2 text-[#02d68c]" />
-                        <p className="text-xs text-gray-400 mt-3">
+      
+                        <a
+                          target="_blank"
+                          href={pharmacy.gphc}
+                          className="!text-xs text-gray-400 hover:text-[#02d68c] mt-3 cursor-pointer"
+                        >
                           GPhC Registered Pharmacy
-                        </p>
+                        </a>
                       </div>
                     </div>
 
@@ -209,7 +220,7 @@ const TopRatedPharmacies = () => {
                       <div className="w-full flex justify-center items-center">
                         <a
                           target="_blank"
-                          href={pharmacy.gphc}
+                          href={pharmacy.link}
                           className="bg-[#10b982] cursor-pointer hover:shadow-md text-white text-xs font-semibold px-10 py-2 rounded-md hover:bg-[#0fa776] transition-colors w-full sm:w-auto"
                         >
                           View Details
