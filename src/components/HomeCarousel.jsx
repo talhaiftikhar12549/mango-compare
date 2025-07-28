@@ -18,7 +18,9 @@ import api from "../services/api.js";
 
 const TopRatedPharmacies = () => {
   const [apiDataM, setApiDataM] = useState([]);
+  const [apiDataW, setApiDataW] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [definePharmacies, setDefinePharmacies] = useState([]);
 
   const targetPharmacies = [
     "Peak Pharmacy",
@@ -29,138 +31,209 @@ const TopRatedPharmacies = () => {
     "Simple Online Pharmacy",
   ];
 
-useEffect(() => {
-  const fetchListings = async () => {
-    try {
-      const response = await api.get("/medicine");
-      const allData = response.data.data;
-      console.log("Fetched pharmacy data:", allData);
+  useEffect(() => {
+    const fetchListings = async () => {
+      try {
+        const response = await api.get("/medicine");
+        const allData = response.data.data;
 
-      const filtered = [];
+        const filteredM = [];
+        const filteredW = [];
 
-      for (const pharmacy of targetPharmacies) {
-        const mounjaro = allData.find(
-          (item) =>
-            item.pharmacy === pharmacy &&
-            item.medicine === "Mounjaro" &&
-            item.dosage === "2.5 mg"
-        );
-console.log("Mounjaro data for pharmacy:", mounjaro); 
-        const wegovy = allData.find(
-          (item) =>
-            item.pharmacy === pharmacy &&
-            item.medicine === "Wegovy" &&
-            item.dosage === "0.25"
-        );
+        for (const pharmacy of targetPharmacies) {
+          const mounjaro = allData.find(
+            (item) =>
+              item.pharmacy === pharmacy &&
+              item.medicine === "Mounjaro" &&
+              item.dosage === "2.5 mg"
+          );
 
-        if (mounjaro && wegovy) {
-          filtered.push({
-            pharmacy,
-            mounjaroPrice: mounjaro.price,
-            wegovyPrice: wegovy.price,
-          });
+          if (mounjaro) {
+            filteredM.push({
+              pharmacy: mounjaro.pharmacy,
+              price: mounjaro.price,
+            });
+          }
         }
+        for (const pharmacy of targetPharmacies) {
+          const wegovy = allData.find(
+            (item) =>
+              item.pharmacy === pharmacy &&
+              item.medicine === "Wegovy" &&
+              item.dosage === "0.25 mg"
+          );
+
+          if (wegovy) {
+            filteredW.push({
+              pharmacy: wegovy.pharmacy,
+              price: wegovy.price,
+            });
+          }
+        }
+
+        setApiDataM(filteredM);
+        console.log("Mounjaro 2.5 mg prices:", filteredM);
+
+        setApiDataW(filteredW);
+        console.log("Wegovy 0.25 mg prices:", filteredW);
+      } catch (error) {
+        console.log("Failed to fetch listings", error);
+      } finally {
+        setLoading(false);
       }
+    };
 
-      setApiDataM(filtered);
-      console.log("Matched pharmacy data:", filtered);
-    } catch (error) {
-      console.log("Failed to fetch listings", error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchListings();
-}, []);
-
-
-  const pharmacies = [
-    {
-      name: "Peak Pharmacy",
-      rating: 4.5,
-      wegovy: "128.00",
-      mounjaro: "128.50",
-      deliveryFee: "£7.99",
-      deliveryTime: "Next working day (Cheaper delivery options available)",
-      maintenance: true,
-      trustPilot: "4.5/5",
-      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9012214",
-      img: peak,
-      ratting: review1,
-      link: "https://www.peakpharmacy.co.uk/medications/Mounjaro",
-    },
-    {
-      name: "Numan",
-      rating: 4.5,
-      wegovy: "169.00",
-      mounjaro: "209.00",
-      deliveryFee: "Free Delivery",
-      deliveryTime: "2 working days",
-      maintenance: true,
-      trustPilot: "4.5/5",
-      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9011408",
-      img: numan,
-      ratting: review1,
-      link: "https://www.numan.com/weight-loss/mounjaro",
-    },
-    {
-      name: "The Care Pharmacy",
-      rating: 5,
-      wegovy: "99.99",
-      mounjaro: "119.99",
-      deliveryFee: "Free",
-      deliveryTime: "Same day delivery",
-      maintenance: true,
-      trustPilot: "5/5",
-      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010308",
-      img: care,
-      ratting: review2,
-      link: "https://thecarepharmacy.com/condition/weight-loss/",
-    },
-    {
-      name: "Superdrug Online Doctor",
-      rating: 4.3,
-      wegovy: "195",
-      mounjaro: "215",
-      deliveryFee: "£3.99",
-      deliveryTime: "Next Day (Free delivery options with extended times)",
-      maintenance: true,
-      trustPilot: "4.3/5",
-      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010736",
-      img: superdrug,
-      ratting: review4,
-      link: "https://onlinedoctor.superdrug.com/weight-loss-treatments.html",
-    },
-    {
-      name: "Pharmacy Planet",
-      rating: 4.5,
-      wegovy: "119.00",
-      mounjaro: "128.00",
-      deliveryFee: "£4.99",
-      deliveryTime: "Within a week",
-      maintenance: true,
-      trustPilot: "4.5/5",
-      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010288",
-      img: pharmacyPlanet,
-      ratting: review1,
-      link: "https://www.pharmacyplanet.com/mounjaro.html",
-    },
-    {
-      name: "Simple Online Pharmacy",
-      rating: 4.7,
-      wegovy: "118.98",
-      mounjaro: "128.98",
-      deliveryFee: "£6.49",
-      deliveryTime: "1 working day",
-      maintenance: true,
-      trustPilot: "4.7/5",
-      gphc: "https://www.pharmacyregulation.org/registers/pharmacy/name/simple%20online%20pharmacy*",
-      img: simpleonline,
-      ratting: review3,
-      link: "https://www.simpleonlinepharmacy.co.uk/online-doctor/weight-loss/mounjaro/",
-    },
-  ];
+    fetchListings();
+  }, []);
+  let pharmacies = [];
+  if (apiDataM.lenght !== 0 && apiDataW.lenght !== 0) {
+    pharmacies = [
+      {
+        name: "Peak Pharmacy",
+        rating: 4.5,
+        wegovy: () => {
+          const wegovyPrice = apiDataW.find(
+            (item) => item.pharmacy === "Peak Pharmacy"
+          );
+          return wegovyPrice ? wegovyPrice.price : "--";
+        },
+        mounjaro: () => {
+          const MounjaroPrice = apiDataM.find(
+            (item) => item.pharmacy === "Peak Pharmacy"
+          );
+          return MounjaroPrice ? MounjaroPrice.price : "--";
+        },
+        deliveryFee: "£7.99",
+        deliveryTime: "Next working day (Cheaper delivery options available)",
+        maintenance: true,
+        trustPilot: "4.5/5",
+        gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9012214",
+        img: peak,
+        ratting: review1,
+        link: "https://www.peakpharmacy.co.uk/medications/Mounjaro",
+      },
+      {
+        name: "Numan",
+        rating: 4.5,
+        wegovy: () => {
+          const wegovyPrice = apiDataW.find(
+            (item) => item.pharmacy === "Numan"
+          );
+          return wegovyPrice ? wegovyPrice.price : "--";
+        },
+        mounjaro: () => {
+          const MounjaroPrice = apiDataM.find(
+            (item) => item.pharmacy === "Numan"
+          );
+          return MounjaroPrice ? MounjaroPrice.price : "--";
+        },
+        deliveryFee: "Free Delivery",
+        deliveryTime: "2 working days",
+        maintenance: true,
+        trustPilot: "4.5/5",
+        gphc: "https://www.pharmacyregulation.org/registers/pharmacy/9011408",
+        img: numan,
+        ratting: review1,
+        link: "https://www.numan.com/weight-loss/mounjaro",
+      },
+      {
+        name: "The Care Pharmacy",
+        rating: 5,
+        wegovy: () => {
+          const wegovyPrice = apiDataW.find(
+            (item) => item.pharmacy === "The Care Pharmacy"
+          );
+          return wegovyPrice ? wegovyPrice.price : "--";
+        },
+        mounjaro: () => {
+          const MounjaroPrice = apiDataM.find(
+            (item) => item.pharmacy === "The Care Pharmacy"
+          );
+          return MounjaroPrice ? MounjaroPrice.price : "--";
+        },
+        deliveryFee: "Free",
+        deliveryTime: "Same day delivery",
+        maintenance: true,
+        trustPilot: "5/5",
+        gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010308",
+        img: care,
+        ratting: review2,
+        link: "https://thecarepharmacy.com/condition/weight-loss/",
+      },
+      {
+        name: "Superdrug Online Doctor",
+        rating: 4.3,
+        wegovy: () => {
+          const wegovyPrice = apiDataW.find(
+            (item) => item.pharmacy === "Superdrug Online Doctor"
+          );
+          return wegovyPrice ? wegovyPrice.price : "--";
+        },
+        mounjaro: () => {
+          const MounjaroPrice = apiDataM.find(
+            (item) => item.pharmacy === "Superdrug Online Doctor"
+          );
+          return MounjaroPrice ? MounjaroPrice.price : "--";
+        },
+        deliveryFee: "£3.99",
+        deliveryTime: "Next Day (Free delivery options with extended times)",
+        maintenance: true,
+        trustPilot: "4.3/5",
+        gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010736",
+        img: superdrug,
+        ratting: review4,
+        link: "https://onlinedoctor.superdrug.com/weight-loss-treatments.html",
+      },
+      {
+        name: "Pharmacy Planet",
+        rating: 4.5,
+        wegovy: () => {
+          const wegovyPrice = apiDataW.find(
+            (item) => item.pharmacy === "Pharmacy Planet"
+          );
+          return wegovyPrice ? wegovyPrice.price : "--";
+        },
+        mounjaro: () => {
+          const MounjaroPrice = apiDataM.find(
+            (item) => item.pharmacy === "Pharmacy Planet"
+          );
+          return MounjaroPrice ? MounjaroPrice.price : "--";
+        },
+        deliveryFee: "£4.99",
+        deliveryTime: "Within a week",
+        maintenance: true,
+        trustPilot: "4.5/5",
+        gphc: "https://www.pharmacyregulation.org/registers/pharmacy/registrationnumber/9010288",
+        img: pharmacyPlanet,
+        ratting: review1,
+        link: "https://www.pharmacyplanet.com/mounjaro.html",
+      },
+      {
+        name: "Simple Online Pharmacy",
+        rating: 4.7,
+        wegovy: () => {
+          const wegovyPrice = apiDataW.find(
+            (item) => item.pharmacy === "Simple Online Pharmacy"
+          );
+          return wegovyPrice ? wegovyPrice.price : "--";
+        },
+        mounjaro: () => {
+          const MounjaroPrice = apiDataM.find(
+            (item) => item.pharmacy === "Simple Online Pharmacy"
+          );
+          return MounjaroPrice ? MounjaroPrice.price : "--";
+        },
+        deliveryFee: "£6.49",
+        deliveryTime: "1 working day",
+        maintenance: true,
+        trustPilot: "4.7/5",
+        gphc: "https://www.pharmacyregulation.org/registers/pharmacy/name/simple%20online%20pharmacy*",
+        img: simpleonline,
+        ratting: review3,
+        link: "https://www.simpleonlinepharmacy.co.uk/online-doctor/weight-loss/mounjaro/",
+      },
+    ];
+  }
 
   const settings = {
     dots: true,
@@ -228,13 +301,13 @@ console.log("Mounjaro data for pharmacy:", mounjaro);
                         <div className="flex flex-col justify-center items-center gap-2 bg-[#f49e0b] px-6 py-6 w-[50%]">
                           <p className="text-white text-lg">Wegovy</p>
                           <p className="font-semibold text-white text-lg">
-                            £{pharmacy.wegovy}
+                            £{pharmacy.wegovy()}
                           </p>
                         </div>
                         <div className="flex gap-2 flex-col justify-center items-center bg-[#10b982] px-6 py-6 w-[50%]">
                           <p className="text-white text-lg">Mounjaro</p>
                           <p className="font-semibold text-white text-lg">
-                            £{pharmacy.mounjaro}
+                            £{pharmacy.mounjaro()}
                           </p>
                         </div>
                       </div>
