@@ -35,11 +35,21 @@ import howwegovywork from "../assets/wegovy compare/Wegovy dosage.webp";
 import wegovyuseguide from "../assets/wegovy compare/Wegovy Usage.webp";
 import consultingDoctor from "../assets/mounjaro compare/consulting doctor.webp";
 import { Helmet } from "react-helmet";
+import { useLocation } from "react-router-dom";
 const WegovyCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
   const navigate = useNavigate();
+  const location = useLocation();
 
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
   const goToContactSection = () => {
     navigate("/#bmicalculator");
   };
@@ -312,7 +322,6 @@ const WegovyCompare = () => {
         const totalUniquePharmacies = Object.keys(pharmacyCounts).length + 1;
         setTotalPharmacy(totalUniquePharmacies);
 
-        // Sort alphabetically by ratting name
         const apiDta = data.slice().sort((a, b) => b.rating - a.rating);
 
         setApiDataM(apiDta);
@@ -545,10 +554,10 @@ const WegovyCompare = () => {
             {/* Eligibility Criteria Card */}
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
               <div className="w-full flex gap-3 items-center">
-                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 aspect-square bg-orange-600 rounded-full flex items-center justify-center shrink-0 mb-6">
                   <RiUserHeartLine className="text-2xl text-white" />
                 </div>
-                <h3 className=" mb-6 !text-2xl !font-[600]">
+                <h3 className="mb-6 !text-xl md:!text-2xl !font-[600]">
                   Wegovy Eligibility Criteria
                 </h3>
               </div>
@@ -605,10 +614,10 @@ const WegovyCompare = () => {
             {/* Consultation Card */}
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
               <div className="w-full flex gap-3 items-center">
-                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 aspect-square bg-orange-600 rounded-full flex items-center justify-center shrink-0 mb-6">
                   <FaStethoscope className="text-2xl text-white" />
                 </div>
-                <h3 className=" mb-6 !text-2xl !font-[600]">
+                <h3 className="mb-6 !text-xl md:!text-2xl !font-[600]">
                   How Medical Consultation Can Help?
                 </h3>
               </div>

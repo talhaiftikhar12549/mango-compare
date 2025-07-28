@@ -6,6 +6,7 @@ import { MdVerified } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 import { RiDiscountPercentFill } from "react-icons/ri";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 export default function DosagePlan() {
   const mVal = useSelector((state) => state.compareTool.manjaroLowest);
   const wVal = useSelector((state) => state.compareTool.wegovyLowest);
@@ -18,6 +19,14 @@ export default function DosagePlan() {
     }, 100); // Delay to trigger fade animation
     return () => clearTimeout(timeout);
   }, [activeTab]);
+  const navigate = useNavigate();
+
+  const goToContactSection = () => {
+    navigate("/mounjaro-compare#pricecalculatorwegovy");
+  };
+  const goToContactSectionwegovy = () => {
+    navigate("/wegovy-compare#pricecalculatorwegovy");
+  };
   return (
     <>
       <section
@@ -165,11 +174,14 @@ export default function DosagePlan() {
                         <span className="font-bold">GPhc-registered </span>
                         pharmacies in UK
                       </div>
-                      <NavLink to="/mounjaro-compare">
-                        <button className="bg-[rgb(16_185_129)] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
-                          Compare Mounjaro Prices
-                        </button>
-                      </NavLink>
+                      {/* <NavLink to="/mounjaro-compare"> */}
+                      <button
+                        onClick={goToContactSection}
+                        className="bg-[rgb(16_185_129)] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition"
+                      >
+                        Compare Mounjaro Prices
+                      </button>
+                      {/* </NavLink> */}
                     </div>
                     <div className="mt-6 text-center">
                       <p className="text-xs text-gray-400">
@@ -209,11 +221,14 @@ export default function DosagePlan() {
                         <span className="font-bold">GPhc-registered </span>
                         pharmacies in UK
                       </div>
-                      <NavLink to="/wegovy-compare">
-                        <button className="bg-[#ee9c25] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition">
-                          Compare Wegovy Prices
-                        </button>
-                      </NavLink>
+                      {/* <NavLink to="/mounjaro-compare#pricecalculatorwegovy"> */}
+                      <button
+                        onClick={goToContactSectionwegovy}
+                        className="bg-[#ee9c25] cursor-pointer text-white w-full py-2 rounded-full font-semibold shadow-md hover:shadow-lg transition"
+                      >
+                        Compare Wegovy Prices
+                      </button>
+                      {/* </NavLink> */}
                     </div>
                     <div className="mt-6 text-center">
                       <p className="text-xs text-gray-400">
