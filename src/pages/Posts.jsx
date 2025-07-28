@@ -5,6 +5,7 @@ import { PostsCard } from "../components/Forums/PostsCard";
 import ForumPageSkeleton from "../components/ForumPageSkeleton";
 import { IoClose } from "react-icons/io5";
 import { useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
 
 export default function Posts() {
   const [posts, setPosts] = useState([]);
@@ -12,8 +13,12 @@ export default function Posts() {
   const [isLoading, setIsLoading] = useState(true);
   const [newPost, setNewPost] = useState({ title: "", body: "" });
 
-  const getSelectedCategory = useSelector((state) => state.forums.selectedCategory);
-  const getSelectedCommunity = useSelector((state) => state.forums.selectedCommunity);
+  const getSelectedCategory = useSelector(
+    (state) => state.forums.selectedCategory
+  );
+  const getSelectedCommunity = useSelector(
+    (state) => state.forums.selectedCommunity
+  );
 
   const { user } = useAuth();
 
@@ -26,8 +31,8 @@ export default function Posts() {
     { value: "News & Research", label: "News & Research" },
   ];
 
-   const getSearch = useSelector((state) => state.forums.search);
-   
+  const getSearch = useSelector((state) => state.forums.search);
+
   useEffect(() => {
     fetchPosts();
   }, [getSearch, getSelectedCategory?.value, getSelectedCommunity]);
@@ -69,9 +74,27 @@ export default function Posts() {
   };
 
   return (
+    <>
+      <Helmet>
+        {/* Meta Title */}
+        <title>Mango Compare Forum – User Discussions on Mounjaro & Wegovy in the UK</title>
+        {/* Meta Description */}
+        <meta
+          name="description"
+          content="Join the Mango Compare forum community to share experiences, ask questions, and read real user discussions about GP‑prescribed weight‑loss injections like Mounjaro and Wegovy in the UK."
+        />
+        {/* Focused Keyphrase (as keyword) */}
+        <meta
+          name="keywords"
+          content="Mounjaro Wegovy forum UK"
+        />
+        {/* Custom Meta Tags */}
+        <meta name="category" content="Weight Loss Injections Forum, Wegovy & Mounjaro Forum" />
+
+        <link rel="canonical" href="https://mangocompare.co.uk/posts" />
+      </Helmet>
       <div className="w-full lg:px-[40px] xl:px-0 px-[16px]">
         <div className="w-full flex flex-col md:flex-row space-x-0 md:space-x-5 py-10 relative">
-
           {/* Right panel: posts section */}
           <div className="w-full space-y-4 flex flex-col items-center">
             <div className="flex justify-end w-full mb-6">
@@ -218,9 +241,8 @@ export default function Posts() {
               </div>
             </div>
           </>
-
-          //
         )}
       </div>
+    </>
   );
 }
