@@ -276,7 +276,7 @@ export default function PriceCalculator({
               filterBar ? "md:w-[75%]" : "w-[100%]"
             }`}
           >
-            {/* <div className="flex w-full justify-between">
+            <div className="flex flex-col lg:flex-row gap-2 w-full justify-between">
               <div>
                 <h3 className="!text-[24px] !pt-[0px] !font-[700]">
                   Compare Real-Time Prices from UK Pharmacies
@@ -297,7 +297,7 @@ export default function PriceCalculator({
                   </span>
                 </div>
               </div>
-            </div> */}
+            </div>
             {/* card section */}
             <div>
               <>

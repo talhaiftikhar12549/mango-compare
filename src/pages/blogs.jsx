@@ -3,6 +3,7 @@ import api from "../services/api.js";
 import { useState, useEffect } from "react";
 import BlogSkeleton from "../pages/blogSkeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import { Helmet } from "react-helmet";
 const Blogs = () => {
   const [apiDataB, setApiDataB] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -36,7 +37,24 @@ const Blogs = () => {
 
   return (
     <>
-      
+      <Helmet>
+        {/* Meta Title */}
+        <title>Our Blog - Mango Compare UK</title>
+        {/* Meta Description */}
+        <meta
+          name="description"
+          content="Explore Mango Compare’s blog for expert insights on GP‑prescribed weight loss medications like Mounjaro and Wegovy, cost comparisons, cost‑saving tips, and the latest health news."
+        />
+        {/* Focused Keyphrase (as keyword) */}
+        <meta
+          name="keywords"
+          content="Mounjaro and Wegovy news and tips"
+        />
+        {/* Custom Meta Tags */}
+        <meta name="category" content="Weight Loss News and Tips" />
+
+        <link rel="canonical" href="https://mangocompare.co.uk/blogs" />
+      </Helmet>
       <div className="max-w-[1280px] w-[100%] custom-width lg:px-[40px] xl:px-0 px-[16px] flex flex-col items-start justify-start">
         {/* HERO SECTION  */}
         <div className="w-full flex flex-col text-center py-10 space-y-2">
