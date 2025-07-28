@@ -242,7 +242,7 @@ export default function PriceCalculator({
   return (
     <>
       <section className="max-w-[1280px] custom-width lg:px-[40px] xl:px-0 px-[16px] mx-auto md:py-[50px] py-[40px] w-[100%]">
-        <div className="flex md:hidden pb-2">
+        <div className="flex lg:hidden pb-2">
           <div
             onClick={filterBarHandler}
             className="py-[14px] w-[101.27px] font-semibold px-[8px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] hover:text-[#ffffff] text-[14px] hover:bg-white transition duration-700 cursor-pointer"
@@ -251,7 +251,7 @@ export default function PriceCalculator({
           </div>
         </div>
         <div className="flex w-[100%]">
-          <div className="hidden md:block w-[25%] pr-[20px]">
+          <div className="hidden lg:block w-[25%] pr-[20px]">
             <FilterBar
               availableDoasge={availableDoasge}
               maxVal={MaxValue()}
@@ -260,7 +260,7 @@ export default function PriceCalculator({
             />
           </div>
           {filterBar && (
-            <div className="fixed md:static top-0 left-0 z-50 md:hidden w-[100%] pr-[20px]">
+            <div className="fixed md:static top-0 left-0 z-50 lg:hidden w-[100%] pr-[20px]">
               <FilterBar
                 closeFilter={filterBarHandler}
                 availableDoasge={availableDoasge}
@@ -272,7 +272,7 @@ export default function PriceCalculator({
           )}
 
           <div
-            className={`w-full md:w-[75%] ${
+            className={`w-full lg:w-[75%] ${
               filterBar ? "md:w-[75%]" : "w-[100%]"
             }`}
           >
@@ -304,30 +304,34 @@ export default function PriceCalculator({
                 {pageData.map((srtdata) => (
                   <div
                     key={srtdata._id}
-                    className={`flex flex-col sm:flex-row w-full py-[10px] my-5 border-2  rounded-lg px-[10px] text-[#05222E] text-[14px] transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl  font-[400] ${
+                    className={`flex flex-col md:flex-row w-full py-[10px] my-5 border-2  rounded-lg px-[10px] text-[#05222E] text-[14px] transform transition duration-300 ease-in-out hover:-translate-y-1 hover:shadow-xl  font-[400] ${
                       discountedPrice && srtdata.discount
                         ? "bg-[#fff9eb] border-[#ff700077]"
                         : "bg-white border-[#eae6e2] border-opacity-10 hover:border-[#ff6a0055]"
                     }`}
                   >
-                    <div className="w-[100%] md:w-[35%] flex items-center justify-start">
-                      <div className="flex flex-col  md:flex-row min-h-[102px] justify-center md:justify-start md:items-center gap-2 md:gap-[20px]">
+                    <div className="md:w-[35%] flex items-center justify-between">
+                      <div className="flex flex-col w-[100%] lg:w-auto md:flex-row min-h-[102px]  !2xl:justify-start md:items-center gap-2 md:gap-[20px]">
                         {srtdata.pharmacyLogo == "" ? (
-                          <img src={Img} alt="Pharmacy logo" />
+                          <img
+                            className="w-[100px]"
+                            src={Img}
+                            alt="Pharmacy logo"
+                          />
                         ) : (
-                          <div className="flex w-[100%] items-center md:justify-start justify-between">
+                          <div className="flex gap-3 items-center !md:justify-start justify-between">
                             <img
-                              className="w-[100px] md:w-[100px] "
+                              className="min-w-[100px] w-[100px]"
                               src={srtdata.pharmacyLogo}
                               alt="Pharmacy logo"
                             />
-                            <div className="w-[100%] md:w-[18%] block md:hidden  flex items-center justify-end cursor-pointer relative group">
+                            <div className=" md:w-[18%] block md:hidden  flex items-center justify-end cursor-pointer relative group">
                               {srtdata.discount == null ? (
                                 <a
                                   href={srtdata.website}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="py-[14px] w-[100%] md:w-auto text-center font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px]  text-[12px]  hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
+                                  className=" w-[100%] md:w-auto text-center font-semibold text-orange-500 xl:px-[24px] border-b  text-[12px]  hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
                                 >
                                   Visit Pharmacy
                                   <span className="sr-only">
@@ -337,7 +341,7 @@ export default function PriceCalculator({
                               ) : discountedPrice ? (
                                 <div
                                   onClick={() => openDiscountModal(srtdata._id)}
-                                  className="py-[14px] w-[100%] md:w-auto text-center font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] text-[#FCCFFFFFF821] hover:text-[#ffffff] transition duration-700 cursor-pointer"
+                                  className=" w-[100%] md:w-auto text-center font-semibold text-orange-500 xl:px-[24px] border-b text-[12px] text-[#FCCFFFFFF821] hover:text-[#ffffff] transition duration-700 cursor-pointer"
                                 >
                                   Discount Info
                                 </div>
@@ -346,7 +350,7 @@ export default function PriceCalculator({
                                   href={srtdata.website}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="py-[14px] w-[100%] md:w-auto text-center  font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
+                                  className=" w-[100%] md:w-auto text-center  font-semibold text-orange-500 xl:px-[24px] border-b text-[12px] hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
                                 >
                                   Visit Pharmacy
                                   <span className="sr-only">
@@ -481,40 +485,48 @@ export default function PriceCalculator({
                     </div>
                     <div className="w-[100%] md:w-[12%] hidden md:flex flex-col items-center gap-2 !justify-center">
                       <p className="text-[#7e7f82]">Strength</p>
-                      <p className="text-[16px] font-[600]">{srtdata.dosage}</p>
+                      <p className="!text-[12px] lg:!text-[14px] font-[600]">
+                        {srtdata.dosage}
+                      </p>
                     </div>
-                    <div className="w-[100%] md:w-[15%] flex md:flex-col  items-center gap-2 md:justify-center">
-                      <p className="text-[#7e7f82]">Price / Dosage</p>
+                    <div className="text-[16px] w-[100%] md:w-[15%] flex md:flex-col items-center gap-1 md:gap-2 justify-between md:justify-center">
+                      <p className="text-[14px] text-[#7e7f82]">
+                        Price / Dosage
+                      </p>
                       {discountedPrice ? (
                         srtdata.discount === null ? (
-                          <p className="!text-[22px] font-[500]">
-                            £ {srtdata.price}
-                          </p>
+                          <p className=" font-[500]">£ {srtdata.price}</p>
                         ) : (
                           <>
-                            <p className="ml-2 !text-[24px] font-[700] text-[#000000]">
-                              £ {srtdata.discount}
-                            </p>
-                            <p className="line-through !text-[16px] font-[600] text-[#cccccc] relative after:content-[''] after:absolute after:left-0 after:right-0 after:top-1/2 after:h-[2px] after:bg-[#cccccc] after:-translate-y-1/2">
-                              £ {srtdata.price}
-                            </p>
+                            <div className="flex flex-row md:flex-col items-center gap-2">
+                              <p className="text-[18px] font-[700] text-[#000000]">
+                                £ {srtdata.discount}
+                              </p>
+                              <p className="line-through !text-[16px] font-[600] text-[#cccccc] relative after:content-[''] after:absolute after:left-0 after:right-0 after:top-1/2 after:h-[2px] after:bg-[#cccccc] after:-translate-y-1/2">
+                                £ {srtdata.price}
+                              </p>
+                            </div>
                           </>
                         )
                       ) : (
-                        <p className="ml-2 !text-[22px] font-[700] text-[#000000]">
+                        <p className="ml-2 text-[18px] font-[700] text-[#000000]">
                           £ {srtdata.price}
                         </p>
                       )}
                     </div>
-                    <div className="w-[100%] md:w-[12%] md:hidden flex flex-row md:flex-col items-center gap-2 md:!justify-center">
+                    <div className="w-[100%] md:w-[12%] md:hidden flex flex-row md:flex-col items-center gap-2 justify-between">
                       <p className="text-[#7e7f82]">Strength</p>
-                      <p className="text-[16px] font-[600]">{srtdata.dosage}</p>
+                      <p className="!text-[12px] lg:!text-[14px] font-[600]">
+                        {srtdata.dosage}
+                      </p>
                     </div>
-                    <div className="w-[100%] md:w-[20%] flex md:flex-col items-center gap-2  md:justify-center text-center capitalize">
+                    <div className="w-[100%] md:w-[20%] flex md:flex-col items-center gap-2 md:justify-center justify-between capitalize">
                       <p className="text-[#7e7f82]">Delivery Fee</p>
-                      <p className="font-[600]">{srtdata.delivery_fee}</p>
+                      <p className="font-[600] text-end md:text-center !text-[12px] lg:!text-[14px]">
+                        {srtdata.delivery_fee}
+                      </p>
                     </div>
-                    <div className="w-[100%%] md:w-[18%] hidden md:block flex items-center md:justify-center cursor-pointer relative group">
+                    <div className="w-[100%] md:w-[18%] hidden md:flex items-center md:justify-center cursor-pointer relative group">
                       {srtdata.discount == null ? (
                         <a
                           href={srtdata.website}
@@ -537,7 +549,7 @@ export default function PriceCalculator({
                           href={srtdata.website}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="py-[14px] w-[100%] md:w-auto text-center  font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
+                          className="py-[14px] w-[100%] md:w-auto flex justify-center items-center text-center font-semibold px-[7px] xl:px-[24px] bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 rounded-[10px] text-[12px] hover:text-[#FFFFFF] hover:bg-white transition duration-700 cursor-pointer"
                         >
                           Visit Pharmacy
                           <span className="sr-only">{srtdata.pharmacy}</span>

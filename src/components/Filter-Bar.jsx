@@ -20,7 +20,7 @@ export default function FilterBar({
   };
 
   return (
-    <div className="w-screen md:w-full bg-black/60 md:bg-transparent h-screen md:h-full px-4 pt-10 md:pt-0 overflow-y-auto">
+    <div className="w-screen md:w-full bg-black/60 md:bg-transparent h-screen md:h-full px-0 xl:px-4 pt-10 md:pt-0 overflow-y-auto">
       <section className="w-[100%] mb-8">
         <div className="w-full flex md:hidden justify-end items-center ">
           <div className="w-10 h-10 border rounded-lg flex items-center justify-center bg-[#ff6900]">

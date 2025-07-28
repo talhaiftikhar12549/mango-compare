@@ -363,15 +363,17 @@ const WegovyCompare = () => {
       />
 
       {/* price calculator */}
-      <div
+      {/* <div
         ref={contactRef}
         id="pricecalculatorwegovy"
         className="w-full overflow-x-auto"
-      >
+      > */}
+      <div ref={contactRef} id="pricecalculatorwegovy" className="w-full">
         {loading ? (
           <PriceCalculatorSkeleton />
         ) : (
-          <div className="min-w-[1024px]">
+          <div className="">
+            {/* <div className="min-w-[1024px]"> */}
             <PriceCalculator
               maindata={apiDataM}
               availableDoasge={availableDoasge}

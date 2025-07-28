@@ -7,7 +7,7 @@ import {
 } from "../redux toolkit/compareToolSlice";
 import { Range } from "react-range";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
-import { BsCurrencyDollar } from "react-icons/bs";
+import { FaPoundSign } from "react-icons/fa";
 import { MdPercent } from "react-icons/md";
 import { PiArrowsDownUpBold } from "react-icons/pi";
 
@@ -75,7 +75,7 @@ const PriceFilter = ({ maxVal, minValue, isReset }) => {
       <div className="w-[100%] my-2 rounded-lg px-[20px] pb-[38px] pt-[24px] bg-white space-y-4 border-2 border-[#DCDCDC] hover:border-orange-200 ">
         <div className="flex items-center justify-between">
           <div className="flex justify-center items-center gap-1 xl:gap-3">
-            <BsCurrencyDollar className="text-[#f97215] mt-1 text-xl !font-[700]" />
+            <FaPoundSign className="text-[#f97215] mt-1 text-xl !font-[700]" />
             <h2 className="!text-[13px] xl:!text-lg font-semibold">
               Price Range
             </h2>
