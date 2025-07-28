@@ -51,7 +51,7 @@ createRoot(document.getElementById("root")).render(
               </Route>
 
               <Route
-              path="/admin"
+                path="/admin"
                 element={
                   <ProtectedRoute allowedRoles={["admin"]}>
                     <AdminDashLayout />
@@ -63,13 +63,7 @@ createRoot(document.getElementById("root")).render(
                 <Route path="create-blog" element={<CreateBlogForm />} />
               </Route>
 
-              <Route
-                element={
-                  <ProtectedRoute>
-                    <ForummLayout />
-                  </ProtectedRoute>
-                }
-              >
+              <Route element={<ForummLayout />}>
                 <Route path="/posts" element={<Posts />} />
                 <Route path="/posts/:id" element={<PostDetail />} />
               </Route>

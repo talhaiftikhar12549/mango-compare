@@ -6,10 +6,12 @@ import { FaMessage } from "react-icons/fa6";
 import { TbArrowBigUpFilled } from "react-icons/tb";
 import api from "../../services/api";
 import { GoDotFill } from "react-icons/go";
+import { useAuth } from "../../context/AuthContext";
 export const PostsCard = ({ post, fetchPosts }) => {
   const [loadingVotes, setLoadingVotes] = useState({});
 
   const navigate = useNavigate();
+   const { user } = useAuth();
 
   const handleCopy = (postId) => {
     const url = `${window.location.origin}/posts/${postId}`;
@@ -104,7 +106,7 @@ export const PostsCard = ({ post, fetchPosts }) => {
             <TbArrowBigUpFilled /> <p>{post.upvotes?.length || 0}</p>
           </div>
           <div
-            onClick={() => navigate(`/posts/${post._id}`)}
+            onClick={() => {user ? navigate(`/posts/${post._id}`) : navigate(`/login`)}}
             className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-orange-500 transition-colors duration-300 ease-in-out"
           >
             <FaMessage /> <p>{post.commentsCount || 0}</p>

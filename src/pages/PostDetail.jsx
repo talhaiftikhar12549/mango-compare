@@ -261,7 +261,7 @@ if (!post) return <ForumPostSkeleton />;
               <div className="mt-2 flex space-x-2">
                 <button
                   onClick={handleEditSubmit}
-                  className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-[#0045acf1] disabled:opacity-50 cursor-pointer"
+                  className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-orange-500 disabled:opacity-50 cursor-pointer"
                 >
                   Save
                 </button>
@@ -283,26 +283,26 @@ if (!post) return <ForumPostSkeleton />;
               <div
                 disabled={loadingVotes[`post-upvote`]}
                 onClick={() => handleVote(post._id, "upvote")}
-                className="flex items-center space-x-3 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px]  hover:text-[#FCC821] transition-colors duration-300 ease-in-out "
+                className="flex items-center space-x-3 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px]  hover:text-orange-500 transition-colors duration-300 ease-in-out "
               >
                 <TbArrowBigUpFilled /> <p>{post.upvotes?.length || 0}</p>
               </div>
               <div
                 disabled={loadingVotes[`post-downvote`]}
                 onClick={() => handleVote(post._id, "downvote")}
-                className="flex items-center space-x-3 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px]  hover:text-[#FCC821] transition-colors duration-300 ease-in-out "
+                className="flex items-center space-x-3 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px]  hover:text-orange-500 transition-colors duration-300 ease-in-out "
               >
                 <TbArrowBigDownFilled /> <p>{post.downvotes?.length || 0}</p>
               </div>
               <div
-                onClick={() => navigate(`/posts/${post._id}`)}
-                className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
+                onClick={() => {!user && navigate(`/login`)}}
+                className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-orange-500 transition-colors duration-300 ease-in-out"
               >
                 <FaMessage /> <p>{post.commentsCount || 0}</p>
               </div>
               <div
                 onClick={() => handleCopy(post._id)}
-                className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out"
+                className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-orange-500 transition-colors duration-300 ease-in-out"
               >
                 <IoArrowRedoSharp />
                 <p>Share</p>
@@ -310,7 +310,7 @@ if (!post) return <ForumPostSkeleton />;
             </div>
     
             <div className="border-b border-gray-300 pb-6 mb-6"></div>
-            <div className="relative">
+            {user && <div className="relative">
               <textarea
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
@@ -333,12 +333,12 @@ if (!post) return <ForumPostSkeleton />;
                 <button
                   type="submit"
                   disabled={submittingComment}
-                  className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-[#0045acf1] disabled:opacity-50 cursor-pointer"
+                  className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-orange-500 disabled:opacity-50 cursor-pointer"
                 >
                   {submittingComment ? "Posting..." : "Comment"}
                 </button>
               </div>
-            </div>
+            </div> }
           </form>
     
           {/* Comments */}
@@ -367,7 +367,7 @@ if (!post) return <ForumPostSkeleton />;
                     <div className="mt-2 flex space-x-2">
                       <button
                         onClick={handleEditCommentSubmit}
-                        className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-[#0045acf1] disabled:opacity-50 cursor-pointer"
+                        className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-orange-500 disabled:opacity-50 cursor-pointer"
                       >
                         Save
                       </button>
@@ -386,12 +386,12 @@ if (!post) return <ForumPostSkeleton />;
                 {/* edit delete reply collapse comments  */}
                 <div className="flex items-center justify-between mt-2">
                   <div className="flex items-center space-x-2">
-                    <button
+                   {user && <button
                       onClick={() => setReplyingTo(comment._id)}
-                      className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-[#FCC821] transition-colors duration-300 ease-in-out gap-2 cursor-pointer"
+                      className="flex items-center space-x-2 text-black text-[14px] bg-gray-100 py-[4px] px-[10px] rounded-[5px] hover:text-orange-500 transition-colors duration-300 ease-in-out gap-2 cursor-pointer"
                     >
                       <FaMessage /> Reply
-                    </button>
+                    </button> }
     
                     {user && (comment.author?._id === user.id || user.role === "admin") && (
                       <>
@@ -455,7 +455,7 @@ if (!post) return <ForumPostSkeleton />;
                     <button
                       type="submit"
                       disabled={submittingComment}
-                      className="px-3 py-1 bg-[#0045ac] text-white rounded-full hover:bg-[#0045acf1] disabled:opacity-50"
+                      className="px-3 py-1 bg-[#0045ac] text-white rounded-full hover:bg-orange-500 disabled:opacity-50"
                     >
                       {submittingComment ? "Replying..." : "Reply"}
                     </button>
@@ -492,7 +492,7 @@ if (!post) return <ForumPostSkeleton />;
                           <div className="mt-2 flex space-x-2">
                             <button
                               onClick={handleEditCommentSubmit}
-                              className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-[#0045acf1] disabled:opacity-50 cursor-pointer"
+                              className="px-4 py-2 bg-[#0045ac] text-white rounded-full hover:bg-orange-500 disabled:opacity-50 cursor-pointer"
                             >
                               Save
                             </button>
