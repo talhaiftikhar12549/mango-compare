@@ -37,6 +37,7 @@ import mounjarouseUsage from "../assets/mounjaro compare/Mounjaro Usage.webp";
 import mounjaroInjection from "../assets/mounjaro compare/mounjaroInjection.webp";
 import consultingDoctor from "../assets/mounjaro compare/consulting doctor.webp";
 import { Helmet } from "react-helmet";
+import { useLocation } from "react-router-dom";
 const MounjaroCompare = () => {
   const [lowestPrice, setLowestPrice] = useState("--");
   const [totalPharmacy, setTotalPharmacy] = useState("--");
@@ -45,6 +46,16 @@ const MounjaroCompare = () => {
   const goToContactSection = () => {
     navigate("/#bmicalculator");
   };
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
   const contactRef = useRef(null);
 
   const scrollToContact = () => {
@@ -489,14 +500,6 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                   alt="How Mounjaro Works"
                   className="w-full rounded-2xl shadow-lg object-cover h-[100%]"
                 />
-                {/* <div className="absolute -bottom-6 right-0 md:-right-6 bg-white rounded-xl p-6 shadow-lg">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-orange-600">
-                      Mounjaro
-                    </div>
-                    <div className="text-sm text-gray-600">Dose Schedule</div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
@@ -522,10 +525,10 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
             {/* Eligibility Criteria Card */}
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 flex flex-col">
               <div className="w-full flex gap-3 items-center">
-                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 aspect-square bg-orange-600 rounded-full flex items-center justify-center shrink-0 mb-6">
                   <RiUserHeartLine className="text-2xl text-white" />
                 </div>
-                <h3 className=" mb-6 !text-2xl !font-[600]">
+                <h3 className="mb-6 !text-xl md:!text-2xl !font-[600]">
                   Mounjaro Eligibility Criteria:
                 </h3>
               </div>
@@ -577,16 +580,13 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
             {/* Consultation Card */}
             <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8">
               <div className="w-full flex gap-3 items-center">
-                <div className="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mb-6">
+                <div className="w-16 aspect-square bg-orange-600 rounded-full flex items-center justify-center shrink-0 mb-6">
                   <FaStethoscope className="text-2xl text-white" />
                 </div>
-                <h3 className=" mb-6 !text-2xl !font-[600]">
+                <h3 className="mb-6 !text-xl md:!text-2xl !font-[600]">
                   Why consult with a healthcare provider?
                 </h3>
               </div>
-              {/* <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Before starting Mounjaro, a proper health review helps ensure safe and effective treatment. During your consultation, a prescriber will:
-              </h3> */}
 
               <p className="text-gray-700 mb-6 leading-relaxed">
                 Before starting Mounjaro, a proper health review helps ensure
@@ -624,183 +624,6 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
         </div>
       </section>
       {/* Eligible */}
-
-      {/* healthier life */}
-      {/* <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-0 xl:px-0 mx-auto">
-        <div className="flex flex-col-reverse lg:flex-row items-center justify-between md:px-8 px-0 md:py-12 py-0 gap-4  bg-white">
-          
-          <div className="lg:w-1/2 space-y-6">
-            <h2 className="!text-[24px] md:!text-[24px] !pt-[0px]  md:text-4xl !font-[600]  mb-4 ">
-              What makes a GPhC-Registered pharmacy different?
-            </h2>
-            <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
-              The GPhC stands for the General Pharmaceutical Council. It is the
-              official regulatory body for pharmacies and pharmacists in Great
-              Britain.
-            </p>
-            <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
-              When the GPhC regulates a pharmacy, it meets the standards
-              required to sell medications legally in the UK. If a pharmacy is
-              not registered with the GPhC, it’s a red flag, and you should
-              avoid purchasing from it.
-            </p>
-            <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-5xl mx-auto">
-              To make verification easier, the GPhC provides a publicly
-              accessible registry where you can check whether a pharmacy is
-              properly registered.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
-                <FaShieldAlt className="text-orange-500 mt-1" />
-                <div>
-                  <p className="font-semibold">Clinically Proven</p>
-                  <p className="text-sm text-gray-500">
-                    FDA-approved for chronic weight management
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <FaUserMd className="text-orange-500 mt-1" />
-                <div>
-                  <p className="font-semibold">Professional Support</p>
-                  <p className="text-sm text-gray-500">
-                    Guidance from qualified healthcare providers
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3">
-                <FaSyringe className="text-orange-500 mt-1" />
-                <div>
-                  <p className="font-semibold">Convenient Treatment</p>
-                  <p className="text-sm text-gray-500">
-                    Once-weekly injection for easy compliance
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex  gap-2 space-x-4 pt-4">
-              <button
-                onClick={scrollToContact}
-                className="bg-orange-500 hover:bg-orange-600 cursor-pointer text-white font-semibold px-6 py-3 rounded-[10px]"
-              >
-                Start Your Journey
-              </button>
-            </div>
-          </div>
-
-        
-          <div className="relative lg:w-1/2 mb-10 lg:mb-0">
-            <img
-              src={healthyman} 
-              alt="Healthy Woman"
-              className="rounded-2xl shadow-lg w-full  object-cover"
-            />
-
-            <div className="absolute top-4 left-4 bg-white shadow-md px-4 py-2 rounded-lg">
-              <p className="text-orange-500 font-bold text-lg">15%</p>
-              <p className="text-xs text-gray-600">Average Weight Loss</p>
-            </div>
-
-            <div className="absolute bottom-4 right-4 bg-white shadow-md px-4 py-2 rounded-lg text-center">
-              <p className="text-orange-500 font-bold">1x</p>
-              <p className="text-xs text-gray-600">Weekly Dose</p>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      {/* healthier life */}
-
-      {/* How Mounjaro works? */}
-      {/* <div className="bg-gradient-to-br from-orange-400 to-orange-500 w-full">
-        <section className="max-w-[1280px] custom-width w-full py-[40px] md:py-[48px] px-4 md:px-8 xl:px-0 mx-auto ">
-          <div className="max-w-7xl mx-auto md:px-6 px-0">
-            <div className="!text-[24px] md:!text-[24px] !pt-[0px] mb-4 flex items-center justify-center">
-              <h2 className=" max-w-2xl !text-center  md:text-4xl !font-[600] !text-[#ffffff]">
-                How Mounjaro works?
-              </h2>
-              <div className="w-24 h-1 bg-white mx-auto"></div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              
-              <div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-6">
-                    <RiMedicineBottleLine className="text-white text-2xl " />
-                  </div>
-                  <p className="text-white mb-4">
-                    <strong>GIP and GLP-1 Treatment: </strong>
-                    Mounjaro is the first dual-action treatment of its kind,
-                    offering a unique approach to weight management. It targets
-                    both GIP and GLP-1 receptors in the body to reduce weight by
-                    managing appetite and digestion.
-                  </p>
-                  <div className="bg-white/10 rounded-xl p-6 border border-white/20">
-                    <p className="text-white">
-                      <strong>Dosage: </strong>
-                      It is taken once a week using a pre-filled KwikPen
-                      injection. Most treatment plans start with a low dose to
-                      help your body adjust and minimise side effects like
-                      nausea, diarrhoea, or mild stomach discomfort.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-             
-              <div className="relative flex justify-center items-center">
-                <img
-                  className="w-[75%] rounded-[10px]"
-                  src={mounjarowork}
-                  alt="Wegovy Product"
-                />
-                <div className="absolute left-0 -bottom-6 md:-left-6 bg-white rounded-xl p-6 shadow-lg">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold text-orange-500">
-                      GLP-1
-                    </div>
-                    <div className="text-sm text-gray-600">Reduce Weight</div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-
-      {/* <div className="mt-16 grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaUser className="text-white text-md " />
-                </div>
-                <p className="text-white">
-                  {" "}
-                  For Adults Designed for adult patients with obesity
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <FaCalendarCheck className="text-white text-md " />
-                </div>
-                <p className="text-white">
-                  Long-term Results Helps achieve sustainable weight loss
-                </p>
-              </div>
-
-              <div className="text-center">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  {" "}
-                  <MdHealthAndSafety className="text-white text-lg " />
-                </div>
-                <p className="text-white">
-                  UK Available Prescription available in the UK
-                </p>
-              </div>
-            </div> */}
-      {/* </div>{" "}
-        </section>
-      </div> */}
-      {/* How Mounjaro works?*/}
 
       {/* benifit */}
       <section className="w-full bg-gray-50 ">
@@ -932,48 +755,6 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
                 alt="Mounjaro guide sheet"
               />
             </div>
-
-            {/* <div
-              className=" rounded-xl p-6 md:p-10 shadow-md bg-white
-            "
-            >
-              <div className="flex items-center mb-6">
-                <div className="bg-orange-100 rounded-full w-10 h-10 flex items-center justify-center text-orange-500 mr-3">
-                  <FiMusic />
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">
-                    Step-by-Step Injection Guide
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Follow these steps for safe and effective administration
-                  </p>
-                </div>
-              </div>
-              
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {steps.map(({ step, icon, title, description }) => (
-                  <div
-                    key={step}
-                    className="bg-white rounded-lg shadow-sm hover:shadow-md p-5 transition-shadow duration-300"
-                  >
-                    <div className="flex items-center mb-3">
-                      <div className="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-2">
-                        {step}
-                      </div>
-                      <div className="bg-orange-100 text-orange-500 rounded-full w-8 h-8 flex items-center justify-center">
-                        {icon}
-                      </div>
-                    </div>
-                    <h4 className="font-semibold text-gray-900 text-md mb-1">
-                      {title}
-                    </h4>
-                    <p className="text-sm text-gray-600">{description}</p>
-                  </div>
-                ))}
-              </div>
-            </div> */}
           </div>
         </div>
       </section>
@@ -1048,7 +829,7 @@ Set your filters, view offers, and get your Mounjaro KwikPens delivered."
           {/* Right Image */}
           <div className="relative lg:w-1/2 mb-10 lg:mb-0">
             <img
-              src={fatwomanimage} // Replace with actual path
+              src={fatwomanimage}
               alt="Healthy Woman"
               className="rounded-2xl shadow-lg w-full  object-cover"
             />
