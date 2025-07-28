@@ -13,8 +13,68 @@ import review2 from "../assets/home/review2.webp";
 import review3 from "../assets/home/review3.webp";
 import review4 from "../assets/home/review4.webp";
 import { MdVerifiedUser } from "react-icons/md";
+import React, { useEffect, useState } from "react";
+import api from "../services/api.js";
 
 const TopRatedPharmacies = () => {
+  const [apiDataM, setApiDataM] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const targetPharmacies = [
+    "Peak Pharmacy",
+    "Numan",
+    "The Care Pharmacy",
+    "Superdrug Online Doctor",
+    "Pharmacy Planet",
+    "Simple Online Pharmacy",
+  ];
+
+useEffect(() => {
+  const fetchListings = async () => {
+    try {
+      const response = await api.get("/medicine");
+      const allData = response.data.data;
+      console.log("Fetched pharmacy data:", allData);
+
+      const filtered = [];
+
+      for (const pharmacy of targetPharmacies) {
+        const mounjaro = allData.find(
+          (item) =>
+            item.pharmacy === pharmacy &&
+            item.medicine === "Mounjaro" &&
+            item.dosage === "2.5 mg"
+        );
+console.log("Mounjaro data for pharmacy:", mounjaro); 
+        const wegovy = allData.find(
+          (item) =>
+            item.pharmacy === pharmacy &&
+            item.medicine === "Wegovy" &&
+            item.dosage === "0.25"
+        );
+
+        if (mounjaro && wegovy) {
+          filtered.push({
+            pharmacy,
+            mounjaroPrice: mounjaro.price,
+            wegovyPrice: wegovy.price,
+          });
+        }
+      }
+
+      setApiDataM(filtered);
+      console.log("Matched pharmacy data:", filtered);
+    } catch (error) {
+      console.log("Failed to fetch listings", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchListings();
+}, []);
+
+
   const pharmacies = [
     {
       name: "Peak Pharmacy",
