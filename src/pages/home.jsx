@@ -55,10 +55,6 @@ export const Home = () => {
       <HowItWork />
       {/* How it work */}
 
-      {/* Home Dosage Plan */}
-      {/* <PharmacyPartner /> */}
-      {/* Home Dosage Plan */}
-
       {/* Safety & Eligibility */}
       <SafetyAndEligibility />
       {/* Safety & Eligibility */}

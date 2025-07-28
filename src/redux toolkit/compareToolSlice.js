@@ -7,8 +7,8 @@ const initialState = {
   mPrice: [],
   resetButton: false,
   isDiscount: false,
-  manjaroLowest: 0,
-  wegovyLowest: 0,
+  manjaroLowest: "--",
+  wegovyLowest: "--",
   isPriceSort: "lp",
 };
 
