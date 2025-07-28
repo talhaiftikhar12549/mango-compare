@@ -652,35 +652,28 @@ export default function PriceCalculator({
               </>
 
               {/* Pagination */}
-              <div className="flex items-center justify-center space-x-2 py-4">
+              <div className="flex items-center justify-center gap-3 py-4 text-sm">
+                {/* Prev Button */}
                 <button
                   onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
                   disabled={currentPage === 1}
-                  className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
+                  className="px-4 py-1 rounded border border-orange-400 text-orange-500 disabled:opacity-50"
                 >
                   Prev
                 </button>
 
-                {Array.from({ length: totalPages }, (_, i) => (
-                  <button
-                    key={i + 1}
-                    onClick={() => setCurrentPage(i + 1)}
-                    className={`px-3 py-1 rounded ${
-                      currentPage === i + 1
-                        ? "bg-gradient-to-br from-orange-500 via-orange-400 to-yellow-400 text-white"
-                        : "bg-gray-100"
-                    }`}
-                  >
-                    {i + 1}
-                  </button>
-                ))}
+                {/* Current Page Display */}
+                <span className="min-w-[36px] text-center px-3 py-1 rounded bg-gradient-to-br from-orange-500 to-yellow-400 text-white font-semibold">
+                  {currentPage}
+                </span>
 
+                {/* Next Button */}
                 <button
                   onClick={() =>
                     setCurrentPage((p) => Math.min(p + 1, totalPages))
                   }
                   disabled={currentPage === totalPages}
-                  className="px-3 py-1 rounded bg-gray-200 disabled:opacity-50"
+                  className="px-4 py-1 rounded border border-orange-400 text-orange-500 disabled:opacity-50"
                 >
                   Next
                 </button>
