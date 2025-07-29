@@ -155,8 +155,8 @@ exports.deletePost = async (req, res, next) => {
       return next(new ErrorResponse(`Post not found with ID: ${req.params.id}`, 404));
     }
 
-    // Optional: check if the user is the author
-    if (post.author.toString() !== req.user.id) {
+    // Allow if the user is the author or has the admin role
+    if (post.author.toString() !== req.user.id && req.user.role !== 'admin') {
       return next(new ErrorResponse(`Not authorized to delete this post`, 403));
     }
 
@@ -170,6 +170,7 @@ exports.deletePost = async (req, res, next) => {
     next(err);
   }
 };
+
 
 // @desc    Upvote a post
 // @route   POST /api/posts/:id/upvote
