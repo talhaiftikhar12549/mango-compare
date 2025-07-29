@@ -156,7 +156,7 @@ export default function Posts() {
               onClick={() => setShowModal(false)} // close when clicking the backdrop
             >
               <div
-                className="bg-white rounded-lg shadow-lg p-6 max-w-sm w-full transform scale-100 transition duration-300 relative"
+                className="bg-white rounded-lg shadow-lg p-6 max-w-lg w-full transform scale-100 transition duration-300 relative"
                 onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
               >
                 {/* Header */}
@@ -233,7 +233,7 @@ export default function Posts() {
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full cursor-pointer transition duration-300 mt-2 px-4 py-2 bg-[#FCC821] text-black font-semibold rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
+                    className="w-full cursor-pointer transition duration-300 mt-2 px-4 py-2 bg-orange-500 text-white font-semibold rounded hover:text-[#FCC821] hover:bg-[#ffffff] border-[2px] border-[#FCC821]"
                   >
                     Post
                   </button>
