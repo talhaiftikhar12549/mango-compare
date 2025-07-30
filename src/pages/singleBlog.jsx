@@ -59,7 +59,7 @@ export default function SingleBlog() {
         <meta property="og:title" content={blog.meta_title} />
         <meta property="og:description" content={blog.meta_description || blog.content.slice(0, 150)} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://mangocompare.co.uk/single-blog/${blog.slug}`} />
+        <meta property="og:url" content={`https://mangocompare.co.uk/${blog.slug}`} />
         <meta property="og:image" content={blog.featuredImage} />
       </Helmet>
       <div className=" w-[100%] md:w-[75%] flex justify-content-center items-center flex-col mx-auto">
