@@ -96,13 +96,14 @@ exports.getPost = async (req, res, next) => {
 // @access  Private
 exports.createPost = async (req, res, next) => {
   try {
-    const { title, body, tags } = req.body;
+    const { title, body, tags, community } = req.body;
 
     const post = await Posts.create({
       title,
       body,
       tags,
-      author: req.user.id, // Assumes you're using authentication middleware
+      community,
+      author: req.user.id,
     });
 
     res.status(201).json({
