@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mango-compare.netlify.app/sitemap.xml
+Sitemap: https://mangocompare.co.uk/sitemap.xml

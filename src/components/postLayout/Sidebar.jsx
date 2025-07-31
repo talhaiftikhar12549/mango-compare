@@ -28,7 +28,7 @@ const Sidebar = () => {
 
 
   return (
-      <div className={`h-[100vh] w-full lg:w-[280px] fixed left-0 top-0 md:top-12 lg:top-0 lg:pt-10 lg:border-r border-gray-300 z-2 ${showSidebar ? "bg-black/50" : ""}`}>
+      <div className={` w-full lg:w-[280px] fixed left-0 top-0 md:top-12 lg:top-0 lg:pt-10 lg:border-r border-gray-300 z-2 ${showSidebar ? "h-[100vh] bg-black/50" : "h-10"}`}>
 
         <div className={`lg:hidden flex justify-start z-10 items-center py-4 ${showSidebar ? "" : "mt-14"} pl-5`}>
           {/* <h2 className="text-xl font-bold">Forums</h2> */}
@@ -40,7 +40,7 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <div className={`w-2/3 sm:w-1/3 lg:w-full lg:border-0 border-gray-300 lg:bg-transparent lg:py-6 space-x-0 md:space-x-5 ${showSidebar ? "bg-white md:border-r" : ""}`}>
+        <div className={`w-2/3 sm:w-1/3 lg:w-full lg:border-0 border-gray-300 lg:bg-transparent lg:py-6 space-x-0 md:space-x-5 ${showSidebar ? "bg-white md:border-r" : "hidden"}`}>
           {/* Sidebar */}
           <div
             className={`bg-white h-screen md:bg-transparent transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
