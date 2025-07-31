@@ -100,10 +100,8 @@ const AdminDashWegovy = () => {
     try {
       if (editingId) {
         await api.put("/wegovy/" + editingId, data);
-        console.log("Listing updated successfully", data);
       } else {
         await api.post("/wegovy", data);
-        console.log("Listing added successfully", data);
       }
       fetchListings();
       handleCancelEdit();
@@ -116,7 +114,6 @@ const AdminDashWegovy = () => {
     if (window.confirm("Are you sure you want to delete this listing?")) {
       try {
         await api.delete("/wegovy/" + id);
-        console.log("Listing deleted successfully");
         fetchListings();
       } catch (error) {
         console.log("Failed to delete listing", error);
@@ -334,7 +331,6 @@ const AdminDashWegovy = () => {
                 {listings?.map((listing) => (
                   <tr key={listing._id}>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      {console.log("image link:", listing.pharmacyLogo)}
                       {listing.pharmacyLogo ? (
                         <img
                           src={listing.pharmacyLogo}

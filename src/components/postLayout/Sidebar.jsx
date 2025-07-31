@@ -40,7 +40,7 @@ const Sidebar = () => {
           </button>
         </div>
 
-        <div className={`w-2/3 sm:w-1/3 lg:w-full lg:border-0 border-gray-300 lg:bg-transparent lg:py-6 space-x-0 md:space-x-5 ${showSidebar ? "bg-white md:border-r" : "hidden"}`}>
+        <div className={`w-2/3 sm:w-1/3 lg:w-full lg:border-0 border-gray-300 lg:bg-transparent lg:py-6 space-x-0 md:space-x-5 ${showSidebar ? "bg-white md:border-r" : "hidden md:block"}`}>
           {/* Sidebar */}
           <div
             className={`bg-white h-screen md:bg-transparent transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${

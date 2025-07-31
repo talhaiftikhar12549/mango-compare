@@ -51,12 +51,6 @@ export const compareToolSlice = createSlice({
     },
     togglePriceSort: (state, action) => {
       state.isPriceSort = action.payload;
-      console.log(
-        "Toggling price sort",
-        state.isPriceSort,
-        "and",
-        action.payload
-      );
     },
   },
 });

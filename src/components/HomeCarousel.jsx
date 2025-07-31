@@ -72,10 +72,7 @@ const TopRatedPharmacies = () => {
         }
 
         setApiDataM(filteredM);
-        console.log("Mounjaro 2.5 mg prices:", filteredM);
-
         setApiDataW(filteredW);
-        console.log("Wegovy 0.25 mg prices:", filteredW);
       } catch (error) {
         console.log("Failed to fetch listings", error);
       } finally {
