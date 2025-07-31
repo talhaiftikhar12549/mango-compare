@@ -170,8 +170,7 @@ const PostDetail = () => {
 if (!post) return <ForumPostSkeleton />;
 
   return (
-    <div className="pt-14">
-      
+    <div className="pt-20 pl-8 sm:pl-0 md:pl-14">
           <div className="w-full flex justify-between relative">
             <CiCircleChevLeft onClick={()=> navigate("/posts")} className="absolute -left-10 text-[25px] text-gray-700 hover:text-gray-400 cursor-pointer" />
             <div className="flex flex-col ">
