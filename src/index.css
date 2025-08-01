@@ -79,6 +79,10 @@ figure {
   margin-bottom: 20px;
 }
 
+.prose figure img {
+  width: 100%;
+}
+
 table,
 table th,
 table td {

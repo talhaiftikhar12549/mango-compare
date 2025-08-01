@@ -64,7 +64,7 @@ export default function HowItWork() {
                 Compare & Order Online
               </h3>
               <p className="text-md text-gray-500 mt-2">
-                Browse verified UK pharmacies, compare real-time retail prices, and place your order directly with the one that suits you best.
+                Check real-time retail prices from verified UK pharmacies, choose the one that aligns with your requirements, and place the order directly.
               </p>
             </div>
           </div>

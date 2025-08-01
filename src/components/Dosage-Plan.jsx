@@ -39,7 +39,7 @@ export default function DosagePlan() {
               Compare Treatments
             </p>
             <h2 className="!text-[24px] md:!text-[24px] text-gray-900 mb-2 !font-[600]">
-              Comparing Retail Prices Made Easy — Browse Now
+              Comparing Retail Prices Made Easy — Start Now
             </h2>
             <p className="text-gray-500 !text-[16px] md:!text-[18px] max-w-xl mx-auto mb-8">
               Compare Mounjaro and Wegovy side by side to find the best option
@@ -100,7 +100,7 @@ export default function DosagePlan() {
                           FREQUENCY
                         </p>
                         <p className=" !text-[10px] md:!text-[16px] font-semibold">
-                          Weekly injection
+                          Once-weekly injection
                         </p>
                       </div>
                       <div className="bg-gray-50 p-2 md:p-4 rounded-lg">
@@ -123,7 +123,7 @@ export default function DosagePlan() {
                           "Helps you feel full faster",
                           "Clinical studies show 15–20% weight loss",
                           "Once-weekly injection",
-                          "Approved by NHS for weight loss",
+                          "Approved by MHRA for weight loss",
                         ].map((item, index) => (
                           <li
                             key={index}
@@ -270,7 +270,7 @@ export default function DosagePlan() {
                           FREQUENCY
                         </p>
                         <p className=" !text-[10px] md:!text-[16px] font-semibold">
-                          Weekly injection
+                          Once-weekly injection
                         </p>
                       </div>
                       <div className="bg-gray-50 p-2 md:p-4 rounded-lg">
