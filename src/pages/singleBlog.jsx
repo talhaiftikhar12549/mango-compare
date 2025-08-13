@@ -34,12 +34,10 @@ export default function SingleBlog() {
   }, [slug]);
 
   useEffect(() => {
-      if (!blog && !loading) {
-        navigate("/not-found");
-      }
-}, [blog]);
-
-
+    if (!blog && !loading) {
+      navigate("/not-found");
+    }
+  }, [blog]);
 
   const blogCategory = blog?.categories.some((cat) => cat.includes("["))
     ? JSON.parse(blog?.categories).join(", ")
@@ -52,8 +50,6 @@ export default function SingleBlog() {
       </>
     );
   }
-
-
 
   // if (!blog) {
   //   return (
@@ -97,6 +93,8 @@ export default function SingleBlog() {
           content={`https://mangocompare.co.uk/${blog.slug}`}
         />
         <meta property="og:image" content={blog.featuredImage} />
+
+        <link rel="canonical" href={`https://mangocompare.co.uk/${blog.slug}`} />
       </Helmet>
       <div className=" w-[100%] md:w-[75%] flex justify-content-center items-center flex-col mx-auto">
         <div className="w-[100%] flex justify-start items-center">
