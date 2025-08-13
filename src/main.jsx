@@ -30,6 +30,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import "./App.css";
 import AdminDashLayout from "./pages/AdminDashLayout/AdminDashLayout.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -67,6 +68,9 @@ createRoot(document.getElementById("root")).render(
                 <Route path="/posts" element={<Posts />} />
                 <Route path="/posts/:id" element={<PostDetail />} />
               </Route>
+
+                <Route path="/not-found" element={<NotFound />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
         </AuthProvider>

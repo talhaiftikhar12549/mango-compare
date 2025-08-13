@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import api from "../services/api";
 import blogImageFallback from "../assets/Post Thumbnail.png";
@@ -7,12 +7,15 @@ import { FaEye } from "react-icons/fa";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import SkeletonRow from "./singleBlogSkeleton";
 import { Helmet } from "react-helmet";
-import DOMPurify from 'dompurify';
+import DOMPurify from "dompurify";
+import NotFound from "./NotFound";
 
 export default function SingleBlog() {
   const { slug } = useParams();
   const [blog, setBlog] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -21,6 +24,7 @@ export default function SingleBlog() {
         setBlog(response.data.data);
       } catch (error) {
         console.error("Failed to fetch blog data:", error);
+        navigate("/not-found");
       } finally {
         setLoading(false);
       }
@@ -29,8 +33,17 @@ export default function SingleBlog() {
     fetchBlog();
   }, [slug]);
 
-  const blogCategory = blog?.categories.some(cat => cat.includes("[")) ? JSON.parse(blog?.categories).join(", ") : blog?.categories
+  useEffect(() => {
+      if (!blog && !loading) {
+        navigate("/not-found");
+      }
+}, [blog]);
 
+
+
+  const blogCategory = blog?.categories.some((cat) => cat.includes("["))
+    ? JSON.parse(blog?.categories).join(", ")
+    : blog?.categories;
 
   if (loading) {
     return (
@@ -40,49 +53,70 @@ export default function SingleBlog() {
     );
   }
 
-  if (!blog) {
-    return (
-      <section className="max-w-[1280px] mx-auto py-20 text-center">
-        <p className="text-[32px] font-[600] text-[#000000]">Blog not found.</p>
-      </section>
-    );
-  }
+
+
+  // if (!blog) {
+  //   return (
+  //     <NotFound />
+  //   );
+  // }
 
   return (
     <section className="w-full md:max-w-[1280px] custom-width px-4 sm:px-6 lg:px-[40px] xl:px-0 mx-auto pb-[80px]">
       <Helmet>
         <title>{blog.meta_title} | My Blog</title>
-        <meta name="description" content={blog.meta_description || blog.content.slice(0, 150)} />
-        <meta name="keywords" content={typeof blog.keywords === 'string' ? JSON.parse(blog.keywords).join(", ") : blog.keywords.join(", ")} />
-        <meta name="tags" content={typeof blog.tags === "string" ? JSON.parse(blog.tags)?.join(", ") : blog.tags.join(", ")} />
+        <meta
+          name="description"
+          content={blog.meta_description || blog.content.slice(0, 150)}
+        />
+        <meta
+          name="keywords"
+          content={
+            typeof blog.keywords === "string"
+              ? JSON.parse(blog.keywords).join(", ")
+              : blog.keywords.join(", ")
+          }
+        />
+        <meta
+          name="tags"
+          content={
+            typeof blog.tags === "string"
+              ? JSON.parse(blog.tags)?.join(", ")
+              : blog.tags.join(", ")
+          }
+        />
         <meta name="categories" content={blogCategory} />
         <meta property="og:title" content={blog.meta_title} />
-        <meta property="og:description" content={blog.meta_description || blog.content.slice(0, 150)} />
+        <meta
+          property="og:description"
+          content={blog.meta_description || blog.content.slice(0, 150)}
+        />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://mangocompare.co.uk/${blog.slug}`} />
+        <meta
+          property="og:url"
+          content={`https://mangocompare.co.uk/${blog.slug}`}
+        />
         <meta property="og:image" content={blog.featuredImage} />
       </Helmet>
       <div className=" w-[100%] md:w-[75%] flex justify-content-center items-center flex-col mx-auto">
         <div className="w-[100%] flex justify-start items-center">
           <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4">
-          
-            
             {
               // Array.isArray(blogCategory) &&
               //   blogCategory.length > 0 ?
-                blogCategory?.split(", ").map((cat, index) => (
-                  <p
-                    key={index}
-                    className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
-                  >
-                    {cat.trim()}
-                  </p>
-                ))
-                // :
-                // <p className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
-                // >
-                //   {blogCategory}
-                // </p>
+              blogCategory?.split(", ").map((cat, index) => (
+                <p
+                  key={index}
+                  className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
+                >
+                  {cat.trim()}
+                </p>
+              ))
+              // :
+              // <p className="py-1 px-3 bg-[#FCC821] rounded-[3px] text-[12px]"
+              // >
+              //   {blogCategory}
+              // </p>
             }
           </div>
         </div>
@@ -107,7 +141,9 @@ export default function SingleBlog() {
               alt="Author"
             />
             <p className="font-bold text-sm sm:text-[14px]">
-              {blog.author?.name === "admin" ? "Ibrahim Taqi" : blog.author?.name}
+              {blog.author?.name === "admin"
+                ? "Ibrahim Taqi"
+                : blog.author?.name}
             </p>
             <div className="flex flex-row justify-between pl-[10px] sm:pl-[30px]  text-[#515151] text-sm sm:text-[16px] font-semibold sm:gap-9 gap-6">
               <div className="flex items-center justify-center">
@@ -124,7 +160,12 @@ export default function SingleBlog() {
         </div>
 
         <div className="py-6 w-full">
-          <div className="prose" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(blog.content) }} />
+          <div
+            className="prose"
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(blog.content),
+            }}
+          />
           {/* <p className="text-[16px] sm:text-[14px] text-[#434343] leading-[160%]">
             {blog.content}
           </p> */}
