@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { Helmet } from 'react-helmet';
 
 const AuthForm = ({ isLogin }) => {
   const [formData, setFormData] = useState({
@@ -78,6 +79,9 @@ const AuthForm = ({ isLogin }) => {
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-orange-300 to-[#ffe48d] flex items-center justify-center px-4">
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       <div className="bg-white shadow-xl rounded-lg p-8 max-w-md w-full animate-fade-in">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">
           {isLogin ? 'Welcome Back' : 'Create an Account'}

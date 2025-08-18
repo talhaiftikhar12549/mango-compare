@@ -3,11 +3,15 @@ import { FaLocationDot } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import cardPattren from "../assets/home/cardPattren.png";
 import ContactForm from "../components/contact-form";
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
   return (
-    
     <div className="max-w-[1280px] lg:px-[40px] xl:px-0 px-[16px] mx-auto flex flex-col items-center pb-[200px] ">
+      <Helmet>
+        <title>Contact Us</title>
+      </Helmet>
+      
       {/* HERO SECTION  */}
       <div className="w-full flex flex-col text-center py-10 space-y-2">
         <h1 className="font-bold text-[40px]">Contact Us</h1>
